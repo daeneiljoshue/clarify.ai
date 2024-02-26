@@ -12,7 +12,7 @@ import os
 from django.core.asgi import get_asgi_application
 from django.core.handlers.asgi import ASGIHandler
 
-import cvat.utils.remote_debugger as debug
+import clarify.utils.remote_debugger as debug
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "cvat.settings.development")
 
