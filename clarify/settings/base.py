@@ -23,7 +23,7 @@ from attr.converters import to_bool
 from corsheaders.defaults import default_headers
 from logstash_async.constants import constants as logstash_async_constants
 
-from cvat import __version__
+from clarify import __version__
 
 mimetypes.add_type("application/wasm", ".wasm", True)
 
