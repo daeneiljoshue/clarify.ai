@@ -71,5 +71,5 @@ class EventsViewSet(viewsets.ViewSet):
         return export(
             request=request,
             filter_query=filter_query,
-            queue_name=settings.CVAT_QUEUES.EXPORT_DATA.value,
+            queue_name=settings.CLARIFY_QUEUES.EXPORT_DATA.value,
         )

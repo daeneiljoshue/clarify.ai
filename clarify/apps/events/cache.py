@@ -3,7 +3,7 @@ _caches = {}
 
 class DeleteCache():
     def __init__(self, cache_id):
-        from cvat.apps.engine.models import Task, Job, Issue, Comment
+        from clarify.apps.engine.models import Task, Job, Issue, Comment
         self._cache = _caches.setdefault(cache_id, {
             Task: {},
             Job: {},
