@@ -29,7 +29,8 @@ from PIL import Image
 from multiprocessing import cpu_count
 
 from django.core.exceptions import ValidationError
-from django_sendfile import sendfile as _sendfile
+from django_sendfile import sendfile
+ import sendfile as _sendfile
 from django.conf import settings
 from redis.lock import Lock
 
