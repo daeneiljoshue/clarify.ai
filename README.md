@@ -1,1 +1,1 @@
-# clarify.ai
+# clarify.ai change the clarify.ai to akurate.ai
