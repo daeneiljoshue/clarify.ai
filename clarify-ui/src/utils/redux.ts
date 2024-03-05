@@ -1,30 +1,19 @@
-enum QualityColors {
-    GREEN = '#237804',
-    YELLOW = '#ffec3d',
-    RED = '#ff4d4f',
-    GRAY = '#8c8c8c',
+import { Action, ActionCreatorsMapObject, AnyAction } from 'redux';
+import { ThunkAction as _ThunkAction, ThunkDispatch as _ThunkDispatch } from 'redux-thunk';
+import { CombinedState } from '../reducers';
+
+export interface ActionWithPayload<T, P> extends Action<T> {
+    payload: P;
 }
 
-const thresholds = {
-    low: 75,
-    middle: 82,
-    high: 91,
-};
-
-export function getQualityColor(value?: number): QualityColors {
-    if (!value) {
-        return QualityColors.GRAY;
-    }
-
-    if (value >= thresholds.high) {
-        return QualityColors.GREEN;
-    }
-    if (value >= thresholds.middle) {
-        return QualityColors.YELLOW;
-    }
-    if (value >= thresholds.low) {
-        return QualityColors.RED;
-    }
-
-    return QualityColors.GRAY;
+export function createAction<T extends string>(type: T): Action<T>;
+export function createAction<T extends string, P>(type: T, payload: P): ActionWithPayload<T, P>;
+export function createAction<T extends string, P>(type: T, payload?: P): Action<T> | ActionWithPayload<T, P> {
+    return typeof payload === 'undefined' ? { type } : { type, payload };
 }
+
+export type ActionUnion<A extends ActionCreatorsMapObject> = ReturnType<A[keyof A]>;
+
+export type ThunkAction<R = Promise<void>, A extends Action = AnyAction> = _ThunkAction<R, CombinedState, {}, A>;
+
+export type ThunkDispatch<E = {}, A extends Action = AnyAction> = _ThunkDispatch<CombinedState, E, A>;
