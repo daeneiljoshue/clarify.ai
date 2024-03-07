@@ -1,0 +1,159 @@
+
+@import '../../base';
+
+.clarify-task-details-wrapper {
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    padding-bottom: $grid-unit-size * 2;
+
+    .clarify-task-details {
+        width: 100%;
+        height: auto;
+        border: 1px solid $border-color-1;
+        border-radius: 3px;
+        padding: 20px;
+        background: $background-color-1;
+
+        .clarify-task-details-user-block {
+            > div:nth-child(2) > span {
+                margin-right: 8px;
+            }
+        }
+
+        > div:nth-child(2) {
+            > div:nth-child(2) {
+                padding-left: 20px;
+            }
+        }
+
+        .clarify-project-search-field {
+            width: $grid-unit-size * 20;
+        }
+
+        .clarify-task-item-loading-preview,
+        .clarify-task-item-empty-preview {
+            @extend .clarify-base-preview;
+
+            height: $grid-unit-size * 18;
+            font-size: $grid-unit-size * 10;
+            margin-bottom: $grid-unit-size * 3;
+        }
+
+        .clarify-task-item-preview {
+            width: 100%;
+            object-fit: contain;
+            max-height: $grid-unit-size * 18;
+        }
+    }
+
+    .clarify-task-details:has(.clarify-constructor-viewer-new-item) {
+        .clarify-task-item-preview {
+            max-height: $grid-unit-size * 40;
+        }
+    }
+
+    .clarify-task-page-actions-button {
+        display: flex;
+        align-items: center;
+        line-height: 14px;
+    }
+}
+
+.clarify-task-page {
+    position: relative;
+    height: 100%;
+
+    .ant-empty {
+        margin: $grid-unit-size * 8;
+    }
+}
+
+.clarify-task-job-list {
+    width: 100%;
+    height: auto;
+    margin-top: $grid-unit-size * 2;
+
+    .clarify-job-item {
+        margin-bottom: $grid-unit-size;
+    }
+}
+
+.clarify-task-top-bar {
+    margin: $grid-unit-size * 2 0;
+}
+
+.clarify-task-preview-wrapper {
+    overflow: hidden;
+    margin-bottom: 20px;
+    height: $grid-unit-size * 18;
+    text-align: center;
+    vertical-align: middle;
+    background-color: $background-color-2;
+}
+
+.clarify-task-parameters {
+    margin-top: $grid-unit-size * 2;
+}
+
+.clarify-open-bug-tracker-button {
+    margin-top: $grid-unit-size;
+}
+
+.clarify-issue-tracker {
+    margin-top: $grid-unit-size * 2;
+    margin-bottom: $grid-unit-size * 2;
+}
+
+.clarify-issue-tracker-value {
+    margin-left: $grid-unit-size;
+}
+
+.ant-typography.cvat-jobs-header {
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Pagination in center */
+.clarify-task-jobs-table > div > div {
+    text-align: center;
+
+    > .ant-table-pagination.ant-pagination {
+        float: none;
+    }
+}
+
+.clarify-job-item-stage {
+    .ant-select {
+        margin-right: $grid-unit-size;
+    }
+}
+
+.clarify-review-summary-description {
+    color: white;
+
+    .ant-typography {
+        color: white;
+    }
+
+    tr {
+        > td:nth-child(2) {
+            padding-left: $grid-unit-size;
+        }
+    }
+}
+
+.clarify-jobs-list-filters-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $grid-unit-size * 2;
+
+    button:not(:last-child) {
+        margin-right: $grid-unit-size;
+    }
+
+    .clarify-resource-page-filters {
+        margin-right: $grid-unit-size * 4;
+    }
+}
