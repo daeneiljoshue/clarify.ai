@@ -1,0 +1,61 @@
+
+@import 'base';
+
+.clarify-invitations-page {
+    padding-top: $grid-unit-size * 2;
+    padding-bottom: $grid-unit-size;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+.clarify-empty-invitations-list {
+    .ant-empty {
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.clarify-invitations-pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.clarify-invitations-list-content {
+    padding-bottom: $grid-unit-size;
+    height: 95%;
+}
+
+.clarify-invitation-item {
+    margin-bottom: $grid-unit-size;
+
+    &:hover {
+        border: 1px solid $border-color-hover;
+    }
+
+    .clarify-invitation-description {
+        display: flex;
+        align-items: center;
+    }
+
+    .clarify-invitation-actions {
+        button {
+            margin-left: $grid-unit-size;
+        }
+    }
+
+    .ant-card-body {
+        padding: $grid-unit-size * 2;
+    }
+}
+
+.clarify-invitation-item-declined {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.clarify-invitation-item-ribbon {
+    top: $grid-unit-size * 0.5;
+}

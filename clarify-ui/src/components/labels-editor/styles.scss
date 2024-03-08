@@ -1,0 +1,248 @@
+
+@import '../../base';
+
+textarea.ant-input.cvat-raw-labels-viewer {
+    border-color: $border-color-1;
+    box-shadow: none;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    min-height: 9em;
+    font-family: $monospaced-fonts-stack;
+
+    &:focus {
+        border-color: $border-color-1;
+        box-shadow: none;
+    }
+
+    &:hover {
+        border-color: $border-color-1;
+        box-shadow: none;
+    }
+}
+
+.clarify-constructor-viewer {
+    border: 1px solid $border-color-1;
+    box-shadow: none;
+    border-top: none;
+    border-radius: 0 0 $grid-unit-size $grid-unit-size;
+    padding: $grid-unit-size;
+    display: flex;
+    overflow-y: auto;
+    min-height: 9em;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.clarify-constructor-viewer-item {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 2px $grid-unit-size;
+    border-radius: 2px;
+    margin: 2px;
+    margin-left: $grid-unit-size * 2;
+    user-select: none;
+    border: 1px solid $border-color-1;
+    opacity: 0.6;
+
+    > span {
+        margin-left: 5px;
+
+        > span[role='img']:hover {
+            filter: invert(0.2);
+        }
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.clarify-constructor-viewer-new-item,
+.clarify-constructor-viewer-new-skeleton-item,
+.clarify-constructor-viewer-new-from-model-item {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 2px $grid-unit-size;
+    border-radius: 2px;
+    margin: 2px;
+    margin-left: $grid-unit-size;
+    user-select: none;
+    opacity: 1;
+}
+
+.clarify-label-constructor-creator,
+.clarify-label-constructor-updater {
+    > form:first-child {
+        margin-top: $grid-unit-size;
+    }
+}
+
+.clarify-attribute-constructor-form > div:first-child > div:nth-child(4) {
+    display: contents;
+}
+
+.clarify-delete-attribute-button:hover > span[role='img'] {
+    color: $danger-icon-color;
+}
+
+.clarify-new-attribute-button {
+    width: 100%;
+}
+
+.clarify-change-task-label-color-button {
+    width: 100%;
+
+    .ant-badge-status-text {
+        margin-left: $grid-unit-size * 2;
+    }
+}
+
+.clarifychange-task-label-color-badge .ant-badge-status-dot {
+    width: $grid-unit-size * 2;
+    height: $grid-unit-size * 2;
+    border-radius: unset;
+}
+
+.clarify-skeleton-configurator {
+    position: relative;
+    width: 100%;
+    margin-top: $grid-unit-size;
+    margin-bottom: $grid-unit-size;
+    padding-top: $grid-unit-size;
+    padding-bottom: $grid-unit-size;
+    justify-content: center;
+
+    > div:first-child {
+        width: $grid-unit-size * 6;
+        position: absolute;
+        left: 1px;
+    }
+
+    > .ant-alert {
+        width: 100%;
+    }
+
+    button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.clarify-skeleton-configurator-canvas {
+    width: 100%;
+    border: 1px solid $border-color-1;
+    border-radius: $grid-unit-size;
+    height: auto;
+}
+
+.clarify-skeleton-configurator-svg {
+    user-select: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.clarify-skeleton-configurator-shape-buttons,
+.clarify-skeleton-configurator-action-buttons {
+    margin-top: $grid-unit-size;
+}
+
+.clarify-skeleton-configurator-svg-buttons {
+    > button {
+        margin-bottom: $grid-unit-size;
+    }
+}
+
+.clarify-skeleton-configurator-shape-buttons {
+    .ant-radio-group {
+        text-align: center;
+        width: $grid-unit-size * 5;
+        margin-top: $grid-unit-size * 3;
+        margin-bottom: $grid-unit-size * 3;
+
+        label {
+            padding: 0;
+            width: $grid-unit-size * 5;
+            height: $grid-unit-size * 5;
+            line-height: $grid-unit-size * 5;
+            margin-bottom: $grid-unit-size;
+
+            .anticon-line {
+                transform: rotate(45deg);
+            }
+
+            svg {
+                width: $grid-unit-size * 2;
+                height: $grid-unit-size * 2;
+            }
+        }
+    }
+}
+
+.clarify-skeleton-canvas-wrapper {
+    max-width: $grid-unit-size * 75;
+    max-height: $grid-unit-size * 75;
+    width: 100%;
+    margin-left: $grid-unit-size * 6;
+    position: relative;
+}
+
+.clarify-skeleton-configurator-text-label {
+    font-size: 0.2em;
+    font-weight: bold;
+    pointer-events: none;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 100%);
+}
+
+.clarify-skeleton-configurator-context-menu {
+    position: absolute;
+    box-shadow: $box-shadow-base;
+    z-index: 2;
+    display: grid;
+    background: $background-color-1;
+
+    > button {
+        line-height: 24px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: black;
+    }
+}
+
+.clarify-label-constructor-pick-from-model {
+    display: block;
+    padding-top: $grid-unit-size;
+
+    .ant-select {
+        width: 73%;
+        margin-top: $grid-unit-size;
+        margin-right: $grid-unit-size * 2;
+    }
+
+    .ant-empty {
+        button {
+            margin-top: $grid-unit-size * 2;
+        }
+    }
+
+    .clarify-label-constructor-pick-from-model-list {
+        width: 100%;
+        border-radius: 0 0 8px 8px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .ant-empty {
+            width: 100%;
+            margin-top: $grid-unit-size;
+        }
+
+        > button {
+            margin-top: $grid-unit-size;
+            margin-right: $grid-unit-size;
+        }
+    }
+}

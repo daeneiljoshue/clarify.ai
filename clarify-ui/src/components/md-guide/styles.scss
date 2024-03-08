@@ -1,0 +1,35 @@
+
+@import '../../base.scss';
+
+.clarify-md-guide-control-wrapper {
+    margin-top: $grid-unit-size;
+
+    button {
+        margin-top: $grid-unit-size;
+    }
+}
+
+.clarify-guide-page {
+    height: 100%;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .clarify-guide-page-top {
+            margin-top: $grid-unit-size * 2;
+            margin-bottom: $grid-unit-size * 2;
+        }
+
+        .clarify-guide-page-editor-wrapper {
+            flex: 1;
+        }
+
+        .clarify-guide-page-bottom {
+            margin-top: $grid-unit-size * 2;
+            margin-bottom: $grid-unit-size * 2;
+            justify-content: flex-end;
+        }
+    }
+}

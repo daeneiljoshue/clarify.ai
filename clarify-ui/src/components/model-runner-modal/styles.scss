@@ -1,0 +1,65 @@
+
+@import '../../base';
+
+.clarify-runner-label-mapping-row {
+    margin-bottom: $grid-unit-size;
+    align-items: baseline;
+
+    .ant-select {
+        width: 100%;
+    }
+}
+
+.clarify-runner-label-mapper {
+    width: 100%;
+
+    &:has(.clarify-runner-label-mapper) {
+        max-height: $grid-unit-size * 64;
+        overflow-y: auto;
+    }
+
+    > .clarify-runner-label-mapper {
+        margin-top: $grid-unit-size * 2;
+        margin-bottom: $grid-unit-size * 2;
+        padding-left: $grid-unit-size * 4;
+        padding-right: $grid-unit-size * 4;
+    }
+
+    .clarify-runner-attribute-mapper {
+        .clarify-runner-attribute-mapping-row {
+            align-items: baseline;
+            margin-bottom: $grid-unit-size;
+
+            .ant-select {
+                width: 100%;
+            }
+        }
+
+        width: 100%;
+        margin-top: $grid-unit-size * 2;
+        margin-bottom: $grid-unit-size * 2;
+        padding-left: $grid-unit-size * 4;
+        padding-right: $grid-unit-size * 4;
+    }
+}
+
+
+
+.clarify-run-model-content > div:not(first-child) {
+    margin-top: $grid-unit-size;
+}
+
+.clarify-run-model-content-remove-mapping-icon {
+    color: $danger-icon-color;
+}
+
+.clarify-run-model-label-attribute-block {
+    padding-left: $grid-unit-size * 4;
+}
+
+.detector-runner-clean-previous-annotations-wrapper,
+.detector-runner-convert-masks-to-polygons-wrapper {
+    span {
+        margin-left: $grid-unit-size;
+    }
+}
