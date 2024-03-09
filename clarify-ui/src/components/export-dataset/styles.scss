@@ -1,0 +1,14 @@
+
+@import '../../base.scss';
+
+.clarify-modal-export-option-item > .ant-select-item-option-content,
+.clarify-modal-export-select .ant-select-selection-item {
+    > span[role='img'] {
+        color: $info-icon-color;
+        margin-right: $grid-unit-size;
+    }
+}
+
+.clarify-modal-export-switch-use-default-storage {
+    display: table-cell;
+}

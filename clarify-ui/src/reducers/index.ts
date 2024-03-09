@@ -970,3 +970,5 @@ export interface CombinedState {
 export interface Indexable {
     [index: string]: any;
 }
+
+export { Job };

@@ -49,7 +49,7 @@ interface UploadParams {
     useDefaultSettings: boolean;
     sourceStorage: Storage;
     selectedFormat: string | null;
-    file: File | null;
+    file: File | null; 
     fileName: string | null;
 }
 

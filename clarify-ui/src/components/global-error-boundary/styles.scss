@@ -1,0 +1,12 @@
+
+@import '../../base.scss';
+
+.clarify-global-boundary {
+    .ant-result > .ant-result-content {
+        background-color: $transparent-color;
+    }
+
+    .clarify-global-boundary-error-field {
+        color: red;
+    }
+}
