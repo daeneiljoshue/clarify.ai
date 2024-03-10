@@ -1,0 +1,98 @@
+
+@import '../../base.scss';
+
+.clarify-cloud-storages-page {
+    padding: $grid-unit-size * 2;
+    height: 100%;
+    overflow: auto;
+
+    .ant-spin {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+}
+
+.clarify-empty-cloud-storages-list-icon {
+    font-size: $grid-unit-size * 14;
+    opacity: 0.5;
+    margin-bottom: $grid-unit-size * 2;
+}
+
+.clarify-cloud-storages-pagination {
+    margin-top: $grid-unit-size * 2;
+}
+
+.clarify-cloud-storages-list-top-bar {
+    > div {
+        display: flex;
+        justify-content: space-between;
+
+        > .clarify-cloudstorages-page-filters-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            > div {
+                > *:not(:last-child) {
+                    margin-right: $grid-unit-size;
+                }
+
+                display: flex;
+                margin-right: $grid-unit-size * 4;
+            }
+
+            .clarify-cloudstorages-page-tasks-search-bar {
+                width: $grid-unit-size * 32;
+            }
+        }
+    }
+}
+
+.clarify-cloud-storages-list,
+.clarify-empty-cloud-storages-list {
+    margin-top: $grid-unit-size * 2;
+}
+
+.clarify-cloud-storage-item {
+    margin-bottom: $grid-unit-size;
+
+    div.ant-typography {
+        margin-bottom: 0;
+    }
+
+    cursor: default;
+
+    .clarify-cloud-storage-item-loading-preview,
+    .clarify-cloud-storage-item-empty-preview {
+        @extend .clarify-base-preview;
+
+        height: $grid-unit-size * 24;
+
+        svg {
+            width: 40%;
+            height: 40%;
+        }
+    }
+
+    .clarify-cloud-storage-item-preview {
+        height: $grid-unit-size * 24;
+        object-fit: cover;
+        margin: auto;
+        width: 100%;
+    }
+
+    .clarify-cloud-storage-item-menu-button {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .clarify-cloud-storage-description-icon {
+        position: absolute;
+        top: $grid-unit-size;
+        width: auto;
+        right: $grid-unit-size;
+    }
+}

@@ -1,0 +1,24 @@
+
+@import 'base';
+
+.clarify-review-workspace.ant-layout {
+    height: 100%;
+}
+
+.clarify-issue-control {
+    font-size: 40px;
+
+    &.clarify-disabled-canvas-control {
+        &::after {
+            opacity: 0.3;
+        }
+    }
+
+    &::after {
+        content: '\FE56';
+        font-size: 32px;
+        position: absolute;
+        bottom: $grid-unit-size;
+        right: -$grid-unit-size;
+    }
+}

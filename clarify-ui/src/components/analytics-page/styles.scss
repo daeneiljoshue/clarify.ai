@@ -1,0 +1,148 @@
+
+@import '../../base';
+
+.clarify-analytics-inner {
+  background: $background-color-1;
+  min-height: $grid-unit-size * 95;
+  padding: $grid-unit-size * 4;
+  padding-bottom: $grid-unit-size;
+
+  .ant-tabs {
+    height: 100%;
+  }
+}
+
+.clarify-task-quality-page,
+.clarify-project-quality-page {
+  > .ant-row {
+    margin-top: $grid-unit-size;
+  }
+}
+
+.clarify-task-mean-annotation-quality {
+  .ant-statistic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ant-card-body {
+    padding: $grid-unit-size * 2 $grid-unit-size * 3;
+  }
+}
+
+.clarify-analytics-card-title {
+  font-size: 16px;
+}
+
+.clarify-analytics-card-value {
+  font-size: 28px;
+}
+
+.clarify-analytics-tooltip {
+  margin-left: $grid-unit-size;
+}
+
+.clarify-analytics-tooltip-inner {
+  span {
+    display: block;
+    color: white;
+  }
+}
+
+.clarify-analytics-settings-tooltip-inner {
+  @extend .clarify-analytics-tooltip-inner;
+
+  span:not(:last-child) {
+    margin-bottom: $grid-unit-size;
+  }
+}
+
+.clarify-analytics-tooltip-conflicts-inner {
+  @extend .clarify-analytics-tooltip-inner;
+
+  min-width: $grid-unit-size * 47;
+}
+
+.clarify-analytics-download-report-button {
+  padding-left: $grid-unit-size * 2;
+  padding-right: $grid-unit-size * 2;
+
+  a {
+    color: white;
+    margin-left: $grid-unit-size;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.clarify-analytics-time-hint {
+  font-size: 10px;
+  position: absolute;
+  bottom: -$grid-unit-size * 3;
+  right: $grid-unit-size * 4;
+}
+
+.clarify-analytics-page {
+  height: 100%;
+}
+
+.clarify-analytics-wrapper {
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  padding-bottom: $grid-unit-size * 2;
+}
+
+.clarify-task-quality-reports-hint {
+  margin-bottom: $grid-unit-size * 3;
+}
+
+.clarify-job-empty-ground-truth-item {
+  .ant-card-body {
+    padding: $grid-unit-size * 3;
+  }
+
+  .ant-btn {
+    padding-left: $grid-unit-size * 3;
+    padding-right: $grid-unit-size * 3;
+  }
+}
+
+.clarify-quality-settings-switch {
+  padding: 6px 8px;
+  border: 1px solid lightgray;
+  margin-left: 8px;
+  border-radius: 2px;
+}
+
+.clarify-quality-settings-title {
+  margin-bottom: $grid-unit-size * 2;
+  align-items: center;
+}
+
+.clarify-modal-quality-settings {
+  top: $grid-unit-size * 3;
+
+  .ant-divider {
+    margin: $grid-unit-size 0;
+  }
+
+  .ant-form-item-control-input {
+    min-height: 0;
+  }
+}
+
+.clarify-job-list-item-conflicts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clarify-quality-summary-controls {
+  display: flex;
+  align-items: center;
+}

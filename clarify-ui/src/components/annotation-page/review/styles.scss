@@ -1,0 +1,156 @@
+
+@import 'base';
+
+.clarify-create-issue-dialog {
+    position: absolute;
+    pointer-events: auto;
+    width: $grid-unit-size * 30;
+    padding: $grid-unit-size;
+    background: $background-color-2;
+    z-index: 100;
+    transform-origin: top left;
+    box-shadow: $box-shadow-base;
+
+    button {
+        width: $grid-unit-size * 12;
+    }
+}
+
+.clarify-hidden-issue-label {
+    position: absolute;
+    min-width: 8 * $grid-unit-size;
+    opacity: 0.8;
+    z-index: 100;
+    transition: none;
+    pointer-events: auto;
+    max-width: 16 * $grid-unit-size;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 0;
+    transform-origin: top left;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.clarify-conflict-label {
+    position: absolute;
+    min-width: 2 * $grid-unit-size;
+    z-index: 99;
+    transition: none;
+    pointer-events: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 0;
+    transform-origin: top left;
+    background: none;
+    border: none;
+    margin: 0;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    svg {
+        width: 1.5em;
+        height: 1.5em;
+    }
+}
+
+.clarify-issue-dialog {
+    width: $grid-unit-size * 35;
+    position: absolute;
+    z-index: 100;
+    transition: none;
+    pointer-events: auto;
+    background: $background-color-2;
+    padding: $grid-unit-size;
+    transform-origin: top left;
+    box-shadow: $box-shadow-base;
+    border-radius: 0.5 * $grid-unit-size;
+
+    .clarify-issue-dialog-chat {
+        > div {
+            width: 100%;
+        }
+
+        .ant-comment {
+            user-select: auto;
+            padding: $grid-unit-size;
+            padding-bottom: 0;
+
+            .ant-comment-content {
+                line-height: 14px;
+            }
+
+            .ant-comment-avatar {
+                margin: 0;
+            }
+        }
+
+        user-select: all;
+        background: $background-color-1;
+        padding: $grid-unit-size;
+        max-height: $grid-unit-size * 45;
+        overflow-y: auto;
+        width: 100%;
+    }
+
+    .clarify-issue-dialog-input {
+        background: $background-color-1;
+        margin-top: $grid-unit-size;
+    }
+
+    .clarify-issue-dialog-footer {
+        margin-top: $grid-unit-size;
+    }
+
+    .ant-comment > .ant-comment-inner {
+        padding: 0;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.clarify-hidden-issue-indicator {
+    margin-right: $grid-unit-size;
+}
+
+.clarify-hidden-issue-resolved-indicator {
+    @extend .clarify-hidden-issue-indicator;
+
+    color: $ok-icon-color;
+}
+
+.clarify-hidden-issue-unsolved-indicator {
+    @extend .clarify-hidden-issue-indicator;
+
+    color: $danger-icon-color;
+}
+
+.clarify-conflict-error {
+    svg {
+        path:first-child {
+            fill: #e10602;
+        }
+    }
+}
+
+.clarify-conflict-warning {
+    svg {
+        path:first-child {
+            fill: #ff7300;
+        }
+    }
+}
+
+.clarify-conflict-darken {
+    svg {
+        path:first-child {
+            fill: #838383;
+        }
+    }
+}

@@ -1,0 +1,63 @@
+
+@import 'base';
+
+.clarify-action-runner-frames,
+.clarify-action-runner-buttons,
+.clarify-action-runner-action-parameters {
+    margin-top: $grid-unit-size * 6;
+}
+
+.clarify-action-runner-list,
+.clarify-action-runner-frames-predefined {
+    margin-top: $grid-unit-size * 2;
+}
+
+.clarify-action-runner-info:not(:first-child) {
+    margin-top: $grid-unit-size * 2;
+}
+
+.clarify-action-runner-info {
+    .ant-alert {
+        text-align: justify;
+    }
+
+    .ant-btn {
+        padding-left: 0;
+    }
+}
+
+.clarify-action-runner-list {
+    .ant-select {
+        width: 100%;
+    }
+}
+
+.clarify-action-runner-frames-predefined {
+    .ant-btn:not(:first-child) {
+        margin-left: $grid-unit-size;
+    }
+}
+
+.clarify-action-runner-action-parameters {
+    .clarify-action-runner-action-parameter {
+        margin-top: $grid-unit-size;
+
+        > span:first-child {
+            margin-right: $grid-unit-size;
+        }
+    }
+}
+
+.clarify-action-runner-progress-message {
+    display: block;
+    text-align: center;
+}
+
+.clarify-action-runner-buttons {
+    display: flex;
+    justify-content: flex-end;
+
+    > .clarify-action-runner-cancel-btn {
+        margin-right: $grid-unit-size;
+    }
+}
