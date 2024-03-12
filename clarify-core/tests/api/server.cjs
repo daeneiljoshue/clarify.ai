@@ -8,7 +8,7 @@ jest.mock('../../src/server-proxy', () => {
     };
 });
 
-const cvat = require('../../src/api').default;
+const clarify = require('../../src/api').default;
 const { AnnotationFormats, Loader, Dumper } = require('../../src/annotation-formats');
 
 // Test cases

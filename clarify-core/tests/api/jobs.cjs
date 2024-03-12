@@ -8,13 +8,13 @@ jest.mock('../../src/server-proxy', () => {
     };
 });
 
-const cvat = require('../../src/api').default;
+const clarify = require('../../src/api').default;
 const { Job } = require('../../src/session');
 
 // Test cases
 describe('Feature: get a list of jobs', () => {
     test('get jobs by a task id', async () => {
-        const result = await cvat.jobs.get({
+        const result = await clarify.jobs.get({
             filter: JSON.stringify({ and: [{ '==': [{ var: 'task_id' }, 3] }] }),
         });
         expect(Array.isArray(result)).toBeTruthy();
@@ -28,7 +28,7 @@ describe('Feature: get a list of jobs', () => {
     });
 
     test('get jobs by an unknown task id', async () => {
-        const result = await cvat.jobs.get({
+        const result = await clarify.jobs.get({
             filter: JSON.stringify({ and: [{ '==': [{ var: 'task_id' }, 50] }] }),
         });
         expect(Array.isArray(result)).toBeTruthy();
@@ -36,7 +36,7 @@ describe('Feature: get a list of jobs', () => {
     });
 
     test('get jobs by a job id', async () => {
-        const result = await cvat.jobs.get({
+        const result = await clarify.jobs.get({
             jobID: 1,
         });
         expect(Array.isArray(result)).toBeTruthy();
@@ -45,7 +45,7 @@ describe('Feature: get a list of jobs', () => {
     });
 
     test('get jobs by an unknown job id', async () => {
-        const result = await cvat.jobs.get({
+        const result = await clarify.jobs.get({
             jobID: 50,
         });
         expect(Array.isArray(result)).toBeTruthy();
@@ -54,41 +54,41 @@ describe('Feature: get a list of jobs', () => {
 
     test('get jobs by invalid filter with both taskID and jobID', async () => {
         expect(
-            cvat.jobs.get({
+            clarify.jobs.get({
                 taskID: 1,
                 jobID: 1,
             }),
-        ).rejects.toThrow(cvat.exceptions.ArgumentError);
+        ).rejects.toThrow(clarify.exceptions.ArgumentError);
     });
 
     test('get jobs by invalid job id', async () => {
         expect(
-            cvat.jobs.get({
+            clarify.jobs.get({
                 jobID: '1',
             }),
-        ).rejects.toThrow(cvat.exceptions.ArgumentError);
+        ).rejects.toThrow(clarify.exceptions.ArgumentError);
     });
 
     test('get jobs by invalid task id', async () => {
         expect(
-            cvat.jobs.get({
+            clarify.jobs.get({
                 taskID: '1',
             }),
-        ).rejects.toThrow(cvat.exceptions.ArgumentError);
+        ).rejects.toThrow(clarify.exceptions.ArgumentError);
     });
 
     test('get jobs by unknown filter', async () => {
         expect(
-            cvat.jobs.get({
+            clarify.jobs.get({
                 unknown: 50,
             }),
-        ).rejects.toThrow(cvat.exceptions.ArgumentError);
+        ).rejects.toThrow(clarify.exceptions.ArgumentError);
     });
 });
 
 describe('Feature: save job', () => {
     test('save stage and state of a job', async () => {
-        const result = await cvat.jobs.get({ jobID: 1 });
+        const result = await clarify.jobs.get({ jobID: 1 });
 
         result[0].stage = 'validation';
         result[0].state = 'new';
@@ -99,15 +99,15 @@ describe('Feature: save job', () => {
     });
 
     test('save invalid status of a job', async () => {
-        const result = await cvat.jobs.get({
+        const result = await clarify.jobs.get({
             jobID: 1,
         });
 
         expect(() => {
             result[0].state = 'invalid';
-        }).toThrow(cvat.exceptions.ArgumentError);
+        }).toThrow(clarify.exceptions.ArgumentError);
         expect(() => {
             result[0].stage = 'invalid';
-        }).toThrow(cvat.exceptions.ArgumentError);
+        }).toThrow(clarify.exceptions.ArgumentError);
     });
 });
