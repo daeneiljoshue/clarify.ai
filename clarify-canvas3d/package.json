@@ -1,0 +1,25 @@
+{
+  "name": "clarify-canvas3d",
+  "version": "0.0.10",
+  "type": "module",
+  "description": "Computer Vision Annotation Tool which presents its canvas3D library",
+  "main": "src/canvas3d.ts",
+  "scripts": {
+    "build": "tsc && webpack --config ./webpack.config.cjs"
+  },
+  "author": "CLARIFY.ai",
+  "license": "MIT",
+  "browserslist": [
+    "Chrome >= 63",
+    "Firefox > 102",
+    "not IE 11",
+    "> 2%"
+  ],
+  "devDependencies": {},
+  "dependencies": {
+    "@types/three": "^0.156.0",
+    "camera-controls": "^1.25.3",
+    "cvat-core": "link:./../clarify-core",
+    "three": "^0.162.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "lib": ["dom", "dom.iterable", "esnext"],
+      "allowJs": true,
+      "skipLibCheck": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": false,
+      "forceConsistentCasingInFileNames": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "noEmit": true,
+      "declaration": true,
+      "declarationDir": "dist/declaration",
+      "paths": {
+        "clarify-canvas.node": ["dist/clarify-canvas3d.node"]
+      },
+      "baseUrl": "."
+    },
+    "include": ["src/typescript/canvas3d.ts"]
+  }
