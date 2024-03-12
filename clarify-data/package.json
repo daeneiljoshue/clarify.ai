@@ -1,0 +1,25 @@
+{
+  "name": "clarify-data",
+  "type": "module",
+  "version": "2.0.0",
+  "description": "",
+  "main": "src/ts/clarify-data.ts",
+  "scripts": {
+    "build": "webpack --config ./webpack.config.cjs",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "yarn run type-check --watch"
+  },
+  "author": "CLARIFY.ai",
+  "license": "MIT",
+  "browserslist": [
+    "Chrome >= 63",
+    "Firefox > 102",
+    "not IE 11",
+    "> 2%"
+  ],
+  "devDependencies": {},
+  "dependencies": {
+    "async-mutex": "^0.5.0",
+    "jszip": "^3.10.1"
+  }
+}
