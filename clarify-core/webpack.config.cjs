@@ -1,5 +1,4 @@
 
-
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
@@ -8,7 +7,7 @@ const webConfig = {
     mode: 'production',
     devtool: 'source-map',
     entry: {
-        'cvat-core': './src/api.ts',
+        'clarify-core': './src/api.ts',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -20,6 +19,10 @@ const webConfig = {
         extensions: ['.ts', '.js'],
         fallback: {
             url: false,
+        },
+        alias: {
+            'clarify-data': path.resolve(__dirname, '../../clarify-data'), // Adjusted path to reflect clarify-data in the root directory
+            // Other aliases...
         },
     },
     module: {
@@ -45,7 +48,7 @@ const webConfig = {
         new CopyPlugin({
             patterns: [
                 {
-                    from: '../clarify-data/src/ts/3rdparty/avc.wasm',
+                    from: '../../clarify-data/src/ts/3rdparty/avc.wasm', // Adjusted path to reflect clarify-data in the root directory
                     to: 'assets/3rdparty/',
                 },
             ],
@@ -54,3 +57,4 @@ const webConfig = {
 };
 
 module.exports = webConfig;
+
