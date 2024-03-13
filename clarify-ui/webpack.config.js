@@ -35,7 +35,7 @@ module.exports = (env) => {
         mode: 'production',
         devtool: sourceMapsDisabled ? false : 'source-map',
         entry: {
-            'cvat-ui': './src/index.tsx',
+            'clarify-ui': './src/index.tsx',
             ...transformedPlugins,
         },
         output: {
@@ -45,7 +45,7 @@ module.exports = (env) => {
         },
         devServer: {
             compress: false,
-            host: process.env.CVAT_UI_HOST || 'localhost',
+            host: process.env.CLARIFY_UI_HOST || 'localhost',
             client: {
                 overlay: false,
             },
@@ -175,7 +175,7 @@ module.exports = (env) => {
             new CopyPlugin({
                 patterns: [
                     {
-                        from: '../cvat-data/src/ts/3rdparty/avc.wasm',
+                        from: '../clarify-data/src/ts/3rdparty/avc.wasm',
                         to: 'assets/3rdparty/',
                     },
                     {

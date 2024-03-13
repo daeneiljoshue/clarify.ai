@@ -17,7 +17,7 @@ import platformdirs
 import urllib3
 import urllib3.exceptions
 
-from clarify_sdk.api_client import ApiClient, Configuration, exceptions, models
+from cvat_sdk.api_client import ApiClient, Configuration, exceptions, models
 from clarify_sdk.core.exceptions import IncompatibleVersionException, InvalidHostException
 from clarify_sdk.core.helpers import expect_status
 from clarify_sdk.core.proxies.issues import CommentsRepo, IssuesRepo
@@ -27,7 +27,7 @@ from clarify_sdk.core.proxies.organizations import OrganizationsRepo
 from clarify_sdk.core.proxies.projects import ProjectsRepo
 from clarify_sdk.core.proxies.tasks import TasksRepo
 from clarify_sdk.core.proxies.users import UsersRepo
-from clarify_sdk.version import VERSION
+from cvat_sdk.version import VERSION
 
 _DEFAULT_CACHE_DIR = platformdirs.user_cache_path("cvat-sdk", "CLARIFY.ai")
 
