@@ -2,7 +2,7 @@
   "name": "clarify-ui",
   "version": "1.63.1",
   "description": "Clarify single-page application",
-  "main": "src/index.tsx",
+  "main": "clarify-ui/src/index.tsx",
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
     "start": "webpack serve --env API_URL=http://localhost:7000 --config ./webpack.config.js --mode=development",
@@ -17,8 +17,7 @@
     "not IE 11",
     "> 2%"
   ],
-  "author": "CVAT.ai",
-  "license": "MIT",
+  "author": "CLARIFY.ai",
   "dependencies": {
     "@ant-design/icons": "^4.6.3",
     "@react-awesome-query-builder/antd": "^6.2.1",
