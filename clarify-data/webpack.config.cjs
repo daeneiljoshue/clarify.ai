@@ -3,7 +3,7 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
-const cvatData = {
+const clarifyData = {
     target: 'web',
     mode: 'production',
     entry: {

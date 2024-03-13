@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 
+
 module.exports = (env) => {
     const defaultAppConfig = path.join(__dirname, 'src/config.tsx');
     const defaultPlugins = ['plugins/sam'];
@@ -76,6 +77,10 @@ module.exports = (env) => {
             extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
             fallback: {
                 fs: false,
+            },
+            alias: {
+                // Other aliases...
+                'clarify-data': path.resolve(__dirname, '../clarify-data'),
             },
             alias: {
                 config$: appConfigFile,
