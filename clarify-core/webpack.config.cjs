@@ -21,7 +21,7 @@ const webConfig = {
             url: false,
         },
         alias: {
-            'clarify-data': path.resolve(__dirname, '../../clarify-data'), // Adjusted path to reflect clarify-data in the root directory
+            'clarify-data': path.resolve(__dirname, '../clarify-data'), // Adjusted path to reflect clarify-data in the root directory
             // Other aliases...
         },
     },
@@ -48,7 +48,7 @@ const webConfig = {
         new CopyPlugin({
             patterns: [
                 {
-                    from: '../../clarify-data/src/ts/3rdparty/avc.wasm', // Adjusted path to reflect clarify-data in the root directory
+                    from: '../clarify-data/src/ts/3rdparty/avc.wasm', // Adjusted path to reflect clarify-data in the root directory
                     to: 'assets/3rdparty/',
                 },
             ],
