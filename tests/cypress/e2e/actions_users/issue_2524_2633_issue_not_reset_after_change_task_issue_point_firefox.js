@@ -74,7 +74,7 @@ context('Some parts of the Redux state (issues) is not reset after changing a ta
 
                 cy.viewport(viewportWidth + 50, viewportHeight + 50);
                 cy.wrap(waitForResize()).then(() => {
-                    cy.get('.cvat_canvas_issue_region').should('exist');
+                    cy.get('.clarify_canvas_issue_region').should('exist');
                     cy.viewport(viewportHeight, viewportWidth);
                 });
             });
@@ -84,8 +84,8 @@ context('Some parts of the Redux state (issues) is not reset after changing a ta
         it('Open the second task. Open job. Issue not exist.', () => {
             cy.goToTaskList();
             cy.openTaskJob(taskName.secondTaskName);
-            cy.get('.cvat-hidden-issue-label').should('not.exist');
-            cy.get('.cvat_canvas_issue_region').should('not.exist');
+            cy.get('.clarify-hidden-issue-label').should('not.exist');
+            cy.get('.clarify_canvas_issue_region').should('not.exist');
         });
     });
 });

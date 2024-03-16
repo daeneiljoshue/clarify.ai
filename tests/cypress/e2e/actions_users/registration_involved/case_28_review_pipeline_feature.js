@@ -53,7 +53,7 @@ context('Review pipeline feature', () => {
 
     before(() => {
         cy.visit('auth/login');
-        cy.get('.cvat-login-form-wrapper').should('exist').and('be.visible');
+        cy.get('.clarify-login-form-wrapper').should('exist').and('be.visible');
 
         // register additional users
         cy.clearCookies();
@@ -64,7 +64,7 @@ context('Review pipeline feature', () => {
 
         // create main task
         cy.login();
-        cy.get('.cvat-tasks-page').should('exist').and('be.visible');
+        cy.get('.clarify-tasks-page').should('exist').and('be.visible');
         cy.headlessCreateTask(taskSpec, dataSpec).then((response) => {
             taskID = response.taskID;
             jobIDs = response.jobIDs;
@@ -101,8 +101,8 @@ context('Review pipeline feature', () => {
             // Annotator, reviewer login, the task is not visible
             for (const user of Object.values(additionalUsers)) {
                 cy.login(user.username, user.password);
-                cy.get('.cvat-tasks-page').should('exist').and('be.visible');
-                cy.contains('.cvat-item-task-name', taskSpec.name).should('not.exist');
+                cy.get('.clarify-tasks-page').should('exist').and('be.visible');
+                cy.contains('.clarify-item-task-name', taskSpec.name).should('not.exist');
                 cy.logout();
             }
 
@@ -142,9 +142,9 @@ context('Review pipeline feature', () => {
             // Requester logins and assignes a reviewer
             cy.login();
             cy.openTask(taskSpec.name);
-            cy.get('.cvat-job-item').first().within(() => {
-                cy.get('.cvat-job-item-state').should('have.text', 'Completed');
-                cy.get('.cvat-job-item-stage .ant-select-selection-item').should('have.text', 'annotation');
+            cy.get('.clarify-job-item').first().within(() => {
+                cy.get('.clarify-job-item-state').should('have.text', 'Completed');
+                cy.get('.clarify-job-item-stage .ant-select-selection-item').should('have.text', 'annotation');
             });
             cy.setJobStage(jobIDs[0], 'validation');
             cy.assignJobToUser(jobIDs[0], additionalUsers.reviewer.username);
@@ -153,18 +153,18 @@ context('Review pipeline feature', () => {
             // The reviewer logins, opens the job, review mode is opened automatically
             cy.login(additionalUsers.reviewer.username, additionalUsers.reviewer.password);
             cy.openJobFromJobsPage(jobIDs[0]);
-            cy.get('.cvat-workspace-selector').should('have.text', 'Review');
+            cy.get('.clarify-workspace-selector').should('have.text', 'Review');
 
             // The reviewer creates quick issue "Incorrect position"
             cy.createIssueFromObject(1, 'Quick issue: incorrect position');
             cy.checkIssueLabel('Wrong position');
 
             // Item submenu: "Quick issue ..." does not appear, because we did not create custom issues yet
-            cy.get('#cvat_canvas_shape_1').rightclick();
-            cy.get('.cvat-canvas-context-menu')
-                .contains('.cvat-context-menu-item', 'Quick issue ...')
+            cy.get('#clarify_canvas_shape_1').rightclick();
+            cy.get('.clarify-canvas-context-menu')
+                .contains('.clarify-context-menu-item', 'Quick issue ...')
                 .should('not.exist');
-            cy.get('#cvat_canvas_content').click({ force: true }); // Close the context menu
+            cy.get('#clarify_canvas_content').click({ force: true }); // Close the context menu
 
             // The reviewer creates different issues with a custom text
             cy.goToNextFrame(1);
@@ -177,7 +177,7 @@ context('Review pipeline feature', () => {
             cy.createIssueFromObject(3, 'Quick issue ...', customIssueDescription);
             // The reviewer reloads the page, all the issues still exist
             cy.reload();
-            cy.get('.cvat-canvas-container').should('exist');
+            cy.get('.clarify-canvas-container').should('exist');
         });
 
         it('Review pipeline, part 2', () => {
@@ -189,7 +189,7 @@ context('Review pipeline feature', () => {
             const countIssuesByFrame = [[0, 1, 'Wrong position'], [1, 1, customIssueDescription], [2, 1, customIssueDescription]];
             for (const [frame, issues, text] of countIssuesByFrame) {
                 cy.goCheckFrameNumber(frame);
-                cy.get('.cvat_canvas_issue_region').should('have.length', issues);
+                cy.get('.clarify_canvas_issue_region').should('have.length', issues);
                 cy.checkIssueLabel(text);
             }
 
@@ -224,7 +224,7 @@ context('Review pipeline feature', () => {
                 numberOfPoints: null,
             });
             cy.saveJob();
-            cy.get('.cvat-notification-notice-save-annotations-failed').should('not.exist');
+            cy.get('.clarify-notification-notice-save-annotations-failed').should('not.exist');
 
             // Finally, the reviewer rejects the job, logouts
             cy.setJobState('rejected');
@@ -232,11 +232,11 @@ context('Review pipeline feature', () => {
 
             // Requester logins and assignes the job to the annotator, sets job stage to annotation
             cy.login();
-            cy.get('.cvat-tasks-page').should('exist').and('be.visible');
+            cy.get('.clarify-tasks-page').should('exist').and('be.visible');
             cy.openTask(taskSpec.name);
-            cy.get('.cvat-job-item').first().within(() => {
-                cy.get('.cvat-job-item-state').should('have.text', 'Rejected');
-                cy.get('.cvat-job-item-stage .ant-select-selection-item').should('have.text', 'validation');
+            cy.get('.clarify-job-item').first().within(() => {
+                cy.get('.clarify-job-item-state').should('have.text', 'Rejected');
+                cy.get('.clarify-job-item-stage .ant-select-selection-item').should('have.text', 'validation');
             });
             cy.setJobStage(jobIDs[0], 'annotation');
             cy.assignJobToUser(jobIDs[0], additionalUsers.annotator.username);
@@ -245,64 +245,64 @@ context('Review pipeline feature', () => {
             // Annotator logins, opens the job on standard workspace, sees the issues
             cy.login(additionalUsers.annotator.username, additionalUsers.annotator.password);
             cy.openJobFromJobsPage(jobIDs[0]);
-            cy.get('.cvat-workspace-selector').should('have.text', 'Standard');
+            cy.get('.clarify-workspace-selector').should('have.text', 'Standard');
 
             // Go to "Issues" tab at right sidebar and select an issue
-            cy.get('.cvat-objects-sidebar').within(() => {
+            cy.get('.clarify-objects-sidebar').within(() => {
                 cy.contains('[role="tab"]', 'Issues').click();
                 cy.contains('[role="tab"]', 'Issues').should('have.attr', 'aria-selected', 'true');
             });
 
             for (const [frame, issues] of countIssuesByFrame) {
                 cy.goCheckFrameNumber(frame);
-                cy.get('.cvat-objects-sidebar-issue-item').should('have.length', issues);
-                cy.get('.cvat-hidden-issue-label').should('have.length', issues);
-                cy.get('.cvat_canvas_issue_region').should('have.length', issues);
+                cy.get('.clarify-objects-sidebar-issue-item').should('have.length', issues);
+                cy.get('.clarify-hidden-issue-label').should('have.length', issues);
+                cy.get('.clarify_canvas_issue_region').should('have.length', issues);
 
                 // Annotator selects an issue on sidebar
                 // Issue indication has changed the color for highlighted issue
                 cy.collectIssueRegionIDs().then((issueIDs) => {
                     for (const issueID of issueIDs) {
-                        const objectsSidebarIssueItem = `#cvat-objects-sidebar-issue-item-${issueID}`;
-                        const canvasIssueRegion = `#cvat_canvas_issue_region_${issueID}`;
+                        const objectsSidebarIssueItem = `#clarify-objects-sidebar-issue-item-${issueID}`;
+                        const canvasIssueRegion = `#clarify_canvas_issue_region_${issueID}`;
                         cy.get(objectsSidebarIssueItem).trigger('mouseover');
-                        cy.get(canvasIssueRegion).should('have.attr', 'fill', 'url(#cvat_issue_region_pattern_2)');
+                        cy.get(canvasIssueRegion).should('have.attr', 'fill', 'url(#clarify_issue_region_pattern_2)');
                         cy.get(objectsSidebarIssueItem).trigger('mouseout');
-                        cy.get(canvasIssueRegion).should('have.attr', 'fill', 'url(#cvat_issue_region_pattern_1)');
+                        cy.get(canvasIssueRegion).should('have.attr', 'fill', 'url(#clarify_issue_region_pattern_1)');
                     }
                 });
             }
 
             // Issue navigation. Navigation works and go only to frames with issues
             cy.goCheckFrameNumber(0);
-            cy.get('.cvat-issues-sidebar-previous-frame')
+            cy.get('.clarify-issues-sidebar-previous-frame')
                 .should('have.attr', 'style')
                 .and('contain', 'opacity: 0.5;'); // the element is not active
-            cy.get('.cvat-issues-sidebar-next-frame').should('be.visible').click();
+            cy.get('.clarify-issues-sidebar-next-frame').should('be.visible').click();
             cy.checkFrameNum(1);
-            cy.get('.cvat-issues-sidebar-next-frame').should('be.visible').click();
+            cy.get('.clarify-issues-sidebar-next-frame').should('be.visible').click();
             cy.checkFrameNum(2);
-            cy.get('.cvat-issues-sidebar-next-frame').should('have.attr', 'style')
+            cy.get('.clarify-issues-sidebar-next-frame').should('have.attr', 'style')
                 .and('contain', 'opacity: 0.5;'); // the element is not active
-            cy.get('.cvat-issues-sidebar-previous-frame').should('be.visible').click();
+            cy.get('.clarify-issues-sidebar-previous-frame').should('be.visible').click();
             cy.checkFrameNum(1);
 
             // Hide all issues. All issues are hidden on all frames
-            cy.get('.cvat-issues-sidebar-shown-issues').click();
+            cy.get('.clarify-issues-sidebar-shown-issues').click();
             for (const [frame, issues] of countIssuesByFrame) {
                 cy.goCheckFrameNumber(frame);
-                cy.get('.cvat-objects-sidebar-issue-item').should('have.length', issues);
-                cy.get('.cvat-hidden-issue-label').should('have.length', 0);
-                cy.get('.cvat_canvas_issue_region').should('have.length', 0);
+                cy.get('.clarify-objects-sidebar-issue-item').should('have.length', issues);
+                cy.get('.clarify-hidden-issue-label').should('have.length', 0);
+                cy.get('.clarify_canvas_issue_region').should('have.length', 0);
             }
 
             // Show them back
             cy.get('.cvat-issues-sidebar-hidden-issues').click();
             for (const [frame, issues] of countIssuesByFrame) {
                 cy.goCheckFrameNumber(frame);
-                cy.get('.cvat-objects-sidebar-issue-item').should('have.length', issues);
-                cy.get('.cvat-hidden-issue-label').should('have.length', issues);
-                cy.get('.cvat_canvas_issue_region').should('have.length', issues);
+                cy.get('.clarify-objects-sidebar-issue-item').should('have.length', issues);
+                cy.get('.clarify-hidden-issue-label').should('have.length', issues);
+                cy.get('.clarify_canvas_issue_region').should('have.length', issues);
             }
 
             // Comment issues and resolve them
@@ -342,12 +342,12 @@ context('Review pipeline feature', () => {
 
             // check: https://github.com/opencv/cvat/issues/7206
             cy.interactMenu('Finish the job');
-            cy.get('.cvat-modal-content-finish-job').within(() => {
+            cy.get('.clarify-modal-content-finish-job').within(() => {
                 cy.contains('button', 'Continue').click();
             });
-            cy.get('.cvat-job-item').first().within(() => {
-                cy.get('.cvat-job-item-state').should('have.text', 'Completed');
-                cy.get('.cvat-job-item-stage .ant-select-selection-item').should('have.text', 'acceptance');
+            cy.get('.clarify-job-item').first().within(() => {
+                cy.get('.clarify-job-item-state').should('have.text', 'Completed');
+                cy.get('.clarify-job-item-stage .ant-select-selection-item').should('have.text', 'acceptance');
             });
         });
     });

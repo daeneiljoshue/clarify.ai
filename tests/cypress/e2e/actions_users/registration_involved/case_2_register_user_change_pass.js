@@ -14,16 +14,16 @@ context('Register user, change password, login with new password', () => {
     const secondNewPassword = 'ndTh48@yVY';
 
     function changePassword(myUserName, myPassword, myNewPassword) {
-        cy.get('.cvat-right-header')
-            .find('.cvat-header-menu-user-dropdown')
+        cy.get('.clarify-right-header')
+            .find('.clarify-header-menu-user-dropdown')
             .should('have.text', myUserName)
             .click();
-        cy.get('.cvat-header-menu-change-password').click();
-        cy.get('.cvat-modal-change-password').within(() => {
+        cy.get('.clarify-header-menu-change-password').click();
+        cy.get('.clarify-modal-change-password').within(() => {
             cy.get('#oldPassword').type(myPassword);
             cy.get('#newPassword1').type(myNewPassword);
             cy.get('#newPassword2').type(myNewPassword);
-            cy.get('.cvat-change-password-form-button').click();
+            cy.get('.clarify-change-password-form-button').click();
         });
     }
 
@@ -33,7 +33,7 @@ context('Register user, change password, login with new password', () => {
     });
 
     after(() => {
-        cy.get('.cvat-modal-change-password').find('[aria-label="Close"]').click();
+        cy.get('.clarify-modal-change-password').find('[aria-label="Close"]').click();
         cy.logout();
         cy.getAuthKey().then((authKey) => {
             cy.deleteUsers(authKey, [userName]);
@@ -54,7 +54,7 @@ context('Register user, change password, login with new password', () => {
         });
         it('Change password with incorrect current password', () => {
             changePassword(userName, incorrectCurrentPassword, secondNewPassword);
-            cy.get('.cvat-notification-notice-change-password-failed').should('exist');
+            cy.get('.clarify-notification-notice-change-password-failed').should('exist');
         });
     });
 });

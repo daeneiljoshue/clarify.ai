@@ -43,8 +43,8 @@ context('When clicking on the Logout button, get the user session closed.', () =
 
         it('Logout and login to task via GUI', () => {
             // logout from task
-            cy.get('.cvat-right-header').within(() => {
-                cy.get('.cvat-header-menu-user-dropdown')
+            cy.get('.clarify-right-header').within(() => {
+                cy.get('.clarify-header-menu-user-dropdown')
                     .should('have.text', Cypress.env('user'))
                     .click();
             });
@@ -53,7 +53,7 @@ context('When clicking on the Logout button, get the user session closed.', () =
             // login to task
             login(Cypress.env('user'), Cypress.env('password'));
             cy.url().should('include', `/tasks/${taskId}`).and('not.include', '/auth/login');
-            cy.contains('.cvat-task-details-task-name', `${taskName}`).should('be.visible');
+            cy.contains('.clarify-task-details-task-name', `${taskName}`).should('be.visible');
         });
 
         it('Logout and login to task via token', () => {
@@ -70,7 +70,7 @@ context('When clicking on the Logout button, get the user session closed.', () =
             }).then(async (response) => {
                 const token = response.body.key;
                 cy.visit(`/auth/login-with-token/${token}?next=/tasks/${taskId}`);
-                cy.contains('.cvat-task-details-task-name', `${taskName}`).should('be.visible');
+                cy.contains('.clarify-task-details-task-name', `${taskName}`).should('be.visible');
             });
         });
 
@@ -84,19 +84,19 @@ context('When clicking on the Logout button, get the user session closed.', () =
             cy.logout();
             login('randomUser123', Cypress.env('password'));
             cy.url().should('include', '/auth/login');
-            cy.closeNotification('.cvat-notification-notice-login-failed');
+            cy.closeNotification('.clarify-notification-notice-login-failed');
         });
 
         it('Correct user and incorrect password', () => {
             login(Cypress.env('user'), 'randomPassword123');
             cy.url().should('include', '/auth/login');
-            cy.closeNotification('.cvat-notification-notice-login-failed');
+            cy.closeNotification('.clarify-notification-notice-login-failed');
         });
 
         it('Incorrect user and incorrect password', () => {
             login('randomUser123', 'randomPassword123');
             cy.url().should('include', '/auth/login');
-            cy.closeNotification('.cvat-notification-notice-login-failed');
+            cy.closeNotification('.clarify-notification-notice-login-failed');
         });
     });
 });

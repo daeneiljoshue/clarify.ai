@@ -17,7 +17,7 @@ context('Reset password notification.', () => {
 
         it('Sending a password reset request', () => {
             cy.get('#email').type(dummyEmail);
-            cy.get('.cvat-credentials-action-button').click();
+            cy.get('.clarify-credentials-action-button').click();
             cy.contains('Check your email').should('be.visible');
         });
     });

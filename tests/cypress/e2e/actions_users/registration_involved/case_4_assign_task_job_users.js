@@ -50,7 +50,7 @@ context('Multiple users. Assign task, job. Deactivating users.', () => {
         cy.openTask(taskName);
         cy.wait('@users');
         cy.get('.cvat-global-boundary').should('not.exist');
-        cy.contains('.cvat-task-details-task-name', taskName).should('exist');
+        cy.contains('.clarify-task-details-task-name', taskName).should('exist');
     }
 
     before(() => {
@@ -91,7 +91,7 @@ context('Multiple users. Assign task, job. Deactivating users.', () => {
                 null,
                 'success',
             );
-            cy.contains('.cvat-item-task-name', secondTaskName).should('exist');
+            cy.contains('.clarify-item-task-name', secondTaskName).should('exist');
             cy.logout();
         });
 
@@ -146,15 +146,15 @@ context('Multiple users. Assign task, job. Deactivating users.', () => {
 
         it('The third user can open a job by a direct link.', () => {
             cy.login(thirdUserName, thirdUser.password);
-            cy.get('.cvat-item-task-name').should('not.exist');
+            cy.get('.clarify-item-task-name').should('not.exist');
             cy.visit(`/tasks/${taskID}/jobs/${jobID}`);
-            cy.get('.cvat-canvas-container').should('exist');
+            cy.get('.clarify-canvas-container').should('exist');
 
             // Check issue "Info modal does not work if a job assigneed to somebody (4140)"
-            cy.contains('.cvat-annotation-header-button', 'Info').click();
-            cy.get('.cvat-job-info-modal-window').should('be.visible');
+            cy.contains('.clarify-annotation-header-button', 'Info').click();
+            cy.get('.clarify-job-info-modal-window').should('be.visible');
             cy.contains('[type="button"]', 'OK').click();
-            cy.get('.cvat-job-info-modal-window').should('not.be.visible');
+            cy.get('.clarify-job-info-modal-window').should('not.be.visible');
 
             cy.logout();
         });
