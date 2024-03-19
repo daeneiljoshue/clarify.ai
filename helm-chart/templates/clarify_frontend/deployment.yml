@@ -1,0 +1,68 @@
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-frontend
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "clarify.labels" . | nindent 4 }}
+    app: clarify-app
+    tier: frontend
+spec:
+  replicas: {{ .Values.clarify.frontend.replicas }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "clarify.labels" . | nindent 6 }}
+      app: clarify-app
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        {{- include "clarify.labels" . | nindent 8 }}
+        app: clarify-app
+        tier: frontend
+        {{- with .Values.clarify.frontend.labels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+        {{- with .Values.clarify.frontend.annotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      containers:
+        - name: clarify-frontend-app-container
+          image: {{ .Values.clarify.frontend.image }}:{{ .Values.clarify.frontend.tag }}
+          imagePullPolicy: {{ .Values.clarify.frontend.imagePullPolicy }}
+          {{- with .Values.clarify.frontend.resources }}
+          resources:
+          {{- toYaml . | nindent 12 }}
+          {{- end }}
+          ports:
+          - containerPort: 80
+          {{- with .Values.clarify.frontend.additionalEnv }}
+          env:
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
+          {{- with .Values.clarify.frontend.additionalVolumeMounts }}
+          volumeMounts:
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
+        {{- with .Values.clarify.frontend.additionalVolumes }}
+      volumes:
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      {{- with .Values.clarify.frontend.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.clarify.frontend.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-frontend-service
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "clarify.labels" . | nindent 4 }}
+    app: clarify-app
+    tier: frontend
+  annotations:
+    {{- with .Values.clarify.frontend.service.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  selector:
+    app: clarify-app
+    tier: frontend
+    {{- include "clarify.labels" . | nindent 4 }}
+  {{- with .Values.clarify.frontend.service }}
+  {{- toYaml . | nindent 2 }}
+  {{- end }}

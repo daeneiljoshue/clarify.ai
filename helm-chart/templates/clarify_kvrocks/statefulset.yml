@@ -1,0 +1,105 @@
+{{- if .Values.clarify.kvrocks.enabled }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Release.Name }}-kvrocks
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "clarify.labels" . | nindent 4 }}
+    app: clarify-app
+    tier: kvrocks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "clarify.labels" . | nindent 6 }}
+      app: clarify-app
+      tier: kvrocks
+  template:
+    metadata:
+      labels:
+        {{- include "clarify.labels" . | nindent 8 }}
+        app: clarify-app
+        tier: kvrocks
+        {{- with .Values.clarify.kvrocks.labels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      {{- with .Values.clarify.kvrocks.annotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    spec:
+      containers:
+        - name: clarify-kvrocks-app-container
+          image: {{ .Values.clarify.kvrocks.image }}:{{ .Values.clarify.kvrocks.tag }}
+          imagePullPolicy: {{ .Values.clarify.kvrocks.imagePullPolicy }}
+          args:
+            - --dir
+            - /var/lib/kvrocks/data
+            - --requirepass
+            - "$(CLARIFY_REDIS_ONDISK_PASSWORD)"
+          {{- with .Values.clarify.kvrocks.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          ports:
+          - containerPort: 6666
+          env:
+          - name: CLARIFY_REDIS_ONDISK_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                {{- if .Values.clarify.kvrocks.secret.create }}
+                name: "{{ tpl (.Values.clarify.kvrocks.secret.name) . }}"
+                {{- else }}
+                name: "{{ tpl (.Values.clarify.kvrocks.existingSecret) . }}"
+                {{- end }}
+                key: password
+          {{- with .Values.clarify.kvrocks.additionalEnv }}
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
+          volumeMounts:
+          - name: {{ .Release.Name }}-kvrocks-data
+            mountPath: /var/lib/kvrocks/data
+          {{- with .Values.clarify.kvrocks.additionalVolumeMounts }}
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
+      {{- with .Values.clarify.kvrocks.additionalVolumes }}
+      volumes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.clarify.kvrocks.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.clarify.kvrocks.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  {{- if .Values.clarify.kvrocks.defaultStorage.enabled }}
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ .Release.Name }}-kvrocks-data
+      namespace: {{ .Release.Namespace }}
+      labels:
+        {{- include "clarify.labels" . | nindent 8 }}
+        app: clarify-app
+        tier: kvrocks
+    spec:
+      accessModes:
+      {{- if .Values.clarify.kvrocks.defaultStorage.accessModes }}
+      {{ .Values.clarify.kvrocks.defaultStorage.accessModes | toYaml | nindent 6 }}
+      {{- else }}
+      - ReadWriteOnce
+      {{- end }}
+      {{-  if .Values.clarify.kvrocks.defaultStorage.storageClassName }}
+      storageClassName: {{ .Values.clarify.kvrocks.defaultStorage.storageClassName }}
+      {{- end }}
+      resources:
+        requests:
+          storage: {{ .Values.clarify.kvrocks.defaultStorage.size }}
+  {{- end}}
+{{- end }}

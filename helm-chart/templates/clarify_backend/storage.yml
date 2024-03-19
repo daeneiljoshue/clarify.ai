@@ -1,0 +1,26 @@
+{{- if .Values.clarify.backend.defaultStorage.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-backend-data
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    helm.sh/resource-policy: keep
+  labels:
+    {{- include "clarify.labels" . | nindent 4 }}
+    app: clarify-app
+    tier: backend
+spec:
+  accessModes:
+    {{- if .Values.clarify.backend.defaultStorage.accessModes }}
+    {{ .Values.clarify.backend.defaultStorage.accessModes | toYaml | nindent 4 }}
+    {{- else }}
+    - ReadWriteMany
+    {{- end }}
+  {{-  if .Values.clarify.backend.defaultStorage.storageClassName }}
+  storageClassName: {{ .Values.clarify.backend.defaultStorage.storageClassName }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.clarify.backend.defaultStorage.size }}
+{{- end }}

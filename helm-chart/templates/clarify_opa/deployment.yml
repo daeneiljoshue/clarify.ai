@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-clarify
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "clarify.labels" . | nindent 4 }}
+    app: clarify-app
+    tier: opa
+spec:
+  replicas: {{ .Values.clarify.opa.replicas }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "clarify.labels" . | nindent 6 }}
+      app: clarify-app
+      tier: opa
+  template:
+    metadata:
+      labels:
+        {{- include "clarify.labels" . | nindent 8 }}
+        app: clarify-app
+        tier: opa
+        {{- with .Values.clarify.opa.labels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+        {{- with .Values.clarify.opa.annotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      containers:
+        - name: clarify-opa-app-container
+          image: {{ .Values.clarify.opa.image }}:{{ .Values.clarify.opa.tag }}
+          imagePullPolicy: {{ .Values.clarify.opa.imagePullPolicy }}
+          args:
+            - run
+            - --server
+            - --set=decision_logs.console=true
+            - --set=services.clarify.url=http://{{ .Release.Name }}-backend-service:8080
+            - --set=bundles.clarify.service=clarify
+            - --set=bundles.clarify.resource=/api/auth/rules
+            - --set=bundles.clarify.polling.min_delay_seconds=10
+            - --set=bundles.clarify.polling.max_delay_seconds=15
+          {{- with .Values.clarify.opa.resources }}
+          resources:
+          {{- toYaml . | nindent 12 }}
+          {{- end }}
+          ports:
+          - containerPort: 8181
+          {{- with .Values.clarify.opa.additionalEnv }}
+          env:
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
+          {{- with .Values.clarify.opa.additionalVolumeMounts }}
+          volumeMounts:
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
+      {{- with .Values.clarify.opa.additionalVolumes }}
+      volumes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.clarify.opa.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.clarify.opa.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

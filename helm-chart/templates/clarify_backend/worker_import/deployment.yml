@@ -1,0 +1,143 @@
+{{- $localValues := .Values.clarify.backend.worker.import -}}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-backend-worker-import
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: clarify-app
+    tier: backend
+    component: worker-import
+    {{- include "clarify.labels" . | nindent 4 }}
+    {{- with merge $localValues.labels .Values.clarify.backend.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with merge $localValues.annotations .Values.clarify.backend.annotations }}
+  annotations:
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  replicas: {{ $localValues.replicas }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "clarify.labels" . | nindent 6 }}
+      {{- with merge $localValues.labels .Values.clarify.backend.labels }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
+      app: clarify-app
+      tier: backend
+      component: worker-import
+  template:
+    metadata:
+      labels:
+        app: clarify-app
+        tier: backend
+        component: worker-import
+        {{- include "clarify.labels" . | nindent 8 }}
+        {{- with merge $localValues.labels .Values.clarify.backend.labels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      {{- with merge $localValues.annotations .Values.clarify.backend.annotations }}
+      annotations:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+    spec:
+      containers:
+        - name: clarify-backend
+          image: {{ .Values.clarify.backend.image }}:{{ .Values.clarify.backend.tag }}
+          imagePullPolicy: {{ .Values.clarify.backend.imagePullPolicy }}
+          {{- with merge $localValues.resources .Values.clarify.backend.resources }}
+          resources:
+          {{- toYaml . | nindent 12 }}
+          {{- end }}
+          args: ["run", "worker.import"]
+          env:
+          {{ include "clarify.sharedBackendEnv" . | indent 10 }}
+          {{- with concat .Values.clarify.backend.additionalEnv $localValues.additionalEnv }}
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
+          volumeMounts:
+            {{- if not .Values.clarify.backend.disableDistinctCachePerService }}
+            - mountPath: /home/django/data/cache
+              name: clarify-backend-per-service-cache
+            {{- end }}
+            - mountPath: /home/django/data
+              name: clarify-backend-data
+              subPath: data
+            - mountPath: /home/django/keys
+              name: clarify-backend-data
+              subPath: keys
+            - mountPath: /home/django/logs
+              name: clarify-backend-data
+              subPath: logs
+            - mountPath: /home/django/models
+              name: clarify-backend-data
+              subPath: models
+            - mountPath: /home/django/tmp_storage
+              name: clarify-backend-data
+              subPath: tmp_storage
+            {{- with concat .Values.clarify.backend.additionalVolumeMounts $localValues.additionalVolumeMounts }}
+            {{- toYaml . | nindent 10 }}
+            {{- end }}
+      initContainers:
+        {{- if .Values.clarify.backend.permissionFix.enabled }}
+        - name: user-data-permission-fix
+          image: busybox
+          command: ["/bin/chmod", "-R", "777", "/home/django"]
+          {{- with merge $localValues.resources .Values.clarify.backend.resources }}
+                    resources:
+          {{- toYaml . | nindent 12 }}
+          {{- end }}
+          volumeMounts:
+          {{- if .Values.clarify.backend.defaultStorage.enabled }}
+          {{- if not .Values.clarify.backend.disableDistinctCachePerService }}
+          - mountPath: /home/django/data/cache
+            name: clarify-backend-per-service-cache
+          {{- end }}
+          - mountPath: /home/django/data
+            name: clarify-backend-data
+            subPath: data
+          - mountPath: /home/django/keys
+            name: clarify-backend-data
+            subPath: keys
+          - mountPath: /home/django/logs
+            name: clarify-backend-data
+            subPath: logs
+          - mountPath: /home/django/models
+            name: clarify-backend-data
+            subPath: models
+          {{- end }}
+          {{- with concat .Values.clarify.backend.additionalVolumeMounts $localValues.additionalVolumeMounts }}
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
+        {{- end }}
+      {{- with merge $localValues.affinity .Values.clarify.backend.affinity }}
+      affinity:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with concat .Values.clarify.backend.tolerations $localValues.tolerations }}
+      tolerations:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        {{- if .Values.clarify.backend.defaultStorage.enabled }}
+        - name: clarify-backend-data
+          persistentVolumeClaim:
+            claimName: "{{ .Release.Name }}-backend-data"
+        {{- if not .Values.clarify.backend.disableDistinctCachePerService }}
+        - name: clarify-backend-per-service-cache
+          emptyDir: {}
+        {{- end }}
+        {{- end }}
+        {{- with concat .Values.clarify.backend.additionalVolumes $localValues.additionalVolumes }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+
+         
