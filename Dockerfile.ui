@@ -1,4 +1,4 @@
-FROM node:lts-slim AS cvat-ui
+FROM node:lts-slim AS clarify-ui
 
 ARG WA_PAGE_VIEW_HIT
 ARG UI_APP_CONFIG
@@ -13,22 +13,22 @@ ENV TERM=xterm \
 # Install dependencies
 COPY package.json /tmp/
 COPY yarn.lock /tmp/
-COPY cvat-core/package.json /tmp/cvat-core/
-COPY cvat-canvas/package.json /tmp/cvat-canvas/
-COPY cvat-canvas3d/package.json /tmp/cvat-canvas3d/
-COPY cvat-ui/package.json /tmp/cvat-ui/
-COPY cvat-data/package.json /tmp/cvat-data/
+COPY clarify-core/package.json /tmp/clarify-core/
+COPY clarify-canvas/package.json /tmp/clarify-canvas/
+COPY clarify-canvas3d/package.json /tmp/clarify-canvas3d/
+COPY clarify-ui/package.json /tmp/clarify-ui/
+COPY clarify-data/package.json /tmp/clarify-data/
 
 # Install common dependencies
 WORKDIR /tmp/
 RUN DISABLE_HUSKY=1 yarn --frozen-lockfile
 
 # Build source code
-COPY cvat-data/ /tmp/cvat-data/
-COPY cvat-core/ /tmp/cvat-core/
-COPY cvat-canvas3d/ /tmp/cvat-canvas3d/
-COPY cvat-canvas/ /tmp/cvat-canvas/
-COPY clarify-ui/ /tmp/cvat-ui/
+COPY clarify-data/ /tmp/clarify-data/
+COPY clarify-core/ /tmp/clarify-core/
+COPY clarify-canvas3d/ /tmp/clarify-canvas3d/
+COPY clarify-canvas/ /tmp/clarify-canvas/
+COPY clarify-ui/ /tmp/clarify-ui/
 RUN CLIENT_PLUGINS="${CLIENT_PLUGINS}" \
 DISABLE_SOURCE_MAPS="${DISABLE_SOURCE_MAPS}" \
 UI_APP_CONFIG="${UI_APP_CONFIG}" \

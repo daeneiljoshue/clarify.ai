@@ -1,1 +1,65 @@
+# Project Specific
+/data/
+/models/
+/share/
+/static/
+/db.sqlite3
+/.*env*
+/keys
+/logs
+/profiles
+/ssh/*
+!/ssh/README.md
+/Mask_RCNN/
+/letsencrypt-webroot/
+
+# Ignore temporary files
+docker-compose.override.yml
+__pycache__
+*.pyc
+._*
+.coverage
+.husky/
+
+# Ignore npm logs file
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.DS_Store
+
+#Ignore Cypress tests temp files
+/tests/cypress/fixtures
+/tests/cypress/screenshots
+.idea/
+
+#Ignore helm-related files
+/helm-chart/Chart.lock
+/helm-chart/values.*.yaml
+/helm-chart/*.values.yaml
+/helm-chart/charts/*
+
+#Ignore website temp files
+/site/public/
+/site/resources/
+/site/node_modules/
+/site/tech-doc-hugo
+/site/.hugo_build.lock
+
+# Ignore all the installed packages
 node_modules
+
+# Ignore all js dists
+clarify-data/dist
+clarify-core/dist
+clarify-canvas/dist
+clarify-canvas3d/dist
+clarify-ui/dist
+
+# produced by npm run docs in clarify-core
+clarify-core/docs
+# produced by npm run test in clarify-core
+clarify-core/reports
+# produced by prepare in the root package.json script
+.husky
+
