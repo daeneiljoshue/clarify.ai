@@ -1,0 +1,20 @@
+
+services:
+  clarify_ci:
+    image: clarify_ci
+    network_mode: host
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+    depends_on:
+      - clarify_server
+    environment:
+      CONTAINER_COVERAGE_DATA_DIR:
+      GITHUB_ACTIONS:
+      GITHUB_TOKEN:
+      GITHUB_WORKSPACE:
+      GITHUB_REF:
+      GITHUB_HEAD_REF:
+      GITHUB_RUN_ID:
+    volumes:
+      - ${HOST_COVERAGE_DATA_DIR}:${CONTAINER_COVERAGE_DATA_DIR}

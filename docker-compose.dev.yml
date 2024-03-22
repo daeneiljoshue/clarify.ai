@@ -1,0 +1,116 @@
+
+services:
+  cvat_db:
+    ports:
+      - '5432:5432'
+
+  clarify_server:
+    build:
+      context: .
+      args:
+        http_proxy:
+        https_proxy:
+        socks_proxy:
+        CLAM_AV:
+        CLARIFY_DEBUG_ENABLED:
+        COVERAGE_PROCESS_START:
+    environment:
+      # Use this with CVAT_DEBUG_ENABLED to avoid server response timeouts
+      CLARIFY_DEBUG_ENABLED: '${CLARIFY_DEBUG_ENABLED:-no}'
+      CLARIFY_DEBUG_PORT: '9090'
+      # If 'yes', wait for a debugger connection on startup
+      CLARIFY_DEBUG_WAIT: '${CLARIFY_DEBUG_WAIT_CLIENT:-no}'
+      COVERAGE_PROCESS_START:
+    ports:
+      - '9090:9090'
+
+  clarify_worker_export:
+    environment:
+      # For debugging, make sure to set 1 process
+      # Due to the supervisord specifics, the extra processes will fail and
+      # after few attempts supervisord will give up restarting, leaving only 1 process
+      # NUMPROCS: 1
+      CLARIFY_DEBUG_ENABLED: '${CLARIFY_DEBUG_ENABLED:-no}'
+      CLARIFY_DEBUG_PORT: '9092'
+      COVERAGE_PROCESS_START:
+    ports:
+      - '9092:9092'
+
+  clarify_worker_import:
+    environment:
+      # For debugging, make sure to set 1 process
+      # Due to the supervisord specifics, the extra processes will fail and
+      # after few attempts supervisord will give up restarting, leaving only 1 process
+      # NUMPROCS: 1
+      CLARIFY_DEBUG_ENABLED: '${CLARIFY_DEBUG_ENABLED:-no}'
+      CLARIFY_DEBUG_PORT: '9093'
+      COVERAGE_PROCESS_START:
+    ports:
+      - '9093:9093'
+
+  clarify_worker_quality_reports:
+    environment:
+      # For debugging, make sure to set 1 process
+      # Due to the supervisord specifics, the extra processes will fail and
+      # after few attempts supervisord will give up restarting, leaving only 1 process
+      # NUMPROCS: 1
+      CLARIFY_DEBUG_ENABLED: '${CLARIFY_DEBUG_ENABLED:-no}'
+      CLARIFY_DEBUG_PORT: '9094'
+      COVERAGE_PROCESS_START:
+    ports:
+      - '9094:9094'
+
+  clarify_worker_analytics_reports:
+    environment:
+      CLARIFY_ANALYTICS_CHECK_JOB_DELAY: 5
+      # For debugging, make sure to set 1 process
+      # Due to the supervisord specifics, the extra processes will fail and
+      # after few attempts supervisord will give up restarting, leaving only 1 process
+      NUMPROCS: 1
+      CLARIFY_DEBUG_ENABLED: '${CLARIFY_DEBUG_ENABLED:-no}'
+      CLARIFY_DEBUG_PORT: '9095'
+      COVERAGE_PROCESS_START:
+    ports:
+      - '9095:9095'
+
+  clarify_worker_annotation:
+    environment:
+      # For debugging, make sure to set 1 process
+      # Due to the supervisord specifics, the extra processes will fail and
+      # after few attempts supervisord will give up restarting, leaving only 1 process
+      # NUMPROCS: 1
+      CLARIFY_DEBUG_ENABLED: '${CLARIFY_DEBUG_ENABLED:-no}'
+      CLARIFY_DEBUG_PORT: '9091'
+      COVERAGE_PROCESS_START:
+    ports:
+      - '9091:9091'
+
+  clarify_ui:
+    build:
+      context: .
+      args:
+        http_proxy:
+        https_proxy:
+        no_proxy:
+        socks_proxy:
+      dockerfile: Dockerfile.ui
+
+  clarify_clickhouse:
+    ports:
+      - '8123:8123'
+
+  clarify_opa:
+    ports:
+      - '8181:8181'
+
+  clarify_redis_inmem:
+    ports:
+      - '6379:6379'
+
+  clarify_redis_ondisk:
+    ports:
+      - '6666:6666'
+
+  clarify_vector:
+    ports:
+      - '8282:80'
