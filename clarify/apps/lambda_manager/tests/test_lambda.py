@@ -281,7 +281,7 @@ class LambdaTestCases(_LambdaTestCaseBase):
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
-    @mock.patch('cvat.apps.lambda_manager.views.LambdaGateway._http', return_value = {})
+    @mock.patch('clarify.apps.lambda_manager.views.LambdaGateway._http', return_value = {})
     def test_api_v2_lambda_functions_list_empty(self, mock_http):
         response = self._get_request(LAMBDA_FUNCTIONS_PATH, self.admin)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -295,7 +295,7 @@ class LambdaTestCases(_LambdaTestCaseBase):
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
-    @mock.patch('cvat.apps.lambda_manager.views.LambdaGateway._http', return_value = functions["negative"])
+    @mock.patch('clarify.apps.lambda_manager.views.LambdaGateway._http', return_value = functions["negative"])
     def test_api_v2_lambda_functions_list_wrong(self, mock_http):
         response = self._get_request(LAMBDA_FUNCTIONS_PATH, self.admin)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
@@ -333,7 +333,7 @@ class LambdaTestCases(_LambdaTestCaseBase):
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
-    @mock.patch('cvat.apps.lambda_manager.views.LambdaGateway._http', return_value = functions["negative"][id_function_non_unique_labels])
+    @mock.patch('clarify.apps.lambda_manager.views.LambdaGateway._http', return_value = functions["negative"][id_function_non_unique_labels])
     def test_api_v2_lambda_functions_read_non_unique_labels(self, mock_http):
         response = self._get_request(f'{LAMBDA_FUNCTIONS_PATH}/{id_function_non_unique_labels}', self.admin)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
@@ -492,7 +492,7 @@ class LambdaTestCases(_LambdaTestCaseBase):
             self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
-    @mock.patch('cvat.apps.lambda_manager.views.LambdaGateway._http', return_value = functions["negative"]["test-model-has-non-unique-labels"])
+    @mock.patch('clarify.apps.lambda_manager.views.LambdaGateway._http', return_value = functions["negative"]["test-model-has-non-unique-labels"])
     def test_api_v2_lambda_requests_create_non_unique_labels(self, mock_http):
         data = {
             "function": id_function_non_unique_labels,
@@ -850,7 +850,7 @@ class LambdaTestCases(_LambdaTestCaseBase):
         self.assertEqual(response.status_code, status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-    @mock.patch('cvat.apps.lambda_manager.views.LambdaGateway._http', return_value = functions["negative"]["test-model-has-non-unique-labels"])
+    @mock.patch('clarify.apps.lambda_manager.views.LambdaGateway._http', return_value = functions["negative"]["test-model-has-non-unique-labels"])
     def test_api_v2_lambda_functions_create_non_unique_labels(self, mock_http):
         data = {
             "task": self.main_task["id"],

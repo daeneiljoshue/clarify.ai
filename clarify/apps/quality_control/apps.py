@@ -2,7 +2,7 @@ from django.apps import AppConfig
 
 
 class QualityControlConfig(AppConfig):
-    name = "cvat.apps.quality_control"
+    name = "clarify.apps.quality_control"
 
     def ready(self) -> None:
         from django.conf import settings

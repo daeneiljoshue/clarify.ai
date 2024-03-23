@@ -4,7 +4,7 @@ profile = "black"
 forced_separate = ["tests"]
 line_length = 100
 skip_gitignore = true # align tool behavior with Black
-known_first_party = ["cvat"]
+known_first_party = ["clarify"]
 
 # Can't just use a pyproject in the root dir, so duplicate
 # https://github.com/psf/black/issues/2863

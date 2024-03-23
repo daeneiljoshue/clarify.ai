@@ -81,7 +81,7 @@ def send_webhook(webhook, payload, redelivery=False):
     return delivery
 
 def add_to_queue(webhook, payload, redelivery=False):
-    queue = django_rq.get_queue(settings.CVAT_QUEUES.WEBHOOKS.value)
+    queue = django_rq.get_queue(settings.CLARIFY_QUEUES.WEBHOOKS.value)
     queue.enqueue_call(func=send_webhook, args=(webhook, payload, redelivery))
 
 

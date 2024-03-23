@@ -510,7 +510,7 @@ class LambdaQueue:
     FAILED_TTL = timedelta(hours=3)
 
     def _get_queue(self):
-        return django_rq.get_queue(settings.CVAT_QUEUES.AUTO_ANNOTATION.value)
+        return django_rq.get_queue(settings.CLARIFY_QUEUES.AUTO_ANNOTATION.value)
 
     def get_jobs(self):
         queue = self._get_queue()
