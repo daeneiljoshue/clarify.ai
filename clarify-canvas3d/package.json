@@ -19,7 +19,7 @@
   "dependencies": {
     "@types/three": "^0.156.0",
     "camera-controls": "^1.25.3",
-    "cvat-core": "link:./../clarify-core",
+    "clarify-core": "link:./../clarify-core",
     "three": "^0.162.0"
   }
 }
