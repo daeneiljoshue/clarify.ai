@@ -104,7 +104,7 @@ class DetailsComponent extends React.PureComponent<Props, State> {
                             onUpdateTask(taskInstance);
                         },
                     }}
-                    className='cvat-text-color'
+                    className='clarify-text-color'
                 >
                     {name}
                 </Text>
@@ -129,7 +129,7 @@ class DetailsComponent extends React.PureComponent<Props, State> {
         );
 
         return (
-            <Row className='cvat-task-details-user-block' justify='space-between' align='middle'>
+            <Row className='clarify-task-details-user-block' justify='space-between' align='middle'>
                 <Col span={12}>
                     {owner && (
                         <Text type='secondary'>{`Task #${taskInstance.id} Created by ${owner} on ${created}`}</Text>
@@ -172,7 +172,7 @@ class DetailsComponent extends React.PureComponent<Props, State> {
         return (
             <Row>
                 <Col span={24}>
-                    <Text className='cvat-text-color'>Subset:</Text>
+                    <Text className='clarify-text-color'>Subset:</Text>
                 </Col>
                 <Col span={24}>
                     <ProjectSubsetField
@@ -204,9 +204,9 @@ class DetailsComponent extends React.PureComponent<Props, State> {
         } = this.props;
 
         return (
-            <div className='cvat-task-details'>
+            <div className='clarify-task-details'>
                 <Row justify='start' align='middle'>
-                    <Col className='cvat-task-details-task-name'>{this.renderTaskName()}</Col>
+                    <Col className='clarify-task-details-task-name'>{this.renderTaskName()}</Col>
                 </Row>
                 <Row justify='space-between' align='top'>
                     <Col md={8} lg={7} xl={7} xxl={6}>
@@ -214,9 +214,9 @@ class DetailsComponent extends React.PureComponent<Props, State> {
                             <Col span={24}>
                                 <Preview
                                     task={taskInstance}
-                                    loadingClassName='cvat-task-item-loading-preview'
-                                    emptyPreviewClassName='cvat-task-item-empty-preview'
-                                    previewClassName='cvat-task-item-preview'
+                                    loadingClassName='clarify-task-item-loading-preview'
+                                    emptyPreviewClassName='clarify-task-item-empty-preview'
+                                    previewClassName='clarify-task-item-preview'
                                 />
                             </Col>
                         </Row>

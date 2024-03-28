@@ -59,7 +59,7 @@ function TasksPageComponent(props: Props): JSX.Element {
             <Row justify='center' align='middle'>
                 <Col md={22} lg={18} xl={16} xxl={14}>
                     <Pagination
-                        className='cvat-tasks-pagination'
+                        className='clarify-tasks-pagination'
                         onChange={(page: number) => {
                             dispatch(getTasksAsync({
                                 ...query,
@@ -80,7 +80,7 @@ function TasksPageComponent(props: Props): JSX.Element {
     );
 
     return (
-        <div className='cvat-tasks-page'>
+        <div className='clarify-tasks-page'>
             <TopBar
                 onApplySearch={(search: string | null) => {
                     dispatch(
@@ -113,8 +113,8 @@ function TasksPageComponent(props: Props): JSX.Element {
                 importing={importing}
             />
             { fetching ? (
-                <div className='cvat-empty-tasks-list'>
-                    <Spin size='large' className='cvat-spinner' />
+                <div className='clarify-empty-tasks-list'>
+                    <Spin size='large' className='clarify-spinner' />
                 </div>
             ) : content }
         </div>

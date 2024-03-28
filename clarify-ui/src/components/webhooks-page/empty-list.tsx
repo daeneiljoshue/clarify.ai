@@ -13,7 +13,7 @@ function EmptyWebhooksListComponent(props: Props): JSX.Element {
     const { query } = props;
 
     return (
-        <div className='cvat-empty-webhooks-list'>
+        <div className='clarify-empty-webhooks-list'>
             <Empty description={!query.filter && !query.search ? (
                 <Row justify='center' align='middle'>
                     <Col>

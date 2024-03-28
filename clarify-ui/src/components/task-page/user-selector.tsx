@@ -139,7 +139,7 @@ export default function UserSelector(props: Props): JSX.Element {
         }
     }, [value]);
 
-    const combinedClassName = className ? `${className} cvat-user-search-field` : 'cvat-user-search-field';
+    const combinedClassName = className ? `${className} clarify-user-search-field` : 'clarify-user-search-field';
     return (
         <Autocomplete
             ref={autocompleteRef}

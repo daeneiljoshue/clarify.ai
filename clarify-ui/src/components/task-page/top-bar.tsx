@@ -23,11 +23,11 @@ export default function DetailsComponent(props: DetailsComponentProps): JSX.Elem
     }, [history]);
 
     return (
-        <Row className='cvat-task-top-bar' justify='space-between' align='middle'>
+        <Row className='clarify-task-top-bar' justify='space-between' align='middle'>
             <Col>
                 {taskInstance.projectId ? (
                     <Button
-                        className='cvat-back-to-project-button'
+                        className='clarify-back-to-project-button'
                         onClick={() => history.push(`/projects/${taskInstance.projectId}`)}
                         type='link'
                         size='large'
@@ -37,7 +37,7 @@ export default function DetailsComponent(props: DetailsComponentProps): JSX.Elem
                     </Button>
                 ) : (
                     <Button
-                        className='cvat-back-to-tasks-button'
+                        className='clarify-back-to-tasks-button'
                         onClick={() => history.push('/tasks')}
                         type='link'
                         size='large'
@@ -58,9 +58,9 @@ export default function DetailsComponent(props: DetailsComponentProps): JSX.Elem
                         />
                     )}
                 >
-                    <Button size='middle' className='cvat-task-page-actions-button'>
-                        <Text className='cvat-text-color'>Actions</Text>
-                        <MoreOutlined className='cvat-menu-icon' />
+                    <Button size='middle' className='clarify-task-page-actions-button'>
+                        <Text className='clarify-text-color'>Actions</Text>
+                        <MoreOutlined className='clarify-menu-icon' />
                     </Button>
                 </Dropdown>
             </Col>

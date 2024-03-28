@@ -12,7 +12,7 @@ import { getInferenceStatusAsync } from 'actions/models-actions';
 import { getCore, Task, Job } from 'clarify-core-wrapper';
 import JobListComponent from 'components/task-page/job-list';
 import ModelRunnerModal from 'components/model-runner-modal/model-runner-dialog';
-import CVATLoadingSpinner from 'components/common/loading-spinner';
+import CLARIFYLoadingSpinner from 'components/common/loading-spinner';
 import MoveTaskModal from 'components/move-task-modal/move-task-modal';
 import { CombinedState } from 'reducers';
 import TopBarComponent from './top-bar';
@@ -75,13 +75,13 @@ function TaskPageComponent(): JSX.Element {
     }, [deletes]);
 
     if (fetchingTask) {
-        return <Spin size='large' className='cvat-spinner' />;
+        return <Spin size='large' className='clarify-spinner' />;
     }
 
     if (!taskInstance) {
         return (
             <Result
-                className='cvat-not-found'
+                className='clarify-not-found'
                 status='404'
                 title='There was something wrong during getting the task'
                 subTitle='Please, be sure, that information you tried to get exist and you are eligible to access it'
@@ -100,7 +100,7 @@ function TaskPageComponent(): JSX.Element {
             }).catch((error: Error) => {
                 notification.error({
                     message: 'Could not update the task',
-                    className: 'cvat-notification-notice-update-task-failed',
+                    className: 'clarify-notification-notice-update-task-failed',
                     description: error.toString(),
                 });
                 reject();
@@ -131,12 +131,12 @@ function TaskPageComponent(): JSX.Element {
     };
 
     return (
-        <div className='cvat-task-page'>
-            { updatingTask ? <CVATLoadingSpinner size='large' /> : null }
+        <div className='clarify-task-page'>
+            { updatingTask ? <CLARIFYLoadingSpinner size='large' /> : null }
             <Row
                 justify='center'
                 align='top'
-                className='cvat-task-details-wrapper'
+                className='clarify-task-details-wrapper'
             >
                 <Col span={22} xl={18} xxl={14}>
                     <TopBarComponent taskInstance={taskInstance} />

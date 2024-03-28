@@ -28,7 +28,7 @@ function UpdateWebhookPage(): JSX.Element {
     }, []);
 
     return (
-        <div className='cvat-create-webhook-page'>
+        <div className='clarify-create-webhook-page'>
             <Row justify='center' align='middle'>
                 <Col md={20} lg={16} xl={14} xxl={9}>
                     <Button className='cvat-webhooks-go-back' onClick={() => history.goBack()} type='link' size='large'>
@@ -37,7 +37,7 @@ function UpdateWebhookPage(): JSX.Element {
                     </Button>
                 </Col>
             </Row>
-            <Row justify='center' align='top' className='cvat-create-webhook-form-wrapper'>
+            <Row justify='center' align='top' className='clarify-create-webhook-form-wrapper'>
                 <Col md={20} lg={16} xl={14} xxl={9}>
                     <SetupWebhookContent webhook={webhook} defaultProjectId={webhook?.projectID || null} />
                 </Col>

@@ -109,7 +109,7 @@
 
     .clarify-task-item-loading-preview,
     .clarify-task-item-empty-preview {
-        @extend .cvat-base-preview;
+        @extend .clarify-base-preview;
 
         font-size: $grid-unit-size * 6;
         height: $grid-unit-size * 10;
@@ -193,5 +193,5 @@
 }
 
 .clarify-item-task-name {
-    @extend .cvat-text-color;
+    @extend .clarify-text-color;
 }

@@ -36,16 +36,16 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                     {goBackContent}
                 </Col>
             </Row>
-            <Row className='cvat-webhooks-page-top-bar' justify='center' align='middle'>
+            <Row className='clarify-webhooks-page-top-bar' justify='center' align='middle'>
                 <Col md={22} lg={18} xl={16} xxl={14}>
-                    <div className='cvat-webhooks-page-filters-wrapper'>
+                    <div className='clarify-webhooks-page-filters-wrapper'>
                         <Input.Search
                             enterButton
                             onSearch={(phrase: string) => {
                                 onApplySearch(phrase);
                             }}
                             defaultValue={query.search || ''}
-                            className='cvat-webhooks-page-search-bar'
+                            className='clarify-webhooks-page-search-bar'
                             placeholder='Search ...'
                         />
                         <div>
@@ -80,8 +80,8 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                             />
                         </div>
                     </div>
-                    <div className='cvat-webhooks-add-wrapper'>
-                        <Button onClick={onCreateWebhook} type='primary' className='cvat-create-webhook' icon={<PlusOutlined />} />
+                    <div className='clarify-webhooks-add-wrapper'>
+                        <Button onClick={onCreateWebhook} type='primary' className='clarify-create-webhook' icon={<PlusOutlined />} />
                     </div>
                 </Col>
             </Row>

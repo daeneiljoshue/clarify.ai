@@ -6,7 +6,7 @@ import Text from 'antd/lib/typography/Text';
 import Progress from 'antd/lib/progress';
 import Modal from 'antd/lib/modal';
 
-import CVATTooltip from 'components/common/clarify-tooltip';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 import { RQStatus } from 'clarify-core-wrapper';
 import { ActiveInference } from 'reducers';
 
@@ -26,7 +26,7 @@ export default function AutomaticAnnotationProgress(props: Props): JSX.Element |
 
     return (
         <Row justify='space-between' align='bottom'>
-            <Col span={22} className='cvat-task-item-progress-wrapper'>
+            <Col span={22} className='clarify-task-item-progress-wrapper'>
                 <div>
                     <Text
                         type={activeInference.status === RQStatus.QUEUED ? undefined : textType}
@@ -76,7 +76,7 @@ export default function AutomaticAnnotationProgress(props: Props): JSX.Element |
             </Col>
             <Col span={1} className='close-auto-annotation-icon'>
                 { activeInference.status !== RQStatus.FAILED && (
-                    <CVATTooltip title='Cancel automatic annotation'>
+                    <CLARIFYTooltip title='Cancel automatic annotation'>
                         <CloseOutlined
                             onClick={() => {
                                 Modal.confirm({
@@ -92,7 +92,7 @@ export default function AutomaticAnnotationProgress(props: Props): JSX.Element |
                                 });
                             }}
                         />
-                    </CVATTooltip>
+                    </CLARIFYTooltip>
                 )}
             </Col>
         </Row>

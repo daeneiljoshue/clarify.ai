@@ -19,8 +19,8 @@ function LogoutComponent(): JSX.Element {
     }, []);
 
     return (
-        <div className='cvat-logout-page cvat-spinner-container'>
-            <Spin className='cvat-spinner' />
+        <div className='clarify-logout-page clarify-spinner-container'>
+            <Spin className='clarify-spinner' />
         </div>
     );
 }

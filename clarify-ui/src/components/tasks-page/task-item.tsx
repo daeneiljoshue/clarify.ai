@@ -95,10 +95,10 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
             <Col span={4}>
                 <Preview
                     task={taskInstance}
-                    loadingClassName='cvat-task-item-loading-preview'
-                    emptyPreviewClassName='cvat-task-item-empty-preview'
-                    previewWrapperClassName='cvat-task-item-preview-wrapper'
-                    previewClassName='cvat-task-item-preview'
+                    loadingClassName='clarify-task-item-loading-preview'
+                    emptyPreviewClassName='clarify-task-item-empty-preview'
+                    previewWrapperClassName='clarify-task-item-preview-wrapper'
+                    previewClassName='clarify-task-item-preview'
                 />
             </Col>
         );
@@ -116,9 +116,9 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
         const name = `${taskInstance.name.substring(0, 70)}${taskInstance.name.length > 70 ? '...' : ''}`;
 
         return (
-            <Col span={10} className='cvat-task-item-description'>
+            <Col span={10} className='clarify-task-item-description'>
                 <Text strong type='secondary' className='cvat-item-task-id'>{`#${id}: `}</Text>
-                <Text strong className='cvat-item-task-name'>
+                <Text strong className='clarify-item-task-name'>
                     {name}
                 </Text>
                 <br />
@@ -146,7 +146,7 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
             return (
                 <Col span={7}>
                     <Row>
-                        <Col span={24} className='cvat-task-item-progress-wrapper'>
+                        <Col span={24} className='clarify-task-item-progress-wrapper'>
                             <div>
                                 <Text
                                     strong
@@ -180,22 +180,22 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
         return (
             <Col span={7}>
                 <Row>
-                    <Col span={24} className='cvat-task-item-progress-wrapper'>
+                    <Col span={24} className='clarify-task-item-progress-wrapper'>
                         <div>
                             { numOfCompleted > 0 && (
-                                <Text strong className='cvat-task-completed-progress'>
+                                <Text strong className='clarify-task-completed-progress'>
                                     {`\u2022 ${numOfCompleted} done `}
                                 </Text>
                             )}
 
                             { numOfValidation > 0 && (
-                                <Text strong className='cvat-task-validation-progress'>
+                                <Text strong className='clarify-task-validation-progress'>
                                     {`\u2022 ${numOfValidation} on review `}
                                 </Text>
                             )}
 
                             { numOfAnnotation > 0 && (
-                                <Text strong className='cvat-task-annotation-progress'>
+                                <Text strong className='clarify-task-annotation-progress'>
                                     {`\u2022 ${numOfAnnotation} annotating `}
                                 </Text>
                             )}
@@ -238,7 +238,7 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
                     <Col>
                         <Button
                             disabled={!!importingState}
-                            className='cvat-item-open-task-button'
+                            className='clarify-item-open-task-button'
                             type='primary'
                             size='large'
                             ghost
@@ -263,9 +263,9 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
                             />
                         )}
                     >
-                        <Col className='cvat-item-open-task-actions'>
-                            <Text className='cvat-text-color'>Actions</Text>
-                            <MoreOutlined className='cvat-menu-icon' />
+                        <Col className='clarify-item-open-task-actions'>
+                            <Text className='clarify-text-color'>Actions</Text>
+                            <MoreOutlined className='clarify-menu-icon' />
                         </Col>
                     </Dropdown>
                 </Row>
@@ -300,7 +300,7 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
                     </div>
                 )}
             >
-                <Row className='cvat-tasks-list-item' justify='center' align='top' style={{ ...style }}>
+                <Row className='clarify-tasks-list-item' justify='center' align='top' style={{ ...style }}>
                     {this.renderPreview()}
                     {this.renderDescription()}
                     {this.renderProgress()}

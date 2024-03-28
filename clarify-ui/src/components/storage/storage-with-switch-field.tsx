@@ -51,7 +51,7 @@ export default function StorageWithSwitchField(props: Props): JSX.Element {
                         <Form.Item
                             name={switchName}
                             valuePropName='checked'
-                            className='cvat-settings-switch cvat-switch-use-default-storage'
+                            className='clarify-settings-switch clarify-switch-use-default-storage'
                         >
                             <Switch
                                 onChange={(value: boolean) => {

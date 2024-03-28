@@ -66,18 +66,18 @@ function SignInLayout(props: SignInLayoutComponentProps): JSX.Element {
     };
     return (
         <Layout>
-            <SVGSigningBackground className='cvat-signing-background' />
-            <Header className='cvat-signing-header'>
+            <SVGSigningBackground className='clarify-signing-background' />
+            <Header className='clarify-signing-header'>
                 <Row justify='center' align='middle'>
                     <Col {...logoSizes}>
-                        <Icon className='cvat-logo-icon' component={CVATLogo} />
+                        <Icon className='clarify-logo-icon' component={CVATLogo} />
                     </Col>
                 </Row>
             </Header>
-            <Layout className='cvat-signing-layout'>
+            <Layout className='clarify-signing-layout'>
                 <Content>
                     <Row justify='center' align='middle' style={{ height: '100%' }}>
-                        <Col {...titleSizes} className='cvat-signing-title'>
+                        <Col {...titleSizes} className='clarify-signing-title'>
                             <Title>Open Data</Title>
                             <Title>Annotation Platform</Title>
                         </Col>

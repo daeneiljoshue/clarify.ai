@@ -114,13 +114,13 @@ interface CLARIFYAppProps {
     isRegistrationEnabled: boolean;
 }
 
-interface CVATAppState {
+interface CLARIFYAppState {
     healthIinitialized: boolean;
     backendIsHealthy: boolean;
 }
 
-class CVATApplication extends React.PureComponent<CLARIFYAppProps & RouteComponentProps, CVATAppState> {
-    constructor(props: ClarifyAppProps & RouteComponentProps) {
+class CLARIFYApplication extends React.PureComponent<CLARIFYAppProps & RouteComponentProps, CLARIFYAppState> {
+    constructor(props: CLARIFYAppProps & RouteComponentProps) {
         super(props);
 
         this.state = {
@@ -196,7 +196,7 @@ class CVATApplication extends React.PureComponent<CLARIFYAppProps & RouteCompone
 
                 Modal.error({
                     title: 'Cannot connect to the server',
-                    className: 'cvat-modal-cannot-connect-server',
+                    className: 'clarify-modal-cannot-connect-server',
                     closable: false,
                     content:
     <Text>
@@ -213,14 +213,14 @@ class CVATApplication extends React.PureComponent<CLARIFYAppProps & RouteCompone
             stopNotifications(false);
             Modal.warning({
                 title: 'Unsupported platform detected',
-                className: 'cvat-modal-unsupported-platform-warning',
+                className: 'clarify-modal-unsupported-platform-warning',
                 content: (
                     <>
                         <Row>
                             <Col>
                                 <Text>
                                     {`The browser you are using is ${name} ${version} based on ${engine}.` +
-                                        ' CVAT was tested in the latest versions of Chrome and Firefox.' +
+                                        ' CLARIFY was tested in the latest versions of Chrome and Firefox.' +
                                         ' We recommend to use Chrome (or another Chromium based browser)'}
                                 </Text>
                             </Col>
@@ -238,10 +238,10 @@ class CVATApplication extends React.PureComponent<CLARIFYAppProps & RouteCompone
             stopNotifications(false);
             Modal.warning({
                 title: 'Unsupported features detected',
-                className: 'cvat-modal-unsupported-features-warning',
+                className: 'clarify-modal-unsupported-features-warning',
                 content: (
                     <Text>
-                        {`${name} v${version} does not support API, which is used by CVAT. `}
+                        {`${name} v${version} does not support API, which is used by CLARIFY. `}
                         It is strongly recommended to update your browser.
                     </Text>
                 ),
@@ -585,14 +585,14 @@ class CVATApplication extends React.PureComponent<CLARIFYAppProps & RouteCompone
 
         if (healthIinitialized && !backendIsHealthy) {
             return (
-                <Space align='center' direction='vertical' className='cvat-spinner'>
-                    <DisconnectOutlined className='cvat-disconnected' />
+                <Space align='center' direction='vertical' className='clarify-spinner'>
+                    <DisconnectOutlined className='clarify-disconnected' />
                     Cannot connect to the server.
                 </Space>
             );
         }
 
-        return <Spin size='large' className='cvat-spinner' tip='Connecting...' />;
+        return <Spin size='large' className='clarify-spinner' tip='Connecting...' />;
     }
 }
 

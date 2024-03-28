@@ -14,7 +14,7 @@ import Paragraph from 'antd/lib/typography/Paragraph';
 
 import { groupEvents } from 'components/setup-webhook-pages/setup-webhook-content';
 import Menu from 'components/dropdown-menu';
-import CVATTooltip from 'components/common/clarify-tooltip';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 import { deleteWebhookAsync } from 'actions/webhooks-actions';
 
 export interface WebhookItemProps {
@@ -30,18 +30,18 @@ function setUpWebhookStatus(status: number): WebhookStatus {
     if (status && status.toString().startsWith('2')) {
         return {
             message: `Last delivery was successful. Response: ${status}`,
-            className: 'cvat-webhook-status-available',
+            className: 'clarify-webhook-status-available',
         };
     }
     if (status && status.toString().startsWith('5')) {
         return {
             message: `Last delivery was not successful. Response: ${status}`,
-            className: 'cvat-webhook-status-failed',
+            className: 'clarify-webhook-status-failed',
         };
     }
     return {
         message: status ? `Response: ${status}` : undefined,
-        className: 'cvat-webhook-status-unavailable',
+        className: 'clarify-webhook-status-unavailable',
     };
 }
 
@@ -68,11 +68,11 @@ function WebhookItem(props: WebhookItemProps): JSX.Element | null {
             <Col span={1}>
                 {
                     webhookStatus.message ? (
-                        <CVATTooltip title={webhookStatus.message} overlayStyle={{ maxWidth: '300px' }}>
+                        <CLARIFYTooltip title={webhookStatus.message} overlayStyle={{ maxWidth: '300px' }}>
                             <svg height='24' width='24' className={webhookStatus.className}>
                                 <circle cx='12' cy='12' r='5' strokeWidth='0' />
                             </svg>
-                        </CVATTooltip>
+                        </CLARIFYTooltip>
                     ) : (
                         <svg height='24' width='24' className={webhookStatus.className}>
                             <circle cx='12' cy='12' r='5' strokeWidth='0' />
@@ -87,8 +87,8 @@ function WebhookItem(props: WebhookItemProps): JSX.Element | null {
                     rows: 2,
                 }}
                 >
-                    <Text strong type='secondary' className='cvat-item-webhook-id'>{`#${id}: `}</Text>
-                    <Text strong className='cvat-item-webhook-description'>{description}</Text>
+                    <Text strong type='secondary' className='clarify-item-webhook-id'>{`#${id}: `}</Text>
+                    <Text strong className='clarify-item-webhook-description'>{description}</Text>
                 </Paragraph>
                 {username && (
                     <>
@@ -104,7 +104,7 @@ function WebhookItem(props: WebhookItemProps): JSX.Element | null {
                     rows: 3,
                 }}
                 >
-                    <Text type='secondary' className='cvat-webhook-info-text'>URL:</Text>
+                    <Text type='secondary' className='clarify-webhook-info-text'>URL:</Text>
                     {targetURL}
                 </Paragraph>
             </Col>
@@ -114,7 +114,7 @@ function WebhookItem(props: WebhookItemProps): JSX.Element | null {
                     rows: 3,
                 }}
                 >
-                    <Text type='secondary' className='cvat-webhook-info-text'>Events:</Text>
+                    <Text type='secondary' className='clarify-webhook-info-text'>Events:</Text>
                     {eventsList}
                 </Paragraph>
             </Col>
@@ -122,7 +122,7 @@ function WebhookItem(props: WebhookItemProps): JSX.Element | null {
                 <Row justify='end'>
                     <Col>
                         <Button
-                            className='cvat-item-ping-webhook-button'
+                            className='clarify-item-ping-webhook-button'
                             type='primary'
                             disabled={pingFetching}
                             loading={pingFetching}
@@ -168,7 +168,7 @@ function WebhookItem(props: WebhookItemProps): JSX.Element | null {
                                             Modal.confirm({
                                                 title: 'Are you sure you want to remove the hook?',
                                                 content: 'It will stop notificating the specified URL about listed events',
-                                                className: 'cvat-modal-confirm-remove-webhook',
+                                                className: 'clarify-modal-confirm-remove-webhook',
                                                 onOk: () => {
                                                     dispatch(deleteWebhookAsync(webhookInstance)).then(() => {
                                                         setIsRemoved(true);
@@ -182,9 +182,9 @@ function WebhookItem(props: WebhookItemProps): JSX.Element | null {
                                 </Menu>
                             )}
                         >
-                            <div className='cvat-webhooks-page-actions-button'>
-                                <Text className='cvat-text-color'>Actions</Text>
-                                <MoreOutlined className='cvat-menu-icon' />
+                            <div className='clarify-webhooks-page-actions-button'>
+                                <Text className='clarify-text-color'>Actions</Text>
+                                <MoreOutlined className='clarify-menu-icon' />
                             </div>
                         </Dropdown>
                     </Col>

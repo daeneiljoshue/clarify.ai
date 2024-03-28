@@ -75,19 +75,19 @@ export default function StorageField(props: Props): JSX.Element {
                         if (onChangeLocationValue) onChangeLocationValue(StorageLocation.LOCAL);
                     }}
                     allowClear
-                    className={`cvat-select-${storageType}`}
+                    className={`clarify-select-${storageType}`}
                 >
                     <Option
                         value={StorageLocation.LOCAL}
                         key={`${storageType}-${StorageLocation.LOCAL.toLowerCase()}`}
-                        className={`cvat-select-${storageType}-location`}
+                        className={`clarify-select-${storageType}-location`}
                     >
                         Local
                     </Option>
                     <Option
                         value={StorageLocation.CLOUD_STORAGE}
                         key={`${storageType}-${StorageLocation.CLOUD_STORAGE.toLowerCase()}`}
-                        className={`cvat-select-${storageType}-location`}
+                        className={`clarify-select-${storageType}-location`}
                     >
                         Cloud storage
                     </Option>

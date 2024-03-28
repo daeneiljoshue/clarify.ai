@@ -13,7 +13,7 @@ import { SortingComponent, ResourceFilterHOC, defaultVisibility } from 'componen
 import { TasksQuery } from 'reducers';
 import { usePrevious } from 'utils/hooks';
 import { MultiPlusIcon } from 'icons';
-import CvatDropdownMenuPaper from 'components/common/clarify-dropdown-menu-paper';
+import ClarifyDropdownMenuPaper from 'components/common/clarify-dropdown-menu-paper';
 import {
     localStorageRecentKeyword, localStorageRecentCapacity, predefinedFilterValues, config,
 } from './tasks-filter-configuration';
@@ -48,16 +48,16 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
     }, [importing]);
 
     return (
-        <Row className='cvat-tasks-page-top-bar' justify='center' align='middle'>
+        <Row className='clarify-tasks-page-top-bar' justify='center' align='middle'>
             <Col {...dimensions}>
-                <div className='cvat-tasks-page-filters-wrapper'>
+                <div className='clarify-tasks-page-filters-wrapper'>
                     <Input.Search
                         enterButton
                         onSearch={(phrase: string) => {
                             onApplySearch(phrase);
                         }}
                         defaultValue={query.search || ''}
-                        className='cvat-tasks-page-search-bar'
+                        className='clarify-tasks-page-search-bar'
                         placeholder='Search ...'
                     />
                     <div>
@@ -93,9 +93,9 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                         trigger={['click']}
                         destroyPopupOnHide
                         overlay={(
-                            <CvatDropdownMenuPaper>
+                            <ClarifyDropdownMenuPaper>
                                 <Button
-                                    className='cvat-create-task-button'
+                                    className='clarify-create-task-button'
                                     type='primary'
                                     onClick={(): void => history.push('/tasks/create')}
                                     icon={<PlusOutlined />}
@@ -103,7 +103,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                                     Create a new task
                                 </Button>
                                 <Button
-                                    className='cvat-create-multi-tasks-button'
+                                    className='clarify-create-multi-tasks-button'
                                     type='primary'
                                     onClick={(): void => history.push('/tasks/create?many=true')}
                                     icon={<span className='anticon'><MultiPlusIcon /></span>}
@@ -111,7 +111,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                                     Create multi tasks
                                 </Button>
                                 <Button
-                                    className='cvat-import-task-button'
+                                    className='clarify-import-task-button'
                                     type='primary'
                                     disabled={importing}
                                     icon={<UploadOutlined />}
@@ -120,10 +120,10 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                                     Create from backup
                                     {importing && <LoadingOutlined />}
                                 </Button>
-                            </CvatDropdownMenuPaper>
+                            </ClarifyDropdownMenuPaper>
                         )}
                     >
-                        <Button type='primary' className='cvat-create-task-dropdown' icon={<PlusOutlined />} />
+                        <Button type='primary' className='clarify-create-task-dropdown' icon={<PlusOutlined />} />
                     </Dropdown>
                 </div>
             </Col>

@@ -31,13 +31,13 @@ export default function UpdateCloudStoragePageComponent(): JSX.Element {
     }, [isFetching]);
 
     if (!cloudStorage && !isInitialized) {
-        return <Spin size='large' className='cvat-spinner' />;
+        return <Spin size='large' className='clarify-spinner' />;
     }
 
     if (!cloudStorage) {
         return (
             <Result
-                className='cvat-not-found'
+                className='clarify-not-found'
                 status='404'
                 title={`Sorry, but the cloud storage #${cloudStorageId} was not found`}
                 subTitle='Please, be sure id you requested exists and you have appropriate permissions'
@@ -46,7 +46,7 @@ export default function UpdateCloudStoragePageComponent(): JSX.Element {
     }
 
     return (
-        <Row justify='center' align='top' className='cvat-update-cloud-storage-form-wrapper'>
+        <Row justify='center' align='top' className='clarify-update-cloud-storage-form-wrapper'>
             <Col md={20} lg={16} xl={14} xxl={9}>
                 <Text className='cvat-title'>{`Update cloud storage #${cloudStorageId}`}</Text>
                 <CreateCloudStorageForm cloudStorage={cloudStorage} />

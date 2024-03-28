@@ -13,7 +13,7 @@ import Button from 'antd/lib/button';
 import { CopyOutlined, PlusOutlined } from '@ant-design/icons';
 import { Task, Job } from 'clarify-core-wrapper';
 import JobItem from 'components/job-item/job-item';
-import CVATTooltip from 'components/common/clarify-tooltip';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 import {
     SortingComponent, ResourceFilterHOC, defaultVisibility, updateHistoryFromQuery,
 } from 'components/resource-sorting-filtering';
@@ -93,14 +93,14 @@ function JobListComponent(props: Props): JSX.Element {
 
     return (
         <>
-            <div className='cvat-jobs-list-filters-wrapper'>
+            <div className='clarify-jobs-list-filters-wrapper'>
                 <Row>
                     <Col>
-                        <Text className='cvat-text-color cvat-jobs-header'> Jobs </Text>
+                        <Text className='clarify-text-color cvat-jobs-header'> Jobs </Text>
                     </Col>
-                    <CVATTooltip trigger='click' title='Copied to clipboard!'>
+                    <CLARIFYTooltip trigger='click' title='Copied to clipboard!'>
                         <Button
-                            className='cvat-copy-job-details-button'
+                            className='clarify-copy-job-details-button'
                             type='link'
                             onClick={(): void => {
                                 let serialized = '';
@@ -129,7 +129,7 @@ function JobListComponent(props: Props): JSX.Element {
                             <CopyOutlined />
                             Copy
                         </Button>
-                    </CVATTooltip>
+                    </CLARIFYTooltip>
                 </Row>
                 <Row>
                     <SortingComponent
@@ -167,8 +167,8 @@ function JobListComponent(props: Props): JSX.Element {
                             });
                         }}
                     />
-                    <div className='cvat-job-add-wrapper'>
-                        <Button onClick={onCreateJob} type='primary' className='cvat-create-job' icon={<PlusOutlined />} />
+                    <div className='clarify-job-add-wrapper'>
+                        <Button onClick={onCreateJob} type='primary' className='clarify-create-job' icon={<PlusOutlined />} />
                     </div>
                 </Row>
             </div>
@@ -176,15 +176,15 @@ function JobListComponent(props: Props): JSX.Element {
             {
                 jobViews.length ? (
                     <>
-                        <div className='cvat-task-job-list'>
-                            <Col className='cvat-jobs-list'>
+                        <div className='clarify-task-job-list'>
+                            <Col className='clarify-jobs-list'>
                                 {jobViews}
                             </Col>
                         </div>
                         <Row justify='center' align='middle'>
                             <Col>
                                 <Pagination
-                                    className='cvat-tasks-pagination'
+                                    className='clarify-tasks-pagination'
                                     onChange={(page: number) => {
                                         setQuery({
                                             ...query,

@@ -22,9 +22,9 @@ import { getServerAPISchemaAsync } from 'actions/server-actions';
 import { CombinedState, NotificationsState, PluginsState } from './reducers';
 
 
-createCVATStore(createRootReducer);
+createCLARIFYStore(createRootReducer);
 
-const cvatStore = getCLARIFYStore();
+const clarifyStore = getCLARIFYStore();
 
 interface StateToProps {
     pluginsInitialized: boolean;
@@ -116,10 +116,10 @@ function mapDispatchToProps(dispatch: any): DispatchToProps {
     };
 }
 
-const ReduxAppWrapper = connect(mapStateToProps, mapDispatchToProps)(CVATApplication);
+const ReduxAppWrapper = connect(mapStateToProps, mapDispatchToProps)(CLARIFYApplication);
 
 ReactDOM.render(
-    <Provider store={cvatStore}>
+    <Provider store={clarifyStore}>
         <BrowserRouter>
             <PluginsEntrypoint />
             <ReduxAppWrapper />
@@ -154,7 +154,7 @@ window.addEventListener('error', (errorEvent: ErrorEvent): boolean => {
             stack: errorEvent.error.stack,
         };
 
-        const store = getCVATStore();
+        const store = getCLARIFYStore();
         const state: CombinedState = store.getState();
         const { pathname } = window.location;
         const re = /\/tasks\/[0-9]+\/jobs\/[0-9]+$/;

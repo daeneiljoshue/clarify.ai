@@ -40,7 +40,7 @@ function PluginEntrypoint(): null {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        Object.defineProperty(window, 'cvatUI', {
+        Object.defineProperty(window, 'clarifyUI', {
             value: Object.freeze({
                 registerComponent: (componentBuilder: ComponentBuilder) => {
                     const { name, destructor, globalStateDidUpdate } = componentBuilder({

@@ -325,14 +325,14 @@ $social-google-background: #4286f5;
 }
 
 .clarify-register-form-wrapper-extended {
-    @extend .cvat-login-form-wrapper;
+    @extend .clarify-login-form-wrapper;
 
     .clarify-register-form-last-field {
         margin-bottom: $grid-unit-size;
     }
 
     .clarify-register-form {
-        @extend .cvat-signing-form;
+        @extend .clarify-signing-form;
 
         height: $grid-unit-size * 76;
     }

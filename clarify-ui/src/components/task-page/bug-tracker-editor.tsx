@@ -30,7 +30,7 @@ export default function BugTrackerEditorComponent(props: Props): JSX.Element {
                     onOk: () => {
                         shown = false;
                     },
-                    className: 'cvat-modal-issue-tracker-update-task-fail',
+                    className: 'clarify-modal-issue-tracker-update-task-fail',
                 });
                 shown = true;
             }
@@ -43,12 +43,12 @@ export default function BugTrackerEditorComponent(props: Props): JSX.Element {
 
     if (bugTracker) {
         return (
-            <Row className='cvat-issue-tracker'>
+            <Row className='clarify-issue-tracker'>
                 <Col>
-                    <Text strong className='cvat-text-color'>
+                    <Text strong className='clarify-text-color'>
                         Issue Tracker
                     </Text>
-                    <Text editable={{ onChange: onChangeValue }} className='cvat-issue-tracker-value'>
+                    <Text editable={{ onChange: onChangeValue }} className='clarify-issue-tracker-value'>
                         {bugTracker}
                     </Text>
                     <br />
@@ -57,7 +57,7 @@ export default function BugTrackerEditorComponent(props: Props): JSX.Element {
                         onClick={(): void => {
                             window.open(bugTracker, '_blank');
                         }}
-                        className='cvat-open-bug-tracker-button'
+                        className='clarify-open-bug-tracker-button'
                     >
                         Open the issue
                     </Button>
@@ -67,13 +67,13 @@ export default function BugTrackerEditorComponent(props: Props): JSX.Element {
     }
 
     return (
-        <Row className='cvat-issue-tracker'>
+        <Row className='clarify-issue-tracker'>
             <Col>
-                <Text strong className='cvat-text-color'>
+                <Text strong className='clarify-text-color'>
                     Issue Tracker
                 </Text>
                 <Text
-                    className='cvat-issue-tracker-value'
+                    className='clarify-issue-tracker-value'
                     editable={{
                         editing: bugTrackerEditing,
                         onStart,

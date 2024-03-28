@@ -14,7 +14,7 @@ function EmptyListComponent(props: Props): JSX.Element {
     const { query } = props;
 
     return (
-        <div className='cvat-empty-tasks-list'>
+        <div className='clarify-empty-tasks-list'>
             <Empty description={!query.filter && !query.search && !query.page ? (
                 <>
                     <Row justify='center' align='middle'>

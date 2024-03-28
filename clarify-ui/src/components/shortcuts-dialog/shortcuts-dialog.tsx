@@ -92,13 +92,13 @@ function ShortcutsDialog(props: StateToProps & DispatchToProps): JSX.Element | n
             onOk={() => switchShortcutsModalVisible(false)}
             cancelButtonProps={{ style: { display: 'none' } }}
             zIndex={1001} /* default antd is 1000 */
-            className='cvat-shortcuts-modal-window'
+            className='clarify-shortcuts-modal-window'
         >
             <Table
                 dataSource={dataSource}
                 columns={columns}
                 size='small'
-                className='cvat-shortcuts-modal-window-table'
+                className='clarify-shortcuts-modal-window-table'
             />
         </Modal>
     );

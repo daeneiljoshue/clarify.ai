@@ -41,7 +41,7 @@ function WebhooksPage(): JSX.Element | null {
 
     const goBackContent = (
         <Button
-            className='cvat-webhooks-go-back'
+            className='clarify-webhooks-go-back'
             onClick={() => history.push(projectsMatch ? `/projects/${projectsMatch.params.id}` : '/organization')}
             type='link'
             size='large'
@@ -84,7 +84,7 @@ function WebhooksPage(): JSX.Element | null {
             <Row justify='center' align='middle'>
                 <Col md={22} lg={18} xl={16} xxl={14}>
                     <Pagination
-                        className='cvat-tasks-pagination'
+                        className='clarify-tasks-pagination'
                         onChange={(page: number) => {
                             dispatch(getWebhooksAsync({
                                 ...query,
@@ -103,7 +103,7 @@ function WebhooksPage(): JSX.Element | null {
     ) : <EmptyWebhooksListComponent query={query} />;
 
     return (
-        <div className='cvat-webhooks-page'>
+        <div className='clarify-webhooks-page'>
             <TopBar
                 query={updatedQuery}
                 onCreateWebhook={onCreateWebhook}
@@ -137,8 +137,8 @@ function WebhooksPage(): JSX.Element | null {
                 }}
             />
             { fetching ? (
-                <div className='cvat-empty-webhooks-list'>
-                    <Spin size='large' className='cvat-spinner' />
+                <div className='clarify-empty-webhooks-list'>
+                    <Spin size='large' className='clarify-spinner' />
                 </div>
             ) : content }
         </div>
