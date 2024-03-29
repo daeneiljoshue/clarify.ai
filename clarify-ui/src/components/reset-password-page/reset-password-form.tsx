@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Form from 'antd/lib/form';
 import Button from 'antd/lib/button';
@@ -8,7 +7,7 @@ import { BackArrowIcon } from 'icons';
 import { Col, Row } from 'antd/lib/grid';
 import { Link } from 'react-router-dom';
 import Title from 'antd/lib/typography/Title';
-import CVATSigningInput from 'components/signing-common/cvat-signing-input';
+import CLARIFYSigningInput from 'components/signing-common/clarify-signing-input';
 import { useAuthQuery } from 'utils/hooks';
 
 export interface ResetPasswordData {
@@ -25,8 +24,8 @@ function ResetPasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element 
     const authQuery = useAuthQuery();
     const defaultCredential = authQuery?.email;
     return (
-        <div className='cvat-password-reset-form-wrapper'>
-            <Row justify='space-between' className='cvat-credentials-navigation'>
+        <div className='clarify-password-reset-form-wrapper'>
+            <Row justify='space-between' className='clarify-credentials-navigation'>
                 <Icon
                     component={() => (
                         <Link to={{
@@ -51,7 +50,7 @@ function ResetPasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element 
             </Row>
             <Form
                 form={form}
-                className='cvat-password-reset-form'
+                className='clarify-password-reset-form'
                 initialValues={{
                     email: defaultCredential,
                 }}
@@ -60,7 +59,7 @@ function ResetPasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element 
                 }}
             >
                 <Form.Item
-                    className='cvat-credentials-form-item'
+                    className='clarify-credentials-form-item'
                     name='email'
                     rules={[
                         {
@@ -73,20 +72,20 @@ function ResetPasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element 
                         },
                     ]}
                 >
-                    <CVATSigningInput
+                    <CLARIFYSigningInput
                         autoComplete='email'
                         placeholder='Email'
                         onReset={() => form.setFieldsValue({ email: '' })}
                     />
                 </Form.Item>
                 <Row>
-                    <Col className='cvat-password-reset-tip'>
+                    <Col className='clarify-password-reset-tip'>
                         <Text> We will send link to your email </Text>
                     </Col>
                 </Row>
                 <Form.Item>
                     <Button
-                        className='cvat-credentials-action-button'
+                        className='clarify-credentials-action-button'
                         loading={fetching}
                         htmlType='submit'
                     >

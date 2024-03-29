@@ -1,4 +1,3 @@
-
 import React, { useCallback, useRef } from 'react';
 
 import { ShapeType } from 'clarify-core-wrapper';
@@ -35,7 +34,7 @@ function ConstructorUpdater(props: Props): JSX.Element {
     }, [skeletonConfiguratorRef]);
 
     return (
-        <div className='cvat-label-constructor-updater'>
+        <div className='clarify-label-constructor-updater'>
             <LabelForm
                 label={label}
                 labelNames={labelNames}

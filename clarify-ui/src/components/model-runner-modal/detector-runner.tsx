@@ -1,4 +1,3 @@
-
 import './styles.scss';
 import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'antd/lib/grid';
@@ -9,7 +8,7 @@ import Button from 'antd/lib/button';
 import Switch from 'antd/lib/switch';
 import notification from 'antd/lib/notification';
 
-import CVATTooltip from 'components/common/clarify-tooltip';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 import { clamp } from 'utils/math';
 import {
     MLModel, ModelKind, ModelReturnType, DimensionType, Label,
@@ -92,7 +91,7 @@ function DetectorRunner(props: Props): JSX.Element {
                 input_type: attr.inputType,
                 values: [...attr.values],
             })),
-            sublabels: (label.structure?.sublabels || []).map((sublabel: { name: any; type: any; color: any; attributes: any[]; }) => ({
+            sublabels: (label.structure?.sublabels || []).map((sublabel) => ({
                 name: sublabel.name,
                 type: sublabel.type,
                 color: sublabel.color,
@@ -106,7 +105,7 @@ function DetectorRunner(props: Props): JSX.Element {
 
         setTaskLabels(converted);
         if (model) {
-            setModelLabels(model.labels);
+            setModelLabels(modelLabels);
             if (!model.labels.length && model.kind !== ModelKind.REID) {
                 notification.warning({ message: 'This model does not have specified labels' });
             }
@@ -116,7 +115,7 @@ function DetectorRunner(props: Props): JSX.Element {
     }, [labels, model]);
 
     return (
-        <div className='cvat-run-model-content'>
+        <div className='clarify-run-model-content'>
             <Row align='middle'>
                 <Col span={4}>Model:</Col>
                 <Col span={20}>
@@ -175,7 +174,7 @@ function DetectorRunner(props: Props): JSX.Element {
                             <Text>Threshold</Text>
                         </Col>
                         <Col offset={1}>
-                            <CVATTooltip title='Minimum similarity value for shapes that can be merged'>
+                            <CLARIFYTooltip title='Minimum similarity value for shapes that can be merged'>
                                 <InputNumber
                                     min={0.01}
                                     step={0.01}
@@ -187,7 +186,7 @@ function DetectorRunner(props: Props): JSX.Element {
                                         }
                                     }}
                                 />
-                            </CVATTooltip>
+                            </CLARIFYTooltip>
                         </Col>
                     </Row>
                     <Row align='middle' justify='start'>
@@ -195,7 +194,7 @@ function DetectorRunner(props: Props): JSX.Element {
                             <Text>Maximum distance</Text>
                         </Col>
                         <Col offset={1}>
-                            <CVATTooltip title='Maximum distance between shapes that can be merged'>
+                            <CLARIFYTooltip title='Maximum distance between shapes that can be merged'>
                                 <InputNumber
                                     placeholder='Threshold'
                                     min={1}
@@ -206,7 +205,7 @@ function DetectorRunner(props: Props): JSX.Element {
                                         }
                                     }}
                                 />
-                            </CVATTooltip>
+                            </CLARIFYTooltip>
                         </Col>
                     </Row>
                 </div>
@@ -214,7 +213,7 @@ function DetectorRunner(props: Props): JSX.Element {
             <Row align='middle' justify='end'>
                 <Col>
                     <Button
-                        className='cvat-inference-run-button'
+                        className='clarify-inference-run-button'
                         disabled={!buttonEnabled}
                         type='primary'
                         onClick={() => {

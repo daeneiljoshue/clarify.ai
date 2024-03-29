@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Col, Row } from 'antd/lib/grid';
@@ -22,7 +21,7 @@ function JobsContentComponent(props: Props): JSX.Element {
 
     return (
         <Row justify='center' align='middle'>
-            <Col className='cvat-jobs-page-list' {...dimensions}>
+            <Col className='clarify-jobs-page-list' {...dimensions}>
                 {jobs.filter((job: Job) => job.type === JobType.ANNOTATION).map((job: Job): JSX.Element => (
                     <JobCard onJobUpdate={onJobUpdate} job={job} key={job.id} />
                 ))}

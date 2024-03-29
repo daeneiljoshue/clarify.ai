@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import Button from 'antd/lib/button';
@@ -43,7 +42,7 @@ function ConstructorViewer(props: ConstructorViewerProps): JSX.Element {
         );
     }
 
-    return <div className='cvat-constructor-viewer'>{list}</div>;
+    return <div className='clarify-constructor-viewer'>{list}</div>;
 }
 
 export default React.memo(ConstructorViewer);

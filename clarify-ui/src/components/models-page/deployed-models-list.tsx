@@ -1,4 +1,3 @@
-
 import React from 'react';
 import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
@@ -42,13 +41,13 @@ export default function DeployedModelsListComponent(props: Props): JSX.Element {
     return (
         <>
             <Row justify='center' align='top'>
-                <Col md={22} lg={18} xl={16} xxl={16} className='cvat-models-list'>
+                <Col md={22} lg={18} xl={16} xxl={16} className='clarify-models-list'>
                     {items}
                 </Col>
             </Row>
             <Row justify='center' align='middle'>
                 <Pagination
-                    className='cvat-tasks-pagination'
+                    className='clarify-tasks-pagination'
                     onChange={(newPage: number) => {
                         dispatch(getModelsAsync({
                             ...query,

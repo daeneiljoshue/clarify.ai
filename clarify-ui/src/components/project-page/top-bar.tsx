@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useHistory } from 'react-router';
 import { Row, Col } from 'antd/lib/grid';
@@ -20,10 +19,10 @@ export default function ProjectTopBar(props: DetailsComponentProps): JSX.Element
     const history = useHistory();
 
     return (
-        <Row className='cvat-task-top-bar' justify='space-between' align='middle'>
+        <Row className='clarify-task-top-bar' justify='space-between' align='middle'>
             <Col>
                 <Button
-                    className='cvat-back-to-projects-button'
+                    className='clarify-back-to-projects-button'
                     onClick={() => history.push('/projects')}
                     type='link'
                     size='large'
@@ -32,15 +31,15 @@ export default function ProjectTopBar(props: DetailsComponentProps): JSX.Element
                     Back to projects
                 </Button>
             </Col>
-            <Col className='cvat-project-top-bar-actions'>
+            <Col className='clarify-project-top-bar-actions'>
                 <Dropdown
                     destroyPopupOnHide
                     trigger={['click']}
                     overlay={<ActionsMenu projectInstance={projectInstance} />}
                 >
-                    <Button size='middle' className='cvat-project-page-actions-button'>
-                        <Text className='cvat-text-color'>Actions</Text>
-                        <MoreOutlined className='cvat-menu-icon' />
+                    <Button size='middle' className='clarify-project-page-actions-button'>
+                        <Text className='clarify-text-color'>Actions</Text>
+                        <MoreOutlined className='clarify-menu-icon' />
                     </Button>
                 </Dropdown>
             </Col>

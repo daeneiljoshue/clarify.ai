@@ -1,4 +1,3 @@
-
 import './styles.scss';
 
 import React, { useEffect, useState } from 'react';
@@ -23,7 +22,7 @@ import {
 } from 'clarify-core-wrapper';
 import { useIsMounted } from 'utils/hooks';
 import UserSelector from 'components/task-page/user-selector';
-import CVATTooltip from 'components/common/clarify-tooltip';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 import JobActionsMenu from './job-actions-menu';
 
 interface Props {
@@ -164,9 +163,9 @@ function JobItem(props: Props): JSX.Element {
                                                 <Text>Stage:</Text>
                                             </Col>
                                             <Col>
-                                                <CVATTooltip title={<ReviewSummaryComponent jobInstance={job} />}>
+                                                <CLARIFYTooltip title={<ReviewSummaryComponent jobInstance={job} />}>
                                                     <QuestionCircleOutlined />
-                                                </CVATTooltip>
+                                                </CLARIFYTooltip>
                                             </Col>
                                         </Row>
                                         <Select

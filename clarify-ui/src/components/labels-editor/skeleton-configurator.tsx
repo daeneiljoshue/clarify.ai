@@ -1,4 +1,3 @@
-
 import React, { CSSProperties } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'antd/lib/grid';
@@ -14,7 +13,7 @@ import Icon, {
 
 import { PointIcon } from 'icons';
 import GlobalHotKeys from 'utils/mousetrap-react';
-import CVATTooltip from 'components/common/clarify-tooltip';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 import ShortcutsContext from 'components/shortcuts.context';
 import { LabelType, ShapeType } from 'clarify-core-wrapper';
 import config from 'config';
@@ -657,7 +656,7 @@ export default class SkeletonConfigurator extends React.PureComponent<Props, Sta
         const disabledStyle: CSSProperties = disabled ? { opacity: 0.5, pointerEvents: 'none' } : {};
 
         return (
-            <Row className='cvat-skeleton-configurator'>
+            <Row className='clarify-skeleton-configurator'>
                 <GlobalHotKeys
                     keyMap={{
                         CANCEL_SKELETON_EDGE: keyMap.CANCEL_SKELETON_EDGE,
@@ -704,7 +703,7 @@ export default class SkeletonConfigurator extends React.PureComponent<Props, Sta
                     />
                 ) : null}
                 <div>
-                    <div className='cvat-skeleton-configurator-image-dragger'>
+                    <div className='clarify-skeleton-configurator-image-dragger'>
                         <Upload
                             accept='.jpg,.jpeg,.png'
                             showUploadList={false}
@@ -722,16 +721,16 @@ export default class SkeletonConfigurator extends React.PureComponent<Props, Sta
                             }}
                         >
                             <p className='ant-upload-drag-icon'>
-                                <CVATTooltip title='Upload a background image'>
-                                    <Button className='cvat-upload-skeleton-constructor-background' icon={<PictureOutlined />} />
-                                </CVATTooltip>
+                                <CLARIFYTooltip title='Upload a background image'>
+                                    <Button className='clarify-upload-skeleton-constructor-background' icon={<PictureOutlined />} />
+                                </CLARIFYTooltip>
                             </p>
                         </Upload>
                     </div>
                     <Row
                         justify='center'
                         style={disabledStyle}
-                        className='cvat-skeleton-configurator-shape-buttons'
+                        className='clarify-skeleton-configurator-shape-buttons'
                     >
                         <Col span={24}>
                             <Radio.Group
@@ -740,36 +739,36 @@ export default class SkeletonConfigurator extends React.PureComponent<Props, Sta
                                     this.setState({ activeTool: e.target.value });
                                 }}
                             >
-                                <CVATTooltip title='Click the canvas to add a point'>
+                                <CLARIFYTooltip title='Click the canvas to add a point'>
                                     <Radio.Button defaultChecked value='point'>
                                         <Icon component={PointIcon} />
                                     </Radio.Button>
-                                </CVATTooltip>
+                                </CLARIFYTooltip>
 
-                                <CVATTooltip title='Click and drag points'>
+                                <CLARIFYTooltip title='Click and drag points'>
                                     <Radio.Button defaultChecked value='drag'>
                                         <DragOutlined />
                                     </Radio.Button>
-                                </CVATTooltip>
+                                </CLARIFYTooltip>
 
-                                <CVATTooltip title='Click two points to setup an edge'>
+                                <CLARIFYTooltip title='Click two points to setup an edge'>
                                     <Radio.Button value='join'>
                                         <LineOutlined />
                                     </Radio.Button>
-                                </CVATTooltip>
+                                </CLARIFYTooltip>
 
-                                <CVATTooltip title='Click an element to remove it'>
+                                <CLARIFYTooltip title='Click an element to remove it'>
                                     <Radio.Button value='delete'>
                                         <DeleteOutlined />
                                     </Radio.Button>
-                                </CVATTooltip>
+                                </CLARIFYTooltip>
                             </Radio.Group>
                         </Col>
                     </Row>
-                    <Row justify='space-between' className='cvat-skeleton-configurator-svg-buttons'>
-                        <CVATTooltip title='Download skeleton as SVG'>
+                    <Row justify='space-between' className='clarify-skeleton-configurator-svg-buttons'>
+                        <CLARIFYTooltip title='Download skeleton as SVG'>
                             <Button
-                                className='cvat-download-skeleton-svg-button'
+                                className='clarify-download-skeleton-svg-button'
                                 type='default'
                                 icon={<DownloadOutlined />}
                                 onClick={() => {
@@ -813,7 +812,7 @@ export default class SkeletonConfigurator extends React.PureComponent<Props, Sta
                                     }
                                 }}
                             />
-                        </CVATTooltip>
+                        </CLARIFYTooltip>
                         <Upload
                             disabled={disabled}
                             showUploadList={false}
@@ -860,19 +859,19 @@ export default class SkeletonConfigurator extends React.PureComponent<Props, Sta
                                 return false;
                             }}
                         >
-                            <CVATTooltip title='Upload a skeleton from SVG'>
+                            <CLARIFYTooltip title='Upload a skeleton from SVG'>
                                 <Button
-                                    className='cvat-upload-skeleton-svg-button'
+                                    className='clarify-upload-skeleton-svg-button'
                                     style={disabledStyle}
                                     icon={<UploadOutlined />}
                                     type='default'
                                 />
-                            </CVATTooltip>
+                            </CLARIFYTooltip>
                         </Upload>
                     </Row>
                 </div>
                 <div className='clarify-skeleton-canvas-wrapper' style={disabledStyle}>
-                    <canvas ref={canvasRef} className='cvat-skeleton-configurator-canvas' />
+                    <canvas ref={canvasRef} className='clarify-skeleton-configurator-canvas' />
                     <svg width={100} height={100} ref={svgRef} className='clarify-skeleton-configurator-svg' />
                 </div>
                 { error !== null && <Alert type='error' message={error} /> }

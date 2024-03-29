@@ -1,4 +1,3 @@
-
 import './styles.scss';
 import React, {
     useState, useEffect, useCallback, useRef,
@@ -11,8 +10,8 @@ import notification from 'antd/lib/notification';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
 import ProjectSearch from 'components/create-task-page/project-search-field';
-import CVATLoadingSpinner from 'components/common/loading-spinner';
-import CVATTooltip from 'components/common/clarify-tooltip';
+import CLARIFYLoadingSpinner from 'components/common/loading-spinner';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 import { CombinedState } from 'reducers';
 import { switchMoveTaskModalVisible } from 'actions/tasks-actions';
 import { getCore, Task, Label } from 'clarify-core-wrapper';
@@ -104,7 +103,7 @@ function MoveTaskModal({
                 }
             }).catch((error: Error) => notification.error({
                 message: 'Could not update the task',
-                className: 'cvat-notification-notice-update-task-failed',
+                className: 'clarify-notification-notice-update-task-failed',
                 description: error.toString(),
             }));
         }
@@ -178,14 +177,14 @@ function MoveTaskModal({
                 <span>
                     {`Move task ${taskInstance?.id} to project`}
                     {/* TODO: replace placeholder */}
-                    <CVATTooltip title='Some moving process description here'>
+                    <CLARIFYTooltip title='Some moving process description here'>
                         <QuestionCircleOutlined className='ant-typography-secondary' />
-                    </CVATTooltip>
+                    </CLARIFYTooltip>
                 </span>
             )}
             className='cvat-task-move-modal'
         >
-            { taskFetching && <CVATLoadingSpinner size='large' /> }
+            { taskFetching && <CLARIFYLoadingSpinner size='large' /> }
             <Row align='middle'>
                 <Col>Project:</Col>
                 <Col>

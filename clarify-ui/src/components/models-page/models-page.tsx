@@ -1,4 +1,3 @@
-
 import './styles.scss';
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
@@ -50,7 +49,7 @@ function ModelsPageComponent(): JSX.Element {
     ) : <EmptyListComponent />;
 
     return (
-        <div className='cvat-models-page'>
+        <div className='clarify-models-page'>
             <TopBar
                 disabled
                 query={updatedQuery}
@@ -83,7 +82,7 @@ function ModelsPageComponent(): JSX.Element {
                 }}
             />
             { fetching ? (
-                <div className='cvat-empty-models-list'>
+                <div className='clarify-empty-models-list'>
                     <Spin size='large' className='cvat-spinner' />
                 </div>
             ) : content }

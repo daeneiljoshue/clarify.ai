@@ -1,4 +1,3 @@
-
 import React from 'react';
 import moment from 'moment';
 import { useSelector } from 'react-redux';
@@ -21,8 +20,8 @@ interface Props {
 }
 
 const useCardHeight = useCardHeightHOC({
-    containerClassName: 'cvat-projects-page',
-    siblingClassNames: ['cvat-projects-pagination', 'cvat-projects-page-top-bar'],
+    containerClassName: 'clarify-projects-page',
+    siblingClassNames: ['clarify-projects-pagination', 'clarify-projects-page-top-bar'],
     paddings: 40,
     minHeight: 200,
     numberOfRows: 3,

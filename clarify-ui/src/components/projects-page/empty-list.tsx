@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Text from 'antd/lib/typography/Text';
@@ -12,7 +11,7 @@ interface Props {
 export default function EmptyListComponent(props: Props): JSX.Element {
     const { notFound } = props;
     return (
-        <div className='cvat-empty-projects-list'>
+        <div className='clarify-empty-projects-list'>
             <Empty description={notFound ? (
                 <Text strong>No results matched your search...</Text>
             ) : (

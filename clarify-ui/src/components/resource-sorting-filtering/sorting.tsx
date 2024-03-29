@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import {
@@ -8,7 +7,7 @@ import Button from 'antd/lib/button';
 import Dropdown from 'antd/lib/dropdown';
 import Radio from 'antd/lib/radio';
 
-import CVATTooltip from 'components/common/clarify-tooltip';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 
 interface Props {
     sortingFields: string[];
@@ -44,16 +43,16 @@ const SortableItem = SortableElement(
 
         if (value === ANCHOR_KEYWORD) {
             return (
-                <hr className='cvat-sorting-anchor' />
+                <hr className='clarify-sorting-anchor' />
             );
         }
 
         return (
-            <div className='cvat-sorting-field'>
+            <div className='clarify-sorting-field'>
                 <Radio.Button disabled={valueIndex > anchorIndex}>{value}</Radio.Button>
                 <div>
-                    <CVATTooltip overlay={appliedSorting[value]?.startsWith('-') ? 'Descending sort' : 'Ascending sort'}>
-                        <Button className='cvat-switch-sort-order-button' type='text' disabled={!isActiveField} onClick={onClick}>
+                    <CLARIFYTooltip overlay={appliedSorting[value]?.startsWith('-') ? 'Descending sort' : 'Ascending sort'}>
+                        <Button className='clarify-switch-sort-order-button' type='text' disabled={!isActiveField} onClick={onClick}>
                             {
                                 isDescendingField ? (
                                     <SortDescendingOutlined />
@@ -62,7 +61,7 @@ const SortableItem = SortableElement(
                                 )
                             }
                         </Button>
-                    </CVATTooltip>
+                    </CLARIFYTooltip>
                 </div>
             </div>
         );
@@ -76,7 +75,7 @@ const SortableList = SortableContainer(
         appliedSorting: Record<string, string>;
         setAppliedSorting: (arg: Record<string, string>) => void;
     }) => (
-        <div className='cvat-resource-page-sorting-list'>
+        <div className='clarify-resource-page-sorting-list'>
             { items.map((value: string, index: number) => (
                 <SortableItem
                     key={`item-${value}`}
@@ -185,14 +184,14 @@ function SortingModalComponent(props: Props): JSX.Element {
                             setSortingFields(sortingFieldsCopy);
                         }
                     }}
-                    helperClass='cvat-sorting-dragged-item'
+                    helperClass='clarify-sorting-dragged-item'
                     items={sortingFields}
                     appliedSorting={appliedSorting}
                     setAppliedSorting={setAppliedSorting}
                 />
             )}
         >
-            <Button className='cvat-switch-sort-constructor-button' type='default' onClick={() => onVisibleChange(!visible)}>
+            <Button className='clarify-switch-sort-constructor-button' type='default' onClick={() => onVisibleChange(!visible)}>
                 Sort by
                 <OrderedListOutlined />
             </Button>

@@ -1,4 +1,3 @@
-
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'antd/lib/modal';
@@ -30,7 +29,7 @@ function ProjectActionsMenuComponent(props: Props): JSX.Element {
         Modal.confirm({
             title: `The project ${projectInstance.id} will be deleted`,
             content: 'All related data (images, annotations) will be lost. Continue?',
-            className: 'cvat-modal-confirm-remove-project',
+            className: 'clarify-modal-confirm-remove-project',
             onOk: () => {
                 dispatch(deleteProjectAsync(projectInstance));
             },
@@ -60,7 +59,7 @@ function ProjectActionsMenuComponent(props: Props): JSX.Element {
             key='backup-project'
             disabled={exportBackupIsActive}
             onClick={() => dispatch(exportActions.openExportBackupModal(projectInstance))}
-            icon={exportBackupIsActive && <LoadingOutlined id='cvat-export-project-loading' />}
+            icon={exportBackupIsActive && <LoadingOutlined id='clarify-export-project-loading' />}
         >
             Backup Project
         </Menu.Item>
@@ -117,7 +116,7 @@ function ProjectActionsMenuComponent(props: Props): JSX.Element {
     );
 
     return (
-        <Menu selectable={false} className='cvat-project-actions-menu'>
+        <Menu selectable={false} className='clarify-project-actions-menu'>
             { menuItems.sort((menuItem1, menuItem2) => menuItem1[1] - menuItem2[1])
                 .map((menuItem) => menuItem[0]) }
         </Menu>

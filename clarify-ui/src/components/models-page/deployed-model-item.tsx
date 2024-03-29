@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Row, Col } from 'antd/lib/grid';
 
@@ -52,7 +51,7 @@ export default function DeployedModelItem(props: Props): JSX.Element {
         )),
     );
     const modelMenu = (
-        <Menu selectable={false} className='cvat-project-actions-menu'>
+        <Menu selectable={false} className='clarify-project-actions-menu'>
             {menuItems.sort((menuItem1, menuItem2) => menuItem1[1] - menuItem2[1])
                 .map((menuItem) => menuItem[0])}
         </Menu>
@@ -70,7 +69,7 @@ export default function DeployedModelItem(props: Props): JSX.Element {
         )),
     );
     const modelTopBar = (
-        <div className='cvat-model-item-top-bar'>
+        <div className='clarify-model-item-top-bar'>
             {topBarItems.sort((item1, item2) => item1[1] - item2[1])
                 .map((item) => item[0])}
         </div>
@@ -79,7 +78,7 @@ export default function DeployedModelItem(props: Props): JSX.Element {
     return (
         <>
             <Modal
-                className='cvat-model-info-modal'
+                className='clarify-model-info-modal'
                 title='Model'
                 visible={isModalShown}
                 onCancel={onCloseModel}
@@ -87,13 +86,13 @@ export default function DeployedModelItem(props: Props): JSX.Element {
             >
                 <Preview
                     model={model}
-                    loadingClassName='cvat-model-item-loading-preview'
-                    emptyPreviewClassName='cvat-model-item-empty-preview'
-                    previewWrapperClassName='cvat-models-item-card-preview-wrapper'
-                    previewClassName='cvat-models-item-card-preview'
+                    loadingClassName='clarify-model-item-loading-preview'
+                    emptyPreviewClassName='clarify-model-item-empty-preview'
+                    previewWrapperClassName='clarify-models-item-card-preview-wrapper'
+                    previewClassName='clarify-models-item-card-preview'
                 />
                 { modelTopBar }
-                <div className='cvat-model-info-container'>
+                <div className='clarify-model-info-container'>
                     <Title level={3}>{model.name}</Title>
                     {modelDescription}
                 </div>
@@ -101,17 +100,17 @@ export default function DeployedModelItem(props: Props): JSX.Element {
                 {
                     model.labels?.length ? (
                         <>
-                            <div className='cvat-model-info-container'>
-                                <Text className='cvat-model-info-modal-labels-title'>Labels:</Text>
+                            <div className='clarify-model-info-container'>
+                                <Text className='clarify-model-info-modal-labels-title'>Labels:</Text>
                             </div>
-                            <div className='cvat-model-info-container cvat-model-info-modal-labels-list'>
+                            <div className='clarify-model-info-container cvat-model-info-modal-labels-list'>
                                 {model.labels.map((label) => <Tag key={label.name}>{label.name}</Tag>)}
                             </div>
                             <Divider />
                         </>
                     ) : null
                 }
-                <Row justify='space-between' className='cvat-model-info-container'>
+                <Row justify='space-between' className='clarify-model-info-container'>
                     <Col span={15}>
                         <Row>
                             <Col span={8}>
@@ -150,25 +149,25 @@ export default function DeployedModelItem(props: Props): JSX.Element {
                 cover={(
                     <Preview
                         model={model}
-                        loadingClassName='cvat-model-item-loading-preview'
-                        emptyPreviewClassName='cvat-model-item-empty-preview'
-                        previewWrapperClassName='cvat-models-item-card-preview-wrapper'
-                        previewClassName='cvat-models-item-card-preview'
+                        loadingClassName='clarify-model-item-loading-preview'
+                        emptyPreviewClassName='clarify-model-item-empty-preview'
+                        previewWrapperClassName='clarify-models-item-card-preview-wrapper'
+                        previewClassName='clarify-models-item-card-preview'
                         onClick={onOpenModel}
                     />
                 )}
                 size='small'
-                className='cvat-models-item-card'
+                className='clarify-models-item-card'
             >
                 <Meta
                     title={(
-                        <span onClick={onOpenModel} className='cvat-models-item-title' aria-hidden>
+                        <span onClick={onOpenModel} className='clarify-models-item-title' aria-hidden>
                             {model.name}
                         </span>
                     )}
                     description={(
-                        <div className='cvat-models-item-description'>
-                            <Row onClick={onOpenModel} className='cvat-models-item-text-description'>
+                        <div className='clarify-models-item-description'>
+                            <Row onClick={onOpenModel} className='clarify-models-item-text-description'>
                                 {model.owner && (<Text strong>{model.owner}</Text>)}
                                 {modelDescription}
                             </Row>
@@ -179,7 +178,7 @@ export default function DeployedModelItem(props: Props): JSX.Element {
                                         destroyPopupOnHide
                                         overlay={modelMenu}
                                     >
-                                        <Button className='cvat-deployed-model-details-button' type='link' size='large' icon={<MoreOutlined />} />
+                                        <Button className='clarify-deployed-model-details-button' type='link' size='large' icon={<MoreOutlined />} />
                                     </Dropdown>
                                 )
                             }

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -159,7 +158,7 @@ function LoginFormComponent(props: Props): JSX.Element {
                             !!credential && (
                                 <Form.Item>
                                     <Button
-                                        className='cvat-credentials-action-button'
+                                        className='clarify-credentials-action-button'
                                         loading={fetching}
                                         disabled={!credential}
                                         htmlType='submit'

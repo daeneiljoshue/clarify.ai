@@ -1,4 +1,3 @@
-
 import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'antd/lib/modal';
@@ -96,7 +95,7 @@ function ImportBackupModal(): JSX.Element {
         >
             <Input
                 placeholder='Backup file name'
-                className='cvat-modal-import-filename-input'
+                className='clarify-modal-import-filename-input'
             />
         </Form.Item>
     );
@@ -127,7 +126,7 @@ function ImportBackupModal(): JSX.Element {
 
             Notification.info({
                 message: `The ${instanceType} creating from the backup has been started`,
-                className: 'cvat-notification-notice-import-backup-start',
+                className: 'clarify-notification-notice-import-backup-start',
             });
             closeModal();
         },

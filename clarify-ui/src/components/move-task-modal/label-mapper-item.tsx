@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { Col, Row } from 'antd/lib/grid';
 import Tag from 'antd/lib/tag';
 import Select from 'antd/lib/select';
 import { ArrowRightOutlined } from '@ant-design/icons';
-import CVATTooltip from 'components/common/clarify-tooltip';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 
 export interface LabelMapperItemValue {
     labelId: number;
@@ -27,12 +26,12 @@ export default function LabelMapperItem(props: LabelMapperItemProps): JSX.Elemen
     const labelNames = labelMappers.map((mapper) => mapper.newLabelName).filter((el) => el);
 
     return (
-        <Row className='cvat-move-task-label-mapper-item' align='middle'>
+        <Row className='clarify-move-task-label-mapper-item' align='middle'>
             <Col span={6}>
                 {label.name.length > 12 ? (
-                    <CVATTooltip overlay={label.name}>
+                    <CLARIFYTooltip overlay={label.name}>
                         <Tag color={label.color}>{`${label.name.slice(0, 12)}...`}</Tag>
-                    </CVATTooltip>
+                    </CLARIFYTooltip>
                 ) : (
                     <Tag color={label.color}>{label.name}</Tag>
                 )}
@@ -40,7 +39,7 @@ export default function LabelMapperItem(props: LabelMapperItemProps): JSX.Elemen
             </Col>
             <Col>
                 <Select
-                    className='cvat-move-task-label-mapper-item-select'
+                    className='clarify-move-task-label-mapper-item-select'
                     disabled={typeof projectLabels === 'undefined'}
                     value={value.newLabelName || ''}
                     onChange={(_value) => onChange({

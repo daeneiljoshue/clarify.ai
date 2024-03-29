@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
@@ -45,16 +44,16 @@ function TopBarComponent(props: Props): JSX.Element {
     const history = useHistory();
 
     return (
-        <Row className='cvat-projects-page-top-bar' justify='center' align='middle'>
+        <Row className='clarify-projects-page-top-bar' justify='center' align='middle'>
             <Col {...dimensions}>
-                <div className='cvat-projects-page-filters-wrapper'>
+                <div className='clarify-projects-page-filters-wrapper'>
                     <Input.Search
                         enterButton
                         onSearch={(phrase: string) => {
                             onApplySearch(phrase);
                         }}
                         defaultValue={query.search || ''}
-                        className='cvat-projects-page-search-bar'
+                        className='clarify-projects-page-search-bar'
                         placeholder='Search ...'
                     />
                     <div>
@@ -90,10 +89,10 @@ function TopBarComponent(props: Props): JSX.Element {
                         destroyPopupOnHide
                         trigger={['click']}
                         overlay={(
-                            <div className='cvat-projects-page-control-buttons-wrapper'>
+                            <div className='clarify-projects-page-control-buttons-wrapper'>
                                 <Button
-                                    id='cvat-create-project-button'
-                                    className='cvat-create-project-button'
+                                    id='clarify-create-project-button'
+                                    className='clarify-create-project-button'
                                     type='primary'
                                     onClick={(): void => history.push('/projects/create')}
                                     icon={<PlusOutlined />}
@@ -101,19 +100,19 @@ function TopBarComponent(props: Props): JSX.Element {
                                     Create a new project
                                 </Button>
                                 <Button
-                                    className='cvat-import-project-button'
+                                    className='clarify-import-project-button'
                                     type='primary'
                                     disabled={importing}
                                     icon={<UploadOutlined />}
                                     onClick={() => dispatch(importActions.openImportBackupModal('project'))}
                                 >
                                     Create from backup
-                                    {importing && <LoadingOutlined className='cvat-import-project-button-loading' />}
+                                    {importing && <LoadingOutlined className='clarify-import-project-button-loading' />}
                                 </Button>
                             </div>
                         )}
                     >
-                        <Button type='primary' className='cvat-create-project-dropdown' icon={<PlusOutlined />} />
+                        <Button type='primary' className='clarify-create-project-dropdown' icon={<PlusOutlined />} />
                     </Dropdown>
                 </div>
             </Col>

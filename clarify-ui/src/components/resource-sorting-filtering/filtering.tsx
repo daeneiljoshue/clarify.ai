@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import {
     Builder, Config, AntdConfig, ImmutableTree, Query, Utils as QbUtils,
@@ -195,7 +194,7 @@ export default function ResourceFilterHOC(
 
         const predefinedFilters = getPredefinedFilters(user);
         return (
-            <div className='cvat-resource-page-filters'>
+            <div className='clarify-resource-page-filters'>
                 {
                     predefinedFilters && onPredefinedVisibleChange ? (
                         <Dropdown
@@ -203,7 +202,7 @@ export default function ResourceFilterHOC(
                             visible={predefinedVisible}
                             placement='bottomLeft'
                             overlay={(
-                                <div className='cvat-resource-page-predefined-filters-list'>
+                                <div className='clarify-resource-page-predefined-filters-list'>
                                     {Object.keys(predefinedFilters).map((key: string): JSX.Element => (
                                         <Checkbox
                                             checked={appliedFilter.predefined?.includes(predefinedFilters[key])}
@@ -236,7 +235,7 @@ export default function ResourceFilterHOC(
                             )}
                         >
                             <Button
-                                className='cvat-quick-filters-button'
+                                className='clarify-quick-filters-button'
                                 type='default'
                                 onClick={() => onPredefinedVisibleChange(!predefinedVisible)}
                             >
@@ -254,14 +253,14 @@ export default function ResourceFilterHOC(
                     visible={builderVisible}
                     destroyPopupOnHide
                     overlay={(
-                        <div className='cvat-resource-page-filters-builder'>
+                        <div className='clarify-resource-page-filters-builder'>
                             { Object.keys(recentFilters).length ? (
                                 <Dropdown
                                     placement='bottomRight'
                                     visible={recentVisible}
                                     destroyPopupOnHide
                                     overlay={(
-                                        <div className='cvat-resource-page-recent-filters-list'>
+                                        <div className='clarify-resource-page-recent-filters-list'>
                                             <Menu selectable={false}>
                                                 {Object.keys(recentFilters).map((key: string): JSX.Element | null => {
                                                     const tree = QbUtils.loadFromJsonLogic(JSON.parse(key), config);
@@ -293,7 +292,7 @@ export default function ResourceFilterHOC(
                                     )}
                                 >
                                     <Button
-                                        className='cvat-recent-filters-button'
+                                        className='clarify-recent-filters-button'
                                         size='small'
                                         type='text'
                                         onClick={
@@ -314,9 +313,9 @@ export default function ResourceFilterHOC(
                                 value={state}
                                 renderBuilder={renderBuilder}
                             />
-                            <Space className='cvat-resource-page-filters-space'>
+                            <Space className='clarify-resource-page-filters-space'>
                                 <Button
-                                    className='cvat-reset-filters-button'
+                                    className='clarify-reset-filters-button'
                                     disabled={!QbUtils.queryString(state, config)}
                                     size='small'
                                     onClick={() => {
@@ -331,7 +330,7 @@ export default function ResourceFilterHOC(
                                     Reset
                                 </Button>
                                 <Button
-                                    className='cvat-apply-filters-button'
+                                    className='clarify-apply-filters-button'
                                     size='small'
                                     type='primary'
                                     onClick={() => {
@@ -353,7 +352,7 @@ export default function ResourceFilterHOC(
                         </div>
                     )}
                 >
-                    <Button className='cvat-switch-filters-constructor-button' type='default' onClick={() => onBuilderVisibleChange(!builderVisible)}>
+                    <Button className='clarify-switch-filters-constructor-button' type='default' onClick={() => onBuilderVisibleChange(!builderVisible)}>
                         Filter
                         { appliedFilter.built || appliedFilter.recent ?
                             <FilterFilled /> :
@@ -361,7 +360,7 @@ export default function ResourceFilterHOC(
                     </Button>
                 </Dropdown>
                 <Button
-                    className='cvat-clear-filters-button'
+                    className='clarify-clear-filters-button'
                     disabled={!(appliedFilter.built || appliedFilter.predefined || appliedFilter.recent) || disabled}
                     size='small'
                     type='link'

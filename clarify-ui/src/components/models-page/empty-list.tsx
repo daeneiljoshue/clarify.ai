@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Text from 'antd/lib/typography/Text';
 import { Row, Col } from 'antd/lib/grid';
@@ -8,7 +7,7 @@ import config from 'config';
 
 export default function EmptyListComponent(): JSX.Element {
     return (
-        <div className='cvat-empty-models-list'>
+        <div className='clarify-empty-models-list'>
             <Empty
                 description={(
                     <div>

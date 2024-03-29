@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Icon from '@ant-design/icons';
 import Form, { RuleRender, RuleObject } from 'antd/lib/form';
@@ -111,10 +110,10 @@ function RegisterFormComponent(props: Props): JSX.Element {
     }
     const [usernameEdited, setUsernameEdited] = useState(false);
     return (
-        <div className={`cvat-register-form-wrapper ${userAgreements.length ? 'cvat-register-form-wrapper-extended' : ''}`}>
+        <div className={`clarify-register-form-wrapper ${userAgreements.length ? 'clarify-register-form-wrapper-extended' : ''}`}>
             {
                 !hideLoginLink && (
-                    <Row justify='space-between' className='cvat-credentials-navigation'>
+                    <Row justify='space-between' className='clarify-credentials-navigation'>
                         <Col>
                             <Link to={{
                                 pathname: '/auth/login',
@@ -148,7 +147,7 @@ function RegisterFormComponent(props: Props): JSX.Element {
                 <Row gutter={8}>
                     <Col span={12}>
                         <Form.Item
-                            className='cvat-credentials-form-item'
+                            className='clarify-credentials-form-item'
                             name='firstName'
                             rules={[
                                 {
@@ -218,7 +217,7 @@ function RegisterFormComponent(props: Props): JSX.Element {
                     />
                 </Form.Item>
                 <Form.Item
-                    className='cvat-credentials-form-item'
+                    className='clarify-credentials-form-item'
                     name='username'
                     rules={[
                         {
@@ -239,7 +238,7 @@ function RegisterFormComponent(props: Props): JSX.Element {
                     />
                 </Form.Item>
                 <Form.Item
-                    className='cvat-credentials-form-item cvat-register-form-last-field'
+                    className='clarify-credentials-form-item clarify-register-form-last-field'
                     name='password'
                     rules={[
                         {
@@ -257,7 +256,7 @@ function RegisterFormComponent(props: Props): JSX.Element {
                 </Form.Item>
                 {userAgreements.map((userAgreement: UserAgreement): JSX.Element => (
                     <Form.Item
-                        className='cvat-agreements-form-item'
+                        className='clarify-agreements-form-item'
                         name={`agreement:${userAgreement.name}`}
                         key={userAgreement.name}
                         initialValue={false}
@@ -284,7 +283,7 @@ function RegisterFormComponent(props: Props): JSX.Element {
                     <Button
                         type='primary'
                         htmlType='submit'
-                        className='cvat-credentials-action-button'
+                        className='clarify-credentials-action-button'
                         loading={fetching}
                         disabled={fetching}
                     >

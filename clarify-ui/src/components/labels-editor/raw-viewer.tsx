@@ -1,4 +1,3 @@
-
 import React, { RefObject } from 'react';
 import { Row, Col } from 'antd/lib/grid';
 import Input from 'antd/lib/input';
@@ -10,7 +9,7 @@ import { Store } from 'antd/lib/form/interface';
 import Paragraph from 'antd/lib/typography/Paragraph';
 
 import { SerializedLabel, SerializedAttribute } from 'clarify-core-wrapper';
-import CVATTooltip from 'components/common/clarify-tooltip';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 import { validateParsedLabel, idGenerator, LabelOptColor } from './common';
 
 function replaceTrailingCommas(value: string): string {
@@ -228,7 +227,7 @@ export default class RawViewer extends React.PureComponent<Props> {
                 </Form.Item>
                 <Row justify='start' align='middle'>
                     <Col>
-                        <CVATTooltip title='Save labels'>
+                        <CLARIFYTooltip title='Save labels'>
                             <Button
                                 className='clarify-submit-raw-labels-conf-button'
                                 style={{ width: '150px' }}
@@ -237,10 +236,10 @@ export default class RawViewer extends React.PureComponent<Props> {
                             >
                                 Done
                             </Button>
-                        </CVATTooltip>
+                        </CLARIFYTooltip>
                     </Col>
                     <Col offset={1}>
-                        <CVATTooltip title='Reset all changes'>
+                        <CLARIFYTooltip title='Reset all changes'>
                             <Button
                                 className='clarify-reset-raw-labels-conf-button'
                                 type='primary'
@@ -254,7 +253,7 @@ export default class RawViewer extends React.PureComponent<Props> {
                             >
                                 Reset
                             </Button>
-                        </CVATTooltip>
+                        </CLARIFYTooltip>
                     </Col>
                 </Row>
             </Form>

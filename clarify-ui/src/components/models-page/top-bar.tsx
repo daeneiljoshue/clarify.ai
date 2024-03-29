@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Row, Col } from 'antd/lib/grid';
 import { Input } from 'antd';
@@ -37,9 +36,9 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
     }
 
     return (
-        <Row className='cvat-models-page-top-bar' justify='center' align='middle'>
+        <Row className='clarify-models-page-top-bar' justify='center' align='middle'>
             <Col md={22} lg={18} xl={16} xxl={16}>
-                <div className='cvat-models-page-filters-wrapper'>
+                <div className='clarify-models-page-filters-wrapper'>
                     <Input.Search
                         disabled={disabled}
                         enterButton
@@ -47,7 +46,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                             onApplySearch(phrase);
                         }}
                         defaultValue={query.search || ''}
-                        className='cvat-models-page-search-bar'
+                        className='clarify-models-page-search-bar'
                         placeholder='Search ...'
                     />
                     <div>

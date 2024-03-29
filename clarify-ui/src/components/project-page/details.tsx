@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import moment from 'moment';
 import { Row, Col } from 'antd/lib/grid';
@@ -23,7 +22,7 @@ export default function DetailsComponent(props: DetailsComponentProps): JSX.Elem
     const [projectName, setProjectName] = useState(project.name);
 
     return (
-        <div data-cvat-project-id={project.id} className='cvat-project-details'>
+        <div data-clarify-project-id={project.id} className='clarify-project-details'>
             <Row>
                 <Col>
                     <Title
@@ -35,13 +34,13 @@ export default function DetailsComponent(props: DetailsComponentProps): JSX.Elem
                                 onUpdateProject(project);
                             },
                         }}
-                        className='cvat-text-color cvat-project-name'
+                        className='clarify-text-color clarify-project-name'
                     >
                         {projectName}
                     </Title>
                 </Col>
             </Row>
-            <Row justify='space-between' className='cvat-project-description'>
+            <Row justify='space-between' className='clarify-project-description'>
                 <Col>
                     <Text type='secondary'>
                         {`Project #${project.id} created`}

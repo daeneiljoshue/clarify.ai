@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -72,7 +71,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                 dispatch(removeOrganizationAsync(organizationInstance));
             },
             content: (
-                <div className='cvat-remove-organization-submit'>
+                <div className='clarify-remove-organization-submit'>
                     <Text type='warning'>
                         To remove the organization,
                         enter its short name below
@@ -108,11 +107,11 @@ function OrganizationTopBar(props: Props): JSX.Element {
         <>
             <Row justify='space-between'>
                 <Col span={24}>
-                    <div className='cvat-organization-top-bar-descriptions'>
+                    <div className='clarify-organization-top-bar-descriptions'>
                         <Row justify='space-between'>
                             <Col>
                                 <Text>
-                                    <Text className='cvat-title'>{`Organization: ${slug} `}</Text>
+                                    <Text className='clarify-title'>{`Organization: ${slug} `}</Text>
                                 </Text>
                             </Col>
                             <Col>
@@ -120,7 +119,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                     trigger={['click']}
                                     destroyPopupOnHide
                                     overlay={() => (
-                                        <Menu className='cvat-organization-actions-menu'>
+                                        <Menu className='clarify-organization-actions-menu'>
                                             <Menu.Item key={MenuActions.SET_WEBHOOKS}>
                                                 <a
                                                     href='/organization/webhooks'
@@ -146,9 +145,9 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                         </Menu>
                                     )}
                                 >
-                                    <Button size='middle' className='cvat-organization-page-actions-button'>
-                                        <Text className='cvat-text-color'>Actions</Text>
-                                        <MoreOutlined className='cvat-menu-icon' />
+                                    <Button size='middle' className='clarify-organization-page-actions-button'>
+                                        <Text className='clarify-text-color'>Actions</Text>
+                                        <MoreOutlined className='clarify-menu-icon' />
                                     </Button>
                                 </Dropdown>
                             </Col>
@@ -187,7 +186,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                     }}
                                 />
                                 <Button
-                                    className='cvat-submit-new-org-description-button'
+                                    className='clarify-submit-new-org-description-button'
                                     size='small'
                                     type='primary'
                                     onClick={() => {
@@ -205,7 +204,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                     </div>
                 </Col>
                 <Col span={12}>
-                    <div className='cvat-organization-top-bar-contacts'>
+                    <div className='clarify-organization-top-bar-contacts'>
                         <div>
                             <PhoneOutlined />
                             { !contact.phoneNumber ? <Text type='secondary'>Add phone number</Text> : null }
@@ -270,11 +269,11 @@ function OrganizationTopBar(props: Props): JSX.Element {
                         <Text type='secondary'>{`Updated ${moment(updatedDate).fromNow()}`}</Text>
                     </div>
                 </Col>
-                <Col span={12} className='cvat-organization-top-bar-buttons-block'>
+                <Col span={12} className='clarify-organization-top-bar-buttons-block'>
                     <Space align='end'>
                         {!(owner && userID === owner.id) ? (
                             <Button
-                                className='cvat-leave-org-button'
+                                className='clarify-leave-org-button'
                                 type='primary'
                                 danger
                                 onClick={() => {
@@ -285,7 +284,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                                 window.location.reload();
                                             }));
                                         },
-                                        className: 'cvat-modal-organization-leave-confirm',
+                                        className: 'clarify-modal-organization-leave-confirm',
                                         content: (
                                             <>
                                                 <Text>Please, confirm leaving the organization</Text>
@@ -304,7 +303,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                             </Button>
                         ) : null}
                         <Button
-                            className='cvat-invite-org-members-button'
+                            className='clarify-invite-org-members-button'
                             type='primary'
                             onClick={() => setVisibleInviteModal(true)}
                             icon={<PlusCircleOutlined />}
@@ -315,7 +314,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                 </Col>
             </Row>
             <Modal
-                className='cvat-organization-invitation-modal'
+                className='clarify-organization-invitation-modal'
                 visible={visibleInviteModal}
                 onCancel={() => {
                     setVisibleInviteModal(false);
@@ -343,21 +342,21 @@ function OrganizationTopBar(props: Props): JSX.Element {
                     form={form}
                 >
                     <Paragraph>
-                        <Text>Invite CVAT users to collaborate </Text>
+                        <Text>Invite CLARIFY users to collaborate </Text>
                     </Paragraph>
                     <Paragraph>
                         <Text type='secondary'>
-                            If the email address is registered on CVAT, the user will be added to the organization
+                            If the email address is registered on CLARIFY, the user will be added to the organization
                         </Text>
                     </Paragraph>
                     <Form.List name='users'>
                         {(fields, { add, remove }) => (
                             <>
                                 {fields.map((field: any, index: number) => (
-                                    <Row className='cvat-organization-invitation-field' key={field.key}>
+                                    <Row className='clarify-organization-invitation-field' key={field.key}>
                                         <Col span={10}>
                                             <Form.Item
-                                                className='cvat-organization-invitation-field-email'
+                                                className='clarify-organization-invitation-field-email'
                                                 hasFeedback
                                                 name={[field.name, 'email']}
                                                 fieldKey={[field.fieldKey, 'email']}
@@ -371,7 +370,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                         </Col>
                                         <Col span={10} offset={1}>
                                             <Form.Item
-                                                className='cvat-organization-invitation-field-role'
+                                                className='clarify-organization-invitation-field-role'
                                                 name={[field.name, 'role']}
                                                 fieldKey={[field.fieldKey, 'role']}
                                                 initialValue='worker'
@@ -392,7 +391,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                     </Row>
                                 ))}
                                 <Form.Item>
-                                    <Button className='cvat-invite-more-org-members-button' icon={<PlusCircleOutlined />} onClick={() => add()}>
+                                    <Button className='clarify-invite-more-org-members-button' icon={<PlusCircleOutlined />} onClick={() => add()}>
                                         Invite more
                                     </Button>
                                 </Form.Item>

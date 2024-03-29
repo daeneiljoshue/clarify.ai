@@ -1,4 +1,3 @@
-
 import './styles.scss';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
@@ -56,7 +55,7 @@ function JobsPageComponent(): JSX.Element {
             <Row justify='space-around' about='middle'>
                 <Col md={22} lg={18} xl={16} xxl={16}>
                     <Pagination
-                        className='cvat-jobs-page-pagination'
+                        className='clarify-jobs-page-pagination'
                         onChange={(page: number) => {
                             dispatch(getJobsAsync({
                                 ...query,
@@ -72,10 +71,21 @@ function JobsPageComponent(): JSX.Element {
                 </Col>
             </Row>
         </>
-    ) : <Empty description={<Text>No results matched your search...</Text>} />;
+    ) : (
+        <div className='clarify-empty-jobs-list'>
+            <Empty description={(
+                <Row justify='center' align='middle'>
+                    <Col>
+                        <Text>No results matched your search...</Text>
+                    </Col>
+                </Row>
+            )}
+            />
+        </div>
+    );
 
     return (
-        <div className='cvat-jobs-page'>
+        <div className='clarify-jobs-page'>
             <TopBarComponent
                 query={updatedQuery}
                 onApplySearch={(search: string | null) => {
@@ -106,9 +116,7 @@ function JobsPageComponent(): JSX.Element {
                     );
                 }}
             />
-            { fetching ? (
-                <Spin size='large' className='cvat-spinner' />
-            ) : content }
+            {fetching ? <Spin size='large' className='clarify-spinner' /> : content}
         </div>
     );
 }

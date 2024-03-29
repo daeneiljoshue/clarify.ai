@@ -1,4 +1,3 @@
-
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col } from 'antd/lib/grid';
@@ -28,8 +27,8 @@ export default function ProjectListComponent(): JSX.Element {
 
     return (
         <>
-            <Row justify='center' align='middle' className='cvat-project-list-content'>
-                <Col className='cvat-projects-list' {...dimensions}>
+            <Row justify='center' align='middle' className='clarify-project-list-content'>
+                <Col className='clarify-projects-list' {...dimensions}>
                     {projects.map(
                         (project: Project): JSX.Element => (
                             <ProjectItem key={project.id} projectInstance={project} />
@@ -40,7 +39,7 @@ export default function ProjectListComponent(): JSX.Element {
             <Row justify='center' align='middle'>
                 <Col {...dimensions}>
                     <Pagination
-                        className='cvat-projects-pagination'
+                        className='clarify-projects-pagination'
                         onChange={changePage}
                         showSizeChanger={false}
                         total={projectsCount}

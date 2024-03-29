@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
@@ -81,7 +80,7 @@ function SkeletonElementContextMenu(props: ContextMenuProps): JSX.Element {
             )}
             {!configuratorVisible && (
                 <div
-                    className='cvat-skeleton-configurator-context-menu'
+                    className='clarify-skeleton-configurator-context-menu'
                     style={{ top: y, left: x }}
                 >
                     <Button

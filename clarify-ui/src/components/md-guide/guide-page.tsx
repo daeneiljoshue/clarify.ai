@@ -1,4 +1,3 @@
-
 import './styles.scss';
 
 import React, {
@@ -15,7 +14,7 @@ import {
     getCore, Task, Project, AnnotationGuide,
 } from 'clarify-core-wrapper';
 import { useIsMounted } from 'utils/hooks';
-import CVATLoadingSpinner from 'components/common/loading-spinner';
+import CLARIFYLoadingSpinner from 'components/common/loading-spinner';
 import GoBackButton from 'components/common/go-back-button';
 
 const core = getCore();
@@ -36,7 +35,13 @@ function GuidePage(): JSX.Element {
     const [fetching, setFetching] = useState(true);
 
     useEffect(() => {
-        const promise = instanceType === 'project' ? core.projects.get({ id }) : core.tasks.get({ id });
+        const promise = instanceType === 'project' ? core.projects.get({
+            id,
+            page: 0,
+            search: '',
+            sort: '',
+            filter: '',
+        }) : core.tasks.get({ id });
         promise.then(([instance]: [Task | Project]) => (
             instance.guide()
         )).then(async (guideInstance: AnnotationGuide | null) => {
@@ -44,7 +49,6 @@ function GuidePage(): JSX.Element {
                 const createdGuide = await guide.save();
                 return createdGuide;
             }
-
             return guideInstance;
         }).then((guideInstance: AnnotationGuide) => {
             if (isMounted()) {
@@ -142,14 +146,14 @@ function GuidePage(): JSX.Element {
         <Row
             justify='center'
             align='top'
-            className='cvat-guide-page'
+            className='clarify-guide-page'
         >
-            { fetching && <CVATLoadingSpinner /> }
+            { fetching && <CLARIFYLoadingSpinner /> }
             <Col md={22} lg={18} xl={16} xxl={14}>
-                <div className='cvat-guide-page-top'>
+                <div className='clarify-guide-page-top'>
                     <GoBackButton />
                 </div>
-                <div className='cvat-guide-page-editor-wrapper'>
+                <div className='clarify-guide-page-editor-wrapper'>
                     <MDEditor
                         visibleDragbar={false}
                         height='100%'
@@ -172,7 +176,7 @@ function GuidePage(): JSX.Element {
                         style={{ whiteSpace: 'pre-wrap' }}
                     />
                 </div>
-                <Space align='end' className='cvat-guide-page-bottom'>
+                <Space align='end' className='clarify-guide-page-bottom'>
                     <Button
                         type='primary'
                         disabled={fetching || !guide.id}

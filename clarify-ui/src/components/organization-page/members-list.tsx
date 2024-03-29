@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Pagination from 'antd/lib/pagination';
 import Spin from 'antd/lib/spin';
@@ -34,7 +33,7 @@ function MembersList(props: Props): JSX.Element {
     const removingMember = useSelector((state: CombinedState) => state.organizations.removingMember);
 
     return fetching || inviting || updatingMember || removingMember ? (
-        <Spin className='cvat-spinner' />
+        <Spin className='clarify-spinner' />
     ) : (
         <>
             <div>
@@ -73,7 +72,7 @@ function MembersList(props: Props): JSX.Element {
                     ),
                 )}
             </div>
-            <div className='cvat-organization-members-pagination-block'>
+            <div className='clarify-organization-members-pagination-block'>
                 <Pagination
                     total={members.length ? (members as any).count : 0}
                     onShowSizeChange={(current: number, newShowSize: number) => {

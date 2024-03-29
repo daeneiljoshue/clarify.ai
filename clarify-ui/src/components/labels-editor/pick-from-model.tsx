@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Button from 'antd/lib/button';
@@ -33,7 +32,7 @@ function PickFromModelComponent(props: Props): JSX.Element {
     const labels = selectedModel?.labels || [];
 
     return (
-        <div className='cvat-label-constructor-pick-from-model'>
+        <div className='clarify-label-constructor-pick-from-model'>
             { models.length ? (
                 <>
                     <div>
@@ -49,7 +48,7 @@ function PickFromModelComponent(props: Props): JSX.Element {
                         ))}
                     </Select>
                     <Button
-                        className='cvat-label-constructor-done-pick-labels-button'
+                        className='clarify-label-constructor-done-pick-labels-button'
                         type='primary'
                         style={{ width: '150px' }}
                         onClick={onCancel}
@@ -68,11 +67,11 @@ function PickFromModelComponent(props: Props): JSX.Element {
                 />
             )}
 
-            <div className='cvat-label-constructor-pick-from-model-list'>
+            <div className='clarify-label-constructor-pick-from-model-list'>
                 { !!selectedModel && !labels.length && (
                     <Empty description='Labels not found in the specified model' />
                 )}
-                {labels.map((label: { name: {} | null | undefined; type: string; attributes: any[]; sublabels: any[]; svg: any; }) => (
+                {labels.map((label) => (
                     <Button
                         type='ghost'
                         key={label.name}
@@ -82,7 +81,7 @@ function PickFromModelComponent(props: Props): JSX.Element {
                                 const generatedLabel: LabelOptColor = {
                                     name: label.name,
                                     type: label.type === 'unknown' ? 'any' : label.type as ShapeType,
-                                    attributes: label.attributes.map((attr: { values: any[]; }) => ({
+                                    attributes: label.attributes.map((attr) => ({
                                         ...attr,
                                         mutable: false,
                                         default_value: attr.values[0],
@@ -90,10 +89,10 @@ function PickFromModelComponent(props: Props): JSX.Element {
                                 };
 
                                 if (generatedLabel.type === ShapeType.SKELETON && label.sublabels && label.svg) {
-                                    generatedLabel.sublabels = label.sublabels.map((sublabel: { name: any; type: string; attributes: any[]; }) => ({
+                                    generatedLabel.sublabels = label.sublabels.map((sublabel) => ({
                                         name: sublabel.name,
                                         type: sublabel.type === 'unknown' ? 'any' : sublabel.type as ShapeType,
-                                        attributes: sublabel.attributes.map((attr: { values: any[]; }) => ({
+                                        attributes: sublabel.attributes.map((attr) => ({
                                             ...attr,
                                             mutable: false,
                                             default_value: attr.values[0],

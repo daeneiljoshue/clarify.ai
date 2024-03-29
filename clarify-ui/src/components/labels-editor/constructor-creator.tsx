@@ -1,4 +1,3 @@
-
 import React, { useCallback, useRef } from 'react';
 
 import LabelForm from './label-form';
@@ -44,7 +43,7 @@ function ConstructorCreator(props: Props): JSX.Element {
     }, [skeletonConfiguratorRef]);
 
     return (
-        <div className='cvat-label-constructor-creator'>
+        <div className='clarify-label-constructor-creator'>
             { creatorType === 'model' ? (
                 <PickFromModelComponent
                     labelNames={labelNames}

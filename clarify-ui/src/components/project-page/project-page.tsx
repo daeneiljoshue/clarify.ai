@@ -1,4 +1,3 @@
-
 import './styles.scss';
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -20,14 +19,14 @@ import { getCore, Project, Task } from 'clarify-core-wrapper';
 import { CombinedState, Indexable } from 'reducers';
 import { getProjectTasksAsync } from 'actions/projects-actions';
 import { cancelInferenceAsync } from 'actions/models-actions';
-import CVATLoadingSpinner from 'components/common/loading-spinner';
+import CLARIFYLoadingSpinner from 'components/common/loading-spinner';
 import TaskItem from 'components/tasks-page/task-item';
 import MoveTaskModal from 'components/move-task-modal/move-task-modal';
 import ModelRunnerDialog from 'components/model-runner-modal/model-runner-dialog';
 import {
     SortingComponent, ResourceFilterHOC, defaultVisibility, updateHistoryFromQuery,
 } from 'components/resource-sorting-filtering';
-import CvatDropdownMenuPaper from 'components/common/clarify-dropdown-menu-paper';
+import ClarifyDropdownMenuPaper from 'components/common/clarify-dropdown-menu-paper';
 
 import DetailsComponent from './details';
 import ProjectTopBar from './top-bar';
@@ -122,13 +121,13 @@ export default function ProjectPageComponent(): JSX.Element {
     }, [deletes]);
 
     if (fechingProject) {
-        return <Spin size='large' className='cvat-spinner' />;
+        return <Spin size='large' className='clarify-spinner' />;
     }
 
     if (!projectInstance) {
         return (
             <Result
-                className='cvat-not-found'
+                className='clarify-not-found'
                 status='404'
                 title='There was something wrong during getting the project'
                 subTitle='Please, be sure, that information you tried to get exist and you are eligible to access it'
@@ -164,7 +163,7 @@ export default function ProjectPageComponent(): JSX.Element {
             <Row justify='center' align='middle'>
                 <Col md={22} lg={18} xl={16} xxl={14}>
                     <Pagination
-                        className='cvat-project-tasks-pagination'
+                        className='clarify-project-tasks-pagination'
                         onChange={(page: number) => {
                             dispatch(getProjectTasksAsync({
                                 ...tasksQuery,
@@ -186,8 +185,8 @@ export default function ProjectPageComponent(): JSX.Element {
     );
 
     return (
-        <Row justify='center' align='top' className='cvat-project-page'>
-            { updatingProject ? <CVATLoadingSpinner size='large' /> : null }
+        <Row justify='center' align='top' className='clarify-project-page'>
+            { updatingProject ? <CLARIFYLoadingSpinner size='large' /> : null }
             <Col
                 md={22}
                 lg={18}
@@ -222,9 +221,9 @@ export default function ProjectPageComponent(): JSX.Element {
                     }}
                     project={projectInstance}
                 />
-                <Row justify='space-between' align='middle' className='cvat-project-page-tasks-bar'>
+                <Row justify='space-between' align='middle' className='clarify-project-page-tasks-bar'>
                     <Col span={24}>
-                        <div className='cvat-project-page-tasks-filters-wrapper'>
+                        <div className='clarify-project-page-tasks-filters-wrapper'>
                             <Input.Search
                                 enterButton
                                 onSearch={(_search: string) => {
@@ -236,7 +235,7 @@ export default function ProjectPageComponent(): JSX.Element {
                                     }));
                                 }}
                                 defaultValue={tasksQuery.search || ''}
-                                className='cvat-project-page-tasks-search-bar'
+                                className='clarify-project-page-tasks-search-bar'
                                 placeholder='Search ...'
                             />
                             <div>
@@ -288,11 +287,11 @@ export default function ProjectPageComponent(): JSX.Element {
                                 trigger={['click']}
                                 destroyPopupOnHide
                                 overlay={(
-                                    <CvatDropdownMenuPaper>
+                                    <ClarifyDropdownMenuPaper>
                                         <Button
                                             type='primary'
                                             icon={<PlusOutlined />}
-                                            className='cvat-create-task-button'
+                                            className='clarify-create-task-button'
                                             onClick={() => history.push(`/tasks/create?projectId=${id}`)}
                                         >
                                             Create a new task
@@ -300,17 +299,17 @@ export default function ProjectPageComponent(): JSX.Element {
                                         <Button
                                             type='primary'
                                             icon={<span className='anticon'><MultiPlusIcon /></span>}
-                                            className='cvat-create-multi-tasks-button'
+                                            className='clarify-create-multi-tasks-button'
                                             onClick={() => history.push(`/tasks/create?projectId=${id}&many=true`)}
                                         >
                                             Create multi tasks
                                         </Button>
-                                    </CvatDropdownMenuPaper>
+                                    </ClarifyDropdownMenuPaper>
                                 )}
                             >
                                 <Button
                                     type='primary'
-                                    className='cvat-create-task-dropdown'
+                                    className='clarify-create-task-dropdown'
                                     icon={<PlusOutlined />}
                                 />
                             </Dropdown>
@@ -318,7 +317,7 @@ export default function ProjectPageComponent(): JSX.Element {
                     </Col>
                 </Row>
                 { tasksFetching ? (
-                    <Spin size='large' className='cvat-spinner' />
+                    <Spin size='large' className='clarify-spinner' />
                 ) : content }
             </Col>
 

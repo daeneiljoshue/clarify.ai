@@ -1,4 +1,3 @@
-
 import React, { useCallback, useRef } from 'react';
 import Text from 'antd/lib/typography/Text';
 
@@ -91,8 +90,8 @@ function LabelsMapperComponent(props: Props): JSX.Element {
             defaultMapping={computeLabelsAutoMapping(modelLabels, taskLabels)}
             deleteMappingLabel='Remove mapped label'
             infoMappingLabel='Specify mapping between labels'
-            containerClassName='cvat-runner-label-mapper'
-            rowClassName='cvat-runner-label-mapping-row'
+            containerClassName='clarify-runner-label-mapper'
+            rowClassName='clarify-runner-label-mapping-row'
             getObjectName={(object: LabelInterface) => object.name}
             getObjectColor={(object: LabelInterface) => object.color}
             filterObjects={(
@@ -133,8 +132,8 @@ function LabelsMapperComponent(props: Props): JSX.Element {
                                     modelLabel.sublabels || [],
                                     taskLabel.sublabels || [],
                                 )}
-                                rowClassName='cvat-runner-label-mapping-row'
-                                containerClassName='cvat-runner-label-mapper'
+                                rowClassName='clarify-runner-label-mapping-row'
+                                containerClassName='clarify-runner-label-mapper'
                                 deleteMappingLabel='Remove mapped label'
                                 infoMappingLabel='Specify mapping between skeleton sublabels'
                                 getObjectName={(object: LabelInterface) => object.name}
@@ -187,8 +186,8 @@ function LabelsMapperComponent(props: Props): JSX.Element {
                                     modelLabel.attributes || [],
                                     taskLabel.attributes || [],
                                 ) as [AttributeInterface, AttributeInterface][]}
-                                rowClassName='cvat-runner-attribute-mapping-row'
-                                containerClassName='cvat-runner-attribute-mapper'
+                                rowClassName='clarify-runner-attribute-mapping-row'
+                                containerClassName='clarify-runner-attribute-mapper'
                                 deleteMappingLabel='Remove mapped attribute'
                                 infoMappingLabel='Specify mapping between attributes'
                                 getObjectName={(object: AttributeInterface) => object.name}

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Select from 'antd/lib/select';
@@ -56,7 +55,7 @@ function MemberItem(props: Props): JSX.Element {
                 </Menu>
             )}
         >
-            <MoreOutlined className='cvat-organization-invitation-actions-button cvat-menu-icon' />
+            <MoreOutlined className='clarify-organization-invitation-actions-button clarify-menu-icon' />
         </Dropdown>
     );
 
@@ -64,7 +63,7 @@ function MemberItem(props: Props): JSX.Element {
         <DeleteOutlined
             onClick={() => {
                 Modal.confirm({
-                    className: 'cvat-modal-organization-member-remove',
+                    className: 'clarify-modal-organization-member-remove',
                     title: `You are removing "${username}" from this organization`,
                     content: 'The person will not have access to the organization data anymore. Continue?',
                     okText: 'Yes, remove',
@@ -82,14 +81,14 @@ function MemberItem(props: Props): JSX.Element {
     const leftBlock = isActive ? removeMemberBlock : invitationActionsMenu;
 
     return (
-        <Row className='cvat-organization-member-item' justify='space-between'>
-            <Col span={5} className='cvat-organization-member-item-username'>
+        <Row className='clarify-organization-member-item' justify='space-between'>
+            <Col span={5} className='clarify-organization-member-item-username'>
                 <Text strong>{username}</Text>
             </Col>
-            <Col span={6} className='cvat-organization-member-item-name'>
+            <Col span={6} className='clarify-organization-member-item-name'>
                 <Text strong>{`${firstName || ''} ${lastName || ''}`}</Text>
             </Col>
-            <Col span={8} className='cvat-organization-member-item-dates'>
+            <Col span={8} className='clarify-organization-member-item-dates'>
                 {invitation ? (
                     <Text type='secondary'>
                         {`Invited ${moment(invitation.createdDate).fromNow()} ${invitation.owner ? `by ${invitation.owner.username}` : ''}`}
@@ -97,7 +96,7 @@ function MemberItem(props: Props): JSX.Element {
                 ) : null}
                 {joinedDate ? <Text type='secondary'>{`Joined ${moment(joinedDate).fromNow()}`}</Text> : <Text type='secondary'>Invitation pending</Text>}
             </Col>
-            <Col span={3} className='cvat-organization-member-item-role'>
+            <Col span={3} className='clarify-organization-member-item-role'>
                 <Select
                     onChange={(_role: string) => {
                         onUpdateMembershipRole(_role);
@@ -116,7 +115,7 @@ function MemberItem(props: Props): JSX.Element {
                     )}
                 </Select>
             </Col>
-            <Col span={1} className='cvat-organization-member-item-remove'>
+            <Col span={1} className='clarify-organization-member-item-remove'>
                 {leftBlock}
             </Col>
         </Row>

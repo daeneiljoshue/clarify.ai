@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import Text from 'antd/lib/typography/Text';
 
-import CVATTooltip from 'components/common/clarify-tooltip';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 import { computeTextColor } from 'utils/compute-text-color';
 import config from 'config';
 import { LabelOptColor } from './common';
@@ -26,7 +25,7 @@ export default function ConstructorViewerItem(props: ConstructorViewerItemProps)
     return (
         <div style={{ background: backgroundColor }} className='clarify-constructor-viewer-item'>
             <Text style={{ color: textColor }}>{label.name}</Text>
-            <CVATTooltip title='Update attributes'>
+            <CLARIFYTooltip title='Update attributes'>
                 <span
                     style={{ color: textColor }}
                     role='button'
@@ -36,8 +35,8 @@ export default function ConstructorViewerItem(props: ConstructorViewerItemProps)
                 >
                     <EditOutlined />
                 </span>
-            </CVATTooltip>
-            <CVATTooltip title='Delete label'>
+            </CLARIFYTooltip>
+            <CLARIFYTooltip title='Delete label'>
                 <span
                     style={{ color: textColor }}
                     role='button'
@@ -47,7 +46,7 @@ export default function ConstructorViewerItem(props: ConstructorViewerItemProps)
                 >
                     <DeleteOutlined />
                 </span>
-            </CVATTooltip>
+            </CLARIFYTooltip>
         </div>
     );
 }

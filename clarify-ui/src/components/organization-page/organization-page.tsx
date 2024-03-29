@@ -1,4 +1,3 @@
-
 import './styles.scss';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -50,7 +49,7 @@ function OrganizationPage(): JSX.Element | null {
     }
 
     return (
-        <div className='cvat-organization-page'>
+        <div className='clarify-organization-page'>
             {!organization ? (
                 <Empty description='You are not in an organization' />
             ) : (

@@ -8,12 +8,12 @@
     height: 100%;
     width: 100%;
 
-    .cvat-models-page-top-bar {
+    .clarify-models-page-top-bar {
         padding-bottom: $grid-unit-size;
     }
 
     >div:nth-child(2) {
-        &:not(.cvat-empty-models-list) {
+        &:not(.clarify-empty-models-list) {
             height: 90%;
         }
     }
@@ -130,7 +130,7 @@
 
 .clarify-model-item-loading-preview,
 .clarify-model-item-empty-preview {
-    @extend .cvat-base-preview;
+    @extend .clarify-base-preview;
 
     height: $grid-unit-size * 18;
 

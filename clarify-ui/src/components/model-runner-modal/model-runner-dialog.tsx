@@ -1,4 +1,3 @@
-
 import './styles.scss';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
@@ -7,7 +6,7 @@ import notification from 'antd/lib/notification';
 
 import { ThunkDispatch } from 'utils/redux';
 import { modelsActions, startInferenceAsync } from 'actions/models-actions';
-import CVATLoadingSpinner from 'components/common/loading-spinner';
+import CLARIFYLoadingSpinner from 'components/common/loading-spinner';
 import { CombinedState } from 'reducers';
 import MLModel from 'clarify-core/src/ml-model';
 import { getCore, Task } from 'clarify-core-wrapper';
@@ -92,7 +91,7 @@ function ModelRunnerDialog(props: StateToProps & DispatchToProps): JSX.Element {
                         runInference(taskInstance.id, ...args);
                     }}
                 />
-            ) : <CVATLoadingSpinner /> }
+            ) : <CLARIFYLoadingSpinner /> }
         </Modal>
     );
 }

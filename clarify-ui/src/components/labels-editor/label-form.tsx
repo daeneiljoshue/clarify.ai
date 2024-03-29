@@ -1,4 +1,3 @@
-
 import React, { RefObject } from 'react';
 import { Row, Col } from 'antd/lib/grid';
 import Icon, { DeleteOutlined, PlusCircleOutlined } from '@ant-design/icons';
@@ -13,7 +12,7 @@ import Modal from 'antd/lib/modal';
 import { Store } from 'antd/lib/form/interface';
 
 import { SerializedAttribute, LabelType } from 'clarify-core-wrapper';
-import CVATTooltip from 'components/common/cvat-tooltip';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 import ColorPicker from 'components/annotation-page/standard-workspace/objects-side-bar/color-picker';
 import { ColorizeIcon } from 'icons';
 import patterns from 'utils/validation-patterns';
@@ -170,7 +169,7 @@ export default class LabelForm extends React.Component<Props> {
                     },
                 ]}
             >
-                <Input disabled={attr.id >= 0} className='cvat-attribute-name-input' placeholder='Name' />
+                <Input disabled={attr.id >= 0} className='clarify-attribute-name-input' placeholder='Name' />
             </Form.Item>
         );
     }
@@ -180,10 +179,10 @@ export default class LabelForm extends React.Component<Props> {
         const locked = attr.id as number >= 0;
 
         return (
-            <CVATTooltip title='An HTML element representing the attribute'>
+            <CLARIFYTooltip title='An HTML element representing the attribute'>
                 <Form.Item name={[key, 'type']}>
                     <Select
-                        className='cvat-attribute-type-input'
+                        className='clarify-attribute-type-input'
                         disabled={locked}
                         onChange={(value: AttributeType) => {
                             const attrs = this.formRef.current?.getFieldValue('attributes');
@@ -199,24 +198,24 @@ export default class LabelForm extends React.Component<Props> {
                             });
                         }}
                     >
-                        <Select.Option value={AttributeType.SELECT} className='cvat-attribute-type-input-select'>
+                        <Select.Option value={AttributeType.SELECT} className='clarify-attribute-type-input-select'>
                             Select
                         </Select.Option>
-                        <Select.Option value={AttributeType.RADIO} className='cvat-attribute-type-input-radio'>
+                        <Select.Option value={AttributeType.RADIO} className='clarify-attribute-type-input-radio'>
                             Radio
                         </Select.Option>
-                        <Select.Option value={AttributeType.CHECKBOX} className='cvat-attribute-type-input-checkbox'>
+                        <Select.Option value={AttributeType.CHECKBOX} className='clarify-attribute-type-input-checkbox'>
                             Checkbox
                         </Select.Option>
-                        <Select.Option value={AttributeType.TEXT} className='cvat-attribute-type-input-text'>
+                        <Select.Option value={AttributeType.TEXT} className='clarify-attribute-type-input-text'>
                             Text
                         </Select.Option>
-                        <Select.Option value={AttributeType.NUMBER} className='cvat-attribute-type-input-number'>
+                        <Select.Option value={AttributeType.NUMBER} className='clarify-attribute-type-input-number'>
                             Number
                         </Select.Option>
                     </Select>
                 </Form.Item>
-            </CVATTooltip>
+            </CLARIFYTooltip>
         );
     }
 
@@ -242,7 +241,7 @@ export default class LabelForm extends React.Component<Props> {
         };
 
         return (
-            <CVATTooltip title='Press enter to add a new value'>
+            <CLARIFYTooltip title='Press enter to add a new value'>
                 <Form.Item
                     name={[key, 'values']}
                     rules={[
@@ -256,7 +255,7 @@ export default class LabelForm extends React.Component<Props> {
                     ]}
                 >
                     <Select
-                        className='cvat-attribute-values-input'
+                        className='clarify-attribute-values-input'
                         mode='tags'
                         placeholder='Attribute values'
                         dropdownStyle={{ display: 'none' }}
@@ -264,14 +263,14 @@ export default class LabelForm extends React.Component<Props> {
                             const attrs = this.formRef.current?.getFieldValue('attributes');
                             const isDefault = props.value === attrs[key].default_value;
                             return (
-                                <CVATTooltip
+                                <CLARIFYTooltip
                                     placement='bottom'
                                     title={isDefault ? 'This value is default' : 'Click to set default value'}
                                 >
                                     <Tag
                                         visible
                                         onMouseEnter={() => {
-                                            const parent = window.document.getElementsByClassName('cvat-attribute-values-input')[0];
+                                            const parent = window.document.getElementsByClassName('clarify-attribute-values-input')[0];
                                             if (parent) {
                                                 parent.dispatchEvent(new MouseEvent('mouseout', { bubbles: true }));
                                             }
@@ -293,12 +292,12 @@ export default class LabelForm extends React.Component<Props> {
                                     >
                                         {props.label}
                                     </Tag>
-                                </CVATTooltip>
+                                </CLARIFYTooltip>
                             );
                         }}
                     />
                 </Form.Item>
-            </CVATTooltip>
+            </CLARIFYTooltip>
         );
     }
 
@@ -306,7 +305,7 @@ export default class LabelForm extends React.Component<Props> {
         const { key } = fieldInstance;
 
         return (
-            <CVATTooltip title='Specify a default value'>
+            <CLARIFYTooltip title='Specify a default value'>
                 <Form.Item
                     rules={[
                         {
@@ -315,12 +314,12 @@ export default class LabelForm extends React.Component<Props> {
                         }]}
                     name={[key, 'values']}
                 >
-                    <Select className='cvat-attribute-values-input'>
+                    <Select className='clarify-attribute-values-input'>
                         <Select.Option value='false'>False</Select.Option>
                         <Select.Option value='true'>True</Select.Option>
                     </Select>
                 </Form.Item>
-            </CVATTooltip>
+            </CLARIFYTooltip>
         );
     }
 
@@ -372,7 +371,7 @@ export default class LabelForm extends React.Component<Props> {
                     },
                 ]}
             >
-                <Input className='cvat-attribute-values-input' disabled={locked} placeholder='min;max;step' />
+                <Input className='clarify-attribute-values-input' disabled={locked} placeholder='min;max;step' />
             </Form.Item>
         );
     }
@@ -382,7 +381,7 @@ export default class LabelForm extends React.Component<Props> {
 
         return (
             <Form.Item name={[key, 'values']}>
-                <Input.TextArea className='cvat-attribute-values-input' placeholder='Default value' />
+                <Input.TextArea className='clarify-attribute-values-input' placeholder='Default value' />
             </Form.Item>
         );
     }
@@ -392,16 +391,16 @@ export default class LabelForm extends React.Component<Props> {
         const locked = attr.id as number >= 0;
 
         return (
-            <CVATTooltip title='Can this attribute be changed frame to frame?'>
+            <CLARIFYTooltip title='Can this attribute be changed frame to frame?'>
                 <Form.Item
                     name={[key, 'mutable']}
                     valuePropName='checked'
                 >
-                    <Checkbox className='cvat-attribute-mutable-checkbox' disabled={locked}>
+                    <Checkbox className='clarify-attribute-mutable-checkbox' disabled={locked}>
                         Mutable
                     </Checkbox>
                 </Form.Item>
-            </CVATTooltip>
+            </CLARIFYTooltip>
         );
     }
 
@@ -409,12 +408,12 @@ export default class LabelForm extends React.Component<Props> {
         const { key } = fieldInstance;
 
         return (
-            <CVATTooltip title='Delete the attribute'>
+            <CLARIFYTooltip title='Delete the attribute'>
                 <Form.Item>
                     <Button
                         disabled={attr.id >= 0} // temporary disabled, does not work on the server
                         type='link'
-                        className='cvat-delete-attribute-button'
+                        className='clarify-delete-attribute-button'
                         onClick={(): void => {
                             if (attr.id >= 0) {
                                 Modal.confirm({
@@ -435,7 +434,7 @@ export default class LabelForm extends React.Component<Props> {
                         <DeleteOutlined />
                     </Button>
                 </Form.Item>
-            </CVATTooltip>
+            </CLARIFYTooltip>
         );
     }
 
@@ -450,7 +449,7 @@ export default class LabelForm extends React.Component<Props> {
                         justify='space-between'
                         align='top'
                         cvat-attribute-id={attr.id}
-                        className='cvat-attribute-inputs-wrapper'
+                        className='clarify-attribute-inputs-wrapper'
                     >
                         <Col span={5}>{this.renderAttributeNameInput(fieldInstance, attr)}</Col>
                         <Col span={4}>{this.renderAttributeTypeInput(fieldInstance, attr)}</Col>
@@ -531,10 +530,10 @@ export default class LabelForm extends React.Component<Props> {
 
         return (
             <Form.Item name='type'>
-                <Select className='cvat-label-type-input' disabled={isSkeleton || locked} showSearch={false}>
+                <Select className='clarify-label-type-input' disabled={isSkeleton || locked} showSearch={false}>
                     {isSkeleton ? (
                         <Select.Option
-                            className='cvat-label-type-option-skeleton'
+                            className='clarify-label-type-option-skeleton'
                             value='skeleton'
                         >
                             Skeleton
@@ -552,7 +551,7 @@ export default class LabelForm extends React.Component<Props> {
     private renderNewAttributeButton(): JSX.Element {
         return (
             <Form.Item>
-                <Button type='ghost' onClick={this.addAttribute} className='cvat-new-attribute-button'>
+                <Button type='ghost' onClick={this.addAttribute} className='clarify-new-attribute-button'>
                     Add an attribute
                     <PlusCircleOutlined />
                 </Button>
@@ -566,16 +565,16 @@ export default class LabelForm extends React.Component<Props> {
         const buttonText = label ? 'Done' : 'Continue';
 
         return (
-            <CVATTooltip title={tooltipTitle}>
+            <CLARIFYTooltip title={tooltipTitle}>
                 <Button
-                    className='cvat-submit-new-label-button'
+                    className='clarify-submit-new-label-button'
                     style={{ width: '150px' }}
                     type='primary'
                     htmlType='submit'
                 >
                     {buttonText}
                 </Button>
-            </CVATTooltip>
+            </CLARIFYTooltip>
         );
     }
 
@@ -583,9 +582,9 @@ export default class LabelForm extends React.Component<Props> {
         const { onCancel } = this.props;
 
         return (
-            <CVATTooltip title='Do not save the label and return'>
+            <CLARIFYTooltip title='Do not save the label and return'>
                 <Button
-                    className='cvat-cancel-new-label-button'
+                    className='clarify-cancel-new-label-button'
                     type='primary'
                     danger
                     style={{ width: '150px' }}
@@ -595,7 +594,7 @@ export default class LabelForm extends React.Component<Props> {
                 >
                     Cancel
                 </Button>
-            </CVATTooltip>
+            </CLARIFYTooltip>
         );
     }
 
@@ -605,15 +604,15 @@ export default class LabelForm extends React.Component<Props> {
                 {() => (
                     <Form.Item name='color'>
                         <ColorPicker placement='bottom'>
-                            <CVATTooltip title='Change color of the label'>
+                            <CLARIFYTooltip title='Change color of the label'>
                                 <Button type='default' className='cvat-change-task-label-color-button'>
                                     <Badge
-                                        className='cvat-change-task-label-color-badge'
+                                        className='clarify-change-task-label-color-badge'
                                         color={this.formRef.current?.getFieldValue('color') || config.NEW_LABEL_COLOR}
                                         text={<Icon component={ColorizeIcon} />}
                                     />
                                 </Button>
-                            </CVATTooltip>
+                            </CLARIFYTooltip>
                         </ColorPicker>
                     </Form.Item>
                 )}
@@ -658,7 +657,7 @@ export default class LabelForm extends React.Component<Props> {
                     name: label?.name || '',
                     type: label?.type || (isSkeleton ? LabelType.SKELETON : LabelType.ANY),
                     color: label?.color || undefined,
-                    attributes: (label?.attributes || []).map((attr: { id: any; name: any; input_type: any; values: any; mutable: any; default_value: any; }) => ({
+                    attributes: (label?.attributes || []).map((attr) => ({
                         id: attr.id,
                         name: attr.name,
                         type: attr.input_type,

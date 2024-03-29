@@ -1,11 +1,10 @@
-
 import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'antd/lib/grid';
 import Select from 'antd/lib/select';
 import Tag from 'antd/lib/tag';
 import { DeleteOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 
-import CVATTooltip from 'components/common/cvat-tooltip';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 import { computeTextColor } from 'utils/compute-text-color';
 
 interface Props {
@@ -82,14 +81,14 @@ function ObjectMapperComponent(props: Props): JSX.Element {
                                 <Tag style={{ color: textColor }} color={color} key={rightName}>{rightName}</Tag>
                             </Col>
                             <Col span={1} offset={1}>
-                                <CVATTooltip title={deleteMappingLabel}>
+                                <CLARIFYTooltip title={deleteMappingLabel}>
                                     <DeleteOutlined
-                                        className='cvat-danger-circle-icon'
+                                        className='clarify-danger-circle-icon'
                                         onClick={() => setMappingWrapper(
                                             mapping.filter((_mapping) => mappingItem !== _mapping),
                                         )}
                                     />
-                                </CVATTooltip>
+                                </CLARIFYTooltip>
                             </Col>
                         </Row>
 
@@ -145,20 +144,20 @@ function ObjectMapperComponent(props: Props): JSX.Element {
                     <Col span={1} offset={1}>
                         { (leftValue === null && rightValue === null) ? (
                             <Col span={1} offset={1}>
-                                <CVATTooltip title={infoMappingLabel}>
-                                    <QuestionCircleOutlined className='cvat-info-circle-icon' />
-                                </CVATTooltip>
+                                <CLARIFYTooltip title={infoMappingLabel}>
+                                    <QuestionCircleOutlined className='clarify-info-circle-icon' />
+                                </CLARIFYTooltip>
                             </Col>
                         ) : (
-                            <CVATTooltip title={deleteMappingLabel}>
+                            <CLARIFYTooltip title={deleteMappingLabel}>
                                 <DeleteOutlined
-                                    className='cvat-danger-circle-icon'
+                                    className='clarify-danger-circle-icon'
                                     onClick={() => {
                                         setLeftValue(null);
                                         setRightValue(null);
                                     }}
                                 />
-                            </CVATTooltip>
+                            </CLARIFYTooltip>
                         )}
                     </Col>
                 </Row>
