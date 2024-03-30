@@ -173,7 +173,7 @@ export default function CreateCloudStorageForm(props: Props): JSX.Element {
 
             notification.info({
                 message: 'The cloud storage has been attached',
-                className: 'cvat-notification-create-cloud-storage-success',
+                className: 'clarify-notification-create-cloud-storage-success',
             });
         }
         if (shouldShowCreationNotification !== undefined) {
@@ -185,7 +185,7 @@ export default function CreateCloudStorageForm(props: Props): JSX.Element {
         if (updatedCloudStorageId && shouldShowUpdationNotification && shouldShowUpdationNotification.current) {
             notification.info({
                 message: 'The cloud storage has been updated',
-                className: 'cvat-notification-update-cloud-storage-success',
+                className: 'clarify-notification-update-cloud-storage-success',
             });
         }
         if (shouldShowUpdationNotification !== undefined) {
@@ -199,7 +199,7 @@ export default function CreateCloudStorageForm(props: Props): JSX.Element {
                 message: `For security reasons, your credentials are hidden and represented by fake values
                     that will not be taken into account when updating the cloud storage.
                     If you want to replace the original credentials, simply enter new ones.`,
-                className: 'cvat-notification-update-info-cloud-storage',
+                className: 'clarify-notification-update-info-cloud-storage',
                 duration: 15,
             });
         }
@@ -315,7 +315,7 @@ export default function CreateCloudStorageForm(props: Props): JSX.Element {
     };
 
     const commonProps = {
-        className: 'cvat-cloud-storage-form-item',
+        className: 'clarify-cloud-storage-form-item',
     };
 
     const credentialsBlok = (): JSX.Element | null => {
@@ -449,7 +449,7 @@ export default function CreateCloudStorageForm(props: Props): JSX.Element {
                                 href='https://cloud.google.com/docs/authentication/getting-started#setting_the_environment_variable'
                                 target='_blank'
                                 type='link'
-                                className='cvat-cloud-storage-help-button'
+                                className='clarify-cloud-storage-help-button'
                             >
                                 <QuestionCircleOutlined />
                             </Button>
@@ -457,7 +457,7 @@ export default function CreateCloudStorageForm(props: Props): JSX.Element {
 
                     )}
                 >
-                    <Space align='start' className='cvat-cloud-storage-form-item-key-file'>
+                    <Space align='start' className='clarify-cloud-storage-form-item-key-file'>
                         <Dragger
                             accept='.json, application/json'
                             multiple={false}
@@ -620,7 +620,7 @@ export default function CreateCloudStorageForm(props: Props): JSX.Element {
 
     return (
         <Form
-            className='cvat-cloud-storage-form'
+            className='clarify-cloud-storage-form'
             layout='vertical'
             form={form}
             onFinish={(values: CloudStorageForm): void => handleOnFinish(values)}
@@ -651,19 +651,19 @@ export default function CreateCloudStorageForm(props: Props): JSX.Element {
                     }}
                 >
                     <Select.Option value={ProviderType.AWS_S3_BUCKET}>
-                        <span className='cvat-cloud-storage-select-provider'>
+                        <span className='clarify-cloud-storage-select-provider'>
                             <S3Provider />
                             AWS S3
                         </span>
                     </Select.Option>
                     <Select.Option value={ProviderType.AZURE_CONTAINER}>
-                        <span className='cvat-cloud-storage-select-provider'>
+                        <span className='clarify-cloud-storage-select-provider'>
                             <AzureProvider />
                             Azure Blob Container
                         </span>
                     </Select.Option>
                     <Select.Option value={ProviderType.GOOGLE_CLOUD_STORAGE}>
-                        <span className='cvat-cloud-storage-select-provider'>
+                        <span className='clarify-cloud-storage-select-provider'>
                             <GoogleCloudProvider />
                             Google Cloud Storage
                         </span>
@@ -677,7 +677,7 @@ export default function CreateCloudStorageForm(props: Props): JSX.Element {
                 label={(
                     <CLARIFYTooltip title='Prefix is used to filter bucket content'>
                         Prefix
-                        <QuestionCircleOutlined className='cvat-cloud-storage-help-button' />
+                        <QuestionCircleOutlined className='clarify-cloud-storage-help-button' />
                     </CLARIFYTooltip>
                 )}
                 name='prefix'
@@ -690,7 +690,7 @@ export default function CreateCloudStorageForm(props: Props): JSX.Element {
                     <Button
                         htmlType='button'
                         onClick={() => onCancel()}
-                        className='cvat-cloud-storage-reset-button'
+                        className='clarify-cloud-storage-reset-button'
                         disabled={loading}
                     >
                         Cancel
@@ -700,7 +700,7 @@ export default function CreateCloudStorageForm(props: Props): JSX.Element {
                     <Button
                         type='primary'
                         htmlType='submit'
-                        className='cvat-cloud-storage-submit-button'
+                        className='clarify-cloud-storage-submit-button'
                         loading={loading}
                         disabled={loading}
                     >

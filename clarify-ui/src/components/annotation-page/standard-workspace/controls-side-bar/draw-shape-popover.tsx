@@ -52,15 +52,15 @@ function DrawShapePopoverComponent(props: Props): JSX.Element {
 
     const is2D = jobInstance.dimension === DimensionType.DIMENSION_2D;
     return (
-        <div className='cvat-draw-shape-popover-content'>
+        <div className='clarify-draw-shape-popover-content'>
             <Row justify='start'>
                 <Col>
-                    <Text className='cvat-text-color' strong>{`Draw new ${shapeType}`}</Text>
+                    <Text className='clarify-text-color' strong>{`Draw new ${shapeType}`}</Text>
                 </Col>
             </Row>
             <Row justify='start'>
                 <Col>
-                    <Text className='cvat-text-color'>Label</Text>
+                    <Text className='clarify-text-color'>Label</Text>
                 </Col>
             </Row>
             <Row justify='center'>
@@ -77,7 +77,7 @@ function DrawShapePopoverComponent(props: Props): JSX.Element {
                 <>
                     <Row>
                         <Col>
-                            <Text className='cvat-text-color'> Drawing method </Text>
+                            <Text className='clarify-text-color'> Drawing method </Text>
                         </Col>
                     </Row>
                     <Row justify='space-around'>
@@ -102,7 +102,7 @@ function DrawShapePopoverComponent(props: Props): JSX.Element {
                 <>
                     <Row>
                         <Col>
-                            <Text className='cvat-text-color'> Drawing method </Text>
+                            <Text className='clarify-text-color'> Drawing method </Text>
                         </Col>
                     </Row>
                     <Row justify='space-around'>
@@ -126,7 +126,7 @@ function DrawShapePopoverComponent(props: Props): JSX.Element {
             {is2D && [ShapeType.POLYGON, ShapeType.POLYLINE, ShapeType.POINTS].includes(shapeType) ? (
                 <Row justify='space-around' align='middle'>
                     <Col span={14}>
-                        <Text className='cvat-text-color'> Number of points: </Text>
+                        <Text className='clarify-text-color'> Number of points: </Text>
                     </Col>
                     <Col span={10}>
                         <InputNumber
@@ -137,7 +137,7 @@ function DrawShapePopoverComponent(props: Props): JSX.Element {
                                     onChangePoints(Math.floor(clamp(+value, minimumPoints, Number.MAX_SAFE_INTEGER)));
                                 }
                             }}
-                            className='cvat-draw-shape-popover-points-selector'
+                            className='clarify-draw-shape-popover-points-selector'
                             min={minimumPoints}
                             value={numberOfPoints}
                             step={1}
@@ -148,12 +148,12 @@ function DrawShapePopoverComponent(props: Props): JSX.Element {
             <Row justify='space-around'>
                 <Col span={24}>
                     <CLARIFYTooltip title={`Press ${repeatShapeShortcut} to draw again`}>
-                        <Button className={`cvat-draw-${shapeType}-shape-button`} onClick={onDrawShape}>Shape</Button>
+                        <Button className={`clarify-draw-${shapeType}-shape-button`} onClick={onDrawShape}>Shape</Button>
                     </CLARIFYTooltip>
                     {shapeType !== ShapeType.MASK && (
                         <CLARIFYTooltip title={`Press ${repeatShapeShortcut} to draw again`}>
                             <Button
-                                className={`cvat-draw-${shapeType}-track-button`}
+                                className={`clarify-draw-${shapeType}-track-button`}
                                 onClick={onDrawTrack}
                             >
                                 Track

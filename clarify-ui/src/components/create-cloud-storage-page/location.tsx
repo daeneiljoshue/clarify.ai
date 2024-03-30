@@ -37,12 +37,12 @@ export default function Location(props: Props): JSX.Element {
         if (!newRegionKey || !newRegionName) {
             notification.warning({
                 message: 'Incorrect region',
-                className: 'cvat-incorrect-add-region-notification',
+                className: 'clarify-incorrect-add-region-notification',
             });
         } else if (locations[newRegionKey]) {
             notification.warning({
                 message: 'This region already exists',
-                className: 'cvat-incorrect-add-region-notification',
+                className: 'clarify-incorrect-add-region-notification',
             });
         } else {
             setLocations({
@@ -61,7 +61,7 @@ export default function Location(props: Props): JSX.Element {
                     {label}
                     <Tooltip title='More information'>
                         <Button
-                            className='cvat-cloud-storage-help-button'
+                            className='clarifycloud-storage-help-button'
                             type='link'
                             target='_blank'
                             href={href}
@@ -80,8 +80,8 @@ export default function Location(props: Props): JSX.Element {
                 dropdownRender={(menu) => (
                     <div>
                         {menu}
-                        <Divider className='cvat-divider' />
-                        <div className='cvat-cloud-storage-region-creator'>
+                        <Divider className='clarify-divider' />
+                        <div className='clarify-cloud-storage-region-creator'>
                             <Input
                                 value={newRegionKey}
                                 onChange={(event: any) => setNewRegionKey(event.target.value)}
@@ -94,7 +94,7 @@ export default function Location(props: Props): JSX.Element {
                                 placeholder='name'
                             />
                             <Button
-                                className='cvat-cloud-storage-region-add-button'
+                                className='clarify-cloud-storage-region-add-button'
                                 type='link'
                                 onClick={handleAddingRegion}
                             >

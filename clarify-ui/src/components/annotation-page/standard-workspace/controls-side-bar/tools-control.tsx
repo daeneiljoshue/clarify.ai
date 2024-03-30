@@ -365,7 +365,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
             this.interaction.hideMessage = message.loading({
                 content: `Waiting a response from ${activeInteractor?.name}..`,
                 duration: 0,
-                className: 'cvat-tracking-notice',
+                className: 'clarify-tracking-notice',
             });
             try {
                 // run server request
@@ -589,9 +589,9 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
                 .filter((objectState) => objectState.objectType === 'track' && objectState.shapeType === 'rectangle')
                 .map((objectState: any): React.ReactPortal | null => {
                     const { clientID } = objectState;
-                    const selectorID = `#cvat-objects-sidebar-state-item-${clientID}`;
+                    const selectorID = `#clarify-objects-sidebar-state-item-${clientID}`;
                     let targetElement = window.document.querySelector(
-                        `${selectorID} .cvat-object-item-button-prev-keyframe`,
+                        `${selectorID} .clarify-object-item-button-prev-keyframe`,
                     ) as HTMLElement;
 
                     const isTracked = trackedClientIDs.includes(clientID);
@@ -756,7 +756,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
                                 numOfObjects > 1 ? 'objects' : 'object'
                             } ..`,
                             duration: 0,
-                            className: 'cvat-tracking-notice',
+                            className: 'clarify-tracking-notice',
                         });
                         // eslint-disable-next-line no-await-in-loop
                         const response = await core.lambda.call(jobInstance.taskId, tracker, {
@@ -804,7 +804,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
                                 numOfObjects > 1 ? 'objects are' : 'object is'
                             } being tracked..`,
                             duration: 0,
-                            className: 'cvat-tracking-notice',
+                            className: 'clarify-tracking-notice',
                         });
                         // eslint-disable-next-line no-await-in-loop
                         const response = await core.lambda.call(jobInstance.taskId, tracker, {
@@ -938,7 +938,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
     private renderMasksConvertingBlock(): JSX.Element {
         const { convertMasksToPolygons } = this.state;
         return (
-            <Row className='cvat-interactors-setups-container'>
+            <Row className='clarify-interactors-setups-container'>
                 <Switch
                     checked={convertMasksToPolygons}
                     onChange={(checked: boolean) => {
@@ -957,7 +957,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
             <>
                 <Row justify='start'>
                     <Col>
-                        <Text className='cvat-text-color'>Label</Text>
+                        <Text className='clarify-text-color'>Label</Text>
                     </Col>
                 </Row>
                 <Row justify='center'>
@@ -984,7 +984,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
             return (
                 <Row justify='center' align='middle' style={{ marginTop: '5px' }}>
                     <Col>
-                        <Text type='warning' className='cvat-text-color'>
+                        <Text type='warning' className='clarify-text-color'>
                             No available trackers found
                         </Text>
                     </Col>
@@ -996,7 +996,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
             <>
                 <Row justify='start'>
                     <Col>
-                        <Text className='cvat-text-color'>Tracker</Text>
+                        <Text className='clarify-text-color'>Tracker</Text>
                     </Col>
                 </Row>
                 <Row align='middle' justify='center'>
@@ -1021,7 +1021,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
                         <Button
                             type='primary'
                             loading={fetching}
-                            className='cvat-tools-track-button'
+                            className='clarify-tools-track-button'
                             disabled={!activeTracker || fetching || frame === jobInstance.stopFrame}
                             onClick={() => {
                                 this.setState({ mode: 'tracking' });
@@ -1057,7 +1057,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
             return (
                 <Row justify='center' align='middle' style={{ marginTop: '5px' }}>
                     <Col>
-                        <Text type='warning' className='cvat-text-color'>
+                        <Text type='warning' className='clarify-text-color'>
                             No available interactors found
                         </Text>
                     </Col>
@@ -1071,7 +1071,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
             <>
                 <Row justify='start'>
                     <Col>
-                        <Text className='cvat-text-color'>Interactor</Text>
+                        <Text className='clarify-text-color'>Interactor</Text>
                     </Col>
                 </Row>
                 <Row align='middle' justify='space-between'>
@@ -1094,7 +1094,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
                             )}
                         </Select>
                     </Col>
-                    <Col span={2} className='cvat-interactors-tips-icon-container'>
+                    <Col span={2} className='clarify-interactors-tips-icon-container'>
                         <Dropdown
                             destroyPopupOnHide
                             overlay={(
@@ -1114,7 +1114,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
                         <Button
                             type='primary'
                             loading={fetching}
-                            className='cvat-tools-interact-button'
+                            className='clarify-tools-interact-button'
                             disabled={!activeInteractor ||
                                 fetching ||
                                 activeInteractor.version < MIN_SUPPORTED_INTERACTOR_VERSION}
@@ -1150,7 +1150,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
             return (
                 <Row justify='center' align='middle' style={{ marginTop: '5px' }}>
                     <Col>
-                        <Text type='warning' className='cvat-text-color'>
+                        <Text type='warning' className='clarify-text-color'>
                             No available detectors found
                         </Text>
                     </Col>
@@ -1345,10 +1345,10 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
 
     private renderPopoverContent(): JSX.Element {
         return (
-            <div className='cvat-tools-control-popover-content'>
+            <div className='clarify-tools-control-popover-content'>
                 <Row justify='start'>
                     <Col>
-                        <Text className='cvat-text-color' strong>
+                        <Text className='clarify-text-color' strong>
                             AI Tools
                         </Text>
                     </Col>
@@ -1391,13 +1391,13 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
 
         const dynamicIconProps = isActivated ?
             {
-                className: 'cvat-tools-control cvat-active-canvas-control',
+                className: 'clarify-tools-control clarify-active-canvas-control',
                 onClick: (): void => {
                     canvasInstance.interact({ enabled: false });
                 },
             } :
             {
-                className: 'cvat-tools-control',
+                className: 'clarify-tools-control',
             };
 
         const showAnyContent = labels.length && !frameIsDeleted;
@@ -1437,7 +1437,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
                 {portals}
             </>
         ) : (
-            <Icon className=' cvat-tools-control cvat-disabled-canvas-control' component={AIToolsIcon} />
+            <Icon className=' clarify-tools-control clarify-disabled-canvas-control' component={AIToolsIcon} />
         );
     }
 }

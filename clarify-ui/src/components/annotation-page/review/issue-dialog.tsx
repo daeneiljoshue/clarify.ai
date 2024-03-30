@@ -116,11 +116,11 @@ export default function IssueDialog(props: Props): JSX.Element {
     );
 
     const resolveButton = resolved ? (
-        <Button loading={isFetching} className='cvat-issue-dialog-reopen-button' type='primary' onClick={reopen}>
+        <Button loading={isFetching} className='clarify-issue-dialog-reopen-button' type='primary' onClick={reopen}>
             Reopen
         </Button>
     ) : (
-        <Button loading={isFetching} className='cvat-issue-dialog-resolve-button' type='primary' onClick={resolve}>
+        <Button loading={isFetching} className='clarify-issue-dialog-resolve-button' type='primary' onClick={resolve}>
             Resolve
         </Button>
     );
@@ -129,9 +129,9 @@ export default function IssueDialog(props: Props): JSX.Element {
         <div
             style={{ top, left, transform: `scale(${scale}) rotate(${angle}deg)` }}
             ref={ref}
-            className='cvat-issue-dialog'
+            className='clarify-issue-dialog'
         >
-            <Row className='cvat-issue-dialog-header' justify='space-between'>
+            <Row className='clarify-issue-dialog-header' justify='space-between'>
                 <Col>
                     <Title level={4}>{typeof id === 'number' ? `Issue #${id}` : 'Issue'}</Title>
                 </Col>
@@ -141,14 +141,14 @@ export default function IssueDialog(props: Props): JSX.Element {
                     </CLARIFYTooltip>
                 </Col>
             </Row>
-            <Row className='cvat-issue-dialog-chat' justify='start'>
+            <Row className='clarify-issue-dialog-chat' justify='start'>
                 {
                     lines.length > 0 ? <Col style={{ display: 'block' }}>{lines}</Col> : (
                         <Col>No comments found</Col>
                     )
                 }
             </Row>
-            <Row className='cvat-issue-dialog-input' justify='start'>
+            <Row className='clarify-issue-dialog-input' justify='start'>
                 <Col span={24}>
                     <Input
                         placeholder='Type a comment here..'
@@ -165,16 +165,16 @@ export default function IssueDialog(props: Props): JSX.Element {
                     />
                 </Col>
             </Row>
-            <Row className='cvat-issue-dialog-footer' justify='space-between'>
+            <Row className='clarify-issue-dialog-footer' justify='space-between'>
                 <Col>
-                    <Button type='link' className='cvat-issue-dialog-remove-button' danger onClick={onDeleteIssue}>
+                    <Button type='link' className='clarify-issue-dialog-remove-button' danger onClick={onDeleteIssue}>
                         Remove
                     </Button>
                 </Col>
                 <Col>
                     {currentText.length ? (
                         <Button
-                            className='cvat-issue-dialog-comment-button'
+                            className='clarify-issue-dialog-comment-button'
                             loading={isFetching}
                             type='primary'
                             disabled={!currentText.length}
@@ -191,6 +191,6 @@ export default function IssueDialog(props: Props): JSX.Element {
                 </Col>
             </Row>
         </div>,
-        window.document.getElementById('cvat_canvas_attachment_board') as HTMLElement,
+        window.document.getElementById('clarify_canvas_attachment_board') as HTMLElement,
     );
 }

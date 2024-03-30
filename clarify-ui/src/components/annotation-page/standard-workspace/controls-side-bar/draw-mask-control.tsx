@@ -26,20 +26,20 @@ function DrawPointsControl(props: Props): JSX.Element {
     } : {};
 
     const dynamicIconProps = isDrawing ? {
-        className: 'cvat-draw-mask-control cvat-active-canvas-control',
+        className: 'clarify-draw-mask-control clarify-active-canvas-control',
         onClick: (): void => {
             canvasInstance.draw({ enabled: false });
         },
     } : {
-        className: 'cvat-draw-mask-control',
+        className: 'clarify-draw-mask-control',
     };
 
     return disabled ? (
-        <Icon className='cvat-draw-mask-control cvat-disabled-canvas-control' component={BrushIcon} />
+        <Icon className='clarify-draw-mask-control clarify-disabled-canvas-control' component={BrushIcon} />
     ) : (
         <CustomPopover
             {...dynamicPopoverProps}
-            overlayClassName='cvat-draw-shape-popover'
+            overlayClassName='clarify-draw-shape-popover'
             placement='right'
             content={<DrawShapePopoverContainer shapeType={ShapeType.MASK} />}
         >

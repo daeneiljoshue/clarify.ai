@@ -28,20 +28,20 @@ function DrawSkeletonControl(props: Props): JSX.Element {
     } : {};
 
     const dynamicIconProps = isDrawing ? {
-        className: 'cvat-draw-skeleton-control cvat-active-canvas-control',
+        className: 'clarify-draw-skeleton-control clarify-active-canvas-control',
         onClick: (): void => {
             canvasInstance.draw({ enabled: false });
         },
     } : {
-        className: 'cvat-draw-skeleton-control',
+        className: 'clarify-draw-skeleton-control',
     };
 
     return disabled ? (
-        <Icon className='cvat-draw-skeleton-control cvat-disabled-canvas-control' component={SkeletonIcon} />
+        <Icon className='clarify-draw-skeleton-control clarify-disabled-canvas-control' component={SkeletonIcon} />
     ) : (
         <CustomPopover
             {...dynamicPopoverProps}
-            overlayClassName='cvat-draw-shape-popover'
+            overlayClassName='clarfy-draw-shape-popover'
             placement='right'
             content={<DrawShapePopoverContainer shapeType={ShapeType.SKELETON} />}
         >

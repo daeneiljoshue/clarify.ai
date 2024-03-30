@@ -181,7 +181,7 @@ function SingleShapeSidebar(): JSX.Element {
                     content: 'Please, confirm further action',
                     cancelText: 'Stay on the page',
                     okText: 'Submit results',
-                    className: 'cvat-single-shape-annotation-submit-job-modal',
+                    className: 'clarify-single-shape-annotation-submit-job-modal',
                     onOk: () => {
                         function reset(): void {
                             savingRef.current = false;
@@ -192,7 +192,7 @@ function SingleShapeSidebar(): JSX.Element {
                                 closable: false,
                                 title: 'Annotations submitted',
                                 content: 'You may close the window',
-                                className: 'cvat-single-shape-annotation-submit-success-modal',
+                                className: 'clarify-single-shape-annotation-submit-success-modal',
                             });
                         }
 
@@ -285,7 +285,7 @@ function SingleShapeSidebar(): JSX.Element {
     }
 
     const siderProps: SiderProps = {
-        className: 'cvat-single-shape-annotation-sidebar',
+        className: 'clarify-single-shape-annotation-sidebar',
         theme: 'light',
         width: 300,
         collapsedWidth: 0,
@@ -314,7 +314,7 @@ function SingleShapeSidebar(): JSX.Element {
     if (!state.labels.length) {
         return (
             <Layout.Sider {...siderProps}>
-                <div className='cvat-single-shape-annotation-sidebar-not-found-wrapper'>
+                <div className='clarify-single-shape-annotation-sidebar-not-found-wrapper'>
                     <Text strong>No available labels found</Text>
                 </div>
             </Layout.Sider>
@@ -332,7 +332,7 @@ function SingleShapeSidebar(): JSX.Element {
                 <Row>
                     <Col>
                         <Alert
-                            className='cvat-single-shape-annotation-sidebar-hint'
+                            className='clarify-single-shape-annotation-sidebar-hint'
                             type='info'
                             message={(
                                 <>
@@ -343,7 +343,7 @@ function SingleShapeSidebar(): JSX.Element {
                                 </>
                             )}
                         />
-                        <Row justify='start' className='cvat-single-shape-annotation-sidebar-skip-wrapper'>
+                        <Row justify='start' className='clarify-single-shape-annotation-sidebar-skip-wrapper'>
                             <Col>
                                 <Button
                                     size='large'
@@ -358,7 +358,7 @@ function SingleShapeSidebar(): JSX.Element {
                         </Row>
                         <Alert
                             type='info'
-                            className='cvat-single-shape-annotation-sidebar-ux-hints'
+                            className='clarify-single-shape-annotation-sidebar-ux-hints'
                             message={(
                                 <ul>
                                     <li>
@@ -399,12 +399,12 @@ function SingleShapeSidebar(): JSX.Element {
             )}
             { withLabelsSelector && (
                 <>
-                    <Row justify='start' className='cvat-single-shape-annotation-sidebar-label'>
+                    <Row justify='start' className='clarify-single-shape-annotation-sidebar-label'>
                         <Col>
                             <Text strong>Label selector</Text>
                         </Col>
                     </Row>
-                    <Row justify='start' className='cvat-single-shape-annotation-sidebar-label-select'>
+                    <Row justify='start' className='clarify-single-shape-annotation-sidebar-label-select'>
                         <Col>
                             <LabelSelector
                                 labels={state.labels}
@@ -417,12 +417,12 @@ function SingleShapeSidebar(): JSX.Element {
             )}
             { withLabelTypeSelector && (
                 <>
-                    <Row justify='start' className='cvat-single-shape-annotation-sidebar-label-type'>
+                    <Row justify='start' className='clarify-single-shape-annotation-sidebar-label-type'>
                         <Col>
                             <Text strong>Label type selector</Text>
                         </Col>
                     </Row>
-                    <Row justify='start' className='cvat-single-shape-annotation-sidebar-label-type-selector'>
+                    <Row justify='start' className='clarify-single-shape-annotation-sidebar-label-type-selector'>
                         <Col>
                             <Select
                                 value={state.labelType}
@@ -442,7 +442,7 @@ function SingleShapeSidebar(): JSX.Element {
                     </Row>
                 </>
             )}
-            <Row className='cvat-single-shape-annotation-sidebar-auto-next-frame-checkbox'>
+            <Row className='clarify-single-shape-annotation-sidebar-auto-next-frame-checkbox'>
                 <Col>
                     <Checkbox
                         checked={state.autoNextFrame}
@@ -455,7 +455,7 @@ function SingleShapeSidebar(): JSX.Element {
                     </Checkbox>
                 </Col>
             </Row>
-            <Row className='cvat-single-shape-annotation-sidebar-auto-save-checkbox'>
+            <Row className='clarify-single-shape-annotation-sidebar-auto-save-checkbox'>
                 <Col>
                     <Checkbox
                         checked={state.saveOnFinish}
@@ -468,7 +468,7 @@ function SingleShapeSidebar(): JSX.Element {
                     </Checkbox>
                 </Col>
             </Row>
-            <Row className='cvat-single-shape-annotation-sidebar-navigate-empty-checkbox'>
+            <Row className='clarify-single-shape-annotation-sidebar-navigate-empty-checkbox'>
                 <Col>
                     <Checkbox
                         checked={navigationType === NavigationType.EMPTY}
@@ -486,7 +486,7 @@ function SingleShapeSidebar(): JSX.Element {
                 </Col>
             </Row>
             { isPolylabel && (
-                <Row className='cvat-single-shape-annotation-sidebar-predefined-pounts-count-checkbox'>
+                <Row className='clarify-single-shape-annotation-sidebar-predefined-pounts-count-checkbox'>
                     <Col>
                         <Checkbox
                             checked={state.pointsCountIsPredefined}
@@ -502,12 +502,12 @@ function SingleShapeSidebar(): JSX.Element {
             )}
             { isPolylabel && state.pointsCountIsPredefined ? (
                 <>
-                    <Row justify='start' className='cvat-single-shape-annotation-sidebar-points-count'>
+                    <Row justify='start' className='clarify-single-shape-annotation-sidebar-points-count'>
                         <Col>
                             <Text strong>Number of points</Text>
                         </Col>
                     </Row>
-                    <Row justify='start' className='cvat-single-shape-annotation-sidebar-points-count-input'>
+                    <Row justify='start' className='clarify-single-shape-annotation-sidebar-points-count-input'>
                         <Col>
                             <InputNumber
                                 value={state.pointsCount}

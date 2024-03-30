@@ -61,7 +61,7 @@ function PropagateConfirmComponent(): JSX.Element {
             destroyOnClose
             okButtonProps={{ disabled: !propagateFrames }}
         >
-            <div className='cvat-propagate-confirm'>
+            <div className='clarify-propagate-confirm'>
                 <Row>
                     <Col>
                         <Text>Please, specify a direction</Text>
@@ -85,7 +85,7 @@ function PropagateConfirmComponent(): JSX.Element {
                     <Col>How many copies do you want to create?</Col>
                     <Col offset={1}>
                         <InputNumber
-                            className='cvat-propagate-confirm-object-on-frames'
+                            className='clarify-propagate-confirm-object-on-frames'
                             size='small'
                             min={0}
                             value={propagateFrames}
@@ -98,11 +98,11 @@ function PropagateConfirmComponent(): JSX.Element {
                     </Col>
                 </Row>
                 <hr />
-                <Row className='cvat-propagate-up-to-wrapper'>
+                <Row className='clarify-propagate-up-to-wrapper'>
                     <Col span={24}>
                         <Text>Or specify a range where copies will be created </Text>
                     </Col>
-                    <Col className='cvat-propagate-slider-wrapper' span={12} offset={1}>
+                    <Col className='clarify-propagate-slider-wrapper' span={12} offset={1}>
                         <Slider
                             range
                             min={startFrame}
@@ -125,7 +125,7 @@ function PropagateConfirmComponent(): JSX.Element {
                     <Col span={4}>
                         <InputNumber
                             size='small'
-                            className='cvat-propagate-confirm-up-to-input'
+                            className='clarify-propagate-confirm-up-to-input'
                             min={startFrame}
                             max={stopFrame}
                             value={targetFrame}

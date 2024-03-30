@@ -46,7 +46,7 @@ function CreateIssueControl(props: Props): JSX.Element {
 
     return (
         disabled ? (
-            <Icon component={RectangleIcon} className='cvat-issue-control cvat-disabled-canvas-control' />
+            <Icon component={RectangleIcon} className='clarify-issue-control clarify-disabled-canvas-control' />
         ) : (
             <>
                 <GlobalHotKeys
@@ -58,8 +58,8 @@ function CreateIssueControl(props: Props): JSX.Element {
                         component={RectangleIcon}
                         className={
                             activeControl === ActiveControl.OPEN_ISSUE ?
-                                'cvat-issue-control cvat-active-canvas-control' :
-                                'cvat-issue-control'
+                                'clarify-issue-control clarify-active-canvas-control' :
+                                'clarify-issue-control'
                         }
                         onClick={handler}
                     />

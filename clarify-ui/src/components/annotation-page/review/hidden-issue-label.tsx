@@ -1,7 +1,3 @@
-// Copyright (C) 2020-2022 Intel Corporation
-// Copyright (C) 2023 CVAT.ai Corporation
-//
-// SPDX-License-Identifier: MIT
 
 import React, {
     ReactPortal, useEffect, useRef,
@@ -71,7 +67,7 @@ export default function HiddenIssueLabel(props: Props): ReactPortal {
                 onMouseEnter={highlight}
                 onMouseLeave={blur}
                 style={{ top, left, transform: `scale(${scale}) rotate(${angle}deg)` }}
-                className='cvat-hidden-issue-label'
+                className='clarify-hidden-issue-label'
             >
                 {resolved ? (
                     <CheckCircleOutlined className='clarify-hidden-issue-resolved-indicator' />

@@ -12,7 +12,7 @@ import IssueAggregatorComponent from 'components/annotation-page/review/issues-a
 
 export default function ReviewWorkspaceComponent(): JSX.Element {
     return (
-        <Layout hasSider className='cvat-review-workspace'>
+        <Layout hasSider className='clarify-review-workspace'>
             <ControlsSideBarContainer />
             <CanvasLayout />
             <ObjectSideBarComponent objectsList={<ObjectsListContainer readonly />} />

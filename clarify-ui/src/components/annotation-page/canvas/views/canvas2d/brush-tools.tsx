@@ -24,7 +24,7 @@ import { rememberObject, updateCanvasBrushTools } from 'actions/annotation-actio
 import useDraggable from './draggable-hoc';
 
 const DraggableArea = (
-    <div className='cvat-brush-tools-draggable-area'>
+    <div className='clarify-brush-tools-draggable-area'>
         <Icon component={MoveIcon} />
     </div>
 );
@@ -53,7 +53,7 @@ function BrushTools(): React.ReactPortal | null {
     const [removeUnderlyingPixels, setRemoveUnderlyingPixels] = useState(false);
     const dragBar = useDraggable(
         (): number[] => {
-            const [element] = window.document.getElementsByClassName('cvat-brush-tools-toolbox');
+            const [element] = window.document.getElementsByClassName('clarify-brush-tools-toolbox');
             if (element) {
                 const { offsetTop, offsetLeft } = element as HTMLDivElement;
                 return [offsetTop, offsetLeft];
@@ -73,7 +73,7 @@ function BrushTools(): React.ReactPortal | null {
         notification.warning({
             message: 'Some objects were deleted',
             description: 'As a result of removing the underlying pixels, some masks became empty and were subsequently deleted.',
-            className: 'cvat-empty-masks-notification',
+            className: 'clarify-empty-masks-notification',
             duration: null,
         });
     };
@@ -124,7 +124,7 @@ function BrushTools(): React.ReactPortal | null {
     }, [labels]);
 
     useEffect(() => {
-        const canvasContainer = window.document.getElementsByClassName('cvat-canvas-container')[0];
+        const canvasContainer = window.document.getElementsByClassName('clarify-canvas-container')[0];
         if (canvasContainer) {
             const { offsetTop, offsetLeft } = canvasContainer.parentElement as HTMLElement;
             setTopLeft([offsetTop, offsetLeft]);
@@ -195,10 +195,10 @@ function BrushTools(): React.ReactPortal | null {
     }
 
     return ReactDOM.createPortal((
-        <div className='cvat-brush-tools-toolbox' style={{ top, left, display: visible ? '' : 'none' }}>
+        <div className='clarify-brush-tools-toolbox' style={{ top, left, display: visible ? '' : 'none' }}>
             <Button
                 type='text'
-                className='cvat-brush-tools-finish'
+                className='clarify-brush-tools-finish'
                 icon={<Icon component={CheckIcon} />}
                 onClick={() => {
                     if (canvasInstance instanceof Canvas) {
@@ -214,7 +214,7 @@ function BrushTools(): React.ReactPortal | null {
                 <Button
                     type='text'
                     disabled={!!editableState}
-                    className='cvat-brush-tools-continue'
+                    className='clarify-brush-tools-continue'
                     icon={<Icon component={PlusIcon} />}
                     onClick={() => {
                         if (canvasInstance instanceof Canvas) {
@@ -234,26 +234,26 @@ function BrushTools(): React.ReactPortal | null {
             <hr />
             <Button
                 type='text'
-                className={['cvat-brush-tools-brush', ...(currentTool === 'brush' ? ['cvat-brush-tools-active-tool'] : [])].join(' ')}
+                className={['clarify-brush-tools-brush', ...(currentTool === 'brush' ? ['clarify-brush-tools-active-tool'] : [])].join(' ')}
                 icon={<Icon component={BrushIcon} />}
                 onClick={() => setCurrentTool('brush')}
             />
             <Button
                 type='text'
-                className={['cvat-brush-tools-eraser', ...(currentTool === 'eraser' ? ['cvat-brush-tools-active-tool'] : [])].join(' ')}
+                className={['clarify-brush-tools-eraser', ...(currentTool === 'eraser' ? ['clarify-brush-tools-active-tool'] : [])].join(' ')}
                 icon={<Icon component={EraserIcon} />}
                 onClick={() => setCurrentTool('eraser')}
                 disabled={blockedTools.eraser}
             />
             <Button
                 type='text'
-                className={['cvat-brush-tools-polygon-plus', ...(currentTool === 'polygon-plus' ? ['cvat-brush-tools-active-tool'] : [])].join(' ')}
+                className={['clarify-brush-tools-polygon-plus', ...(currentTool === 'polygon-plus' ? ['clarify-brush-tools-active-tool'] : [])].join(' ')}
                 icon={<Icon component={PolygonPlusIcon} />}
                 onClick={() => setCurrentTool('polygon-plus')}
             />
             <Button
                 type='text'
-                className={['cvat-brush-tools-polygon-minus', ...(currentTool === 'polygon-minus' ? ['cvat-brush-tools-active-tool'] : [])].join(' ')}
+                className={['clarify-brush-tools-polygon-minus', ...(currentTool === 'polygon-minus' ? ['clarify-brush-tools-active-tool'] : [])].join(' ')}
                 icon={<Icon component={PolygonMinusIcon} />}
                 onClick={() => setCurrentTool('polygon-minus')}
                 disabled={blockedTools['polygon-minus']}
@@ -261,7 +261,7 @@ function BrushTools(): React.ReactPortal | null {
             { ['brush', 'eraser'].includes(currentTool) ? (
                 <CLARIFYTooltip title='Brush size [Hold Alt + Right Mouse Click + Drag Left/Right]'>
                     <InputNumber
-                        className='cvat-brush-tools-brush-size'
+                        className='clarify-brush-tools-brush-size'
                         value={brushSize}
                         min={MIN_BRUSH_SIZE}
                         formatter={(val: number | undefined) => {
@@ -288,7 +288,7 @@ function BrushTools(): React.ReactPortal | null {
             ) : null}
             <Button
                 type='text'
-                className={['cvat-brush-tools-underlying-pixels', ...(removeUnderlyingPixels ? ['cvat-brush-tools-active-tool'] : [])].join(' ')}
+                className={['clarify-brush-tools-underlying-pixels', ...(removeUnderlyingPixels ? ['clarify-brush-tools-active-tool'] : [])].join(' ')}
                 icon={<VerticalAlignBottomOutlined />}
                 onClick={() => setRemoveUnderlyingPixels(!removeUnderlyingPixels)}
             />

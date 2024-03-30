@@ -765,9 +765,9 @@ class CanvasWrapperComponent extends React.PureComponent<Props> {
         const { clientID, parentID } = e.detail.state;
         let sidebarItem = null;
         if (Number.isInteger(parentID)) {
-            sidebarItem = window.document.getElementById(`cvat-objects-sidebar-state-item-element-${clientID}`);
+            sidebarItem = window.document.getElementById(`clarify-objects-sidebar-state-item-element-${clientID}`);
         } else {
-            sidebarItem = window.document.getElementById(`cvat-objects-sidebar-state-item-${clientID}`);
+            sidebarItem = window.document.getElementById(`clarify-objects-sidebar-state-item-${clientID}`);
         }
 
         if (sidebarItem) {
@@ -961,7 +961,7 @@ class CanvasWrapperComponent extends React.PureComponent<Props> {
                                     notification.error({
                                         description: error.toString(),
                                         message: 'Image processing error occurred',
-                                        className: 'cvat-notification-notice-image-processing-error',
+                                        className: 'clarify-notification-notice-image-processing-error',
                                     });
                                 }
                             }
@@ -994,8 +994,8 @@ class CanvasWrapperComponent extends React.PureComponent<Props> {
         const { canvasInstance } = this.props as { canvasInstance: Canvas };
 
         // Grid
-        const gridElement = window.document.getElementById('cvat_canvas_grid');
-        const gridPattern = window.document.getElementById('cvat_canvas_grid_pattern');
+        const gridElement = window.document.getElementById('clarify_canvas_grid');
+        const gridPattern = window.document.getElementById('clarify_canvas_grid_pattern');
         if (gridElement) {
             gridElement.style.display = grid ? 'block' : 'none';
         }
@@ -1092,8 +1092,8 @@ class CanvasWrapperComponent extends React.PureComponent<Props> {
                 <CanvasTipsComponent ref={this.canvasTipsRef} />
                 {
                     !canvasIsReady && (
-                        <div className='cvat-spinner-container'>
-                            <Spin className='cvat-spinner' />
+                        <div className='clarify-spinner-container'>
+                            <Spin className='clarify-spinner' />
                         </div>
                     )
                 }
@@ -1104,7 +1104,7 @@ class CanvasWrapperComponent extends React.PureComponent<Props> {
                     And it's a reason why cvat-canvas appended in mount function works
                 */}
                 <div
-                    className='cvat-canvas-container'
+                    className='clarify-canvas-container'
                     style={{
                         overflow: 'hidden',
                         width: '100%',
@@ -1120,10 +1120,10 @@ class CanvasWrapperComponent extends React.PureComponent<Props> {
                     placement='topCenter'
                     overlay={<ImageSetupsContent />}
                 >
-                    <UpOutlined className='cvat-canvas-image-setups-trigger' />
+                    <UpOutlined className='clarify-canvas-image-setups-trigger' />
                 </Dropdown>
 
-                <div className='cvat-canvas-z-axis-wrapper'>
+                <div className='clarify-canvas-z-axis-wrapper'>
                     <Slider
                         disabled={minZLayer === maxZLayer}
                         min={minZLayer}
@@ -1140,7 +1140,7 @@ class CanvasWrapperComponent extends React.PureComponent<Props> {
                 </div>
 
                 {showTagsOnFrame ? (
-                    <div className='cvat-canvas-frame-tags'>
+                    <div className='clarify-canvas-frame-tags'>
                         <FrameTags />
                     </div>
                 ) : null}

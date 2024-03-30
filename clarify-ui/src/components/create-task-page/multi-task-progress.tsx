@@ -61,13 +61,13 @@ export default function MultiTasksProgress(props: Props): JSX.Element {
             message={(
                 <div>
                     {percent === 100 ? (
-                        <Row className='cvat-create-multi-tasks-state'>
+                        <Row className='clarify-create-multi-tasks-state'>
                             <Col>
                                 Finished
                             </Col>
                         </Row>
                     ) : null}
-                    <Row className='cvat-create-multi-tasks-progress'>
+                    <Row className='clarify-create-multi-tasks-progress'>
                         <Col>
                             {`Pending: ${countPending} `}
                         </Col>
@@ -123,7 +123,7 @@ export default function MultiTasksProgress(props: Props): JSX.Element {
                                 <>
                                     <Col>
                                         <Button
-                                            className='cvat-create-multiple-tasks-retry-failed-button'
+                                            className='clarify-create-multiple-tasks-retry-failed-button'
                                             disabled={!countFailed}
                                             onClick={onRetryFailedTasks}
                                         >
@@ -134,7 +134,7 @@ export default function MultiTasksProgress(props: Props): JSX.Element {
                                         countCancelled ? (
                                             <Col>
                                                 <Button
-                                                    className='cvat-create-multiple-tasks-retry-cancelled-button'
+                                                    className='clarify-create-multiple-tasks-retry-cancelled-button'
                                                     disabled={!countCancelled}
                                                     onClick={onRetryCancelledTasks}
                                                 >
@@ -145,7 +145,7 @@ export default function MultiTasksProgress(props: Props): JSX.Element {
                                     }
                                     <Col>
                                         <Button
-                                            className='cvat-create-multiple-tasks-after-finish-button'
+                                            className='clarify-create-multiple-tasks-after-finish-button'
                                             type='primary'
                                             onClick={onOk}
                                         >
@@ -156,7 +156,7 @@ export default function MultiTasksProgress(props: Props): JSX.Element {
                             ) : (
                                 <Col>
                                     <Button
-                                        className='cvat-create-multiple-tasks-cancel-pending-button'
+                                        className='clarify-create-multiple-tasks-cancel-pending-button'
                                         onClick={onCancel}
                                         disabled={!countPending}
                                     >

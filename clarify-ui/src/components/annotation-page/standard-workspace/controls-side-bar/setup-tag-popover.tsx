@@ -22,17 +22,17 @@ function SetupTagPopover(props: Props): JSX.Element {
     } = props;
 
     return (
-        <div className='cvat-setup-tag-popover-content'>
+        <div className='clarify-setup-tag-popover-content'>
             <Row justify='start'>
                 <Col>
-                    <Text className='cvat-text-color' strong>
+                    <Text className='clarify-text-color' strong>
                         Setup tag
                     </Text>
                 </Col>
             </Row>
             <Row justify='start'>
                 <Col>
-                    <Text className='cvat-text-color'>Label</Text>
+                    <Text className='clarify-text-color'>Label</Text>
                 </Col>
             </Row>
             <Row justify='start'>
@@ -46,7 +46,7 @@ function SetupTagPopover(props: Props): JSX.Element {
                     <CLARIFYTooltip title={`Press ${repeatShapeShortcut} to add a tag again`}>
                         <Button
                             type='primary'
-                            className='cvat-add-tag-button'
+                            className='clarify-add-tag-button'
                             onClick={() => onSetup()}
                             icon={<PlusOutlined />}
                         />

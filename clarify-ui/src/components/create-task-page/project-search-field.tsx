@@ -87,7 +87,7 @@ export default function ProjectSearchField(props: Props): JSX.Element {
             placeholder='Select project'
             onSearch={handleSearch}
             onSelect={handleSelect}
-            className='cvat-project-search-field'
+            className='clarify-project-search-field'
             onDropdownVisibleChange={handleFocus}
             options={projects.map((proj) => ({
                 value: proj.id.toString(),

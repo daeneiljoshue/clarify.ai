@@ -282,7 +282,7 @@ function AnnotationsActionsModalContent(props: { onClose: () => void; }): JSX.El
             destroyOnClose
             footer={null}
             afterClose={onClose}
-            className='cvat-action-runner-content'
+            className='clarify-action-runner-content'
         >
             <Row>
                 <Col span={24} className='cvat-action-runner-info'>
@@ -314,13 +314,13 @@ function AnnotationsActionsModalContent(props: { onClose: () => void; }): JSX.El
                 </Col>
 
                 {!jobHasBeenSaved ? (
-                    <Col span={24} className='cvat-action-runner-info'>
+                    <Col span={24} className='clarify-action-runner-info'>
                         <Alert
                             message={(
                                 <>
                                     <Text strong>Recommendation: </Text>
                                     <Button
-                                        className='cvat-action-runner-save-job-recommendation'
+                                        className='clarify-action-runner-save-job-recommendation'
                                         type='link'
                                         onClick={() => {
                                             storage.dispatch(
@@ -341,13 +341,13 @@ function AnnotationsActionsModalContent(props: { onClose: () => void; }): JSX.El
                 ) : null}
 
                 {autoSaveEnabled ? (
-                    <Col span={24} className='cvat-action-runner-info'>
+                    <Col span={24} className='clarify-action-runner-info'>
                         <Alert
                             message={(
                                 <>
                                     <Text strong>Recommendation: </Text>
                                     <Button
-                                        className='cvat-action-runner-disable-autosave-recommendation'
+                                        className='clarify-action-runner-disable-autosave-recommendation'
                                         type='link'
                                         onClick={() => {
                                             storage.dispatch(switchAutoSave(false));
@@ -364,10 +364,10 @@ function AnnotationsActionsModalContent(props: { onClose: () => void; }): JSX.El
                     </Col>
                 ) : null}
 
-                <Col span={24} className='cvat-action-runner-list'>
+                <Col span={24} className='clarify-action-runner-list'>
                     <Row>
                         <Col span={24}>
-                            <Text strong className='cvat-text-color'>1. Select action</Text>
+                            <Text strong className='clarify-text-color'>1. Select action</Text>
                             <hr />
                         </Col>
                         <Col span={24}>
@@ -399,7 +399,7 @@ function AnnotationsActionsModalContent(props: { onClose: () => void; }): JSX.El
 
                 {activeAction ? (
                     <>
-                        <Col span={24} className='cvat-action-runner-frames'>
+                        <Col span={24} className='clarify-action-runner-frames'>
                             <Row>
                                 <Col span={24}>
                                     <Text strong>2. Specify frames to apply the action </Text>
@@ -437,7 +437,7 @@ function AnnotationsActionsModalContent(props: { onClose: () => void; }): JSX.El
                                 </Col>
                             </Row>
                         </Col>
-                        <Col span={24} className='cvat-action-runner-frames-predefined'>
+                        <Col span={24} className='clarify-action-runner-frames-predefined'>
                             <Row>
                                 <Col span={24}>
                                     <Text strong>Or choose one of predefined options </Text>
@@ -486,7 +486,7 @@ function AnnotationsActionsModalContent(props: { onClose: () => void; }): JSX.El
                 ) : null}
 
                 {activeAction?.parameters ? (
-                    <Col span={24} className='cvat-action-runner-action-parameters'>
+                    <Col span={24} className='clarify-action-runner-action-parameters'>
                         <Row>
                             <Col span={24}>
                                 <Text strong>3. Setup action parameters </Text>
@@ -494,7 +494,7 @@ function AnnotationsActionsModalContent(props: { onClose: () => void; }): JSX.El
                             </Col>
                             {Object.entries(activeAction.parameters)
                                 .map(([name, { defaultValue, type, values }], idx) => (
-                                    <Col key={idx} span={24} className='cvat-action-runner-action-parameter'>
+                                    <Col key={idx} span={24} className='clarify-action-runner-action-parameter'>
                                         <Text>{name}</Text>
                                         <ActionParameterComponent
                                             onChange={(value: string) => {
@@ -512,17 +512,17 @@ function AnnotationsActionsModalContent(props: { onClose: () => void; }): JSX.El
 
                 {fetching && typeof progress === 'number' && (
                     <Col span={24}>
-                        <Progress percent={progress} className='cvat-action-runner-progress' />
+                        <Progress percent={progress} className='clarify-action-runner-progress' />
                         { progressMessage ? (
-                            <Text className='cvat-action-runner-progress-message'>{progressMessage}</Text>
+                            <Text className='clarify-action-runner-progress-message'>{progressMessage}</Text>
                         ) : null }
 
                     </Col>
                 )}
 
-                <Col span={24} className='cvat-action-runner-buttons'>
+                <Col span={24} className='clarify-action-runner-buttons'>
                     <Button
-                        className='cvat-action-runner-cancel-btn'
+                        className='clarify-action-runner-cancel-btn'
                         loading={state.cancelled}
                         onClick={() => {
                             if (fetching) {
@@ -536,7 +536,7 @@ function AnnotationsActionsModalContent(props: { onClose: () => void; }): JSX.El
                         { fetching ? 'Cancel' : 'Close'}
                     </Button>
                     <Button
-                        className='cvat-action-runner-run-btn'
+                        className='clarify-action-runner-run-btn'
                         type='primary'
                         loading={fetching}
                         disabled={!activeAction || fetching}

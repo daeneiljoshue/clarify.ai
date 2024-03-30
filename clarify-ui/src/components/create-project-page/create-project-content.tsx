@@ -183,7 +183,7 @@ export default function CreateProjectContent(): JSX.Element {
             resetForm();
             notification.info({
                 message: 'The project has been created',
-                className: 'cvat-notification-create-project-success',
+                className: 'clarify-notification-create-project-success',
             });
             focusForm();
         }
@@ -194,12 +194,12 @@ export default function CreateProjectContent(): JSX.Element {
     }, []);
 
     return (
-        <Row justify='start' align='middle' className='cvat-create-project-content'>
+        <Row justify='start' align='middle' className='clarify-create-project-content'>
             <Col span={24}>
                 <NameConfigurationForm formRef={nameFormRef} inputRef={nameInputRef} />
             </Col>
             <Col span={24}>
-                <Text className='cvat-text-color'>Labels:</Text>
+                <Text className='clarify-text-color'>Labels:</Text>
                 <LabelsEditor
                     labels={projectLabels}
                     onSubmit={(newLabels): void => {
@@ -208,8 +208,8 @@ export default function CreateProjectContent(): JSX.Element {
                 />
             </Col>
             <Col span={24}>
-                <Collapse className='cvat-advanced-configuration-wrapper'>
-                    <Collapse.Panel key='1' header={<Text className='cvat-title'>Advanced configuration</Text>}>
+                <Collapse className='clarify-advanced-configuration-wrapper'>
+                    <Collapse.Panel key='1' header={<Text className='clarify-title'>Advanced configuration</Text>}>
                         <AdvancedConfigurationForm
                             formRef={advancedFormRef}
                             sourceStorageLocation={sourceStorageLocation}
@@ -223,12 +223,12 @@ export default function CreateProjectContent(): JSX.Element {
             <Col span={24}>
                 <Row justify='end' gutter={5}>
                     <Col>
-                        <Button className='cvat-submit-open-project-button' type='primary' onClick={onSubmitAndOpen}>
+                        <Button className='clarify-submit-open-project-button' type='primary' onClick={onSubmitAndOpen}>
                             Submit & Open
                         </Button>
                     </Col>
                     <Col>
-                        <Button className='cvat-submit-continue-project-button' type='primary' onClick={onSubmitAndContinue}>
+                        <Button className='clarify-submit-continue-project-button' type='primary' onClick={onSubmitAndContinue}>
                             Submit & Continue
                         </Button>
                     </Col>

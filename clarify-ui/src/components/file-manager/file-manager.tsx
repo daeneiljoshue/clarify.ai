@@ -121,7 +121,7 @@ export class FileManager extends React.PureComponent<Props, State> {
         const { files } = this.state;
 
         return (
-            <Tabs.TabPane className='cvat-file-manager-local-tab' key='local' tab='My computer'>
+            <Tabs.TabPane className='clarify-file-manager-local-tab' key='local' tab='My computer'>
                 <LocalFiles
                     files={files.local}
                     many={many}
@@ -158,7 +158,7 @@ export class FileManager extends React.PureComponent<Props, State> {
         return (
             <Tabs.TabPane key='remote' tab='Remote sources'>
                 <Input.TextArea
-                    className='cvat-file-selector-remote'
+                    className='clarify-file-selector-remote'
                     placeholder='Enter one URL per line'
                     rows={6}
                     value={[...files.remote].join('\n')}
@@ -182,7 +182,7 @@ export class FileManager extends React.PureComponent<Props, State> {
         return (
             <Tabs.TabPane
                 key='cloudStorage'
-                className='cvat-create-task-page-cloud-storage-tab'
+                className='clarify-create-task-page-cloud-storage-tab'
                 tab={<span> Cloud Storage </span>}
             >
                 <CloudStorageTab

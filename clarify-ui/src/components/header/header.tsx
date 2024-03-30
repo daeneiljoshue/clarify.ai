@@ -30,9 +30,9 @@ import notification from 'antd/lib/notification';
 import config from 'config';
 
 import { Organization, getCore } from 'clarify-core-wrapper';
-import { CLARIFYLogo } from 'icons';
+import { CVATLogo } from 'icons';
 import ChangePasswordDialog from 'components/change-password-modal/change-password-modal';
-import CVATTooltip from 'components/common/clarify-tooltip';
+import CLARIFYTooltip from 'components/common/clarify-tooltip';
 import { switchSettingsModalVisible as switchSettingsModalVisibleAction } from 'actions/settings-actions';
 import { logoutAsync, authActions } from 'actions/auth-actions';
 import { shortcutsActions } from 'actions/shortcuts-actions';
@@ -318,13 +318,13 @@ function HeaderComponent(props: Props): JSX.Element {
             icon={organizationFetching || listFetching ? <LoadingOutlined /> : <TeamOutlined />}
         >
             {currentOrganization ? (
-                <Menu.Item icon={<SettingOutlined />} key='open_organization' onClick={() => history.push('/organization')} className='cvat-header-menu-open-organization'>
+                <Menu.Item icon={<SettingOutlined />} key='open_organization' onClick={() => history.push('/organization')} className='clarify-header-menu-open-organization'>
                     Settings
                 </Menu.Item>
             ) : null}
             <Menu.Item
                 icon={<MailOutlined />}
-                className='cvat-header-menu-organization-invitations-item'
+                className='clarify-header-menu-organization-invitations-item'
                 key='invitations'
                 onClick={() => {
                     history.push('/invitations');
@@ -332,7 +332,7 @@ function HeaderComponent(props: Props): JSX.Element {
             >
                 Invitations
             </Menu.Item>
-            <Menu.Item icon={<PlusOutlined />} key='create_organization' onClick={() => history.push('/organizations/create')} className='cvat-header-menu-create-organization'>Create</Menu.Item>
+            <Menu.Item icon={<PlusOutlined />} key='create_organization' onClick={() => history.push('/organizations/create')} className='clarify-header-menu-create-organization'>Create</Menu.Item>
             { !!organizationsList && viewType === 'list' && (
                 <Menu.Item
                     key='switch_organization'
@@ -363,7 +363,7 @@ function HeaderComponent(props: Props): JSX.Element {
                     <Menu.ItemGroup>
                         <Menu.Item
                             className={!currentOrganization ?
-                                'cvat-header-menu-active-organization-item' : 'cvat-header-menu-organization-item'}
+                                'clarify-header-menu-active-organization-item' : 'clarify-header-menu-organization-item'}
                             key='$personal'
                             onClick={resetOrganization}
                         >
@@ -372,7 +372,7 @@ function HeaderComponent(props: Props): JSX.Element {
                         {organizationsList.map((organization: any): JSX.Element => (
                             <Menu.Item
                                 className={currentOrganization?.slug === organization.slug ?
-                                    'cvat-header-menu-active-organization-item' : 'cvat-header-menu-organization-item'}
+                                    'clarify-header-menu-active-organization-item' : 'clarify-header-menu-organization-item'}
                                 key={organization.slug}
                                 onClick={() => setNewOrganization(organization)}
                             >
@@ -407,7 +407,7 @@ function HeaderComponent(props: Props): JSX.Element {
             <Menu.Item
                 key='change_password'
                 icon={changePasswordFetching ? <LoadingOutlined /> : <EditOutlined />}
-                className='cvat-header-menu-change-password'
+                className='clarify-header-menu-change-password'
                 onClick={(): void => switchChangePasswordModalVisible(true)}
                 disabled={changePasswordFetching}
             >
@@ -436,7 +436,7 @@ function HeaderComponent(props: Props): JSX.Element {
     );
 
     const userMenu = (
-        <Menu triggerSubMenuAction='click' className='cvat-header-menu'>
+        <Menu triggerSubMenuAction='click' className='clarify-header-menu'>
             { menuItems.sort((menuItem1, menuItem2) => menuItem1[1] - menuItem2[1])
                 .map((menuItem) => menuItem[0]) }
         </Menu>
@@ -445,16 +445,16 @@ function HeaderComponent(props: Props): JSX.Element {
     const getButtonClassName = (value: string): string => {
         // eslint-disable-next-line security/detect-non-literal-regexp
         const regex = new RegExp(`${value}$`);
-        const baseClass = `cvat-header-${value}-button cvat-header-button`;
+        const baseClass = `clarify-header-${value}-button clarifyheader-button`;
         return location.pathname.match(regex) ?
-            `${baseClass} cvat-active-header-button` : baseClass;
+            `${baseClass} clarify-active-header-button` : baseClass;
     };
 
     return (
-        <Layout.Header className='cvat-header'>
+        <Layout.Header className='clarify-header'>
             <GlobalHotKeys keyMap={subKeyMap} handlers={handlers} />
-            <div className='cvat-left-header'>
-                <Icon className='cvat-logo-icon' component={CLARIFYLogo} />
+            <div className='clarify-left-header'>
+                <Icon className='clarify-logo-icon' component={CVATLogo} />
                 <Button
                     className={getButtonClassName('projects')}
                     type='link'
@@ -531,12 +531,12 @@ function HeaderComponent(props: Props): JSX.Element {
                     </Button>
                 ) : null}
             </div>
-            <div className='cvat-right-header'>
-                <CVATTooltip overlay='Click to open repository'>
+            <div className='clarify-right-header'>
+                <CLARIFYTooltip overlay='Click to open repository'>
                     <Button
                         icon={<GithubOutlined />}
                         size='large'
-                        className='cvat-open-repository-button cvat-header-button'
+                        className='clarify-open-repository-button cvat-header-button'
                         type='link'
                         href={GITHUB_URL}
                         onClick={(event: React.MouseEvent): void => {
@@ -544,12 +544,12 @@ function HeaderComponent(props: Props): JSX.Element {
                             window.open(GITHUB_URL, '_blank');
                         }}
                     />
-                </CVATTooltip>
-                <CVATTooltip overlay='Click to open guide'>
+                </CLARIFYTooltip>
+                <CLARIFYTooltip overlay='Click to open guide'>
                     <Button
                         icon={<QuestionCircleOutlined />}
                         size='large'
-                        className='cvat-open-guide-button cvat-header-button'
+                        className='clarify-open-guide-button cvat-header-button'
                         type='link'
                         href={GUIDE_URL}
                         onClick={(event: React.MouseEvent): void => {
@@ -557,31 +557,31 @@ function HeaderComponent(props: Props): JSX.Element {
                             window.open(GUIDE_URL, '_blank');
                         }}
                     />
-                </CVATTooltip>
+                </CLARIFYTooltip>
                 <Dropdown
                     trigger={['click']}
                     destroyPopupOnHide
                     placement='bottomRight'
                     overlay={userMenu}
-                    className='cvat-header-menu-user-dropdown'
+                    className='clarify-header-menu-user-dropdown'
                 >
                     <span>
-                        <UserOutlined className='cvat-header-dropdown-icon' />
+                        <UserOutlined className='clarify-header-dropdown-icon' />
                         <Row>
                             <Col span={24}>
-                                <Text strong className='cvat-header-menu-user-dropdown-user'>
+                                <Text strong className='clarify-header-menu-user-dropdown-user'>
                                     {user.username.length > 14 ? `${user.username.slice(0, 10)} ...` : user.username}
                                 </Text>
                             </Col>
                             { currentOrganization ? (
                                 <Col span={24}>
-                                    <Text className='cvat-header-menu-user-dropdown-organization'>
+                                    <Text className='clarify-header-menu-user-dropdown-organization'>
                                         {currentOrganization.slug}
                                     </Text>
                                 </Col>
                             ) : null }
                         </Row>
-                        <CaretDownOutlined className='cvat-header-dropdown-icon' />
+                        <CaretDownOutlined className='clarify-header-dropdown-icon' />
                     </span>
                 </Dropdown>
             </div>

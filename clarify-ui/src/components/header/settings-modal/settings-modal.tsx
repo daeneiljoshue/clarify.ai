@@ -38,7 +38,7 @@ function SettingsModal(props: SettingsModalProps): JSX.Element {
         localStorage.setItem('clientSettings', JSON.stringify(settingsForSaving));
         notification.success({
             message: 'Settings were successfully saved',
-            className: 'cvat-notification-notice-save-settings-success',
+            className: 'clarify-notification-notice-save-settings-success',
         });
 
         onClose();
@@ -63,7 +63,7 @@ function SettingsModal(props: SettingsModalProps): JSX.Element {
         } catch {
             notification.error({
                 message: 'Failed to load settings from local storage',
-                className: 'cvat-notification-notice-load-settings-fail',
+                className: 'clarify-notification-notice-load-settings-fail',
             });
         }
     }, []);
@@ -74,21 +74,21 @@ function SettingsModal(props: SettingsModalProps): JSX.Element {
             visible={visible}
             onCancel={onClose}
             width={800}
-            className='cvat-settings-modal'
+            className='clarify-settings-modal'
             footer={(
                 <>
                     <Tooltip title='Will save settings to restore them after the app is reopened'>
-                        <Button className='cvat-save-settings-button' type='primary' onClick={onSaveSettings}>
+                        <Button className='clarify-save-settings-button' type='primary' onClick={onSaveSettings}>
                             Save
                         </Button>
                     </Tooltip>
-                    <Button className='cvat-close-settings-button' type='default' onClick={onClose}>
+                    <Button className='clarify-close-settings-button' type='default' onClick={onClose}>
                         Close
                     </Button>
                 </>
             )}
         >
-            <div className='cvat-settings-tabs'>
+            <div className='clarify-settings-tabs'>
                 <Tabs type='card' tabBarStyle={{ marginBottom: '0px', marginLeft: '-1px' }}>
                     <Tabs.TabPane
                         tab={(

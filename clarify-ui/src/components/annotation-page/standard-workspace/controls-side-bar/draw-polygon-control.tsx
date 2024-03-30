@@ -26,20 +26,20 @@ function DrawPolygonControl(props: Props): JSX.Element {
     } : {};
 
     const dynamicIconProps = isDrawing ? {
-        className: 'cvat-draw-polygon-control cvat-active-canvas-control',
+        className: 'clarify-draw-polygon-control clarify-active-canvas-control',
         onClick: (): void => {
             canvasInstance.draw({ enabled: false });
         },
     } : {
-        className: 'cvat-draw-polygon-control',
+        className: 'clarify-draw-polygon-control',
     };
 
     return disabled ? (
-        <Icon className='cvat-draw-polygon-control cvat-disabled-canvas-control' component={PolygonIcon} />
+        <Icon className='clarify-draw-polygon-control clarify-disabled-canvas-control' component={PolygonIcon} />
     ) : (
         <CustomPopover
             {...dynamicPopoverProps}
-            overlayClassName='cvat-draw-shape-popover'
+            overlayClassName='clarify-draw-shape-popover'
             placement='right'
             content={<DrawShapePopoverContainer shapeType={ShapeType.POLYGON} />}
         >

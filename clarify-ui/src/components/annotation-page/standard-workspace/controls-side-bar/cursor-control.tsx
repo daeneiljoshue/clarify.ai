@@ -48,8 +48,8 @@ function CursorControl(props: Props): JSX.Element {
                     component={CursorIcon}
                     className={
                         activeControl === ActiveControl.CURSOR ?
-                            'cvat-active-canvas-control cvat-cursor-control' :
-                            'cvat-cursor-control'
+                            'clarify-active-canvas-control clarify-cursor-control' :
+                            'clarify-cursor-control'
                     }
                     onClick={handler}
                 />

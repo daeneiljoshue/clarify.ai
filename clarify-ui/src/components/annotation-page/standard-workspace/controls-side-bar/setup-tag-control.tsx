@@ -19,10 +19,10 @@ function SetupTagControl(props: Props): JSX.Element {
     const { disabled } = props;
 
     return disabled ? (
-        <Icon className='cvat-setup-tag-control cvat-disabled-canvas-control' component={TagIcon} />
+        <Icon className='clarify-setup-tag-control clarify-disabled-canvas-control' component={TagIcon} />
     ) : (
         <CustomPopover placement='right' content={<SetupTagPopoverContainer />}>
-            <Icon className='cvat-setup-tag-control' component={TagIcon} />
+            <Icon className='clarify-setup-tag-control' component={TagIcon} />
         </CustomPopover>
     );
 }

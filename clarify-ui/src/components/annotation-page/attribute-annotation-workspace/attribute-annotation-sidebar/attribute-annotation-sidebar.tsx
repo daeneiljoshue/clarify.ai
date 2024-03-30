@@ -288,7 +288,7 @@ function AttributeAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.
                     {sidebarCollapsed ? <MenuFoldOutlined title='Show' /> : <MenuUnfoldOutlined title='Hide' />}
                 </span>
                 <GlobalHotKeys keyMap={subKeyMap} handlers={handlers} />
-                <div className='cvat-sidebar-collapse-button-spacer' />
+                <div className='clarify-sidebar-collapse-button-spacer' />
                 <ObjectSwitcher
                     currentLabel={activeObjectState.label.name}
                     clientID={activeObjectState.clientID}
@@ -359,14 +359,14 @@ function AttributeAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.
         <Layout.Sider {...siderProps}>
             {/* eslint-disable-next-line */}
             <span
-                className={`cvat-objects-sidebar-sider
+                className={`clarify-objects-sidebar-sider
                     ant-layout-sider-zero-width-trigger
                     ant-layout-sider-zero-width-trigger-left`}
                 onClick={collapse}
             >
                 {sidebarCollapsed ? <MenuFoldOutlined title='Show' /> : <MenuUnfoldOutlined title='Hide' />}
             </span>
-            <div className='cvat-sidebar-collapse-button-spacer' />
+            <div className='clarify-sidebar-collapse-button-spacer' />
             <div className='attribute-annotations-sidebar-not-found-wrapper'>
                 <Text strong>No objects found</Text>
             </div>

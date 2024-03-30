@@ -102,7 +102,7 @@ function JobForm(props: Props): JSX.Element {
     const frameCountDescription = 'A representative set, 5-15% of randomly chosen frames is recommended';
 
     return (
-        <Row className='cvat-create-job-form-wrapper'>
+        <Row className='clarify-create-job-form-wrapper'>
             <Col span={24}>
                 <Form
                     form={form}
@@ -122,7 +122,7 @@ function JobForm(props: Props): JSX.Element {
                         >
                             <Select
                                 virtual={false}
-                                className='cvat-select-job-type'
+                                className='clarify-select-job-type'
                             >
                                 <Select.Option value={JobType.GROUND_TRUTH}>
                                     Ground truth
@@ -136,7 +136,7 @@ function JobForm(props: Props): JSX.Element {
                         >
                             <Select
                                 virtual={false}
-                                className='cvat-select-frame-selection-method'
+                                className='clarify-select-frame-selection-method'
                             >
                                 <Select.Option value={FrameSelectionMethod.RANDOM}>
                                     Random
@@ -162,7 +162,7 @@ function JobForm(props: Props): JSX.Element {
                                     rules={[{ required: true, message: 'Please, specify quantity' }]}
                                 >
                                     <InputNumber
-                                        className='cvat-input-frame-quantity'
+                                        className='clarify-input-frame-quantity'
                                         min={1}
                                         max={100}
                                         size='middle'
@@ -189,7 +189,7 @@ function JobForm(props: Props): JSX.Element {
                                             rules={[{ required: true, message: 'Please, specify frame count' }]}
                                         >
                                             <InputNumber
-                                                className='cvat-input-frame-count'
+                                                className='clarify-input-frame-count'
                                                 min={1}
                                                 max={taskSize}
                                                 size='middle'
@@ -205,7 +205,7 @@ function JobForm(props: Props): JSX.Element {
                                     label='Seed'
                                 >
                                     <InputNumber
-                                        className='cvat-input-seed'
+                                        className='clarify-input-seed'
                                         size='middle'
                                     />
                                 </Form.Item>
@@ -214,11 +214,11 @@ function JobForm(props: Props): JSX.Element {
                     </Col>
                 </Form>
             </Col>
-            <Col span={24} className='cvat-create-job-actions'>
+            <Col span={24} className='clarify-create-job-actions'>
                 <Row justify='end'>
                     <Col>
                         <Button
-                            className='cvat-submit-job-button'
+                            className='clarify-submit-job-button'
                             type='primary'
                             onClick={onSubmit}
                             loading={fetching}

@@ -170,7 +170,7 @@ export default function IssueAggregatorComponent(): JSX.Element | null {
         const minY = Math.min(...translated.filter((_: number, idx: number): boolean => idx % 2 !== 0)) + offset;
         const { id } = issue;
         const highlight = (): void => {
-            const element = window.document.getElementById(`cvat_canvas_issue_region_${id}`);
+            const element = window.document.getElementById(`clarify_canvas_issue_region_${id}`);
             if (element) {
                 element.style.display = 'block';
             }
@@ -178,7 +178,7 @@ export default function IssueAggregatorComponent(): JSX.Element | null {
 
         const blur = (): void => {
             if (issueResolved) {
-                const element = window.document.getElementById(`cvat_canvas_issue_region_${id}`);
+                const element = window.document.getElementById(`clarify_canvas_issue_region_${id}`);
                 if (element) {
                     element.style.display = 'none';
                 }

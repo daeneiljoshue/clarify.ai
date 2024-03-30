@@ -62,22 +62,22 @@ function ReviewContextMenu({
                     {`Quick issue: ${conflict.description}`}
                 </Menu.Item>
             ) : null}
-            <Menu.Item className='cvat-context-menu-item' key={ReviewContextMenuKeys.QUICK_ISSUE_POSITION}>
+            <Menu.Item className='clarify-context-menu-item' key={ReviewContextMenuKeys.QUICK_ISSUE_POSITION}>
                 Quick issue: incorrect position
             </Menu.Item>
-            <Menu.Item className='cvat-context-menu-item' key={ReviewContextMenuKeys.QUICK_ISSUE_ATTRIBUTE}>
+            <Menu.Item className='clarify-context-menu-item' key={ReviewContextMenuKeys.QUICK_ISSUE_ATTRIBUTE}>
                 Quick issue: incorrect attribute
             </Menu.Item>
             {latestComments.length ? (
                 <Menu.SubMenu
                     title='Quick issue ...'
-                    className='cvat-context-menu-item'
+                    className='clarify-context-menu-item'
                     key={ReviewContextMenuKeys.QUICK_ISSUE_FROM_LATEST}
                 >
                     {latestComments.map(
                         (comment: string, id: number): JSX.Element => (
                             <Menu.Item
-                                className='clarify-context-menu-item cvat-quick-issue-from-latest-item'
+                                className='clarify-context-menu-item clarify-quick-issue-from-latest-item'
                                 key={`${id}`}
                             >
                                 {comment}
@@ -88,7 +88,7 @@ function ReviewContextMenu({
             ) : null}
             {copyObject ? (
                 <Menu.Item
-                    className='clarify-context-menu-item cvat-quick-copy-object'
+                    className='clarify-context-menu-item clarify-quick-copy-object'
                     key={ReviewContextMenuKeys.COPY_OBJECT}
                 >
                     Copy annotation

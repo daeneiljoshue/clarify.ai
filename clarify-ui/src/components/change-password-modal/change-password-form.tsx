@@ -21,7 +21,7 @@ interface Props {
 
 function ChangePasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element {
     return (
-        <Form onFinish={onSubmit} className='cvat-change-password-form'>
+        <Form onFinish={onSubmit} className='clarify-change-password-form'>
             <Form.Item
                 hasFeedback
                 name='oldPassword'
@@ -80,7 +80,7 @@ function ChangePasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element
                 <Button
                     type='primary'
                     htmlType='submit'
-                    className='cvat-change-password-form-button'
+                    className='clarify-change-password-form-button'
                     loading={fetching}
                     disabled={fetching}
                 >

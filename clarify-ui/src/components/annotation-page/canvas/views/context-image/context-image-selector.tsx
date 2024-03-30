@@ -29,8 +29,8 @@ function CanvasWithRef({
     }, [image, ref]);
 
     return (
-        <div className={(isActive ? ['cvat-context-image-gallery-item cvat-context-image-gallery-item-current'] : ['cvat-context-image-gallery-item']).join(' ')}>
-            <Text strong className='cvat-context-image-gallery-item-name'>{name}</Text>
+        <div className={(isActive ? ['clarify-context-image-gallery-item clarify-context-image-gallery-item-current'] : ['cvat-context-image-gallery-item']).join(' ')}>
+            <Text strong className='clarify-context-image-gallery-item-name'>{name}</Text>
             <canvas
                 ref={ref}
                 onClick={onClick}
@@ -47,15 +47,15 @@ function ContextImageSelector(props: Props): React.ReactPortal {
     const keys = Object.keys(images).sort();
 
     return ReactDOM.createPortal((
-        <div className='cvat-context-image-overlay'>
-            <div className='cvat-context-image-gallery'>
-                <div className='cvat-context-image-gallery-header'>
+        <div className='clarify-context-image-overlay'>
+            <div className='clarify-context-image-gallery'>
+                <div className='clarify-context-image-gallery-header'>
                     <Text>
                         Click the image to display it as a context image
                     </Text>
-                    <CloseOutlined className='cvat-context-image-close-button' onClick={onClose} />
+                    <CloseOutlined className='clarify-context-image-close-button' onClick={onClose} />
                 </div>
-                <div className='cvat-context-image-gallery-items'>
+                <div className='clarify-context-image-gallery-items'>
                     { keys.map((key, i: number) => (
                         <CanvasWithRef
                             name={key}

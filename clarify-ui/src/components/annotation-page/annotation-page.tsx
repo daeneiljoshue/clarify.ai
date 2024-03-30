@@ -74,7 +74,7 @@ export default function AnnotationPageComponent(props: Props): JSX.Element {
                 latestFrame >= job.startFrame &&
                 latestFrame <= job.stopFrame
             ) {
-                const notificationKey = `cvat-notification-continue-job-${job.id}`;
+                const notificationKey = `clarify-notification-continue-job-${job.id}`;
                 notification.info({
                     key: notificationKey,
                     message: `You finished working on frame ${latestFrame}`,
@@ -82,7 +82,7 @@ export default function AnnotationPageComponent(props: Props): JSX.Element {
                         <span>
                             Press
                             <Button
-                                className='cvat-notification-continue-job-button'
+                                className='clarify-notification-continue-job-button'
                                 type='link'
                                 onClick={() => {
                                     changeFrame(latestFrame);
@@ -95,7 +95,7 @@ export default function AnnotationPageComponent(props: Props): JSX.Element {
                         </span>
                     ),
                     placement: 'topRight',
-                    className: 'cvat-notification-continue-job',
+                    className: 'clarify-notification-continue-job',
                 });
             }
 
@@ -114,7 +114,7 @@ export default function AnnotationPageComponent(props: Props): JSX.Element {
                         </span>
                     ),
                     placement: 'topRight',
-                    className: 'cvat-notification-no-labels',
+                    className: 'clarify-notification-no-labels',
                 });
             }
         }
@@ -127,7 +127,7 @@ export default function AnnotationPageComponent(props: Props): JSX.Element {
     if (typeof job === 'undefined') {
         return (
             <Result
-                className='cvat-not-found'
+                className='clarify-not-found'
                 status='404'
                 title='Sorry, but this job was not found'
                 subTitle='Please, be sure information you tried to get exist and you have access'
@@ -136,11 +136,11 @@ export default function AnnotationPageComponent(props: Props): JSX.Element {
     }
 
     return (
-        <Layout className='cvat-annotation-page'>
-            <Layout.Header className='cvat-annotation-header'>
+        <Layout className='clarify-annotation-page'>
+            <Layout.Header className='clarify-annotation-header'>
                 <AnnotationTopBarContainer />
             </Layout.Header>
-            <Layout.Content className='cvat-annotation-layout-content'>
+            <Layout.Content className='clarify-annotation-layout-content'>
                 {workspace === Workspace.STANDARD3D && <StandardWorkspace3DComponent />}
                 {workspace === Workspace.STANDARD && <StandardWorkspaceComponent />}
                 {workspace === Workspace.SINGLE_SHAPE && <SingleShapeWorkspace />}

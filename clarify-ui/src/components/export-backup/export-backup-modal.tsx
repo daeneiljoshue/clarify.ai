@@ -100,7 +100,7 @@ function ExportBackupModal(): JSX.Element {
                 description:
                     'Backup export was started. ' +
                     'Download will start automatically as soon as the file is ready.',
-                className: 'cvat-notification-notice-export-backup-start',
+                className: 'clarify-notification-notice-export-backup-start',
             });
         },
         [instance, useDefaultStorage, defaultStorageLocation, defaultStorageCloudId],
@@ -112,7 +112,7 @@ function ExportBackupModal(): JSX.Element {
             visible={!!instance}
             onCancel={closeModal}
             onOk={() => form.submit()}
-            className={`cvat-modal-export-${instanceType.split(' ')[0]}`}
+            className={`clarify-modal-export-${instanceType.split(' ')[0]}`}
             destroyOnClose
         >
             <Form
@@ -126,7 +126,7 @@ function ExportBackupModal(): JSX.Element {
                     <Input
                         placeholder='Custom name for a backup file'
                         suffix='.zip'
-                        className='cvat-modal-export-filename-input'
+                        className='clarify-modal-export-filename-input'
                     />
                 </Form.Item>
                 <TargetStorageField

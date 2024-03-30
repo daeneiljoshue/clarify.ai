@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import Icon from '@ant-design/icons';
 
@@ -29,13 +30,13 @@ function SplitControl(props: Props): JSX.Element {
 
     const dynamicIconProps = activeControl === ActiveControl.SPLIT ?
         {
-            className: 'cvat-split-track-control cvat-active-canvas-control',
+            className: 'clarify-split-track-control clarify-active-canvas-control',
             onClick: (): void => {
                 canvasInstance.split({ enabled: false });
             },
         } :
         {
-            className: 'cvat-split-track-control',
+            className: 'clarify-split-track-control',
             onClick: (): void => {
                 canvasInstance.cancel();
                 canvasInstance.split({ enabled: true });
@@ -44,7 +45,7 @@ function SplitControl(props: Props): JSX.Element {
         };
 
     return disabled ? (
-        <Icon className='cvat-split-track-control cvat-disabled-canvas-control' component={SplitIcon} />
+        <Icon className='clarify-split-track-control clarify-disabled-canvas-control' component={SplitIcon} />
     ) : (
         <>
             <GlobalHotKeys

@@ -210,12 +210,12 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
     private renderCopyDataChechbox(): JSX.Element {
         return (
             <Form.Item
-                help='If you have a low data transfer rate over the network you can copy data into CVAT to speed up work'
+                help='If you have a low data transfer rate over the network you can copy data into CLARIFY to speed up work'
                 name='copyData'
                 valuePropName='checked'
             >
                 <Checkbox>
-                    <Text className='cvat-text-color'>Copy data into CVAT</Text>
+                    <Text className='cvat-text-color'>Copy data into CLARIFY</Text>
                 </Checkbox>
             </Form.Item>
         );
@@ -346,7 +346,7 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
                 >
                     <Switch />
                 </Form.Item>
-                <Text className='cvat-text-color'>Prefer zip chunks</Text>
+                <Text className='clarify-text-color'>Prefer zip chunks</Text>
                 <Tooltip title='ZIP chunks have better quality, but they require more disk space and time to download. Relevant for video only'>
                     <QuestionCircleOutlined style={{ opacity: 0.5 }} />
                 </Tooltip>
@@ -360,11 +360,11 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
                 <Form.Item
                     name='useCache'
                     valuePropName='checked'
-                    className='cvat-settings-switch'
+                    className='clarify-settings-switch'
                 >
                     <Switch defaultChecked />
                 </Form.Item>
-                <Text className='cvat-text-color'>Use cache</Text>
+                <Text className='clarify-text-color'>Use cache</Text>
                 <Tooltip title='Using cache to store data.'>
                     <QuestionCircleOutlined style={{ opacity: 0.5 }} />
                 </Tooltip>

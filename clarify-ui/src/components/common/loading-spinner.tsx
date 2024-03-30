@@ -4,8 +4,8 @@ import Spin, { SpinProps } from 'antd/lib/spin';
 
 function CLARIFYLoadingSpinner(props: SpinProps): JSX.Element {
     return (
-        <div className='cvat-spinner-container'>
-            <Spin className='cvat-spinner' {...props} />
+        <div className='clarify-spinner-container'>
+            <Spin className='clarify-spinner' {...props} />
         </div>
     );
 }

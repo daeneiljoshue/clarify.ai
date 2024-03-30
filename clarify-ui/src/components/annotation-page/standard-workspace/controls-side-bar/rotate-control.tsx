@@ -25,14 +25,14 @@ function RotateControl(props: Props): JSX.Element {
                 <>
                     <CLARIFYTooltip title={`Rotate the image anticlockwise ${anticlockwiseShortcut}`} placement='topRight'>
                         <Icon
-                            className='cvat-rotate-canvas-controls-left'
+                            className='clarify-rotate-canvas-controls-left'
                             onClick={(): void => rotateFrame(Rotation.ANTICLOCKWISE90)}
                             component={RotateIcon}
                         />
                     </CLARIFYTooltip>
                     <CLARIFYTooltip title={`Rotate the image clockwise ${clockwiseShortcut}`} placement='topRight'>
                         <Icon
-                            className='cvat-rotate-canvas-controls-right'
+                            className='clarify-rotate-canvas-controls-right'
                             onClick={(): void => rotateFrame(Rotation.CLOCKWISE90)}
                             component={RotateIcon}
                         />
@@ -40,7 +40,7 @@ function RotateControl(props: Props): JSX.Element {
                 </>
             )}
         >
-            <Icon className='cvat-rotate-canvas-control' component={RotateIcon} />
+            <Icon className='clarify-rotate-canvas-control' component={RotateIcon} />
         </CustomPopover>
     );
 }

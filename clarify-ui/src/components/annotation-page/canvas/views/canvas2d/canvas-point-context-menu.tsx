@@ -99,7 +99,7 @@ function CanvasPointContextMenu(props: Props): React.ReactPortal | null {
 
     return visible && contextMenuFor && type === ContextMenuType.CANVAS_SHAPE_POINT ?
         ReactDOM.createPortal(
-            <div className='cvat-canvas-point-context-menu' style={{ top, left }}>
+            <div className='clarify-canvas-point-context-menu' style={{ top, left }}>
                 {contextMenuFor && (
                     (contextMenuFor.shapeType === ShapeType.POLYGON && contextMenuFor.points.length > 6) ||
                     (contextMenuFor.shapeType === ShapeType.POLYLINE && contextMenuFor.points.length > 4) ||

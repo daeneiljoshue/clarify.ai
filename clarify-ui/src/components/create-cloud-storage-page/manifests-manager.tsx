@@ -52,7 +52,7 @@ export default function ManifestsManager(props: Props): JSX.Element {
     return (
         <>
             <Form.Item
-                className='cvat-manifests-manager-form-item'
+                className='clarify-manifests-manager-form-item'
                 label={(
                     <>
                         Manifests
@@ -60,7 +60,7 @@ export default function ManifestsManager(props: Props): JSX.Element {
                             <Button
                                 type='link'
                                 target='_blank'
-                                className='cvat-cloud-storage-help-button'
+                                className='clarify-cloud-storage-help-button'
                                 href={DATASET_MANIFEST_GUIDE_URL}
                             >
                                 <QuestionCircleOutlined />
@@ -77,7 +77,7 @@ export default function ManifestsManager(props: Props): JSX.Element {
                         <>
                             {fields.map((field, idx): JSX.Element => (
                                 <Form.Item key={idx} shouldUpdate>
-                                    <Row justify='space-between' align='top' className='cvat-cs-manifest-wrapper'>
+                                    <Row justify='space-between' align='top' className='clarify-cs-manifest-wrapper'>
                                         <Col>
                                             <Form.Item
                                                 name={[idx, 'name']}
@@ -96,7 +96,7 @@ export default function ManifestsManager(props: Props): JSX.Element {
                                             >
                                                 <Input
                                                     placeholder='manifest.jsonl'
-                                                    className='cvat-cloud-storage-manifest-field'
+                                                    className='clarify-cloud-storage-manifest-field'
                                                     onChange={(event) => onChangeManifestPath(event.target.value, idx)}
                                                 />
                                             </Form.Item>
@@ -104,7 +104,7 @@ export default function ManifestsManager(props: Props): JSX.Element {
                                         <Col>
                                             <Form.Item>
                                                 <Button
-                                                    className='cvat-delete-manifest-button'
+                                                    className='clarify-delete-manifest-button'
                                                     type='link'
                                                     onClick={() => onDeleteManifestItem(idx)}
                                                 >
@@ -122,7 +122,7 @@ export default function ManifestsManager(props: Props): JSX.Element {
             </Form.List>
             <Row justify='start'>
                 <Col>
-                    <Button type='ghost' onClick={onAddManifestItem} className='cvat-add-manifest-button'>
+                    <Button type='ghost' onClick={onAddManifestItem} className='clarify-add-manifest-button'>
                         Add manifest
                         <PlusCircleOutlined />
                     </Button>

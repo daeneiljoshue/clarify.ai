@@ -59,9 +59,9 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
 
     const items: [JSX.Element, number][] = [];
     items.push([(
-        <Row key='player-step' align='bottom' className='cvat-player-settings-step cvat-player-setting'>
+        <Row key='player-step' align='bottom' className='clarify-player-settings-step clarify-player-setting'>
             <Col>
-                <Text className='cvat-text-color'> Player step </Text>
+                <Text className='clarify-text-color'> Player step </Text>
                 <InputNumber
                     min={minFrameStep}
                     max={maxFrameStep}
@@ -85,11 +85,11 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
     ), 0]);
 
     items.push([(
-        <Row key='player-speed' align='middle' className='cvat-player-settings-speed cvat-player-setting'>
+        <Row key='player-speed' align='middle' className='clarify-player-settings-speed cvat-player-setting'>
             <Col>
-                <Text className='cvat-text-color'> Player speed </Text>
+                <Text className='clarify-text-color'> Player speed </Text>
                 <Select
-                    className='cvat-player-settings-speed-select'
+                    className='clarify-player-settings-speed-select'
                     value={frameSpeed}
                     onChange={(speed: FrameSpeed): void => {
                         onChangeFrameSpeed(speed);
@@ -98,34 +98,34 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
                     <Select.Option
                         key='fastest'
                         value={FrameSpeed.Fastest}
-                        className='cvat-player-settings-speed-fastest'
+                        className='clarify-player-settings-speed-fastest'
                     >
                         Fastest
                     </Select.Option>
-                    <Select.Option key='fast' value={FrameSpeed.Fast} className='cvat-player-settings-speed-fast'>
+                    <Select.Option key='fast' value={FrameSpeed.Fast} className='clarify-player-settings-speed-fast'>
                         Fast
                     </Select.Option>
                     <Select.Option
                         key='usual'
                         value={FrameSpeed.Usual}
-                        className='cvat-player-settings-speed-usual'
+                        className='clarify-player-settings-speed-usual'
                     >
                         Usual
                     </Select.Option>
-                    <Select.Option key='slow' value={FrameSpeed.Slow} className='cvat-player-settings-speed-slow'>
+                    <Select.Option key='slow' value={FrameSpeed.Slow} className='clarify-player-settings-speed-slow'>
                         Slow
                     </Select.Option>
                     <Select.Option
                         key='slower'
                         value={FrameSpeed.Slower}
-                        className='cvat-player-settings-speed-slower'
+                        className='clarify-player-settings-speed-slower'
                     >
                         Slower
                     </Select.Option>
                     <Select.Option
                         key='slowest'
                         value={FrameSpeed.Slowest}
-                        className='cvat-player-settings-speed-slowest'
+                        className='clarify-player-settings-speed-slowest'
                     >
                         Slowest
                     </Select.Option>
@@ -135,7 +135,7 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
     ), 10]);
 
     items.push([(
-        <Row key='canvas-background' className='cvat-player-settings-canvas-background cvat-player-setting'>
+        <Row key='canvas-background' className='clarify-player-settings-canvas-background clarify-player-setting'>
             <Col>
                 <Popover
                     content={(
@@ -149,7 +149,7 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
                     trigger='click'
                 >
                     <Button
-                        className='cvat-select-canvas-background-color-button'
+                        className='clarify-select-canvas-background-color-button'
                         type='default'
                     >
                         Select canvas background color
@@ -160,12 +160,12 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
     ), 20]);
 
     items.push([(
-        <Row key='reset-zoom' className='cvat-player-setting' justify='start'>
+        <Row key='reset-zoom' className='clarify-player-setting' justify='start'>
             <Col span={7}>
-                <Row className='cvat-player-settings-reset-zoom'>
-                    <Col span={24} className='cvat-player-settings-reset-zoom-checkbox'>
+                <Row className='clarify-player-settings-reset-zoom'>
+                    <Col span={24} className='clarify-player-settings-reset-zoom-checkbox'>
                         <Checkbox
-                            className='cvat-text-color'
+                            className='clarify-text-color'
                             checked={resetZoom}
                             onChange={(event: CheckboxChangeEvent): void => {
                                 onSwitchResetZoom(event.target.checked);
@@ -180,10 +180,10 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
                 </Row>
             </Col>
             <Col span={7} offset={5}>
-                <Row className='cvat-player-settings-rotate-all'>
-                    <Col span={24} className='cvat-player-settings-rotate-all-checkbox'>
+                <Row className='clarify-player-settings-rotate-all'>
+                    <Col span={24} className='clarify-player-settings-rotate-all-checkbox'>
                         <Checkbox
-                            className='cvat-text-color'
+                            className='clarify-text-color'
                             checked={rotateAll}
                             onChange={(event: CheckboxChangeEvent): void => {
                                 onSwitchRotateAll(event.target.checked);
@@ -201,12 +201,12 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
     ), 30]);
 
     items.push([(
-        <Row key='smooth-image' className='cvat-player-setting' justify='start'>
+        <Row key='smooth-image' className='clarify-player-setting' justify='start'>
             <Col span={7}>
-                <Row className='cvat-player-settings-smooth-image'>
-                    <Col span={24} className='cvat-player-settings-smooth-image-checkbox'>
+                <Row className='clarify-player-settings-smooth-image'>
+                    <Col span={24} className='clarify-player-settings-smooth-image-checkbox'>
                         <Checkbox
-                            className='cvat-text-color'
+                            className='clarify-text-color'
                             checked={smoothImage}
                             onChange={(event: CheckboxChangeEvent): void => {
                                 onSwitchSmoothImage(event.target.checked);
@@ -220,10 +220,10 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
                     </Col>
                 </Row>
             </Col>
-            <Col span={7} offset={5} className='cvat-workspace-settings-show-deleted'>
+            <Col span={7} offset={5} className='clarify-workspace-settings-show-deleted'>
                 <Row>
                     <Checkbox
-                        className='cvat-text-color'
+                        className='clarify-text-color'
                         checked={showDeletedFrames}
                         onChange={(event: CheckboxChangeEvent): void => {
                             onSwitchShowingDeletedFrames(event.target.checked);
@@ -244,7 +244,7 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
     )));
 
     return (
-        <div className='cvat-player-settings'>
+        <div className='clarify-player-settings'>
             { items.sort((item1, item2) => item1[1] - item2[1])
                 .map((item) => item[0]) }
         </div>

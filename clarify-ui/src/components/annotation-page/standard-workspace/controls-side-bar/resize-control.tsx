@@ -21,8 +21,8 @@ function ResizeControl(props: Props): JSX.Element {
                 component={ZoomIcon}
                 className={
                     activeControl === ActiveControl.ZOOM_CANVAS ?
-                        'cvat-resize-control cvat-active-canvas-control' :
-                        'cvat-resize-control'
+                        'clarify-resize-control clarify-active-canvas-control' :
+                        'clarify-resize-control'
                 }
                 onClick={(): void => {
                     if (activeControl === ActiveControl.ZOOM_CANVAS) {

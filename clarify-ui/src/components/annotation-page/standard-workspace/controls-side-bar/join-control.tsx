@@ -33,13 +33,13 @@ function JoinControl(props: Props): JSX.Element {
     const dynamicIconProps =
         activeControl === ActiveControl.JOIN ?
             {
-                className: 'cvat-join-control cvat-active-canvas-control',
+                className: 'clarify-join-control clarify-active-canvas-control',
                 onClick: (): void => {
                     canvasInstance.join({ enabled: false });
                 },
             } :
             {
-                className: 'cvat-join-control',
+                className: 'clarify-join-control',
                 onClick: (): void => {
                     canvasInstance.cancel();
                     canvasInstance.join({ enabled: true });
@@ -48,7 +48,7 @@ function JoinControl(props: Props): JSX.Element {
             };
 
     return disabled ? (
-        <Icon className='cvat-join-control cvat-disabled-canvas-control' component={JoinIcon} />
+        <Icon className='clarify-join-control clarify-disabled-canvas-control' component={JoinIcon} />
     ) : (
         <>
             <GlobalHotKeys

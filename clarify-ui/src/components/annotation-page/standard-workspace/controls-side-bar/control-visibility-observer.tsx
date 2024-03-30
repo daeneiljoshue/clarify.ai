@@ -7,7 +7,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import withVisibilityHandling from './handle-popover-visibility';
 
-const extraControlsContentClassName = 'cvat-extra-controls-control-content';
+const extraControlsContentClassName = 'clarify-extra-controls-control-content';
 
 let onUpdateChildren: Function | null = null;
 const CustomPopover = withVisibilityHandling(Popover, 'extra-controls');
@@ -42,7 +42,7 @@ export function ExtraControlsControl(): JSX.Element {
         >
             <SmallDashOutlined
                 style={{ visibility: hasChildren ? 'visible' : 'hidden' }}
-                className='cvat-extra-controls-control cvat-antd-icon-control'
+                className='clarify-extra-controls-control cvat-antd-icon-control'
             />
         </CustomPopover>
     );

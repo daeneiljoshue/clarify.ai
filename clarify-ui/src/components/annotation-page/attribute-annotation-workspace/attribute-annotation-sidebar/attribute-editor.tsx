@@ -174,7 +174,7 @@ function renderInputElement(parameters: InputElementParameters): JSX.Element {
         element = renderText();
     }
 
-    return <div className='cvat-attribute-annotation-sidebar-attr-editor'>{element}</div>;
+    return <div className='clarify-attribute-annotation-sidebar-attr-editor'>{element}</div>;
 }
 
 interface ListParameters {

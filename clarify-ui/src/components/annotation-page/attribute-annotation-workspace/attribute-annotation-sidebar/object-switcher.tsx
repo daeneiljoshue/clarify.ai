@@ -34,8 +34,8 @@ function ObjectSwitcher(props: Props): JSX.Element {
                 </Button>
             </CLARIFYTooltip>
             <CLARIFYTooltip title={title}>
-                <Text className='cvat-text'>{currentLabel}</Text>
-                <Text className='cvat-text'>{` ${clientID} `}</Text>
+                <Text className='clarify-text'>{currentLabel}</Text>
+                <Text className='clarify-text'>{` ${clientID} `}</Text>
                 <Text strong>{`[${currentIndex + 1}/${objectsCount}]`}</Text>
             </CLARIFYTooltip>
             <CLARIFYTooltip title={`Next object ${normalizedKeyMap.NEXT_OBJECT}`}>

@@ -15,7 +15,7 @@ function FitControl(props: Props): JSX.Element {
 
     return (
         <CLARIFYTooltip title='Fit the image [Double Click]' placement='right'>
-            <Icon className='cvat-fit-control' component={FitIcon} onClick={(): void => canvasInstance.fit()} />
+            <Icon className='clarify-fit-control' component={FitIcon} onClick={(): void => canvasInstance.fit()} />
         </CLARIFYTooltip>
     );
 }

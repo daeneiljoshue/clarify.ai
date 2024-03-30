@@ -30,14 +30,14 @@ function MergeControl(props: Props): JSX.Element {
     const dynamicIconProps =
         activeControl === ActiveControl.MERGE ?
             {
-                className: 'cvat-merge-control cvat-active-canvas-control',
+                className: 'clarify-merge-control clarify-active-canvas-control',
                 onClick: (): void => {
                     canvasInstance.merge({ enabled: false });
                     updateActiveControl(ActiveControl.CURSOR);
                 },
             } :
             {
-                className: 'cvat-merge-control',
+                className: 'clarify-merge-control',
                 onClick: (): void => {
                     canvasInstance.cancel();
                     canvasInstance.merge({ enabled: true });
@@ -46,7 +46,7 @@ function MergeControl(props: Props): JSX.Element {
             };
 
     return disabled ? (
-        <Icon className='cvat-merge-control cvat-disabled-canvas-control' component={MergeIcon} />
+        <Icon className='clarify-merge-control clarify-disabled-canvas-control' component={MergeIcon} />
     ) : (
         <>
             <GlobalHotKeys

@@ -31,7 +31,7 @@ import { EventScope } from 'clarify-logger';
 import { getCore, ObjectState, Job } from 'clarify-core-wrapper';
 import GlobalHotKeys from 'utils/mousetrap-react';
 
-const cvat = getCore();
+const clarify = getCore();
 
 interface StateToProps {
     opacity: number;
@@ -163,8 +163,8 @@ function mapDispatchToProps(dispatch: any): DispatchToProps {
 type Props = StateToProps & DispatchToProps;
 
 const Spinner = React.memo(() => (
-    <div className='cvat-spinner-container'>
-        <Spin className='cvat-spinner' />
+    <div className='clarify-spinner-container'>
+        <Spin className='clarify-spinner' />
     </div>
 ));
 
@@ -207,13 +207,13 @@ export const PerspectiveViewComponent = React.memo(
 
         function ArrowGroup(): JSX.Element {
             return (
-                <div className='cvat-canvas3d-perspective-arrow-directions'>
+                <div className='clarify-canvas3d-perspective-arrow-directions'>
                     <div>
                         <CLARIFYTooltip title={normalizedKeyMap.TILT_UP} placement='topRight'>
                             <Button
                                 size='small'
                                 onClick={() => screenKeyControl(CameraAction.TILT_UP, false, true)}
-                                className='cvat-canvas3d-perspective-arrow-directions-icons-up'
+                                className='clarify-canvas3d-perspective-arrow-directions-icons-up'
                             >
                                 <ArrowUpOutlined className='cvat-canvas3d-perspective-arrow-directions-icons-color' />
                             </Button>
@@ -226,7 +226,7 @@ export const PerspectiveViewComponent = React.memo(
                                 onClick={() => screenKeyControl(CameraAction.ROTATE_LEFT, false, true)}
                                 className='cvat-canvas3d-perspective-arrow-directions-icons-left'
                             >
-                                <ArrowLeftOutlined className='cvat-canvas3d-perspective-arrow-directions-icons-color' />
+                                <ArrowLeftOutlined className='clarify-canvas3d-perspective-arrow-directions-icons-color' />
                             </Button>
                         </CLARIFYTooltip>
                         <CLARIFYTooltip title={normalizedKeyMap.TILT_DOWN} placement='topRight'>
@@ -235,16 +235,16 @@ export const PerspectiveViewComponent = React.memo(
                                 onClick={() => screenKeyControl(CameraAction.TILT_DOWN, false, true)}
                                 className='cvat-canvas3d-perspective-arrow-directions-icons-bottom'
                             >
-                                <ArrowDownOutlined className='cvat-canvas3d-perspective-arrow-directions-icons-color' />
+                                <ArrowDownOutlined className='clarify-canvas3d-perspective-arrow-directions-icons-color' />
                             </Button>
                         </CLARIFYTooltip>
                         <CLARIFYTooltip title={normalizedKeyMap.ROTATE_RIGHT} placement='topRight'>
                             <Button
                                 size='small'
                                 onClick={() => screenKeyControl(CameraAction.ROTATE_RIGHT, false, true)}
-                                className='cvat-canvas3d-perspective-arrow-directions-icons-right'
+                                className='clarify-canvas3d-perspective-arrow-directions-icons-right'
                             >
-                                <ArrowRightOutlined className='cvat-canvas3d-perspective-arrow-directions-icons-color' />
+                                <ArrowRightOutlined className='clarify-canvas3d-perspective-arrow-directions-icons-color' />
                             </Button>
                         </CLARIFYTooltip>
                     </div>
@@ -254,12 +254,12 @@ export const PerspectiveViewComponent = React.memo(
 
         function ControlGroup(): JSX.Element {
             return (
-                <span className='cvat-canvas3d-perspective-directions'>
+                <span className='clarify-canvas3d-perspective-directions'>
                     <CLARIFYTooltip title={normalizedKeyMap.MOVE_UP} placement='topLeft'>
                         <Button
                             size='small'
                             onClick={() => screenKeyControl(CameraAction.MOVE_UP, true, false)}
-                            className='cvat-canvas3d-perspective-directions-icon cvat-canvas3d-perspective-shift-down'
+                            className='clarify-canvas3d-perspective-directions-icon clarify-canvas3d-perspective-shift-down'
                         >
                             U
                         </Button>
@@ -268,7 +268,7 @@ export const PerspectiveViewComponent = React.memo(
                         <Button
                             size='small'
                             onClick={() => screenKeyControl(CameraAction.ZOOM_IN, true, false)}
-                            className='cvat-canvas3d-perspective-directions-icon cvat-canvas3d-perspective-zoom-in'
+                            className='clarify-canvas3d-perspective-directions-icon clarify-canvas3d-perspective-zoom-in'
                         >
                             I
                         </Button>
@@ -277,7 +277,7 @@ export const PerspectiveViewComponent = React.memo(
                         <Button
                             size='small'
                             onClick={() => screenKeyControl(CameraAction.MOVE_DOWN, true, false)}
-                            className='cvat-canvas3d-perspective-directions-icon cvat-canvas3d-perspective-shift-up'
+                            className='clarify-canvas3d-perspective-directions-icon clarify-canvas3d-perspective-shift-up'
                         >
                             O
                         </Button>
@@ -287,7 +287,7 @@ export const PerspectiveViewComponent = React.memo(
                         <Button
                             size='small'
                             onClick={() => screenKeyControl(CameraAction.MOVE_LEFT, true, false)}
-                            className='cvat-canvas3d-perspective-directions-icon cvat-canvas3d-perspective-shift-left'
+                            className='clarify-canvas3d-perspective-directions-icon clarify-canvas3d-perspective-shift-left'
                         >
                             J
                         </Button>
@@ -296,7 +296,7 @@ export const PerspectiveViewComponent = React.memo(
                         <Button
                             size='small'
                             onClick={() => screenKeyControl(CameraAction.ZOOM_OUT, true, false)}
-                            className='cvat-canvas3d-perspective-directions-icon cvat-canvas3d-perspective-zoom-out'
+                            className='clarify-canvas3d-perspective-directions-icon clarify-canvas3d-perspective-zoom-out'
                         >
                             K
                         </Button>
@@ -305,7 +305,7 @@ export const PerspectiveViewComponent = React.memo(
                         <Button
                             size='small'
                             onClick={() => screenKeyControl(CameraAction.MOVE_RIGHT, true, false)}
-                            className='cvat-canvas3d-perspective-directions-icon cvat-canvas3d-perspective-shift-right'
+                            className='clarify-canvas3d-perspective-directions-icon clarify-canvas3d-perspective-shift-right'
                         >
                             L
                         </Button>
@@ -321,10 +321,10 @@ export const PerspectiveViewComponent = React.memo(
         }, []);
 
         return (
-            <div className='cvat-canvas3d-perspective'>
+            <div className='clarify-canvas3d-perspective'>
                 { !canvasIsReady && <Spinner /> }
                 <div
-                    className='cvat-canvas-container cvat-canvas-container-overflow'
+                    className='clarify-canvas-container clarify-canvas-container-overflow'
                     ref={ref}
                 />
                 <GlobalHotKeys handlers={handlers} keyMap={subKeyMap} />
@@ -348,11 +348,11 @@ export const TopViewComponent = React.memo(
         }, []);
 
         return (
-            <div className='cvat-canvas3d-orthographic-view cvat-canvas3d-topview'>
+            <div className='clarify-canvas3d-orthographic-view clarify-canvas3d-topview'>
                 { !canvasIsReady && <Spinner /> }
-                <div className='cvat-canvas3d-header'>Top</div>
+                <div className='clarify-canvas3d-header'>Top</div>
                 <div
-                    className='cvat-canvas3d-fullsize'
+                    className='clarify-canvas3d-fullsize'
                     ref={ref}
                 />
             </div>
@@ -373,11 +373,11 @@ export const SideViewComponent = React.memo(
         }, []);
 
         return (
-            <div className='cvat-canvas3d-orthographic-view cvat-canvas3d-sideview'>
+            <div className='clarify-canvas3d-orthographic-view clarify-canvas3d-sideview'>
                 { !canvasIsReady && <Spinner /> }
-                <div className='cvat-canvas3d-header'>Side</div>
+                <div className='clarify-canvas3d-header'>Side</div>
                 <div
-                    className='cvat-canvas3d-fullsize'
+                    className='clarify-canvas3d-fullsize'
                     ref={ref}
                 />
             </div>
@@ -398,11 +398,11 @@ export const FrontViewComponent = React.memo(
         }, []);
 
         return (
-            <div className='cvat-canvas3d-orthographic-view cvat-canvas3d-frontview'>
+            <div className='clarify-canvas3d-orthographic-view clarify-canvas3d-frontview'>
                 { !canvasIsReady && <Spinner /> }
-                <div className='cvat-canvas3d-header'>Front</div>
+                <div className='clarify-canvas3d-header'>Front</div>
                 <div
-                    className='cvat-canvas3d-fullsize'
+                    className='clarify-canvas3d-fullsize'
                     ref={ref}
                 />
             </div>
@@ -487,7 +487,7 @@ const Canvas3DWrapperComponent = React.memo((props: Props): null => {
         state.occluded = state.occluded || false;
         state.frame = frame;
         state.zOrder = 0;
-        const objectState = new cvat.classes.ObjectState(state);
+        const objectState = new clarify.classes.ObjectState(state);
         onCreateAnnotations([objectState]);
     };
 

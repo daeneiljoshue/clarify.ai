@@ -31,7 +31,7 @@ export default function ControlsSideBarComponent(props: Props): JSX.Element {
     const controlsDisabled = frameIsDeleted;
 
     return (
-        <Layout.Sider className='cvat-canvas-controls-sidebar' theme='light' width={44}>
+        <Layout.Sider className='clarify-canvas-controls-sidebar' theme='light' width={44}>
             <CursorControl
                 cursorShortkey={normalizedKeyMap.CANCEL}
                 canvasInstance={canvasInstance}

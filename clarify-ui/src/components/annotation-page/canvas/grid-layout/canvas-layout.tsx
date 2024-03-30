@@ -1,4 +1,5 @@
 
+
 import './styles.scss';
 import 'react-grid-layout/css/styles.css';
 
@@ -176,7 +177,7 @@ function CanvasLayout({ type }: { type?: DimensionType }): JSX.Element {
         const onResize = (): void => {
             setRowHeight(computeRowHeight());
             fitCanvas();
-            const [el] = window.document.getElementsByClassName('cvat-canvas-grid-root');
+            const [el] = window.document.getElementsByClassName('clarify-canvas-grid-root');
             if (el) {
                 el.addEventListener('transitionend', () => {
                     fitCanvas();
@@ -207,9 +208,9 @@ function CanvasLayout({ type }: { type?: DimensionType }): JSX.Element {
         i: typeof (value.viewIndex) !== 'undefined' ? `${value.viewType}_${value.viewIndex}` : `${value.viewType}`,
     }));
 
-    const singleClassName = 'cvat-canvas-grid-root-single';
+    const singleClassName = 'clarify-canvas-grid-root-single';
     const className = !relatedFiles && children.length <= 1 ?
-        `cvat-canvas-grid-root ${singleClassName}` : 'cvat-canvas-grid-root';
+        `clarify-canvas-grid-root ${singleClassName}` : 'clarify-canvas-grid-root';
 
     return (
         <Layout.Content>
@@ -237,9 +238,9 @@ function CanvasLayout({ type }: { type?: DimensionType }): JSX.Element {
                         }
                     }}
                     resizeHandle={(_: any, ref: React.MutableRefObject<HTMLDivElement>) => (
-                        <div ref={ref} className='cvat-grid-item-resize-handler react-resizable-handle' />
+                        <div ref={ref} className='clarify-grid-item-resize-handler react-resizable-handle' />
                     )}
-                    draggableHandle='.cvat-grid-item-drag-handler'
+                    draggableHandle='.clarify-grid-item-drag-handler'
                 >
                     { children.map((child: JSX.Element, idx: number): JSX.Element => {
                         const { viewType, viewIndex } = layoutConfig[idx];
@@ -248,13 +249,13 @@ function CanvasLayout({ type }: { type?: DimensionType }): JSX.Element {
                             <div
                                 style={fullscreenKey === key ? { backgroundColor: canvasBackgroundColor } : {}}
                                 className={fullscreenKey === key ?
-                                    'cvat-canvas-grid-item cvat-canvas-grid-fullscreen-item' :
-                                    'cvat-canvas-grid-item'}
+                                    'clarify-canvas-grid-item clarify-canvas-grid-fullscreen-item' :
+                                    'clarify-canvas-grid-item'}
                                 key={key}
                             >
-                                <DragOutlined className='cvat-grid-item-drag-handler' />
+                                <DragOutlined className='clarify-grid-item-drag-handler' />
                                 <CloseOutlined
-                                    className='cvat-grid-item-close-button'
+                                    className='clarify-grid-item-close-button'
                                     style={{
                                         pointerEvents: viewType !== ViewType.RELATED_IMAGE ? 'none' : undefined,
                                         opacity: viewType !== ViewType.RELATED_IMAGE ? 0.2 : undefined,
@@ -272,7 +273,7 @@ function CanvasLayout({ type }: { type?: DimensionType }): JSX.Element {
                                 />
                                 {fullscreenKey === key ? (
                                     <FullscreenExitOutlined
-                                        className='cvat-grid-item-fullscreen-handler'
+                                        className='clarify-grid-item-fullscreen-handler'
                                         onClick={() => {
                                             window.dispatchEvent(new Event('resize'));
                                             setFullscreenKey('');
@@ -280,7 +281,7 @@ function CanvasLayout({ type }: { type?: DimensionType }): JSX.Element {
                                     />
                                 ) : (
                                     <FullscreenOutlined
-                                        className='cvat-grid-item-fullscreen-handler'
+                                        className='clarify-grid-item-fullscreen-handler'
                                         onClick={() => {
                                             window.dispatchEvent(new Event('resize'));
                                             setFullscreenKey(key);
@@ -295,7 +296,7 @@ function CanvasLayout({ type }: { type?: DimensionType }): JSX.Element {
                 </ReactGridLayout>
             )}
             { type === DimensionType.DIMENSION_3D && <CanvasWrapper3DComponent /> }
-            <div className='cvat-grid-layout-common-setups'>
+            <div className='clarify-grid-layout-common-setups'>
                 <CLARIFYTooltip title='Fit views'>
                     <PicCenterOutlined
                         onClick={() => {

@@ -38,7 +38,7 @@ export default function LocalFiles(props: Props): JSX.Element {
             {files.length >= 5 && (
                 <>
                     <br />
-                    <Text className='cLARIFY-text-color'>{`${files.length} files selected`}</Text>
+                    <Text className='clarify-text-color'>{`${files.length} files selected`}</Text>
                 </>
             )}
         </>

@@ -42,7 +42,7 @@ export default function RemoveConfirmComponent(): JSX.Element | null {
                             ${descriptionMessage}`
                         }
                     </Text>
-                    <div className='cvat-remove-object-confirm-wrapper'>
+                    <div className='clarify-remove-object-confirm-wrapper'>
                         {/* eslint-disable-next-line */}
                         <img src={config.OUTSIDE_PIC_URL} />
                     </div>
@@ -70,7 +70,7 @@ export default function RemoveConfirmComponent(): JSX.Element | null {
             onOk={onOk}
             onCancel={onCancel}
             destroyOnClose
-            className='cvat-modal-confirm-remove-object'
+            className='clarify-modal-confirm-remove-object'
         >
             <div>
                 {description}

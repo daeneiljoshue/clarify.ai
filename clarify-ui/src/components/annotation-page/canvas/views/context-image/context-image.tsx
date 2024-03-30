@@ -79,17 +79,17 @@ function ContextImage(props: Props): JSX.Element {
 
     const contextImageName = Object.keys(contextImageData).sort()[contextImageOffset];
     return (
-        <div className='cvat-context-image-wrapper'>
-            <div className='cvat-context-image-header'>
+        <div className='clarify-context-image-wrapper'>
+            <div className='clarify-context-image-header'>
                 { relatedFiles > 1 && (
                     <SettingOutlined
-                        className='cvat-context-image-setup-button'
+                        className='clarify-context-image-setup-button'
                         onClick={() => {
                             setShowSelector(true);
                         }}
                     />
                 )}
-                <div className='cvat-context-image-title'>
+                <div className='clarify-context-image-title'>
                     <CLARIFYTooltop title={contextImageName}>
                         <Text>{contextImageName}</Text>
                     </CLARIFYTooltop>

@@ -31,13 +31,13 @@ function SliceControl(props: Props): JSX.Element {
     const dynamicIconProps =
         activeControl === ActiveControl.SLICE ?
             {
-                className: 'cvat-slice-control cvat-active-canvas-control',
+                className: 'clarify-slice-control clarify-active-canvas-control',
                 onClick: (): void => {
                     canvasInstance.slice({ enabled: false });
                 },
             } :
             {
-                className: 'cvat-slice-control',
+                className: 'clarify-slice-control',
                 onClick: (event?: React.MouseEvent): void => {
                     const triggeredByShorcut = !event;
                     canvasInstance.cancel();
@@ -53,7 +53,7 @@ function SliceControl(props: Props): JSX.Element {
             };
 
     return disabled ? (
-        <Icon className='cvat-slice-control cvat-disabled-canvas-control' component={SliceIcon} />
+        <Icon className='clarify-slice-control clarify-disabled-canvas-control' component={SliceIcon} />
     ) : (
         <>
             <GlobalHotKeys

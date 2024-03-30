@@ -26,20 +26,20 @@ function DrawRectangleControl(props: Props): JSX.Element {
     } : {};
 
     const dynamicIconProps = isDrawing ? {
-        className: 'cvat-draw-rectangle-control cvat-active-canvas-control',
+        className: 'clarify-draw-rectangle-control clarify-active-canvas-control',
         onClick: (): void => {
             canvasInstance.draw({ enabled: false });
         },
     } : {
-        className: 'cvat-draw-rectangle-control',
+        className: 'clarify-draw-rectangle-control',
     };
 
     return disabled ? (
-        <Icon className='cvat-draw-rectangle-control cvat-disabled-canvas-control' component={RectangleIcon} />
+        <Icon className='clarify-draw-rectangle-control clarify-disabled-canvas-control' component={RectangleIcon} />
     ) : (
         <CustomPopover
             {...dynamicPopoverProps}
-            overlayClassName='cvat-draw-shape-popover'
+            overlayClassName='clarify-draw-shape-popover'
             placement='right'
             content={<DrawShapePopoverContainer shapeType={ShapeType.RECTANGLE} />}
         >

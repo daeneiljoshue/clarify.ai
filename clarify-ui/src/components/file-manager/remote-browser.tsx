@@ -268,7 +268,7 @@ function RemoteBrowser(props: Props): JSX.Element {
     }, [selectedRowKeys, manifestPath]);
 
     useEffect(() => {
-        const button = window.document.getElementsByClassName('cvat-remote-browser-receive-more-btn')[0];
+        const button = window.document.getElementsByClassName('clarify-remote-browser-receive-more-btn')[0];
         if (button) {
             if (isFetching) {
                 button.setAttribute('disabled', '');
@@ -309,7 +309,7 @@ function RemoteBrowser(props: Props): JSX.Element {
 
                 return (
                     <>
-                        <FileOutlined className='cvat-remote-browser-file-icon' />
+                        <FileOutlined className='clarify-remote-browser-file-icon' />
                         {name}
                     </>
                 );
@@ -321,7 +321,7 @@ function RemoteBrowser(props: Props): JSX.Element {
         return (
             <>
                 <Empty />
-                <Paragraph className='cvat-remote-browser-empty'>
+                <Paragraph className='clarify-remote-browser-empty'>
                     Please, be sure you had
                     <Text strong>
                         <a href={SHARE_MOUNT_GUIDE_URL}> mounted </a>
@@ -340,7 +340,7 @@ function RemoteBrowser(props: Props): JSX.Element {
                     const key = currentPath.slice(0, idx + 1).join('/');
                     return (
                         <Breadcrumb.Item
-                            className='cvat-remote-browser-nav-breadcrumb'
+                            className='clarify-remote-browser-nav-breadcrumb'
                             onClick={() => {
                                 setCurrentPath(key.split('/'));
                             }}
@@ -352,7 +352,7 @@ function RemoteBrowser(props: Props): JSX.Element {
                 })}
             </Breadcrumb>
 
-            <Row className='cvat-remote-browser-search-wrapper' justify='space-between'>
+            <Row className='clarify-remote-browser-search-wrapper' justify='space-between'>
                 <Col span={22}>
                     <Input
                         addonBefore={<SearchOutlined />}
@@ -390,7 +390,7 @@ function RemoteBrowser(props: Props): JSX.Element {
                     !dataSource.searchString.includes(prefixToSearch(defaultPrefix) || '') &&
                     !(prefixToSearch(defaultPrefix) || '').includes(dataSource.searchString)
                 ) && (
-                    <Col className='cvat-remote-browser-incorrect-cs-prefix-wrapper' span={24}>
+                    <Col className='clarify-remote-browser-incorrect-cs-prefix-wrapper' span={24}>
                         <Alert
                             type='warning'
                             message={(
@@ -406,7 +406,7 @@ function RemoteBrowser(props: Props): JSX.Element {
                 )}
             </Row>
 
-            <div className='cvat-remote-browser-table-wrapper'>
+            <div className='clarify-remote-browser-table-wrapper'>
                 <Table
                     scroll={{ y: 472 }}
                     rowSelection={{
@@ -516,7 +516,7 @@ function RemoteBrowser(props: Props): JSX.Element {
                     dataSource={dataSource.children}
                 />
                 <Pagination
-                    className='cvat-remote-browser-pages'
+                    className='clarify-remote-browser-pages'
                     pageSize={PAGE_SIZE}
                     showQuickJumper
                     showSizeChanger={false}
@@ -531,7 +531,7 @@ function RemoteBrowser(props: Props): JSX.Element {
                                 return (
                                     <button
                                         type='button'
-                                        className='cvat-remote-browser-receive-more-btn ant-pagination-item-link'
+                                        className='clarify-remote-browser-receive-more-btn ant-pagination-item-link'
                                     >
                                         <RightOutlined onClick={(evt: MouseEvent) => {
                                             const totalPages = Math.ceil(dataSource.children.length / PAGE_SIZE);

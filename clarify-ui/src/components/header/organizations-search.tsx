@@ -59,7 +59,7 @@ function OrganizationsSearch(props: {
                 }
             }}
             allowClear
-            className='cvat-modal-organization-selector'
+            className='clarify-modal-organization-selector'
         />
     );
 }

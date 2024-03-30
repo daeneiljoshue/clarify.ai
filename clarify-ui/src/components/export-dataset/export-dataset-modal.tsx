@@ -66,9 +66,9 @@ function ExportDatasetModal(props: StateToProps): JSX.Element {
                 setInstanceType(`job #${instance.id}`);
             }
             if (instance.mode === 'interpolation' && instance.dimension === '2d') {
-                form.setFieldsValue({ selectedFormat: 'CVAT for video 1.1' });
+                form.setFieldsValue({ selectedFormat: 'CLARIFY for video 1.1' });
             } else if (instance.mode === 'annotation' && instance.dimension === '2d') {
-                form.setFieldsValue({ selectedFormat: 'CVAT for images 1.1' });
+                form.setFieldsValue({ selectedFormat: 'CLARIFY for images 1.1' });
             }
         }
     }, [instance]);
@@ -115,7 +115,7 @@ function ExportDatasetModal(props: StateToProps): JSX.Element {
                 description:
                     `${resource} export was started for ${instanceType}. ` +
                     `Download will start automatically as soon as the ${resource} is ready.`,
-                className: `cvat-notification-notice-export-${instanceType.split(' ')[0]}-start`,
+                className: `clarify-notification-notice-export-${instanceType.split(' ')[0]}-start`,
             });
         },
         [instance, instanceType, useDefaultTargetStorage, defaultStorageLocation, defaultStorageCloudId, targetStorage],
@@ -127,7 +127,7 @@ function ExportDatasetModal(props: StateToProps): JSX.Element {
             visible={!!instance}
             onCancel={closeModal}
             onOk={() => form.submit()}
-            className={`cvat-modal-export-${instanceType.split(' ')[0]}`}
+            className={`clarify-modal-export-${instanceType.split(' ')[0]}`}
             destroyOnClose
         >
             <Form
@@ -142,7 +142,7 @@ function ExportDatasetModal(props: StateToProps): JSX.Element {
                     label={<Text strong>Export format</Text>}
                     rules={[{ required: true, message: 'Format must be selected' }]}
                 >
-                    <Select virtual={false} placeholder='Select dataset format' className='cvat-modal-export-select'>
+                    <Select virtual={false} placeholder='Select dataset format' className='clarify-modal-export-select'>
                         {dumpers
                             .sort((a: Dumper, b: Dumper) => a.name.localeCompare(b.name))
                             .filter(
@@ -159,7 +159,7 @@ function ExportDatasetModal(props: StateToProps): JSX.Element {
                                             value={dumper.name}
                                             key={dumper.name}
                                             disabled={disabled}
-                                            className='cvat-modal-export-option-item'
+                                            className='clarify-modal-export-option-item'
                                         >
                                             <DownloadOutlined />
                                             <Text disabled={disabled}>{dumper.name}</Text>
@@ -172,11 +172,11 @@ function ExportDatasetModal(props: StateToProps): JSX.Element {
                 </Form.Item>
                 <Space>
                     <Form.Item
-                        className='cvat-modal-export-switch-use-default-storage'
+                        className='clarify-modal-export-switch-use-default-storage'
                         name='saveImages'
                         valuePropName='checked'
                     >
-                        <Switch className='cvat-modal-export-save-images' />
+                        <Switch className='clarify-modal-export-save-images' />
                     </Form.Item>
                     <Text strong>Save images</Text>
                 </Space>
@@ -185,7 +185,7 @@ function ExportDatasetModal(props: StateToProps): JSX.Element {
                     <Input
                         placeholder='Custom name for a dataset'
                         suffix='.zip'
-                        className='cvat-modal-export-filename-input'
+                        className='clarify-modal-export-filename-input'
                     />
                 </Form.Item>
                 <TargetStorageField

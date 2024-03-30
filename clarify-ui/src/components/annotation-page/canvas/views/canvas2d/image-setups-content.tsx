@@ -57,7 +57,7 @@ export default function ImageSetupsContent(): JSX.Element {
             <Row justify='space-between' align='middle' gutter={8}>
                 <Col span={1}>
                     <Checkbox
-                        className='clarify-text-color cvat-image-setups-grid'
+                        className='clarify-text-color clarify-image-setups-grid'
                         checked={gridEnabled}
                         onChange={(event: CheckboxChangeEvent): void => {
                             dispatch(switchGrid(event.target.checked));

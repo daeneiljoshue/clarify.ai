@@ -81,11 +81,11 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
     const maxControlPointsSize = 8;
 
     return (
-        <div className='cvat-workspace-settings'>
-            <Row className='cvat-player-setting'>
+        <div className='clarify-workspace-settings'>
+            <Row className='clarify-player-setting'>
                 <Col span={24}>
                     <Checkbox
-                        className='cvat-text-color cvat-workspace-settings-auto-save'
+                        className='clarify-text-color cvat-workspace-settings-auto-save'
                         checked={autoSave}
                         onChange={(event: CheckboxChangeEvent): void => {
                             onSwitchAutoSave(event.target.checked);
@@ -94,7 +94,7 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                         Enable auto save
                     </Checkbox>
                 </Col>
-                <Col className='cvat-workspace-settings-auto-save-interval'>
+                <Col className='clarify-workspace-settings-auto-save-interval'>
                     <Text type='secondary'> Auto save every </Text>
                     <InputNumber
                         size='small'
@@ -113,11 +113,11 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                     <Text type='secondary'> minutes </Text>
                 </Col>
             </Row>
-            <Row className='cvat-player-setting'>
-                <Col span={12} className='cvat-workspace-settings-show-interpolated'>
+            <Row className='clarify-player-setting'>
+                <Col span={12} className='clarify-workspace-settings-show-interpolated'>
                     <Row>
                         <Checkbox
-                            className='cvat-text-color'
+                            className='clarify-text-color'
                             checked={showAllInterpolationTracks}
                             onChange={(event: CheckboxChangeEvent): void => {
                                 onSwitchShowingInterpolatedTracks(event.target.checked);
@@ -131,10 +131,10 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                     </Row>
                 </Col>
             </Row>
-            <Row className='cvat-workspace-settings-show-text-always cvat-player-setting'>
+            <Row className='clarify-workspace-settings-show-text-always clarify-player-setting'>
                 <Col span={24}>
                     <Checkbox
-                        className='cvat-text-color'
+                        className='clarify-text-color'
                         checked={showObjectsTextAlways}
                         onChange={(event: CheckboxChangeEvent): void => {
                             onSwitchShowingObjectsTextAlways(event.target.checked);
@@ -149,13 +149,13 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                     </Text>
                 </Col>
             </Row>
-            <Row className='cvat-workspace-settings-text-settings cvat-player-setting'>
+            <Row className='clarify-workspace-settings-text-settings clarify-player-setting'>
                 <Col span={24}>
                     <Text>Content of a text</Text>
                 </Col>
                 <Col span={16}>
                     <Select
-                        className='cvat-workspace-settings-text-content'
+                        className='clarify-workspace-settings-text-content'
                         mode='multiple'
                         value={textContent.split(',').filter((entry: string) => !!entry)}
                         onChange={onChangeTextContent}
@@ -168,7 +168,7 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                     </Select>
                 </Col>
             </Row>
-            <Row className='cvat-workspace-settings-text-settings cvat-player-setting'>
+            <Row className='clarify-workspace-settings-text-settings clarify-player-setting'>
                 <Col span={12}>
                     <Text>Position of a text</Text>
                 </Col>
@@ -177,7 +177,7 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                 </Col>
                 <Col span={12}>
                     <Select
-                        className='cvat-workspace-settings-text-position'
+                        className='clarify-workspace-settings-text-position'
                         value={textPosition}
                         onChange={onChangeTextPosition}
                     >
@@ -187,7 +187,7 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                 </Col>
                 <Col span={12}>
                     <InputNumber
-                        className='cvat-workspace-settings-text-size'
+                        className='clarify-workspace-settings-text-size'
                         onChange={onChangeTextFontSize}
                         min={8}
                         max={20}
@@ -195,10 +195,10 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                     />
                 </Col>
             </Row>
-            <Row className='cvat-workspace-settings-autoborders cvat-player-setting'>
+            <Row className='clarify-workspace-settings-autoborders cvat-player-setting'>
                 <Col span={24}>
                     <Checkbox
-                        className='cvat-text-color'
+                        className='clarify-text-color'
                         checked={automaticBordering}
                         onChange={(event: CheckboxChangeEvent): void => {
                             onSwitchAutomaticBordering(event.target.checked);
@@ -213,10 +213,10 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                     </Text>
                 </Col>
             </Row>
-            <Row className='cvat-workspace-settings-intelligent-polygon-cropping cvat-player-setting'>
+            <Row className='clarify-workspace-settings-intelligent-polygon-cropping clarify-player-setting'>
                 <Col span={24}>
                     <Checkbox
-                        className='cvat-text-color'
+                        className='clarify-text-color'
                         checked={intelligentPolygonCrop}
                         onChange={(event: CheckboxChangeEvent): void => {
                             onSwitchIntelligentPolygonCrop(event.target.checked);
@@ -229,10 +229,10 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                     <Text type='secondary'>Try to crop polygons automatically when editing</Text>
                 </Col>
             </Row>
-            <Row className='cvat-workspace-settings-show-frame-tags cvat-player-setting'>
+            <Row className='clarify-workspace-settings-show-frame-tags cvat-player-setting'>
                 <Col span={24}>
                     <Checkbox
-                        className='cvat-text-color'
+                        className='clarify-text-color'
                         checked={showTagsOnFrame}
                         onChange={(event: CheckboxChangeEvent): void => {
                             onSwitchShowingTagsOnFrame(event.target.checked);
@@ -245,9 +245,9 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                     <Text type='secondary'>Show frame tags in the corner of the workspace</Text>
                 </Col>
             </Row>
-            <Row className='cvat-workspace-settings-aam-zoom-margin cvat-player-setting'>
+            <Row className='clarify-workspace-settings-aam-zoom-margin clarify-player-setting'>
                 <Col>
-                    <Text className='cvat-text-color'> Attribute annotation mode (AAM) zoom margin </Text>
+                    <Text className='clarify-text-color'> Attribute annotation mode (AAM) zoom margin </Text>
                     <InputNumber
                         min={minAAMMargin}
                         max={maxAAMMargin}
@@ -260,9 +260,9 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                     />
                 </Col>
             </Row>
-            <Row className='cvat-workspace-settings-control-points-size cvat-player-setting'>
+            <Row className='clarify-workspace-settings-control-points-size clarify-player-setting'>
                 <Col>
-                    <Text className='cvat-text-color'> Control points size </Text>
+                    <Text className='clarify-text-color'> Control points size </Text>
                     <InputNumber
                         min={minControlPointsSize}
                         max={maxControlPointsSize}
@@ -277,9 +277,9 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                     />
                 </Col>
             </Row>
-            <Row className='cvat-workspace-settings-approx-poly-threshold cvat-player-setting'>
+            <Row className='clarify-workspace-settings-approx-poly-threshold clarify-player-setting'>
                 <Col>
-                    <Text className='cvat-text-color'>Default number of points in polygon approximation</Text>
+                    <Text className='clarify-text-color'>Default number of points in polygon approximation</Text>
                 </Col>
                 <Col span={7} offset={1}>
                     <Slider

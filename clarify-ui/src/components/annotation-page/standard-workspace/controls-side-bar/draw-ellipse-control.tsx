@@ -26,20 +26,20 @@ function DrawEllipseControl(props: Props): JSX.Element {
     } : {};
 
     const dynamicIconProps = isDrawing ? {
-        className: 'cvat-draw-ellipse-control cvat-active-canvas-control',
+        className: 'clarify-draw-ellipse-control clarify-active-canvas-control',
         onClick: (): void => {
             canvasInstance.draw({ enabled: false });
         },
     } : {
-        className: 'cvat-draw-ellipse-control',
+        className: 'clarify-draw-ellipse-control',
     };
 
     return disabled ? (
-        <Icon className='cvat-draw-ellipse-control cvat-disabled-canvas-control' component={EllipseIcon} />
+        <Icon className='clarify-draw-ellipse-control clarify-disabled-canvas-control' component={EllipseIcon} />
     ) : (
         <CustomPopover
             {...dynamicPopoverProps}
-            overlayClassName='cvat-draw-shape-popover'
+            overlayClassName='clarify-draw-shape-popover'
             placement='right'
             content={<DrawShapePopoverContainer shapeType={ShapeType.ELLIPSE} />}
         >

@@ -4,6 +4,6 @@ import './index.scss';
 
 export default function DropdownMenuPaper({ children }: { children: React.ReactNode }): JSX.Element {
     return (
-        <div className='cvat-dropdown-menu-paper'>{children}</div>
+        <div className='clarify-dropdown-menu-paper'>{children}</div>
     );
 }

@@ -40,14 +40,14 @@ function GroupControl(props: Props): JSX.Element {
     const dynamicIconProps =
         activeControl === ActiveControl.GROUP ?
             {
-                className: 'cvat-group-control cvat-active-canvas-control',
+                className: 'clarify-group-control clarify-active-canvas-control',
                 onClick: (): void => {
                     canvasInstance.group({ enabled: false });
                     updateActiveControl(ActiveControl.CURSOR);
                 },
             } :
             {
-                className: 'cvat-group-control',
+                className: 'clarify-group-control',
                 onClick: (): void => {
                     canvasInstance.cancel();
                     canvasInstance.group({ enabled: true });
@@ -61,7 +61,7 @@ function GroupControl(props: Props): JSX.Element {
     ].join(' ');
 
     return disabled ? (
-        <Icon className='cvat-group-control cvat-disabled-canvas-control' component={GroupIcon} />
+        <Icon className='clarify-group-control clarify-disabled-canvas-control' component={GroupIcon} />
     ) : (
         <>
             <GlobalHotKeys

@@ -28,20 +28,20 @@ function DrawCuboidControl(props: Props): JSX.Element {
     } : {};
 
     const dynamicIconProps = isDrawing ? {
-        className: 'cvat-draw-cuboid-control cvat-active-canvas-control',
+        className: 'clarify-draw-cuboid-control clarify-active-canvas-control',
         onClick: (): void => {
             canvasInstance.draw({ enabled: false });
         },
     } : {
-        className: 'cvat-draw-cuboid-control',
+        className: 'clarify-draw-cuboid-control',
     };
 
     return disabled ? (
-        <Icon className='cvat-draw-cuboid-control cvat-disabled-canvas-control' component={CubeIcon} />
+        <Icon className='clarify-draw-cuboid-control clarify-disabled-canvas-control' component={CubeIcon} />
     ) : (
         <CustomPopover
             {...dynamicPopoverProps}
-            overlayClassName='cvat-draw-shape-popover'
+            overlayClassName='clarify-draw-shape-popover'
             placement='right'
             content={<DrawShapePopoverContainer shapeType={ShapeType.CUBOID} />}
         >

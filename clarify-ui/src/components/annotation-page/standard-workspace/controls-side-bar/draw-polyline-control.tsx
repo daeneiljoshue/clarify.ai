@@ -26,20 +26,20 @@ function DrawPolylineControl(props: Props): JSX.Element {
     } : {};
 
     const dynamicIconProps = isDrawing ? {
-        className: 'cvat-draw-polyline-control cvat-active-canvas-control',
+        className: 'clarify-draw-polyline-control clarify-active-canvas-control',
         onClick: (): void => {
             canvasInstance.draw({ enabled: false });
         },
     } : {
-        className: 'cvat-draw-polyline-control',
+        className: 'clarify-draw-polyline-control',
     };
 
     return disabled ? (
-        <Icon className='cvat-draw-polyline-control cvat-disabled-canvas-control' component={PolylineIcon} />
+        <Icon className='clarify-draw-polyline-control clarify-disabled-canvas-control' component={PolylineIcon} />
     ) : (
         <CustomPopover
             {...dynamicPopoverProps}
-            overlayClassName='cvat-draw-shape-popover'
+            overlayClassName='clarify-draw-shape-popover'
             placement='right'
             content={<DrawShapePopoverContainer shapeType={ShapeType.POLYLINE} />}
         >

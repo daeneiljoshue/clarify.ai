@@ -293,7 +293,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
             notification.error({
                 description: error.toString(),
                 message: 'OpenCV.js processing error occurred',
-                className: 'cvat-notification-notice-opencv-processing-error',
+                className: 'clarify-notification-notice-opencv-processing-error',
             });
         }
     };
@@ -355,11 +355,11 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
     };
 
     private getCanvasImageData = ():ImageData => {
-        const canvas: HTMLCanvasElement | null = window.document.getElementById('cvat_canvas_background') as
+        const canvas: HTMLCanvasElement | null = window.document.getElementById('clarify_canvas_background') as
         | HTMLCanvasElement
         | null;
         if (!canvas) {
-            throw new Error('Element #cvat_canvas_background was not found');
+            throw new Error('Element #clarify_canvas_background was not found');
         }
         const { width, height } = canvas;
         const context = canvas.getContext('2d');
@@ -502,11 +502,11 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
 
     private async runCVAlgorithm(pressedPoints: number[], threshold: number): Promise<number[]> {
         // Getting image data
-        const canvas: HTMLCanvasElement | undefined = window.document.getElementById('cvat_canvas_background') as
+        const canvas: HTMLCanvasElement | undefined = window.document.getElementById('clarify_canvas_background') as
             | HTMLCanvasElement
             | undefined;
         if (!canvas) {
-            throw new Error('Element #cvat_canvas_background was not found');
+            throw new Error('Element #clarify_canvas_background was not found');
         }
         if (!this.activeTool || pressedPoints.length === 0) return [];
 
@@ -574,11 +574,11 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                         />
                     </Col>
                 </Row>
-                <Row justify='start' className='cvat-opencv-drawing-tools'>
+                <Row justify='start' className='clarify-opencv-drawing-tools'>
                     <Col>
-                        <CLARIFYTooltip title='Intelligent scissors' className='cvat-opencv-drawing-tool'>
+                        <CLARIFYTooltip title='Intelligent scissors' className='clarify-opencv-drawing-tool'>
                             <Button
-                                className='cvat-opencv-scissors-tool-button'
+                                className='clarify-opencv-scissors-tool-button'
                                 onClick={() => {
                                     this.setState({ mode: 'interaction' });
                                     this.activeTool = openCVWrapper.segmentation
@@ -605,11 +605,11 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
         return (
             <Row justify='start'>
                 <Col>
-                    <CLARIFYTooltip title='Histogram equalization' className='cvat-opencv-image-tool'>
+                    <CLARIFYTooltip title='Histogram equalization' className='clarify-opencv-image-tool'>
                         <Button
                             className={
                                 hasFilter(filters, ImageFilterAlias.HISTOGRAM_EQUALIZATION) ?
-                                    'cvat-opencv-histogram-tool-button cvat-opencv-image-tool-active' : 'cvat-opencv-histogram-tool-button'
+                                    'clarify-opencv-histogram-tool-button clarify-opencv-image-tool-active' : 'clarify-opencv-histogram-tool-button'
                             }
                             onClick={(e: React.MouseEvent<HTMLElement>) => {
                                 if (!hasFilter(filters, ImageFilterAlias.HISTOGRAM_EQUALIZATION)) {
@@ -639,9 +639,9 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
         } = this.props;
         if (!trackers.length) {
             return (
-                <Row justify='center' align='middle' className='cvat-opencv-tracker-content'>
+                <Row justify='center' align='middle' className='clarify-opencv-tracker-content'>
                     <Col>
-                        <Text type='warning' className='cvat-text-color'>
+                        <Text type='warning' className='clarify-text-color'>
                             No available trackers found
                         </Text>
                     </Col>
@@ -652,13 +652,13 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
             <>
                 <Row justify='start'>
                     <Col>
-                        <Text className='cvat-text-color'>Label</Text>
+                        <Text className='clarify-text-color'>Label</Text>
                     </Col>
                 </Row>
                 <Row justify='center'>
                     <Col span={24}>
                         <LabelSelector
-                            className='cvat-opencv-tracking-label-select'
+                            className='clarify-opencv-tracking-label-select'
                             labels={labels}
                             value={activeLabelID}
                             onChange={(value: any) => this.setState({ activeLabelID: value.id })}
@@ -667,13 +667,13 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                 </Row>
                 <Row justify='start'>
                     <Col>
-                        <Text className='cvat-text-color'>Tracker</Text>
+                        <Text className='clarify-text-color'>Tracker</Text>
                     </Col>
                 </Row>
                 <Row align='middle' justify='center'>
                     <Col span={24}>
                         <Select
-                            className='cvat-opencv-tracker-select'
+                            className='clarify-opencv-tracker-select'
                             defaultValue={trackers[0].name}
                             onChange={this.setActiveTracker}
                         >
@@ -691,7 +691,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                     <Col>
                         <Button
                             type='primary'
-                            className='cvat-tools-track-button'
+                            className='clarify-tools-track-button'
                             disabled={!activeTracker || frame === jobInstance.stopFrame}
                             onClick={() => {
                                 this.setState({ mode: 'tracking' });
@@ -721,23 +721,23 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
         const { libraryInitialized, initializationProgress, initializationError } = this.state;
 
         return (
-            <div className='cvat-opencv-control-popover-content'>
+            <div className='clarify-opencv-control-popover-content'>
                 <Row justify='start'>
                     <Col>
-                        <Text className='cvat-text-color' strong>
+                        <Text className='clarify-text-color' strong>
                             OpenCV
                         </Text>
                     </Col>
                 </Row>
                 {libraryInitialized ? (
                     <Tabs tabBarGutter={8}>
-                        <Tabs.TabPane key='drawing' tab='Drawing' className='cvat-opencv-control-tabpane'>
+                        <Tabs.TabPane key='drawing' tab='Drawing' className='clarify-opencv-control-tabpane'>
                             {this.renderDrawingContent()}
                         </Tabs.TabPane>
-                        <Tabs.TabPane key='image' tab='Image' className='cvat-opencv-control-tabpane'>
+                        <Tabs.TabPane key='image' tab='Image' className='clarify-opencv-control-tabpane'>
                             {this.renderImageContent()}
                         </Tabs.TabPane>
-                        <Tabs.TabPane key='tracking' tab='Tracking' className='cvat-opencv-control-tabpane'>
+                        <Tabs.TabPane key='tracking' tab='Tracking' className='clarify-opencv-control-tabpane'>
                             {this.renderTrackingContent()}
                         </Tabs.TabPane>
                     </Tabs>
@@ -748,7 +748,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                                 initializationProgress >= 0 ?
                                     <Text>OpenCV is loading</Text> : (
                                         <Button
-                                            className='cvat-opencv-initialization-button'
+                                            className='clarify-opencv-initialization-button'
                                             onClick={() => { this.initializeOpenCV(); }}
                                         >
                                             Reload OpenCV
@@ -787,23 +787,23 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
 
         const dynamicIconProps = isActivated ?
             {
-                className: 'cvat-opencv-control cvat-active-canvas-control',
+                className: 'clarify-opencv-control clarify-active-canvas-control',
                 onClick: (): void => {
                     canvasInstance.interact({ enabled: false });
                 },
             } :
             {
-                className: 'cvat-opencv-control',
+                className: 'clarify-opencv-control',
             };
 
         return !labels.length || frameData.deleted ? (
-            <Icon className='cvat-opencv-control cvat-disabled-canvas-control' component={OpenCVIcon} />
+            <Icon className='clarify-opencv-control clarify-disabled-canvas-control' component={OpenCVIcon} />
         ) : (
             <>
                 <CustomPopover
                     {...dynamicPopoverProps}
                     placement='right'
-                    overlayClassName='cvat-opencv-control-popover'
+                    overlayClassName='clarify-opencv-control-popover'
                     content={this.renderContent()}
                     onVisibleChange={(visible: boolean) => {
                         const { initializationProgress } = this.state;
