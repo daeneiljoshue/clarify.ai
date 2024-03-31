@@ -1,11 +1,7 @@
-// Copyright (C) 2020-2022 Intel Corporation
-// Copyright (C) 2022-2023 CVAT.ai Corporation
-//
-// SPDX-License-Identifier: MIT
 
 @import 'base';
 
-.cvat-objects-appearance-collapse.ant-collapse {
+.clarify-objects-appearance-collapse.ant-collapse {
     width: 100%;
     border-radius: 0;
 
@@ -38,7 +34,7 @@
     }
 }
 
-.cvat-object-sidebar-icon {
+.clarify-object-sidebar-icon {
     fill: $objects-bar-icons-color;
     color: $objects-bar-icons-color;
     font-size: 15px;
@@ -48,7 +44,7 @@
     }
 }
 
-.cvat-objects-sidebar-tabs.ant-tabs.ant-tabs-card {
+.clarify-objects-sidebar-tabs.ant-tabs.ant-tabs-card {
     background: $header-color;
     box-sizing: border-box;
     border: none;
@@ -77,7 +73,7 @@
     }
 }
 
-.cvat-objects-sidebar-issues-list-header {
+.clarify-objects-sidebar-issues-list-header {
     background: $objects-bar-tabs-color;
     padding: $grid-unit-size;
     height: $grid-unit-size * 4;
@@ -101,14 +97,14 @@
     }
 }
 
-.cvat-objects-sidebar-issues-list {
+.clarify-objects-sidebar-issues-list {
     background-color: $background-color-2;
     height: calc(100% - 32px);
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-.cvat-objects-sidebar-issue-item {
+.clarify-objects-sidebar-issue-item {
     width: 100%;
     margin: 1px;
     padding: $grid-unit-size;
@@ -134,7 +130,7 @@
     }
 }
 
-.cvat-objects-sidebar-conflict-item {
+.clarify-objects-sidebar-conflict-item {
     width: 100%;
     margin: 1px;
     padding: $grid-unit-size;
@@ -146,15 +142,15 @@
     }
 }
 
-.cvat-objects-sidebar-warning-item {
-    @extend .cvat-objects-sidebar-issue-item;
+.clarify-objects-sidebar-warning-item {
+    @extend .clarify-objects-sidebar-issue-item;
 }
 
-.cvat-objects-sidebar-item-active {
+.clarify-objects-sidebar-item-active {
     border-left-width: 4px;
 }
 
-.cvat-objects-sidebar-issue-resolved {
+.clarify-objects-sidebar-issue-resolved {
     border-left: 3px solid $border-color-1;
 
     &:hover {
@@ -162,7 +158,7 @@
     }
 }
 
-.cvat-objects-sidebar-states-header {
+.clarify-objects-sidebar-states-header {
     background: $objects-bar-tabs-color;
     padding: 5px;
 
@@ -174,13 +170,13 @@
             margin: 0 2px;
 
             > span[role='img'] {
-                @extend .cvat-object-sidebar-icon;
+                @extend .clarify-object-sidebar-icon;
             }
 
             &:last-child {
                 text-align: right;
 
-                > .cvat-objects-sidebar-ordering-selector {
+                > .clarify-objects-sidebar-ordering-selector {
                     margin-left: $grid-unit-size;
                     width: 60%;
                 }
@@ -188,30 +184,30 @@
         }
     }
 
-    .cvat-objects-sidebar-show-ground-truth {
+    .clarify-objects-sidebar-show-ground-truth {
         margin-right: $grid-unit-size;
     }
 }
 
-.cvat-objects-sidebar-states-list {
+.clarify-objects-sidebar-states-list {
     background-color: $background-color-2;
     height: calc(100% - 50px);
     overflow-y: auto;
 }
 
-.cvat-objects-sidebar-z-layer-mark {
+.clarify-objects-sidebar-z-layer-mark {
     text-align: center;
 }
 
-.cvat-objects-sidebar-state-item.cvat-objects-sidebar-state-active-item {
+.clarify-objects-sidebar-state-item.clarify-objects-sidebar-state-active-item {
     border-top: 2px solid $object-item-border-color;
     border-right: 2px solid $object-item-border-color;
     border-bottom: 2px solid $object-item-border-color;
     padding: 3px 1px 1px 3px;
 }
 
-.cvat-objects-sidebar-state-item-color,
-.cvat-objects-sidebar-label-item-color {
+.clarify-objects-sidebar-state-item-color,
+.clarify-objects-sidebar-label-item-color {
     border: 1px solid $object-item-border-color;
     width: 7px;
     opacity: 1;
@@ -221,7 +217,7 @@
     }
 }
 
-.cvat-objects-sidebar-state-item {
+.clarify-objects-sidebar-state-item {
     width: 100%;
     padding: 5px 3px 3px;
     opacity: 1;
@@ -232,7 +228,7 @@
         }
 
         > div:nth-child(3) > span {
-            @extend .cvat-object-sidebar-icon;
+            @extend .clarify-object-sidebar-icon;
 
             font-size: 25px;
         }
@@ -248,13 +244,13 @@
         }
 
         span[role='img'] {
-            @extend .cvat-object-sidebar-icon;
+            @extend .clarify-object-sidebar-icon;
         }
     }
 }
 
-.cvat-objects-sidebar-state-item-collapse,
-.cvat-objects-sidebar-state-item-elements-collapse {
+.clarify-objects-sidebar-state-item-collapse,
+.clarify-objects-sidebar-state-item-elements-collapse {
     border: unset;
     background: unset;
     width: 100%;
@@ -285,25 +281,26 @@
     }
 }
 
-.cvat-object-item-attribute-wrapper {
+.clarify-object-item-attribute-wrapper {
     margin-top: 5px;
 }
 
-.cvat-object-item-select-attribute {
+.clarify-object-item-select-attribute {
     width: 100%;
 }
 
-.cvat-object-item-number-attribute {
+.clarify-object-item-number-attribute {
     width: 100%;
 }
 
-.cvat-object-item-text-attribute {
+.clarify-object-item-text-attribute {
     width: 100%;
 }
 
-.cvat-object-item-radio-attribute {
+.clarify-object-item-radio-attribute {
     border: 1px double $border-color-hover;
     border-radius: 7px;
+}
 
     > legend {
         text-align: center;
@@ -324,15 +321,15 @@
         display: grid;
         padding: 1px 5px;
     }
-}
+ 
 
-.cvat-objects-sidebar-labels-list {
+   .clarify-objects-sidebar-labels-list {
     background-color: $background-color-2;
     height: 100%;
     overflow-y: auto;
 }
 
-.cvat-objects-sidebar-label-active-item {
+.clarify-objects-sidebar-label-active-item {
     background: $active-label-background-color;
     border-top: 2px solid $object-item-border-color;
     border-right: 2px solid $object-item-border-color;
@@ -340,13 +337,13 @@
     padding: 3px 1px 1px 3px;
 }
 
-.cvat-objects-sidebar-label-item {
+.clarify-objects-sidebar-label-item {
     height: 2.5em;
     border-bottom: 1px solid $border-color-1;
     padding: 5px 3px 3px;
 
     span {
-        @extend .cvat-object-sidebar-icon;
+        @extend .clarify-object-sidebar-icon;
     }
 
     > div:nth-child(2) {
@@ -357,22 +354,22 @@
     }
 
     &:hover {
-        @extend .cvat-objects-sidebar-label-active-item;
+        @extend .clarify-objects-sidebar-label-active-item;
     }
 }
 
-.cvat-label-item-color {
+.clarify-label-item-color {
     background: rgb(25, 184, 14);
     height: 80%;
     width: 90%;
     border-radius: $grid-unit-size * 0.5;
 }
 
-.cvat-label-item-setup-shortcut-button {
+.clarify-label-item-setup-shortcut-button {
     border-color: $objects-bar-icons-color;
 }
 
-.cvat-label-item-setup-shortcut-popover {
+.clarify-label-item-setup-shortcut-popover {
     margin-top: -$grid-unit-size;
     margin-bottom: -$grid-unit-size;
 
@@ -396,7 +393,7 @@
     }
 }
 
-.cvat-objects-appearance-content {
+.clarify-objects-appearance-content {
     > div {
         width: 100%;
 
@@ -411,13 +408,13 @@
     }
 }
 
-.cvat-context-menu-item.ant-menu-item {
+.clarify-context-menu-item.ant-menu-item {
     &:hover {
         background: $hover-menu-color;
     }
 }
 
-.cvat-object-item-menu {
+.clarify-object-item-menu {
     li {
         padding: 0;
     }
@@ -430,28 +427,28 @@
     }
 }
 
-.cvat-label-color-picker .sketch-picker {
+.clarify-label-color-picker .sketch-picker {
     box-shadow: unset !important;
 }
 
-.cvat-states-ordering-selector {
+.clarify-states-ordering-selector {
     :first-child {
         margin-right: $grid-unit-size;
     }
 }
 
-.cvat-objects-sidebar-label-item-disabled {
+.clarify-objects-sidebar-label-item-disabled {
     opacity: 0.5;
 }
 
-.cvat-workspace-settings-approx-poly-threshold {
+.clarify-workspace-settings-approx-poly-threshold {
     .ant-slider-track {
         background: linear-gradient(90deg, #1890ff 0%, #61c200 100%);
     }
 }
 
-.cvat-approx-poly-threshold-wrapper {
-    @extend .cvat-workspace-settings-approx-poly-threshold;
+.clarify-approx-poly-threshold-wrapper {
+    @extend .clarify-workspace-settings-approx-poly-threshold;
 
     width: $grid-unit-size * 32;
     position: absolute;
@@ -470,7 +467,7 @@
     }
 }
 
-.cvat-objects-sidebar-state-item-elements {
+.clarify-objects-sidebar-state-item-elements {
     padding: $grid-unit-size * 0.5;
     border: 1px solid $object-item-border-color;
     border-bottom: 0;
@@ -480,12 +477,12 @@
     }
 }
 
-.cvat-objects-sidebar-state-item-elements.cvat-objects-sidebar-state-active-element {
+.clarify-objects-sidebar-state-item-elements.clarify-objects-sidebar-state-active-element {
     border: 2px dashed $object-item-border-color;
     padding: 0;
 }
 
-.cvat-objects-sidebar-show-ground-truth-active {
+.clarify-objects-sidebar-show-ground-truth-active {
     path {
         fill: #1890ff;
     }

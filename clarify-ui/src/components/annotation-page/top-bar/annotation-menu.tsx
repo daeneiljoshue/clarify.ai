@@ -60,7 +60,7 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
                 Modal.confirm({
                     title: 'The job has unsaved annotations',
                     content: 'Would you like to save changes before continue?',
-                    className: 'cvat-modal-content-save-job',
+                    className: 'clarify-modal-content-save-job',
                     okButtonProps: {
                         children: 'Save',
                     },
@@ -129,7 +129,7 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
                         </Collapse>
                     </div>
                 ),
-                className: 'cvat-modal-confirm-remove-annotation',
+                className: 'clarify-modal-confirm-remove-annotation',
                 onOk: () => {
                     removeAnnotations(removeFrom, removeUpTo, removeOnlyKeyframes);
                 },
@@ -145,7 +145,7 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
                 content: `Job state will be switched to "${params.key.split(':')[1]}". Continue?`,
                 okText: 'Continue',
                 cancelText: 'Cancel',
-                className: 'cvat-modal-content-change-job-state',
+                className: 'clarify-modal-content-change-job-state',
                 onOk: () => {
                     checkUnsavedChanges(params);
                 },
@@ -156,7 +156,7 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
                 content: 'Stage will be changed to "acceptance". Would you like to continue?',
                 okText: 'Continue',
                 cancelText: 'Cancel',
-                className: 'cvat-modal-content-finish-job',
+                className: 'clarify-modal-content-finish-job',
                 onOk: () => {
                     checkUnsavedChanges(params);
                 },
@@ -167,7 +167,7 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
                 content: 'Stage will be set to "in progress", state will be set to "annotation". Would you like to continue?',
                 okText: 'Continue',
                 cancelText: 'Cancel',
-                className: 'cvat-modal-content-renew-job',
+                className: 'clarify-modal-content-renew-job',
                 onOk: () => {
                     onClickMenu(params);
                 },
@@ -178,7 +178,7 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
     }
 
     const computeClassName = (menuItemState: string): string => {
-        if (menuItemState === jobState) return 'cvat-submenu-current-job-state-item';
+        if (menuItemState === jobState) return 'clarify-submenu-current-job-state-item';
         return '';
     };
 
@@ -188,7 +188,7 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
             onClick={(params: MenuInfo) => {
                 onClickMenuWrapper(params);
             }}
-            className='cvat-annotation-menu'
+            className='clarify-annotation-menu'
             selectable={false}
         >
             <Menu.Item key={Actions.LOAD_JOB_ANNO}>Upload annotations</Menu.Item>
@@ -218,7 +218,7 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
                     Open the task
                 </a>
             </Menu.Item>
-            <Menu.SubMenu popupClassName='cvat-annotation-menu-job-state-submenu' key='job-state-submenu' title='Change job state'>
+            <Menu.SubMenu popupClassName='clarify-annotation-menu-job-state-submenu' key='job-state-submenu' title='Change job state'>
                 <Menu.Item key={`state:${JobState.NEW}`}>
                     <Text className={computeClassName(JobState.NEW)}>{JobState.NEW}</Text>
                 </Menu.Item>

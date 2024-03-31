@@ -27,7 +27,7 @@ function PopoverContent(props: LabelKeySelectorPopoverContentProps): JSX.Element
     const labels = useSelector((state: CombinedState) => state.annotation.job.labels);
 
     return (
-        <div className='cvat-label-item-setup-shortcut-popover'>
+        <div className='clarify-label-item-setup-shortcut-popover'>
             {[['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9'], ['0']].map((arr, i_) => (
                 <Row justify='space-around' gutter={[16, 16]} key={i_}>
                     {arr.map((i) => {
@@ -41,7 +41,7 @@ function PopoverContent(props: LabelKeySelectorPopoverContentProps): JSX.Element
                             <Col key={i} span={8}>
                                 <CLARIFYTooltip title={labelName}>
                                     <Button
-                                        className='cvat-label-item-shortcut-button'
+                                        className='clarify-label-item-shortcut-button'
                                         onClick={() => updateLabelShortcutKey(i, labelID)}
                                     >
                                         <Text>{`${i}:`}</Text>

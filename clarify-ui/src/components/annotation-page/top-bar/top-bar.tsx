@@ -207,7 +207,7 @@ export default function AnnotationTopBarComponent(props: Props): JSX.Element {
                 onSwitchToolsBlockerState={onSwitchToolsBlockerState}
                 keyMap={keyMap}
             />
-            <Col className='cvat-annotation-header-player-group'>
+            <Col className='clarify-annotation-header-player-group'>
                 <Row align='middle'>
                     { playerItems.sort((menuItem1, menuItem2) => menuItem1[1] - menuItem2[1])
                         .map((menuItem) => menuItem[0]) }

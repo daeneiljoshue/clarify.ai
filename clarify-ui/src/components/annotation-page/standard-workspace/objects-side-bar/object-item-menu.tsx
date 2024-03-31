@@ -56,7 +56,7 @@ function CreateURLItem(props: ItemProps): JSX.Element {
     return (
         <Menu.Item {...rest}>
             <Button
-                className='cvat-object-item-menu-create-url'
+                className='clarify-object-item-menu-create-url'
                 disabled={!Number.isInteger(serverID)}
                 type='link'
                 icon={<LinkOutlined />}
@@ -75,7 +75,7 @@ function MakeCopyItem(props: ItemProps): JSX.Element {
         <Menu.Item {...rest}>
             <CLARIFYTooltip title={`${copyShortcut} and ${pasteShortcut}`}>
                 <Button
-                    className='cvat-object-item-menu-make-copy'
+                    className='clarify-object-item-menu-make-copy'
                     type='link'
                     icon={<CopyOutlined />}
                     onClick={copy}
@@ -97,7 +97,7 @@ function EditMaskItem(props: ItemProps): JSX.Element {
                     type='link'
                     icon={<EditOutlined />}
                     onClick={edit}
-                    className='cvat-object-item-menu-edit-object'
+                    className='clarify-object-item-menu-edit-object'
                 >
                     Edit
                 </Button>
@@ -116,7 +116,7 @@ function SliceItem(props: ItemProps): JSX.Element {
                     type='link'
                     icon={<Icon component={SliceIcon} />}
                     onClick={slice}
-                    className='cvat-object-item-menu-slice-object'
+                    className='clarify-object-item-menu-slice-object'
                 >
                     Slice
                 </Button>
@@ -135,7 +135,7 @@ function PropagateItem(props: ItemProps): JSX.Element {
                     type='link'
                     icon={<BlockOutlined />}
                     onClick={propagate}
-                    className='cvat-object-item-menu-propagate-item'
+                    className='clarify-object-item-menu-propagate-item'
                 >
                     Propagate
                 </Button>
@@ -153,7 +153,7 @@ function SwitchOrientationItem(props: ItemProps): JSX.Element {
                 type='link'
                 icon={<RetweetOutlined />}
                 onClick={switchOrientation}
-                className='cvat-object-item-menu-switch-orientation'
+                className='clarify-object-item-menu-switch-orientation'
             >
                 Switch orientation
             </Button>
@@ -169,7 +169,7 @@ function ResetPerspectiveItem(props: ItemProps): JSX.Element {
             <Button
                 type='link'
                 onClick={resetCuboidPerspective}
-                className='cvat-object-item-menu-reset-perspective'
+                className='clarify-object-item-menu-reset-perspective'
             >
                 <Icon component={ResetPerspectiveIcon} />
                 Reset perspective
@@ -187,7 +187,7 @@ function ToBackgroundItem(props: ItemProps): JSX.Element {
                 <Button
                     type='link'
                     onClick={toBackground}
-                    className='cvat-object-item-menu-to-background'
+                    className='clarify-object-item-menu-to-background'
                 >
                     <Icon component={BackgroundIcon} />
                     To background
@@ -206,7 +206,7 @@ function ToForegroundItem(props: ItemProps): JSX.Element {
                 <Button
                     type='link'
                     onClick={toForeground}
-                    className='cvat-object-item-menu-to-foreground'
+                    className='clarify-object-item-menu-to-foreground'
                 >
                     <Icon component={ForegroundIcon} />
                     To foreground
@@ -223,7 +223,7 @@ function SwitchColorItem(props: ItemProps): JSX.Element {
     return (
         <Menu.Item {...rest} onClick={() => setColorPickerVisible(true)}>
             <CLARIFYTooltip title={`${changeColorShortcut}`}>
-                <Button type='link' className='cvat-object-item-menu-change-color'>
+                <Button type='link' className='clarify-object-item-menu-change-color'>
                     <Icon component={ColorizeIcon} />
                     {`Change ${colorBy.toLowerCase()} color`}
                 </Button>
@@ -242,7 +242,7 @@ function RemoveItem(props: ItemProps): JSX.Element {
                     type='link'
                     icon={<DeleteOutlined />}
                     onClick={remove}
-                    className='cvat-object-item-menu-remove-object'
+                    className='clarify-object-item-menu-remove-object'
                 >
                     Remove
                 </Button>
@@ -275,7 +275,7 @@ export default function ItemMenu(props: Props): JSX.Element {
     return (
         <Menu
             onClick={() => window.document.body.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }))}
-            className='cvat-object-item-menu'
+            className='clarify-object-item-menu'
             selectable={false}
         >
             <CreateURLItem key={MenuKeys.CREATE_URL} toolProps={props} />

@@ -43,7 +43,7 @@ function AnalyticsOverview(props: Props): JSX.Element | null {
     const views: { view: React.JSX.Element, key: string }[] = [];
     report.statistics.forEach((entry) => {
         const tooltip = (
-            <div className='cvat-analytics-tooltip-inner'>
+            <div className='clarify-analytics-tooltip-inner'>
                 <Text>
                     {entry.description}
                 </Text>
@@ -136,7 +136,7 @@ function AnalyticsOverview(props: Props): JSX.Element | null {
         }
     });
     return (
-        <div className='cvat-analytics-overview'>
+        <div className='clarify-analytics-overview'>
             <Row justify='space-between'>
                 <Col>
                     <Text type='secondary'>

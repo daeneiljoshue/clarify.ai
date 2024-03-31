@@ -63,33 +63,33 @@ interface Props {
 }
 
 const classes = {
-    firstKeyFrame: { className: 'cvat-object-item-button-first-keyframe' },
-    prevKeyFrame: { className: 'cvat-object-item-button-prev-keyframe' },
-    nextKeyFrame: { className: 'cvat-object-item-button-next-keyframe' },
-    lastKeyFrame: { className: 'cvat-object-item-button-last-keyframe' },
+    firstKeyFrame: { className: 'clarify-object-item-button-first-keyframe' },
+    prevKeyFrame: { className: 'clarify-object-item-button-prev-keyframe' },
+    nextKeyFrame: { className: 'clarify-object-item-button-next-keyframe' },
+    lastKeyFrame: { className: 'clarify-object-item-button-last-keyframe' },
     outside: {
-        enabled: { className: 'cvat-object-item-button-outside cvat-object-item-button-outside-enabled' },
-        disabled: { className: 'cvat-object-item-button-outside' },
+        enabled: { className: 'clarify-object-item-button-outside clarify-object-item-button-outside-enabled' },
+        disabled: { className: 'clarify-object-item-button-outside' },
     },
     lock: {
-        enabled: { className: 'cvat-object-item-button-lock cvat-object-item-button-lock-enabled' },
-        disabled: { className: 'cvat-object-item-button-lock' },
+        enabled: { className: 'clarify-object-item-button-lock clarify-object-item-button-lock-enabled' },
+        disabled: { className: 'clarify-object-item-button-lock' },
     },
     occluded: {
-        enabled: { className: 'cvat-object-item-button-occluded cvat-object-item-button-occluded-enabled' },
-        disabled: { className: 'cvat-object-item-button-occluded' },
+        enabled: { className: 'clarify-object-item-button-occluded clarify-object-item-button-occluded-enabled' },
+        disabled: { className: 'clarify-object-item-button-occluded' },
     },
     pinned: {
-        enabled: { className: 'cvat-object-item-button-pinned cvat-object-item-button-pinned-enabled' },
-        disabled: { className: 'cvat-object-item-button-pinned' },
+        enabled: { className: 'clarify-object-item-button-pinned clarify-object-item-button-pinned-enabled' },
+        disabled: { className: 'clarify-object-item-button-pinned' },
     },
     hidden: {
-        enabled: { className: 'cvat-object-item-button-hidden cvat-object-item-button-hidden-enabled' },
-        disabled: { className: 'cvat-object-item-button-hidden' },
+        enabled: { className: 'clarify-object-item-button-hidden clarify-object-item-button-hidden-enabled' },
+        disabled: { className: 'clarify-object-item-button-hidden' },
     },
     keyframe: {
-        enabled: { className: 'cvat-object-item-button-keyframe cvat-object-item-button-keyframe-enabled' },
-        disabled: { className: 'cvat-object-item-button-keyframe' },
+        enabled: { className: 'clarify-object-item-button-keyframe clarify-object-item-button-keyframe-enabled' },
+        disabled: { className: 'clarify-object-item-button-keyframe' },
     },
 };
 

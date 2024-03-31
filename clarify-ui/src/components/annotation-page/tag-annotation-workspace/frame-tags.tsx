@@ -59,7 +59,7 @@ function FrameTags(props: StateToProps & DispatchToProps): JSX.Element {
         <>
             {frameTags.map((tag: any) => (
                 <Tag
-                    className='cvat-frame-tag'
+                    className='clarify-frame-tag'
                     color={tag.label.color}
                     onClose={() => {
                         onRemoveState(tag);

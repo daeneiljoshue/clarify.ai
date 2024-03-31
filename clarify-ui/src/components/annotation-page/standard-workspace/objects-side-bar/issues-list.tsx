@@ -67,28 +67,28 @@ export default function LabelsListComponent(): JSX.Element {
 
     return (
         <>
-            <div className='cvat-objects-sidebar-issues-list-header'>
+            <div className='clarify-objects-sidebar-issues-list-header'>
                 <Row justify='start' align='middle'>
                     <Col>
                         <CLARIFYTooltip title='Find the previous frame with issues'>
-                            <LeftOutlined className='cvat-issues-sidebar-previous-frame' {...dynamicLeftProps} />
+                            <LeftOutlined className='clarify-issues-sidebar-previous-frame' {...dynamicLeftProps} />
                         </CLARIFYTooltip>
                     </Col>
                     <Col offset={1}>
                         <CLARIFYTooltip title='Find the next frame with issues'>
-                            <RightOutlined className='cvat-issues-sidebar-next-frame' {...dynamicRightProps} />
+                            <RightOutlined className='clarify-issues-sidebar-next-frame' {...dynamicRightProps} />
                         </CLARIFYTooltip>
                     </Col>
                     <Col offset={2}>
                         <CLARIFYTooltip title='Show/hide all issues'>
                             {issuesHidden ? (
                                 <EyeInvisibleFilled
-                                    className='cvat-issues-sidebar-hidden-issues'
+                                    className='clarify-issues-sidebar-hidden-issues'
                                     onClick={() => dispatch(reviewActions.switchIssuesHiddenFlag(false))}
                                 />
                             ) : (
                                 <EyeOutlined
-                                    className='cvat-issues-sidebar-shown-issues'
+                                    className='clarify-issues-sidebar-shown-issues'
                                     onClick={() => dispatch(reviewActions.switchIssuesHiddenFlag(true))}
                                 />
                             )}
@@ -98,12 +98,12 @@ export default function LabelsListComponent(): JSX.Element {
                         <CLARIFYTooltip title='Show/hide resolved issues'>
                             { issuesResolvedHidden ? (
                                 <CheckCircleFilled
-                                    className='cvat-issues-sidebar-hidden-resolved-status'
+                                    className='clarify-issues-sidebar-hidden-resolved-status'
                                     onClick={() => dispatch(reviewActions.switchIssuesHiddenResolvedFlag(false))}
                                 />
                             ) : (
                                 <CheckCircleOutlined
-                                    className='cvat-issues-sidebar-hidden-resolved-status'
+                                    className='clarify-issues-sidebar-hidden-resolved-status'
                                     onClick={() => dispatch(reviewActions.switchIssuesHiddenResolvedFlag(true))}
                                 />
 
@@ -116,7 +116,7 @@ export default function LabelsListComponent(): JSX.Element {
                                 <CLARIFYTooltip title='Show Ground truth annotations and conflicts'>
                                     <Icon
                                         className={
-                                            `cvat-objects-sidebar-show-ground-truth ${showGroundTruth ? 'cvat-objects-sidebar-show-ground-truth-active' : ''}`
+                                            `clarify-objects-sidebar-show-ground-truth ${showGroundTruth ? 'clarify-objects-sidebar-show-ground-truth-active' : ''}`
                                         }
                                         component={ShowGroundTruthIcon}
                                         onClick={() => {
@@ -130,7 +130,7 @@ export default function LabelsListComponent(): JSX.Element {
                     }
                 </Row>
             </div>
-            <div className='cvat-objects-sidebar-issues-list'>
+            <div className='clarify-objects-sidebar-issues-list'>
                 {frameIssues.map(
                     (frameIssue: Issue): JSX.Element => {
                         const firstComment = frameIssue.comments[0];
@@ -138,25 +138,25 @@ export default function LabelsListComponent(): JSX.Element {
                         return (
                             <div
                                 key={frameIssue.id}
-                                id={`cvat-objects-sidebar-issue-item-${frameIssue.id}`}
+                                id={`clarify-objects-sidebar-issue-item-${frameIssue.id}`}
                                 className={
-                                    `cvat-objects-sidebar-issue-item ${frameIssue.resolved ? 'cvat-objects-sidebar-issue-resolved' : ''}`
+                                    `clarify-objects-sidebar-issue-item ${frameIssue.resolved ? 'clarify-objects-sidebar-issue-resolved' : ''}`
                                 }
                                 onMouseEnter={() => {
                                     const element = window.document.getElementById(
-                                        `cvat_canvas_issue_region_${frameIssue.id}`,
+                                        `clarify_canvas_issue_region_${frameIssue.id}`,
                                     );
                                     if (element) {
-                                        element.setAttribute('fill', 'url(#cvat_issue_region_pattern_2)');
+                                        element.setAttribute('fill', 'url(#clarify_issue_region_pattern_2)');
                                     }
                                     dispatch(activateObject(null, null, null));
                                 }}
                                 onMouseLeave={() => {
                                     const element = window.document.getElementById(
-                                        `cvat_canvas_issue_region_${frameIssue.id}`,
+                                        `clarify_canvas_issue_region_${frameIssue.id}`,
                                     );
                                     if (element) {
-                                        element.setAttribute('fill', 'url(#cvat_issue_region_pattern_1)');
+                                        element.setAttribute('fill', 'url(#clarify_issue_region_pattern_1)');
                                     }
                                 }}
                             >
@@ -208,8 +208,8 @@ export default function LabelsListComponent(): JSX.Element {
                             id={`cvat-objects-sidebar-conflict-item-${frameConflict.id}`}
                             className={
                                 `${frameConflict.severity === ConflictSeverity.WARNING ?
-                                    'cvat-objects-sidebar-warning-item' : 'cvat-objects-sidebar-conflict-item'}
-                                  ${frameConflict.id === highlightedConflict?.id ? 'cvat-objects-sidebar-item-active' : ''}  `
+                                    'cvat-objects-sidebar-warning-item' : 'clarify-objects-sidebar-conflict-item'}
+                                  ${frameConflict.id === highlightedConflict?.id ? 'clarify-objects-sidebar-item-active' : ''}  `
                             }
                             onMouseEnter={() => {
                                 if (ready && activeControl === ActiveControl.CURSOR) {

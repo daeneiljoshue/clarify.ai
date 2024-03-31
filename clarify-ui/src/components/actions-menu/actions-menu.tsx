@@ -56,7 +56,7 @@ function ActionsMenuComponent(props: Props): JSX.Element {
                 Modal.confirm({
                     title: `The task ${taskID} will be deleted`,
                     content: 'All related data (images, annotations) will be lost. Continue?',
-                    className: 'cvat-modal-confirm-delete-task',
+                    className: 'clarify-modal-confirm-delete-task',
                     onOk: () => {
                         onClickMenu(params);
                     },
@@ -98,7 +98,7 @@ function ActionsMenuComponent(props: Props): JSX.Element {
         <Menu.Item
             key={Actions.BACKUP_TASK}
             disabled={backupIsActive}
-            icon={backupIsActive && <LoadingOutlined id='cvat-backup-task-loading' />}
+            icon={backupIsActive && <LoadingOutlined id='clarify-backup-task-loading' />}
         >
             Backup Task
         </Menu.Item>
@@ -135,7 +135,7 @@ function ActionsMenuComponent(props: Props): JSX.Element {
     return (
         <Menu
             selectable={false}
-            className='cvat-actions-menu'
+            className='clarify-actions-menu'
             onClick={onClickMenuWrapper}
         >
             { menuItems.sort((menuItem1, menuItem2) => menuItem1[1] - menuItem2[1])

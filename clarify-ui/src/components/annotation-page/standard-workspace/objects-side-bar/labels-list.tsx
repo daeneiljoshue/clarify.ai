@@ -94,7 +94,7 @@ function LabelsListComponent(): JSX.Element {
     };
 
     return (
-        <div className='cvat-objects-sidebar-labels-list'>
+        <div className='clarify-objects-sidebar-labels-list'>
             <GlobalHotKeys keyMap={subKeyMap} handlers={handlers} />
             {labelIDs.map(
                 (labelID: number): JSX.Element => (

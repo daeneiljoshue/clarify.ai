@@ -18,8 +18,8 @@ function StatesOrderingSelectorComponent(props: StatesOrderingSelectorComponentP
         <Col>
             <Text strong>Sort by</Text>
             <Select
-                className='cvat-objects-sidebar-ordering-selector'
-                dropdownClassName='cvat-objects-sidebar-ordering-dropdown'
+                className='clarify-objects-sidebar-ordering-selector'
+                dropdownClassName='clarify-objects-sidebar-ordering-dropdown'
                 value={statesOrdering}
                 onChange={changeStatesOrdering}
             >

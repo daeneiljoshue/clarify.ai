@@ -88,17 +88,17 @@ function LeftGroup(props: Props): JSX.Element {
     return (
         <>
             <GlobalHotKeys keyMap={subKeyMap} handlers={handlers} />
-            <Modal className='cvat-saving-job-modal' title='Saving changes on the server' visible={saving} footer={[]} closable={false}>
+            <Modal className='clarify-saving-job-modal' title='Saving changes on the server' visible={saving} footer={[]} closable={false}>
                 <Text>CVAT is saving your annotations, please wait </Text>
                 <LoadingOutlined />
             </Modal>
-            <Col className='cvat-annotation-header-left-group'>
+            <Col className='clarify-annotation-header-left-group'>
                 <Dropdown
                     trigger={['click']}
                     destroyPopupOnHide
                     overlay={<AnnotationMenuContainer />}
                 >
-                    <Button type='link' className='cvat-annotation-header-menu-button cvat-annotation-header-button'>
+                    <Button type='link' className='clarify-annotation-header-menu-button clarify-annotation-header-button'>
                         <Icon component={MainMenuIcon} />
                         Menu
                     </Button>
@@ -107,14 +107,14 @@ function LeftGroup(props: Props): JSX.Element {
                     isSaving={saving}
                     onClick={saving ? undefined : onSaveAnnotation}
                     type='link'
-                    className={saving ? 'cvat-annotation-header-save-button cvat-annotation-disabled-header-button' :
-                        'cvat-annotation-header-save-button cvat-annotation-header-button'}
+                    className={saving ? 'clarify-annotation-header-save-button clarify-annotation-disabled-header-button' :
+                        'clarify-annotation-header-save-button clarify-annotation-header-button'}
                 />
                 <CLARIFYTooltip overlay={`Undo: ${undoAction} ${undoShortcut}`}>
                     <Button
                         style={{ pointerEvents: undoAction ? 'initial' : 'none', opacity: undoAction ? 1 : 0.5 }}
                         type='link'
-                        className='cvat-annotation-header-undo-button cvat-annotation-header-button'
+                        className='clarify-annotation-header-undo-button clarify-annotation-header-button'
                         onClick={onUndoClick}
                     >
                         <Icon component={UndoIcon} />
@@ -125,7 +125,7 @@ function LeftGroup(props: Props): JSX.Element {
                     <Button
                         style={{ pointerEvents: redoAction ? 'initial' : 'none', opacity: redoAction ? 1 : 0.5 }}
                         type='link'
-                        className='cvat-annotation-header-redo-button cvat-annotation-header-button'
+                        className='clarify-annotation-header-redo-button clarify-annotation-header-button'
                         onClick={onRedoClick}
                     >
                         <Icon component={RedoIcon} />
@@ -134,7 +134,7 @@ function LeftGroup(props: Props): JSX.Element {
                 </CLARIFYTooltip>
                 {includesDoneButton ? (
                     <CLARIFYTooltip overlay={`Press "${drawShortcut}" to finish`}>
-                        <Button type='link' className='cvat-annotation-header-done-button cvat-annotation-header-button' onClick={onFinishDraw}>
+                        <Button type='link' className='clarify-annotation-header-done-button clarify-annotation-header-button' onClick={onFinishDraw}>
                             <CheckCircleOutlined />
                             Done
                         </Button>
@@ -144,8 +144,8 @@ function LeftGroup(props: Props): JSX.Element {
                     <CLARIFYTooltip overlay={`Press "${switchToolsBlockerShortcut}" to postpone running the algorithm `}>
                         <Button
                             type='link'
-                            className={`cvat-annotation-header-block-tool-button cvat-annotation-header-button ${
-                                toolsBlockerState.algorithmsLocked ? 'cvat-button-active' : ''
+                            className={`clarify-annotation-header-block-tool-button clarify-annotation-header-button ${
+                                toolsBlockerState.algorithmsLocked ? 'clarify-button-active' : ''
                             }`}
                             onClick={shouldEnableToolsBlockerOnClick ? onSwitchToolsBlockerState : undefined}
                         >

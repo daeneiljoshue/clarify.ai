@@ -48,12 +48,12 @@ function LabelItemComponent(props: Props): JSX.Element {
     const labelShortcutKey = labelToKeyMapping[labelID] || '?';
     const classes = {
         lock: {
-            enabled: { className: 'cvat-label-item-button-lock cvat-label-item-button-lock-enabled' },
-            disabled: { className: 'cvat-label-item-button-lock' },
+            enabled: { className: 'clarify-label-item-button-lock clarify-label-item-button-lock-enabled' },
+            disabled: { className: 'clarify-label-item-button-lock' },
         },
         hidden: {
-            enabled: { className: 'cvat-label-item-button-hidden cvat-label-item-button-hidden-enabled' },
-            disabled: { className: 'cvat-label-item-button-hidden' },
+            enabled: { className: 'clarify-label-item-button-hidden clarify-label-item-button-hidden-enabled' },
+            disabled: { className: 'clarify-label-item-button-hidden' },
         },
     };
 
@@ -62,18 +62,18 @@ function LabelItemComponent(props: Props): JSX.Element {
             align='stretch'
             justify='space-around'
             className={[
-                'cvat-objects-sidebar-label-item',
-                visible ? '' : 'cvat-objects-sidebar-label-item-disabled',
+                'clarify-objects-sidebar-label-item',
+                visible ? '' : 'clarify-objects-sidebar-label-item-disabled',
             ].join(' ')}
         >
             <Col span={2}>
-                <div style={{ background: labelColor }} className='cvat-label-item-color'>
+                <div style={{ background: labelColor }} className='clarify-label-item-color'>
                     {' '}
                 </div>
             </Col>
             <Col span={12}>
                 <CLARIFYTooltip title={labelName}>
-                    <Text strong className='cvat-text'>
+                    <Text strong className='clarify-text'>
                         {labelName}
                     </Text>
                 </CLARIFYTooltip>
@@ -84,7 +84,7 @@ function LabelItemComponent(props: Props): JSX.Element {
                     labelID={labelID}
                     updateLabelShortcutKey={updateLabelShortcutKey}
                 >
-                    <Button className='cvat-label-item-setup-shortcut-button' size='small' ghost type='dashed'>
+                    <Button className='clarify-label-item-setup-shortcut-button' size='small' ghost type='dashed'>
                         {labelShortcutKey}
                     </Button>
                 </LabelKeySelectorPopover>

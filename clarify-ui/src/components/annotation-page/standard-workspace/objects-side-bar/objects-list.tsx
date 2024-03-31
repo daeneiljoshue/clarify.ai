@@ -75,7 +75,7 @@ function ObjectListComponent(props: Props): JSX.Element {
                 showAllStates={showAllStates}
                 changeShowGroundTruth={changeShowGroundTruth}
             />
-            <div className='cvat-objects-sidebar-states-list'>
+            <div className='clarify-objects-sidebar-states-list'>
                 {sortedStatesID.map(
                     (id: number): JSX.Element => {
                         const object = objectStates.find((state: ObjectState) => state.clientID === id);
@@ -89,7 +89,7 @@ function ObjectListComponent(props: Props): JSX.Element {
                         return (
                             <React.Fragment key={id}>
                                 {renderZLayer && (
-                                    <div className='cvat-objects-sidebar-z-layer-mark'>
+                                    <div className='clarify-objects-sidebar-z-layer-mark'>
                                         <Text strong>
                                             {`Layer ${zOrder}`}
                                         </Text>

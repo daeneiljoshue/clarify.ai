@@ -19,7 +19,7 @@ interface ConflictTooltipProps {
 export function ConflictsTooltip(props: ConflictTooltipProps): JSX.Element {
     const { reportSummary } = props;
     return (
-        <Row className='cvat-analytics-tooltip-conflicts-inner'>
+        <Row className='clarify-analytics-tooltip-conflicts-inner'>
             <Col span={12}>
                 <Text>
                     Warnings:
@@ -98,7 +98,7 @@ function GTConflicts(props: Props): JSX.Element {
     return (
         <AnalyticsCard
             title='GT Conflicts'
-            className='cvat-task-gt-conflicts'
+            className='clarify-task-gt-conflicts'
             value={conflictsRepresentation}
             tooltip={<ConflictsTooltip reportSummary={reportSummary} />}
             size={12}

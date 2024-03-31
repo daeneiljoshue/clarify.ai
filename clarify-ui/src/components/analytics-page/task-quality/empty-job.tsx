@@ -18,7 +18,7 @@ function EmptyJobComponent(props: Props): JSX.Element {
 
     return (
         <Col span={24}>
-            <Card className='cvat-job-empty-ground-truth-item'>
+            <Card className='clarify-job-empty-ground-truth-item'>
                 <Row justify='space-between' align='middle'>
                     <Col>
                         <Title level={5}>No Ground Truth job created yet...</Title>

@@ -263,7 +263,7 @@ function FiltersModalComponent(): JSX.Element {
 
     return (
         <Modal
-            className={visible ? 'cvat-filters-modal cvat-filters-modal-visible' : 'cvat-filters-modal'}
+            className={visible ? 'clarify-filters-modal clarify-filters-modal-visible' : 'clarify-filters-modal'}
             visible={visible}
             closable={false}
             width={800}
@@ -275,14 +275,14 @@ function FiltersModalComponent(): JSX.Element {
                     key='clear'
                     disabled={!activeFilters.length}
                     onClick={() => applyFilters([])}
-                    className='cvat-filters-modal-clear-button'
+                    className='clarify-filters-modal-clear-button'
                 >
                     Clear filters
                 </Button>,
                 <Button
                     key='cancel'
                     onClick={() => dispatch(showFilters(false))}
-                    className='cvat-filters-modal-cancel-button'
+                    className='clarify-filters-modal-cancel-button'
                 >
                     Cancel
                 </Button>,
@@ -291,7 +291,7 @@ function FiltersModalComponent(): JSX.Element {
                     type='primary'
                     disabled={!isModalConfirmable()}
                     onClick={confirmModal}
-                    className='cvat-filters-modal-submit-button'
+                    className='clarify-filters-modal-submit-button'
                 >
                     Submit
                 </Button>,
@@ -299,18 +299,18 @@ function FiltersModalComponent(): JSX.Element {
         >
             <div
                 key='used'
-                className='cvat-recently-used-filters-wrapper'
+                className='clarify-recently-used-filters-wrapper'
                 style={{ display: filters.length ? 'inline-block' : 'none' }}
             >
                 <Dropdown
                     destroyPopupOnHide
                     trigger={['click']}
                     overlay={menu}
-                    overlayClassName='cvat-recently-used-filters-dropdown'
+                    overlayClassName='clarify-recently-used-filters-dropdown'
                 >
                     <Button
                         type='text'
-                        className='cvat-filters-modal-recently-used-button'
+                        className='clarify-filters-modal-recently-used-button'
                     >
                         Recently used
                         {' '}

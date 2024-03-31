@@ -74,7 +74,7 @@ function GTSwitcher(props: Props): JSX.Element {
             <CLARIFYTooltip title='Show Ground truth annotations and conflicts'>
                 <Icon
                     className={
-                        `cvat-objects-sidebar-show-ground-truth ${showGroundTruth ? 'cvat-objects-sidebar-show-ground-truth-active' : ''}`
+                        `clarify-objects-sidebar-show-ground-truth ${showGroundTruth ? 'clarify-objects-sidebar-show-ground-truth-active' : ''}`
                     }
                     component={ShowGroundTruthIcon}
                     onClick={changeShowGroundTruth}
@@ -105,7 +105,7 @@ function ObjectListHeader(props: Props): JSX.Element {
     } = props;
 
     return (
-        <div className='cvat-objects-sidebar-states-header'>
+        <div className='clarify-objects-sidebar-states-header'>
             <Row justify='space-between' align='middle'>
                 {!readonly && <LockAllSwitcher {...props} />}
                 <HideAllSwitcher {...props} />

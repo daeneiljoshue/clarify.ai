@@ -42,7 +42,7 @@ function ItemAttributesComponent(props: Props): JSX.Element {
     return (
         <Row>
             <Collapse
-                className='cvat-objects-sidebar-state-item-collapse'
+                className='clarify-objects-sidebar-state-item-collapse'
                 activeKey={collapsed ? [] : ['details']}
                 onChange={collapse}
             >
@@ -53,7 +53,7 @@ function ItemAttributesComponent(props: Props): JSX.Element {
                                 key={attribute.id}
                                 align='middle'
                                 justify='start'
-                                className='cvat-object-item-attribute-wrapper'
+                                className='clarify-object-item-attribute-wrapper'
                             >
                                 <ItemAttribute
                                     readonly={readonly}

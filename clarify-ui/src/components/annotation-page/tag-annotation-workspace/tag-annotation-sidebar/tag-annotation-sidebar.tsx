@@ -26,7 +26,7 @@ import isAbleToChangeFrame from 'utils/is-able-to-change-frame';
 import GlobalHotKeys, { KeyMap } from 'utils/mousetrap-react';
 import ShortcutsSelect from './shortcuts-select';
 
-const cvat = getCore();
+const clarify = getCore();
 
 interface StateToProps {
     states: any[];
@@ -136,13 +136,13 @@ function TagAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.Elemen
         const listener = (event: Event): void => {
             if (
                 (event as TransitionEvent).propertyName === 'width' &&
-                ((event.target as any).classList as DOMTokenList).contains('cvat-tag-annotation-sidebar')
+                ((event.target as any).classList as DOMTokenList).contains('clarify-tag-annotation-sidebar')
             ) {
                 window.dispatchEvent(new Event('resize'));
             }
         };
 
-        const [sidebar] = window.document.getElementsByClassName('cvat-tag-annotation-sidebar');
+        const [sidebar] = window.document.getElementsByClassName('clarify-tag-annotation-sidebar');
 
         sidebar.addEventListener('transitionend', listener);
 
@@ -157,7 +157,7 @@ function TagAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.Elemen
     }, [states]);
 
     const siderProps: SiderProps = {
-        className: 'cvat-tag-annotation-sidebar',
+        className: 'clarify-tag-annotation-sidebar',
         theme: 'light',
         width: 300,
         collapsedWidth: 0,
@@ -191,7 +191,7 @@ function TagAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.Elemen
         if (frameTags.every((objectState: any): boolean => objectState.label.id !== labelID)) {
             onRememberObject(labelID);
 
-            const objectState = new cvat.classes.ObjectState({
+            const objectState = new clarify.classes.ObjectState({
                 objectType: ObjectType.TAG,
                 label: labels.filter((label: any) => label.id === labelID)[0],
                 frame: frameNumber,
@@ -227,7 +227,7 @@ function TagAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.Elemen
         <Layout.Sider {...siderProps}>
             {/* eslint-disable-next-line */}
             <span
-                className={`cvat-objects-sidebar-sider
+                className={`clarify-objects-sidebar-sider
                     ant-layout-sider-zero-width-trigger
                     ant-layout-sider-zero-width-trigger-left`}
                 onClick={() => {
@@ -236,7 +236,7 @@ function TagAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.Elemen
             >
                 {sidebarCollapsed ? <MenuFoldOutlined title='Show' /> : <MenuUnfoldOutlined title='Hide' />}
             </span>
-            <Row justify='center' className='cvat-tag-annotation-sidebar-empty'>
+            <Row justify='center' className='clarify-tag-annotation-sidebar-empty'>
                 <Col>
                     <Text strong>Can&apos;t place tag on this frame.</Text>
                 </Col>
@@ -248,7 +248,7 @@ function TagAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.Elemen
             <Layout.Sider {...siderProps}>
                 {/* eslint-disable-next-line */}
                 <span
-                    className={`cvat-objects-sidebar-sider
+                    className={`clarify-objects-sidebar-sider
                         ant-layout-sider-zero-width-trigger
                         ant-layout-sider-zero-width-trigger-left`}
                     onClick={() => {
@@ -257,12 +257,12 @@ function TagAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.Elemen
                 >
                     {sidebarCollapsed ? <MenuFoldOutlined title='Show' /> : <MenuUnfoldOutlined title='Hide' />}
                 </span>
-                <Row justify='start' className='cvat-tag-annotation-sidebar-tag-label'>
+                <Row justify='start' className='clarify-tag-annotation-sidebar-tag-label'>
                     <Col>
                         <Text strong>Tag label:</Text>
                     </Col>
                 </Row>
-                <Row justify='start' className='cvat-tag-annotation-sidebar-label-select'>
+                <Row justify='start' className='clarify-tag-annotation-sidebar-label-select'>
                     <Col>
                         <LabelSelector
                             labels={applicableLabels}
@@ -272,13 +272,13 @@ function TagAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.Elemen
                         />
                         <Button
                             type='primary'
-                            className='cvat-add-tag-button'
+                            className='clarify-add-tag-button'
                             onClick={() => onAddTag(selectedLabelID as number)}
                             icon={<PlusOutlined />}
                         />
                     </Col>
                 </Row>
-                <Row className='cvat-tag-annotation-sidebar-checkbox-skip-frame'>
+                <Row className='clarify-tag-annotation-sidebar-checkbox-skip-frame'>
                     <Col>
                         <Checkbox
                             checked={skipFrame}
@@ -295,7 +295,7 @@ function TagAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.Elemen
                         <ShortcutsSelect labels={applicableLabels} onShortcutPress={onShortcutPress} />
                     </Col>
                 </Row>
-                <Row justify='center' className='cvat-tag-annotation-sidebar-shortcut-help'>
+                <Row justify='center' className='clarify-tag-annotation-sidebar-shortcut-help'>
                     <Col>
                         <Text>
                             Use&nbsp;

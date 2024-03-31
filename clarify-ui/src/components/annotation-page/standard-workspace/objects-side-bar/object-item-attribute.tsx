@@ -73,14 +73,14 @@ function ItemAttributeComponent(props: Props): JSX.Element {
         return (
             <Col span={24}>
                 <Checkbox
-                    className='cvat-object-item-checkbox-attribute'
+                    className='clarify-object-item-checkbox-attribute'
                     checked={localAttrValue === 'true'}
                     disabled={readonly}
                     onChange={(event: CheckboxChangeEvent): void => {
                         setAttributeValue(event.target.checked ? 'true' : 'false');
                     }}
                 >
-                    <Text style={attrNameStyle} className='cvat-text'>
+                    <Text style={attrNameStyle} className='clarify-text'>
                         {attrName}
                     </Text>
                 </Checkbox>
@@ -91,9 +91,9 @@ function ItemAttributeComponent(props: Props): JSX.Element {
     if (attrInputType === 'radio') {
         return (
             <Col span={24}>
-                <fieldset className='cvat-object-item-radio-attribute'>
+                <fieldset className='clarify-object-item-radio-attribute'>
                     <legend>
-                        <Text style={attrNameStyle} className='cvat-text'>
+                        <Text style={attrNameStyle} className='clarify-text'>
                             {attrName}
                         </Text>
                     </legend>
@@ -122,7 +122,7 @@ function ItemAttributeComponent(props: Props): JSX.Element {
         return (
             <>
                 <Col span={8} style={attrNameStyle}>
-                    <Text className='cvat-text'>{attrName}</Text>
+                    <Text className='clarify-text'>{attrName}</Text>
                 </Col>
                 <Col span={16}>
                     <Select
@@ -132,7 +132,7 @@ function ItemAttributeComponent(props: Props): JSX.Element {
                             setAttributeValue(value);
                         }}
                         value={localAttrValue}
-                        className='cvat-object-item-select-attribute'
+                        className='clarify-object-item-select-attribute'
                     >
                         {attrValues.map(
                             (value: string): JSX.Element => (
@@ -152,7 +152,7 @@ function ItemAttributeComponent(props: Props): JSX.Element {
         return (
             <>
                 <Col span={8} style={attrNameStyle}>
-                    <Text className='cvat-text'>{attrName}</Text>
+                    <Text className='clarify-text'>{attrName}</Text>
                 </Col>
                 <Col span={16}>
                     <InputNumber
@@ -164,7 +164,7 @@ function ItemAttributeComponent(props: Props): JSX.Element {
                             }
                         }}
                         value={+localAttrValue}
-                        className='cvat-object-item-number-attribute'
+                        className='clarify-object-item-number-attribute'
                         min={min}
                         max={max}
                         step={step}
@@ -177,7 +177,7 @@ function ItemAttributeComponent(props: Props): JSX.Element {
     return (
         <>
             <Col span={8} style={attrNameStyle}>
-                <Text className='cvat-text'>{attrName}</Text>
+                <Text className='clarify-text'>{attrName}</Text>
             </Col>
             <Col span={16}>
                 <TextArea
@@ -195,7 +195,7 @@ function ItemAttributeComponent(props: Props): JSX.Element {
                         setAttributeValue(event.target.value);
                     }}
                     value={localAttrValue}
-                    className='cvat-object-item-text-attribute'
+                    className='clarify-object-item-text-attribute'
                 />
             </Col>
         </>

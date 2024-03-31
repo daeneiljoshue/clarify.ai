@@ -39,7 +39,7 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
     };
 
     const generalTooltip = (
-        <div className='cvat-analytics-settings-tooltip-inner'>
+        <div className='clarify-analytics-settings-tooltip-inner'>
             <Text>
                 Min overlap threshold(IoU) is used for distinction between matched / unmatched shapes.
             </Text>
@@ -50,7 +50,7 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
     );
 
     const keypointTooltip = (
-        <div className='cvat-analytics-settings-tooltip-inner'>
+        <div className='clarify-analytics-settings-tooltip-inner'>
             <Text>
                 Object Keypoint Similarity (OKS) is like IoU, but for skeleton points.
             </Text>
@@ -72,7 +72,7 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
     );
 
     const linesTooltip = (
-        <div className='cvat-analytics-settings-tooltip-inner'>
+        <div className='clarify-analytics-settings-tooltip-inner'>
             <Text>
                 Line thickness - thickness of polylines, relatively to the (image area) ^ 0.5.
                 The distance to the boundary around the GT line,
@@ -89,7 +89,7 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
     );
 
     const groupTooltip = (
-        <div className='cvat-analytics-settings-tooltip-inner'>
+        <div className='clarify-analytics-settings-tooltip-inner'>
             <Text>
                 Compare groups - Enables or disables annotation group checks.
             </Text>
@@ -101,7 +101,7 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
     );
 
     const segmentationTooltip = (
-        <div className='cvat-analytics-settings-tooltip-inner'>
+        <div className='clarify-analytics-settings-tooltip-inner'>
             <Text>
                 Check object visibility - Check for partially-covered annotations.
             </Text>
@@ -121,11 +121,11 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
             layout='vertical'
             initialValues={initialValues}
         >
-            <Row className='cvat-quality-settings-title'>
+            <Row className='clarify-quality-settings-title'>
                 <Text strong>
                     General
                 </Text>
-                <CLARIFYTooltip title={generalTooltip} className='cvat-analytics-tooltip' overlayStyle={{ maxWidth: '500px' }}>
+                <CLARIFYTooltip title={generalTooltip} className='clarify-analytics-tooltip' overlayStyle={{ maxWidth: '500px' }}>
                     <QuestionCircleOutlined
                         style={{ opacity: 0.5 }}
                     />
@@ -165,11 +165,11 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
                 </Col>
             </Row>
             <Divider />
-            <Row className='cvat-quality-settings-title'>
+            <Row className='clarify-quality-settings-title'>
                 <Text strong>
                     Keypoint Comparison
                 </Text>
-                <CLARIFYTooltip title={keypointTooltip} className='cvat-analytics-tooltip' overlayStyle={{ maxWidth: '500px' }}>
+                <CLARIFYTooltip title={keypointTooltip} className='clarify-analytics-tooltip' overlayStyle={{ maxWidth: '500px' }}>
                     <QuestionCircleOutlined
                         style={{ opacity: 0.5 }}
                     />
@@ -187,11 +187,11 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
                 </Col>
             </Row>
             <Divider />
-            <Row className='cvat-quality-settings-title'>
+            <Row className='clarify-quality-settings-title'>
                 <Text strong>
                     Line Comparison
                 </Text>
-                <CLARIFYTooltip title={linesTooltip} className='cvat-analytics-tooltip' overlayStyle={{ maxWidth: '500px' }}>
+                <CLARIFYTooltip title={linesTooltip} className='clarify-analytics-tooltip' overlayStyle={{ maxWidth: '500px' }}>
                     <QuestionCircleOutlined
                         style={{ opacity: 0.5 }}
                     />
@@ -216,7 +216,7 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
                         valuePropName='checked'
                     >
                         <Checkbox>
-                            <Text className='cvat-text-color'>Check orientation</Text>
+                            <Text className='clarify-text-color'>Check orientation</Text>
                         </Checkbox>
                     </Form.Item>
                 </Col>
@@ -231,11 +231,11 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
                 </Col>
             </Row>
             <Divider />
-            <Row className='cvat-quality-settings-title'>
+            <Row className='clarify-quality-settings-title'>
                 <Text strong>
                     Group Comparison
                 </Text>
-                <CLARIFYTooltip title={groupTooltip} className='cvat-analytics-tooltip' overlayStyle={{ maxWidth: '500px' }}>
+                <CLARIFYTooltip title={groupTooltip} className='clarify-analytics-tooltip' overlayStyle={{ maxWidth: '500px' }}>
                     <QuestionCircleOutlined
                         style={{ opacity: 0.5 }}
                     />
@@ -249,7 +249,7 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
                         rules={[{ required: true }]}
                     >
                         <Checkbox>
-                            <Text className='cvat-text-color'>Compare groups</Text>
+                            <Text className='clarifu-text-color'>Compare groups</Text>
                         </Checkbox>
                     </Form.Item>
                 </Col>
@@ -264,11 +264,11 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
                 </Col>
             </Row>
             <Divider />
-            <Row className='cvat-quality-settings-title'>
+            <Row className='clarify-quality-settings-title'>
                 <Text strong>
                     Segmentation Comparison
                 </Text>
-                <CLARIFYTooltip title={segmentationTooltip} className='cvat-analytics-tooltip' overlayStyle={{ maxWidth: '500px' }}>
+                <CLARIFYTooltip title={segmentationTooltip} className='clarify-analytics-tooltip' overlayStyle={{ maxWidth: '500px' }}>
                     <QuestionCircleOutlined
                         style={{ opacity: 0.5 }}
                     />
@@ -282,7 +282,7 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
                         rules={[{ required: true }]}
                     >
                         <Checkbox>
-                            <Text className='cvat-text-color'>Check object visibility</Text>
+                            <Text className='clarify-text-color'>Check object visibility</Text>
                         </Checkbox>
                     </Form.Item>
                 </Col>
@@ -304,7 +304,7 @@ export default function QualitySettingsForm(props: FormProps): JSX.Element | nul
                         rules={[{ required: true }]}
                     >
                         <Checkbox>
-                            <Text className='cvat-text-color'>Match only visible parts</Text>
+                            <Text className='clarify-text-color'>Match only visible parts</Text>
                         </Checkbox>
                     </Form.Item>
                 </Col>

@@ -84,7 +84,7 @@ function JobListComponent(props: Props): JSX.Element {
             render: (id: number): JSX.Element => (
                 <div>
                     <Button
-                        className='cvat-open-job-button'
+                        className='clarify-open-job-button'
                         type='link'
                         onClick={(e: React.MouseEvent): void => {
                             e.preventDefault();
@@ -101,7 +101,7 @@ function JobListComponent(props: Props): JSX.Element {
             title: 'Stage',
             dataIndex: 'stage',
             key: 'stage',
-            className: 'cvat-job-item-stage',
+            className: 'clarify-job-item-stage',
             render: (jobInstance: any): JSX.Element => {
                 const { stage } = jobInstance;
 
@@ -123,7 +123,7 @@ function JobListComponent(props: Props): JSX.Element {
             title: 'Assignee',
             dataIndex: 'assignee',
             key: 'assignee',
-            className: 'cvat-job-item-assignee',
+            className: 'clarify-job-item-assignee',
             render: (jobInstance: any): JSX.Element => (
                 <Text>{jobInstance?.assignee?.username}</Text>
             ),
@@ -137,7 +137,7 @@ function JobListComponent(props: Props): JSX.Element {
             title: 'Frame intersection',
             dataIndex: 'frame_intersection',
             key: 'frame_intersection',
-            className: 'cvat-job-item-frame-intersection',
+            className: 'clarify-job-item-frame-intersection',
             sorter: sorter('frame_intersection'),
             render: (report?: QualityReport): JSX.Element => {
                 const frames = report?.summary.frameCount;
@@ -154,18 +154,18 @@ function JobListComponent(props: Props): JSX.Element {
             title: 'Conflicts',
             dataIndex: 'conflicts',
             key: 'conflicts',
-            className: 'cvat-job-item-conflicts',
+            className: 'clarify-job-item-conflicts',
             sorter: sorter('conflicts.summary.conflictCount'),
             render: (report: QualityReport): JSX.Element => {
                 const conflictCount = report?.summary?.conflictCount;
                 return (
-                    <div className='cvat-job-list-item-conflicts'>
+                    <div className='clarify-job-list-item-conflicts'>
                         <Text>
                             {conflictCount || 0}
                         </Text>
                         <CLARIFYTooltip
                             title={<ConflictsTooltip reportSummary={report?.summary} />}
-                            className='cvat-analytics-tooltip'
+                            className='clarify-analytics-tooltip'
                             overlayStyle={{ maxWidth: '500px' }}
                         >
                             <QuestionCircleOutlined
@@ -181,7 +181,7 @@ function JobListComponent(props: Props): JSX.Element {
             dataIndex: 'quality',
             key: 'quality',
             align: 'center' as const,
-            className: 'cvat-job-item-quality',
+            className: 'clarify-job-item-quality',
             sorter: sorter('quality.summary.accuracy'),
             render: (report?: QualityReport): JSX.Element => {
                 const meanAccuracy = report?.summary?.accuracy;
@@ -204,7 +204,7 @@ function JobListComponent(props: Props): JSX.Element {
             title: 'Download',
             dataIndex: 'download',
             key: 'download',
-            className: 'cvat-job-item-quality-report-download',
+            className: 'clarify-job-item-quality-report-download',
             align: 'center' as const,
             render: (job: Job): JSX.Element => {
                 const report = jobsReports[job.id];
@@ -239,15 +239,15 @@ function JobListComponent(props: Props): JSX.Element {
     }, []);
 
     return (
-        <div className='cvat-task-job-list'>
+        <div className='clarify-task-job-list'>
             <Row justify='space-between' align='middle'>
                 <Col>
-                    <Text className='cvat-text-color cvat-jobs-header'> Jobs </Text>
+                    <Text className='clarify-text-color cvat-jobs-header'> Jobs </Text>
                 </Col>
             </Row>
             <Table
-                className='cvat-task-jobs-table'
-                rowClassName={() => 'cvat-task-jobs-table-row'}
+                className='clarify-task-jobs-table'
+                rowClassName={() => 'clarify-task-jobs-table-row'}
                 columns={columns}
                 dataSource={data}
                 size='small'

@@ -118,12 +118,12 @@ function PlayerButtons(props: Props): JSX.Element {
     const nextFilteredText = 'Go next with a filter';
     const nextEmptyText = 'Go next to an empty frame';
 
-    let prevButton = <Icon className='cvat-player-previous-button' component={PreviousIcon} onClick={onPrevFrame} />;
+    let prevButton = <Icon className='clarify-player-previous-button' component={PreviousIcon} onClick={onPrevFrame} />;
     let prevButtonTooltipMessage = prevRegularText;
     if (navigationType === NavigationType.FILTERED) {
         prevButton = (
             <Icon
-                className='cvat-player-previous-button-filtered'
+                className='clarify-player-previous-button-filtered'
                 component={PreviousFilteredIcon}
                 onClick={onPrevFrame}
             />
@@ -131,20 +131,20 @@ function PlayerButtons(props: Props): JSX.Element {
         prevButtonTooltipMessage = prevFilteredText;
     } else if (navigationType === NavigationType.EMPTY) {
         prevButton = (
-            <Icon className='cvat-player-previous-button-empty' component={PreviousEmptyIcon} onClick={onPrevFrame} />
+            <Icon className='clarify-player-previous-button-empty' component={PreviousEmptyIcon} onClick={onPrevFrame} />
         );
         prevButtonTooltipMessage = prevEmptyText;
     }
 
-    let nextButton = <Icon className='cvat-player-next-button' component={NextIcon} onClick={onNextFrame} />;
+    let nextButton = <Icon className='clarify-player-next-button' component={NextIcon} onClick={onNextFrame} />;
     let nextButtonTooltipMessage = nextRegularText;
     if (navigationType === NavigationType.FILTERED) {
         nextButton = (
-            <Icon className='cvat-player-next-button-filtered' component={NextFilteredIcon} onClick={onNextFrame} />
+            <Icon className='clarify-player-next-button-filtered' component={NextFilteredIcon} onClick={onNextFrame} />
         );
         nextButtonTooltipMessage = nextFilteredText;
     } else if (navigationType === NavigationType.EMPTY) {
-        nextButton = <Icon className='cvat-player-next-button-empty' component={NextEmptyIcon} onClick={onNextFrame} />;
+        nextButton = <Icon className='clarify-player-next-button-empty' component={NextEmptyIcon} onClick={onNextFrame} />;
         nextButtonTooltipMessage = nextEmptyText;
     }
 
@@ -154,12 +154,12 @@ function PlayerButtons(props: Props): JSX.Element {
     } : {};
 
     return (
-        <Col className='cvat-player-buttons'>
+        <Col className='clarify-player-buttons'>
             <GlobalHotKeys keyMap={subKeyMap} handlers={handlers} />
             <CLARIFYTooltip title='Go to the first frame'>
                 <Icon
                     style={navIconStyle}
-                    className='cvat-player-first-button'
+                    className='clarify-player-first-button'
                     component={FirstIcon}
                     onClick={onFirstFrame}
                 />
@@ -167,7 +167,7 @@ function PlayerButtons(props: Props): JSX.Element {
             <CLARIFYTooltip title={`Go back with a step ${backwardShortcut}`}>
                 <Icon
                     style={navIconStyle}
-                    className='cvat-player-backward-button'
+                    className='clarify-player-backward-button'
                     component={BackJumpIcon}
                     onClick={onBackward}
                 />
@@ -179,21 +179,21 @@ function PlayerButtons(props: Props): JSX.Element {
                     <>
                         <CLARIFYTooltip title={`${prevRegularText}`}>
                             <Icon
-                                className='cvat-player-previous-inlined-button'
+                                className='clarify-player-previous-inlined-button'
                                 component={PreviousIcon}
                                 onClick={() => setNavigationType(NavigationType.REGULAR)}
                             />
                         </CLARIFYTooltip>
                         <CLARIFYTooltip title={`${prevFilteredText}`}>
                             <Icon
-                                className='cvat-player-previous-filtered-inlined-button'
+                                className='clarify-player-previous-filtered-inlined-button'
                                 component={PreviousFilteredIcon}
                                 onClick={() => setNavigationType(NavigationType.FILTERED)}
                             />
                         </CLARIFYTooltip>
                         <CLARIFYTooltip title={`${prevEmptyText}`}>
                             <Icon
-                                className='cvat-player-previous-empty-inlined-button'
+                                className='clarify-player-previous-empty-inlined-button'
                                 component={PreviousEmptyIcon}
                                 onClick={() => setNavigationType(NavigationType.EMPTY)}
                             />
@@ -210,7 +210,7 @@ function PlayerButtons(props: Props): JSX.Element {
                 <CLARIFYTooltip title={`Play ${playPauseShortcut}`}>
                     <Icon
                         style={navIconStyle}
-                        className='cvat-player-play-button'
+                        className='clarify-player-play-button'
                         component={PlayIcon}
                         onClick={onSwitchPlay}
                     />
@@ -219,7 +219,7 @@ function PlayerButtons(props: Props): JSX.Element {
                 <CLARIFYTooltip title={`Pause ${playPauseShortcut}`}>
                     <Icon
                         style={navIconStyle}
-                        className='cvat-player-pause-button'
+                        className='clarify-player-pause-button'
                         component={PauseIcon}
                         onClick={onSwitchPlay}
                     />
@@ -233,21 +233,21 @@ function PlayerButtons(props: Props): JSX.Element {
                     <>
                         <CLARIFYTooltip title={`${nextRegularText}`}>
                             <Icon
-                                className='cvat-player-next-inlined-button'
+                                className='clarify-player-next-inlined-button'
                                 component={NextIcon}
                                 onClick={() => setNavigationType(NavigationType.REGULAR)}
                             />
                         </CLARIFYTooltip>
                         <CLARIFYTooltip title={`${nextFilteredText}`}>
                             <Icon
-                                className='cvat-player-next-filtered-inlined-button'
+                                className='clarify-player-next-filtered-inlined-button'
                                 component={NextFilteredIcon}
                                 onClick={() => setNavigationType(NavigationType.FILTERED)}
                             />
                         </CLARIFYTooltip>
                         <CLARIFYTooltip title={`${nextEmptyText}`}>
                             <Icon
-                                className='cvat-player-next-empty-inlined-button'
+                                className='clarify-player-next-empty-inlined-button'
                                 component={NextEmptyIcon}
                                 onClick={() => setNavigationType(NavigationType.EMPTY)}
                             />
@@ -262,7 +262,7 @@ function PlayerButtons(props: Props): JSX.Element {
             <CLARIFYTooltip title={`Go next with a step ${forwardShortcut}`}>
                 <Icon
                     style={navIconStyle}
-                    className='cvat-player-forward-button'
+                    className='clarify-player-forward-button'
                     component={ForwardJumpIcon}
                     onClick={onForward}
                 />
@@ -270,7 +270,7 @@ function PlayerButtons(props: Props): JSX.Element {
             <CLARIFYTooltip title='Go to the last frame'>
                 <Icon
                     style={navIconStyle}
-                    className='cvat-player-last-button'
+                    className='clarify-player-last-button'
                     component={LastIcon}
                     onClick={onLastFrame}
                 />

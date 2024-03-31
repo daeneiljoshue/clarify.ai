@@ -74,7 +74,7 @@ function PlayerNavigation(props: Props): JSX.Element {
             Modal.confirm({
                 title: `Do you want to delete frame #${frameNumber}?`,
                 content: 'The frame will not be visible in navigation and exported datasets, but it still can be restored with all the annotations.',
-                className: 'cvat-modal-delete-frame',
+                className: 'clarify-modal-delete-frame',
                 okText: 'Delete',
                 okType: 'danger',
                 onOk: () => {
@@ -115,7 +115,7 @@ function PlayerNavigation(props: Props): JSX.Element {
         <CLARIFYTooltip title={`Delete the frame ${deleteFrameShortcut}`}>
             <DeleteOutlined
                 style={deleteFrameIconStyle}
-                className='cvat-player-delete-frame'
+                className='clarify-player-delete-frame'
                 onClick={showDeleteFrameDialog}
             />
         </CLARIFYTooltip>
@@ -123,7 +123,7 @@ function PlayerNavigation(props: Props): JSX.Element {
         <CLARIFYTooltip title='Restore the frame'>
             <Icon
                 style={deleteFrameIconStyle}
-                className='cvat-player-restore-frame'
+                className='clarify-player-restore-frame'
                 onClick={onRestoreFrame}
                 component={RestoreIcon}
             />
@@ -133,18 +133,18 @@ function PlayerNavigation(props: Props): JSX.Element {
     return (
         <>
             { workspace !== Workspace.SINGLE_SHAPE && <GlobalHotKeys keyMap={subKeyMap} handlers={handlers} />}
-            <Col className='cvat-player-controls'>
+            <Col className='clarify-player-controls'>
                 <Row align='bottom'>
                     <Col>
                         <Slider
-                            className='cvat-player-slider'
+                            className='clarify-player-slider'
                             min={startFrame}
                             max={stopFrame}
                             value={frameNumber || 0}
                             onChange={workspace !== Workspace.SINGLE_SHAPE ? onSliderChange : undefined}
                         />
                         {!!ranges && (
-                            <svg className='cvat-player-slider-progress' viewBox='0 0 1000 16' xmlns='http://www.w3.org/2000/svg'>
+                            <svg className='clarify-player-slider-progress' viewBox='0 0 1000 16' xmlns='http://www.w3.org/2000/svg'>
                                 {ranges.split(';').map((range) => {
                                     const [start, end] = range.split(':').map((num) => +num);
                                     const adjustedStart = Math.max(0, start - 1);
@@ -163,14 +163,14 @@ function PlayerNavigation(props: Props): JSX.Element {
                     </Col>
                 </Row>
                 <Row justify='center'>
-                    <Col className='cvat-player-filename-wrapper'>
+                    <Col className='clarify-player-filename-wrapper'>
                         <CLARIFYTooltip title={frameFilename}>
                             <Text type='secondary'>{frameFilename}</Text>
                         </CLARIFYTooltip>
                     </Col>
                     <Col offset={1}>
                         <CLARIFYTooltip title='Create frame URL'>
-                            <LinkOutlined className='cvat-player-frame-url-icon' onClick={onURLIconClick} />
+                            <LinkOutlined className='clarify-player-frame-url-icon' onClick={onURLIconClick} />
                         </CLARIFYTooltip>
                         {
                             deleteFrameAvailable && deleteFrameIcon
@@ -182,7 +182,7 @@ function PlayerNavigation(props: Props): JSX.Element {
                 <CLARIFYTooltip title={`Press ${focusFrameInputShortcut} to focus here`}>
                     <InputNumber
                         ref={inputFrameRef}
-                        className='cvat-player-frame-selector'
+                        className='clarify-player-frame-selector'
                         type='number'
                         disabled={workspace === Workspace.SINGLE_SHAPE}
                         value={frameInputValue}

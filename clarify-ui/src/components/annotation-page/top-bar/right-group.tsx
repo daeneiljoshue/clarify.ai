@@ -48,7 +48,7 @@ function RightGroup(props: Props): JSX.Element {
                 Modal.info({
                     icon: null,
                     width: window.screen.availWidth - PADDING,
-                    className: 'cvat-annotation-view-markdown-guide-modal',
+                    className: 'clarify-annotation-view-markdown-guide-modal',
                     content: (
                         <MDEditor
                             visibleDragbar={false}
@@ -102,10 +102,10 @@ function RightGroup(props: Props): JSX.Element {
     }, []);
 
     return (
-        <Col className='cvat-annotation-header-right-group'>
+        <Col className='clarify-annotation-header-right-group'>
             <Button
                 type='link'
-                className='cvat-annotation-header-fullscreen-button cvat-annotation-header-button'
+                className='clarify-annotation-header-fullscreen-button clarify-annotation-header-button'
                 onClick={(): void => {
                     if (window.document.fullscreenEnabled) {
                         if (window.document.fullscreenElement) {
@@ -122,7 +122,7 @@ function RightGroup(props: Props): JSX.Element {
             { jobInstance.guideId !== null && (
                 <Button
                     type='link'
-                    className='cvat-annotation-header-guide-button cvat-annotation-header-button'
+                    className='clarify-annotation-header-guide-button clarify-annotation-header-button'
                     onClick={openGuide}
                 >
                     <Icon component={GuideIcon} />
@@ -131,7 +131,7 @@ function RightGroup(props: Props): JSX.Element {
             )}
             <Button
                 type='link'
-                className='cvat-annotation-header-info-button cvat-annotation-header-button'
+                className='clarify-annotation-header-info-button clarify-annotation-header-button'
                 onClick={showStatistics}
             >
                 <Icon component={InfoIcon} />
@@ -139,7 +139,7 @@ function RightGroup(props: Props): JSX.Element {
             </Button>
             <Button
                 type='link'
-                className={`cvat-annotation-header-filters-button cvat-annotation-header-button ${filters ?
+                className={`clarify-annotation-header-filters-button clarify-annotation-header-button ${filters ?
                     'filters-armed' : ''
                 }`}
                 onClick={showFilters}
@@ -149,8 +149,8 @@ function RightGroup(props: Props): JSX.Element {
             </Button>
             <div>
                 <Select
-                    dropdownClassName='cvat-workspace-selector-dropdown'
-                    className='cvat-workspace-selector'
+                    dropdownClassName='clarify-workspace-selector-dropdown'
+                    className='clarify-workspace-selector'
                     onChange={changeWorkspace}
                     value={workspace}
                 >

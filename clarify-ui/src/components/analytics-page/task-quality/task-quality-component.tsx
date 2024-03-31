@@ -2,7 +2,7 @@
 import { Row } from 'antd/lib/grid';
 import Text from 'antd/lib/typography/Text';
 import notification from 'antd/lib/notification';
-import CVATLoadingSpinner from 'components/common/loading-spinner';
+import CLARIFYLoadingSpinner from 'components/common/loading-spinner';
 import JobItem from 'components/job-item/job-item';
 import {
     Job, JobType, QualityReport, QualitySettings, Task, getCore,
@@ -180,10 +180,10 @@ function TaskQualityComponent(props: Props): JSX.Element {
     } = state;
 
     return (
-        <div className='cvat-task-quality-page'>
+        <div className='clarify-task-quality-page'>
             {
                 fetching ? (
-                    <CVATLoadingSpinner size='large' />
+                    <CLARIFYLoadingSpinner size='large' />
                 ) : (
                     <>
                         {
@@ -205,7 +205,7 @@ function TaskQualityComponent(props: Props): JSX.Element {
                                     {
                                         (!(gtJob && gtJob.stage === 'acceptance' && gtJob.state === 'completed')) ? (
                                             <Row>
-                                                <Text type='secondary' className='cvat-task-quality-reports-hint'>
+                                                <Text type='secondary' className='clarify-task-quality-reports-hint'>
                                                     Quality reports are not computed unless the GT job is in the&nbsp;
                                                     <strong>completed state</strong>
                                                     &nbsp;and&nbsp;

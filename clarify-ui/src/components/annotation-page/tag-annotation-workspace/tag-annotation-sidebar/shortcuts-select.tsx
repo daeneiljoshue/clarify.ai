@@ -77,7 +77,7 @@ function ShortcutsSelect(props: Props): JSX.Element {
     };
 
     return (
-        <div className='cvat-tag-annotation-label-selects'>
+        <div className='clarify-tag-annotation-label-selects'>
             <GlobalHotKeys keyMap={keyMap as KeyMap} handlers={handlers} />
             <Row>
                 <Col>
@@ -106,7 +106,7 @@ function ShortcutsSelect(props: Props): JSX.Element {
                                     </Select.Option>
                                 ))}
                             </Select>
-                            <Text code className='cvat-tag-annotation-shortcut-key'>{`Key ${id}`}</Text>
+                            <Text code className='clarify-tag-annotation-shortcut-key'>{`Key ${id}`}</Text>
                         </Col>
                     </Row>
                 ))}

@@ -34,7 +34,7 @@ function Issues(props: Props): JSX.Element {
                     notification.error({
                         description: _error.toString(),
                         message: "Couldn't fetch issues",
-                        className: 'cvat-notification-notice-get-issues-error',
+                        className: 'clarify-notification-notice-get-issues-error',
                     });
                 }
             });
@@ -52,7 +52,7 @@ function Issues(props: Props): JSX.Element {
     return (
         <AnalyticsCard
             title='Issues'
-            className='cvat-task-issues'
+            className='clarify-task-issues'
             value={issuesCount}
             size={12}
             bottomElement={bottomElement}

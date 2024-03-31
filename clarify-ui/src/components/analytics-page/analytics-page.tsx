@@ -12,7 +12,7 @@ import { useIsMounted } from 'utils/hooks';
 import { Project, Task } from 'reducers';
 import { AnalyticsReport, Job, getCore } from 'clarify-core-wrapper';
 import moment from 'moment';
-import CVATLoadingSpinner from 'components/common/loading-spinner';
+import CLARIFYLoadingSpinner from 'components/common/loading-spinner';
 import GoBackButton from 'components/common/go-back-button';
 import AnalyticsOverview, { DateIntervals } from './analytics-performance';
 import TaskQualityComponent from './task-quality/task-quality-component';
@@ -202,7 +202,7 @@ function AnalyticsPage(): JSX.Element {
     let tabs: JSX.Element | null = null;
     if (instanceType && instance) {
         backNavigation = (
-            <Col span={22} xl={18} xxl={14} className='cvat-task-top-bar'>
+            <Col span={22} xl={18} xxl={14} className='clarify-task-top-bar'>
                 <GoBackButton />
             </Col>
         );
@@ -215,7 +215,7 @@ function AnalyticsPage(): JSX.Element {
         }
         title = (
             <Col>
-                <Title level={4} className='cvat-text-color'>
+                <Title level={4} className='clarify-text-color'>
                     Analytics for
                     {' '}
                     {analyticsFor}
@@ -229,7 +229,7 @@ function AnalyticsPage(): JSX.Element {
                 activeKey={activeTab}
                 defaultActiveKey={AnalyticsTabs.OVERVIEW}
                 onChange={onTabKeyChange}
-                className='cvat-task-analytics-tabs'
+                className='clarify-task-analytics-tabs'
             >
                 <Tabs.TabPane tab='Performance' key={AnalyticsTabs.OVERVIEW}>
                     <AnalyticsOverview
@@ -248,15 +248,15 @@ function AnalyticsPage(): JSX.Element {
     }
 
     return (
-        <div className='cvat-analytics-page'>
+        <div className='clarify-analytics-page'>
             {fetching ? (
-                <div className='cvat-analytics-loading'>
-                    <CVATLoadingSpinner />
+                <div className='clarify-analytics-loading'>
+                    <CLARIFYLoadingSpinner />
                 </div>
             ) : (
-                <Row justify='center' align='top' className='cvat-analytics-wrapper'>
+                <Row justify='center' align='top' className='clarify-analytics-wrapper'>
                     {backNavigation}
-                    <Col span={22} xl={18} xxl={14} className='cvat-analytics-inner'>
+                    <Col span={22} xl={18} xxl={14} className='clarify-analytics-inner'>
                         {title}
                         {tabs}
                     </Col>

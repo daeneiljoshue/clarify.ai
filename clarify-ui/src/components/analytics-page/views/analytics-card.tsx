@@ -23,18 +23,18 @@ function AnalyticsCard(props: Props): JSX.Element {
     } = props;
 
     return (
-        <Col span={size || 24} className={className || 'cvat-analytics-card'} data-entry-name={entryName}>
+        <Col span={size || 24} className={className || 'clarify-analytics-card'} data-entry-name={entryName}>
             <Card>
                 <Row justify='space-between' align='middle'>
                     <Col>
                         <Row>
                             <Col>
-                                <Text className='cvat-analytics-card-title'>
+                                <Text className='clarify-analytics-card-title'>
                                     {title}
                                 </Text>
                                 {
                                     tooltip && (
-                                        <CLARIFYTooltip title={tooltip} className='cvat-analytics-tooltip' overlayStyle={{ maxWidth: '500px' }}>
+                                        <CLARIFYTooltip title={tooltip} className='clarify-analytics-tooltip' overlayStyle={{ maxWidth: '500px' }}>
                                             <QuestionCircleOutlined
                                                 style={{ opacity: 0.5 }}
                                             />
@@ -44,7 +44,7 @@ function AnalyticsCard(props: Props): JSX.Element {
                             </Col>
                         </Row>
                         <Row>
-                            <Text className='cvat-analytics-card-value'>{value}</Text>
+                            <Text className='clarify-analytics-card-value'>{value}</Text>
                         </Row>
                         {bottomElement}
                     </Col>

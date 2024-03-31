@@ -83,7 +83,7 @@ export default function QualitySettingsModal(props: Props): JSX.Element | null {
             onCancel={onCancel}
             confirmLoading={fetching}
             destroyOnClose
-            className='cvat-modal-quality-settings'
+            className='clarify-modal-quality-settings'
         >
             { settings ? (
                 <QualitySettingsForm form={form} settings={settings} />

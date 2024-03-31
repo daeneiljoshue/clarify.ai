@@ -9,7 +9,7 @@ import TagAnnotationSidebar from './tag-annotation-sidebar/tag-annotation-sideba
 
 export default function TagAnnotationWorkspace(): JSX.Element {
     return (
-        <Layout hasSider className='cvat-tag-annotation-workspace'>
+        <Layout hasSider className='clarify-tag-annotation-workspace'>
             <CanvasLayout />
             <TagAnnotationSidebar />
             <RemoveConfirmComponent />

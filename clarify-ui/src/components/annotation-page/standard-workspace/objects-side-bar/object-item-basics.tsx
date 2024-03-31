@@ -95,7 +95,7 @@ function ItemTopComponent(props: Props): JSX.Element {
                 <Text
                     type='secondary'
                     style={{ fontSize: 10 }}
-                    className='cvat-objects-sidebar-state-item-object-type-text'
+                    className='clarify-objects-sidebar-state-item-object-type-text'
                 >
                     {type}
                 </Text>
@@ -108,7 +108,7 @@ function ItemTopComponent(props: Props): JSX.Element {
                         labels={labels}
                         value={labelID}
                         onChange={changeLabel}
-                        className='cvat-objects-sidebar-state-item-label-selector'
+                        className='clarify-objects-sidebar-state-item-label-selector'
                     />
                 </CLARIFYTooltip>
             </Col>

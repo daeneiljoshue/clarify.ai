@@ -57,7 +57,7 @@ function ObjectsSideBar(props: StateToProps & DispatchToProps & OwnProps): JSX.E
     } = props;
 
     const collapse = (): void => {
-        const [collapser] = window.document.getElementsByClassName('cvat-objects-sidebar');
+        const [collapser] = window.document.getElementsByClassName('clarify-objects-sidebar');
         const listener = (event: TransitionEvent): void => {
             if (event.target && event.propertyName === 'width' && event.target === collapser) {
                 window.dispatchEvent(new Event('resize'));
@@ -75,7 +75,7 @@ function ObjectsSideBar(props: StateToProps & DispatchToProps & OwnProps): JSX.E
     const is2D = jobInstance ? jobInstance.dimension === DimensionType.DIMENSION_2D : true;
     return (
         <Layout.Sider
-            className='cvat-objects-sidebar'
+            className='clarify-objects-sidebar'
             theme='light'
             width={300}
             collapsedWidth={0}
@@ -86,7 +86,7 @@ function ObjectsSideBar(props: StateToProps & DispatchToProps & OwnProps): JSX.E
         >
             {/* eslint-disable-next-line */}
             <span
-                className={`cvat-objects-sidebar-sider
+                className={`clarify-objects-sidebar-sider
                     ant-layout-sider-zero-width-trigger
                     ant-layout-sider-zero-width-trigger-left`}
                 onClick={collapse}
@@ -94,7 +94,7 @@ function ObjectsSideBar(props: StateToProps & DispatchToProps & OwnProps): JSX.E
                 {sidebarCollapsed ? <MenuFoldOutlined title='Show' /> : <MenuUnfoldOutlined title='Hide' />}
             </span>
 
-            <Tabs type='card' defaultActiveKey='objects' className='cvat-objects-sidebar-tabs'>
+            <Tabs type='card' defaultActiveKey='objects' className='clarify-objects-sidebar-tabs'>
                 <Tabs.TabPane tab={<Text strong>Objects</Text>} key='objects'>
                     {objectsList}
                 </Tabs.TabPane>

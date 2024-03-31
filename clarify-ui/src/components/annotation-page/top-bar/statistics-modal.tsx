@@ -139,7 +139,7 @@ function StatisticsModalComponent(props: StateToProps & DispatchToProps): JSX.El
     const makeShapesTracksTitle = (title: string): JSX.Element => (
         <CLARIFYTooltip title='Shapes / Tracks'>
             <Text strong>{title}</Text>
-            <QuestionCircleOutlined className='cvat-info-circle-icon' />
+            <QuestionCircleOutlined className='clarify-info-circle-icon' />
         </CLARIFYTooltip>
     );
 
@@ -148,7 +148,7 @@ function StatisticsModalComponent(props: StateToProps & DispatchToProps): JSX.El
             title: <Text strong> Label </Text>,
             dataIndex: 'label',
             render: (text: string) => {
-                const sep = '{{cvat.skeleton.lbl.sep}}';
+                const sep = '{{clarify.skeleton.lbl.sep}}';
                 if (text.split(sep).length > 1) {
                     const [label, part] = text.split(sep);
                     return (
@@ -263,51 +263,51 @@ function StatisticsModalComponent(props: StateToProps & DispatchToProps): JSX.El
 
     return (
         <Modal {...baseProps}>
-            <div className='cvat-job-info-modal-window'>
+            <div className='clarify-job-info-modal-window'>
                 <Row justify='start'>
                     <Col>
-                        <Text className='cvat-text'>Overview</Text>
+                        <Text className='clarify-text'>Overview</Text>
                     </Col>
                 </Row>
                 <Row justify='start'>
                     <Col span={4}>
-                        <Text strong className='cvat-text'>
+                        <Text strong className='clarify-text'>
                             Assignee
                         </Text>
-                        <Text className='cvat-text'>{assignee}</Text>
+                        <Text className='clarify-text'>{assignee}</Text>
                     </Col>
                     <Col span={4}>
-                        <Text strong className='cvat-text'>
+                        <Text strong className='clarify-text'>
                             Start frame
                         </Text>
-                        <Text className='cvat-text'>{startFrame}</Text>
+                        <Text className='clarify-text'>{startFrame}</Text>
                     </Col>
                     <Col span={4}>
-                        <Text strong className='cvat-text'>
+                        <Text strong className='clarify-text'>
                             Stop frame
                         </Text>
-                        <Text className='cvat-text'>{stopFrame}</Text>
+                        <Text className='clarify-text'>{stopFrame}</Text>
                     </Col>
                     <Col span={4}>
-                        <Text strong className='cvat-text'>
+                        <Text strong className='clarify-text'>
                             Frames
                         </Text>
-                        <Text className='cvat-text'>{stopFrame - startFrame + 1}</Text>
+                        <Text className='clarify-text'>{stopFrame - startFrame + 1}</Text>
                     </Col>
                 </Row>
                 {!!bugTracker && (
-                    <Row justify='start' className='cvat-job-info-bug-tracker'>
+                    <Row justify='start' className='clarify-job-info-bug-tracker'>
                         <Col>
-                            <Text strong className='cvat-text'>
+                            <Text strong className='clarify-text'>
                                 Bug tracker
                             </Text>
                             <a href={bugTracker}>{bugTracker}</a>
                         </Col>
                     </Row>
                 )}
-                <Row justify='space-around' className='cvat-job-info-statistics'>
+                <Row justify='space-around' className='clarify-job-info-statistics'>
                     <Col span={24}>
-                        <Text className='cvat-text'>Annotations statistics</Text>
+                        <Text className='clarify-text'>Annotations statistics</Text>
                         <Table
                             scroll={{ x: 'max-content', y: 400 }}
                             bordered

@@ -81,8 +81,8 @@ function ObjectItemComponent(props: Props): JSX.Element {
             `${shapeType.toUpperCase()} ${objectType.toUpperCase()}`;
 
     const className = !activated ?
-        'cvat-objects-sidebar-state-item' :
-        'cvat-objects-sidebar-state-item cvat-objects-sidebar-state-active-item';
+        'clarify-objects-sidebar-state-item' :
+        'clarify-objects-sidebar-state-item clarify-objects-sidebar-state-active-item';
 
     const activateState = useCallback(() => {
         activate();
@@ -90,10 +90,10 @@ function ObjectItemComponent(props: Props): JSX.Element {
 
     return (
         <div style={{ display: 'flex', marginBottom: '1px' }}>
-            <div className='cvat-objects-sidebar-state-item-color' style={{ background: `${color}` }} />
+            <div className='clarify-objects-sidebar-state-item-color' style={{ background: `${color}` }} />
             <div
                 onMouseEnter={activateState}
-                id={`cvat-objects-sidebar-state-item-${clientID}`}
+                id={`clarify-objects-sidebar-state-item-${clientID}`}
                 className={className}
                 style={{ backgroundColor: `${color}88` }}
             >
@@ -141,7 +141,7 @@ function ObjectItemComponent(props: Props): JSX.Element {
                     />
                 )}
                 {!!elements.length && (
-                    <Collapse className='cvat-objects-sidebar-state-item-elements-collapse'>
+                    <Collapse className='clarify-objects-sidebar-state-item-elements-collapse'>
                         <Collapse.Panel
                             header={(
                                 <>

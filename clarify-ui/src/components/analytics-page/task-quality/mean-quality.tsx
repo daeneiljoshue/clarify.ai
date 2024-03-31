@@ -21,7 +21,7 @@ function MeanQuality(props: Props): JSX.Element {
     const reportSummary = taskReport?.summary;
 
     const tooltip = (
-        <div className='cvat-analytics-tooltip-inner'>
+        <div className='clarify-analytics-tooltip-inner'>
             <Text>
                 Mean annotation quality consists of:
             </Text>
@@ -53,10 +53,10 @@ function MeanQuality(props: Props): JSX.Element {
     );
 
     const downloadReportButton = (
-        <div className='cvat-quality-summary-controls'>
+        <div className='clarify-quality-summary-controls'>
             {
                 taskReport?.id ? (
-                    <Button type='primary' icon={<DownloadOutlined />} className='cvat-analytics-download-report-button'>
+                    <Button type='primary' icon={<DownloadOutlined />} className='clarify-analytics-download-report-button'>
                         <a
                             href={`${getCore().config.backendAPI}/quality/reports/${taskReport?.id}/data`}
                             download={`quality-report-task_${taskID}-${taskReport?.id}.json`}
@@ -67,12 +67,12 @@ function MeanQuality(props: Props): JSX.Element {
                 ) : null
             }
             <SettingOutlined
-                className='cvat-quality-settings-switch ant-btn ant-btn-default'
+                className='clarify-quality-settings-switch ant-btn ant-btn-default'
                 onClick={() => setQualitySettingsVisible(true)}
             />
             {
                 taskReport?.id ? (
-                    <div className='cvat-analytics-time-hint'>
+                    <div className='clarify-analytics-time-hint'>
                         <Text type='secondary'>{taskReport?.createdDate ? moment(taskReport?.createdDate).fromNow() : ''}</Text>
                     </div>
                 ) : null
@@ -83,7 +83,7 @@ function MeanQuality(props: Props): JSX.Element {
     return (
         <AnalyticsCard
             title='Mean annotation quality'
-            className='cvat-task-mean-annotation-quality'
+            className='clarify-task-mean-annotation-quality'
             value={toRepresentation(reportSummary?.accuracy)}
             tooltip={tooltip}
             rightElement={downloadReportButton}
