@@ -8,7 +8,7 @@ import {
 import { filterNull } from 'utils/filter-null';
 import { getInferenceStatusAsync } from './models-actions';
 
-const cvat = getCore();
+const clarify = getCore();
 
 export enum TasksActionTypes {
     GET_TASKS = 'GET_TASKS',
@@ -69,7 +69,7 @@ export function getTasksAsync(
 
         let result = null;
         try {
-            result = await cvat.tasks.get(filteredQuery);
+            result = await clarify.tasks.get(filteredQuery);
         } catch (error) {
             dispatch(getTasksFailed(error));
             return;
@@ -248,7 +248,7 @@ ThunkAction<Promise<void>, {}, {}, AnyAction> {
             description.cloud_storage_id = data.cloudStorageId;
         }
 
-        const taskInstance = new cvat.classes.Task(description);
+        const taskInstance = new clarify.classes.Task(description);
         taskInstance.clientFiles = data.files.local;
         taskInstance.serverFiles = data.files.share.concat(data.files.cloudStorage);
         taskInstance.remoteFiles = data.files.remote;

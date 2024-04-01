@@ -36,7 +36,7 @@ import {
 } from './exceptions';
 import { PaginatedResource } from './core-types';
 
-export default interface CVATCore {
+export default interface CLARIFYCore {
     plugins: {
         list: typeof PluginRegistry.list;
         register: typeof PluginRegistry.register;

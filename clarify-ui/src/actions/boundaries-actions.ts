@@ -6,7 +6,7 @@ import { getCore } from 'clarify-core-wrapper';
 import { EventScope } from 'clarify-logger';
 import { fetchAnnotationsAsync } from './annotation-actions';
 
-const cvat = getCore();
+const clarify = getCore();
 
 export enum BoundariesActionTypes {
     RESET_AFTER_ERROR = 'RESET_AFTER_ERROR',
@@ -40,7 +40,7 @@ export function resetAfterErrorAsync(): ThunkAction {
                 const currentFrame = state.annotation.player.frame.number;
                 const frameNumber = Math.max(Math.min(job.stopFrame, currentFrame), job.startFrame);
                 const frameData = await job.frames.get(frameNumber);
-                const colors = [...cvat.enums.colors];
+                const colors = [...clarify.enums.colors];
 
                 await job.logger.log(EventScope.restoreJob);
 

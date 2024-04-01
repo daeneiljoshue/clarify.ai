@@ -1,7 +1,7 @@
 import { ActionUnion, createAction, ThunkAction } from 'utils/redux';
 import { getCore } from 'clarify-core-wrapper';
 
-const cvat = getCore();
+const clarify = getCore();
 
 export enum FormatsActionTypes {
     GET_FORMATS = 'GET_FORMATS',
@@ -27,7 +27,7 @@ export function getFormatsAsync(): ThunkAction {
         let annotationFormats = null;
 
         try {
-            annotationFormats = await cvat.server.formats();
+            annotationFormats = await clarify.server.formats();
 
             dispatch(formatsActions.getFormatsSuccess(annotationFormats));
         } catch (error) {

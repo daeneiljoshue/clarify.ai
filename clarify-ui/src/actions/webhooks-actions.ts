@@ -5,7 +5,7 @@ import { WebhooksQuery } from 'reducers';
 import { ActionUnion, createAction, ThunkAction } from 'utils/redux';
 import { filterNull } from 'utils/filter-null';
 
-const cvat = getCore();
+const clarify = getCore();
 
 export enum WebhooksActionsTypes {
     GET_WEBHOOKS = 'GET_WEBHOOKS',
@@ -49,7 +49,7 @@ export const getWebhooksAsync = (query: WebhooksQuery): ThunkAction => (
 
         let result = null;
         try {
-            result = await cvat.webhooks.get(filteredQuery);
+            result = await clarify.webhooks.get(filteredQuery);
         } catch (error) {
             dispatch(webhooksActions.getWebhooksFailed(error));
             return;
@@ -63,7 +63,7 @@ export const getWebhooksAsync = (query: WebhooksQuery): ThunkAction => (
 
 export function createWebhookAsync(webhookData: Store): ThunkAction {
     return async function (dispatch) {
-        const webhook = new cvat.classes.Webhook(webhookData);
+        const webhook = new clarify.classes.Webhook(webhookData);
         dispatch(webhooksActions.createWebhook());
 
         try {

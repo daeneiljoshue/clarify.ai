@@ -5,7 +5,7 @@ import { getCore } from 'clarify-core-wrapper';
 import { CloudStoragesQuery, CloudStorage } from 'reducers';
 import { filterNull } from 'utils/filter-null';
 
-const cvat = getCore();
+const clarify = getCore();
 
 export enum CloudStorageActionTypes {
     UPDATE_CLOUD_STORAGES_GETTING_QUERY = 'UPDATE_CLOUD_STORAGES_GETTING_QUERY',
@@ -108,7 +108,7 @@ export function getCloudStoragesAsync(query: Partial<CloudStoragesQuery>): Thunk
 
         let result = null;
         try {
-            result = await cvat.cloudStorages.get(filteredQuery);
+            result = await clarify.cloudStorages.get(filteredQuery);
         } catch (error) {
             dispatch(cloudStoragesActions.getCloudStoragesFailed(error, query));
             return;
@@ -140,7 +140,7 @@ export function deleteCloudStorageAsync(cloudStorageInstance: any): ThunkAction 
 
 export function createCloudStorageAsync(data: any): ThunkAction {
     return async (dispatch: ActionCreator<Dispatch>): Promise<void> => {
-        const cloudStorageInstance = new cvat.classes.CloudStorage(data);
+        const cloudStorageInstance = new clarify.classes.CloudStorage(data);
 
         dispatch(cloudStoragesActions.createCloudStorage());
         try {
@@ -154,7 +154,7 @@ export function createCloudStorageAsync(data: any): ThunkAction {
 
 export function updateCloudStorageAsync(data: any): ThunkAction {
     return async (dispatch: ActionCreator<Dispatch>): Promise<void> => {
-        const cloudStorageInstance = new cvat.classes.CloudStorage(data);
+        const cloudStorageInstance = new clarify.classes.CloudStorage(data);
 
         dispatch(cloudStoragesActions.updateCloudStorage());
         try {

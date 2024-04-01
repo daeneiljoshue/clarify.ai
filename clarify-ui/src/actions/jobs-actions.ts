@@ -4,7 +4,7 @@ import { JobsQuery } from 'reducers';
 import { filterNull } from 'utils/filter-null';
 import { JobData } from 'components/create-job-page/job-form';
 
-const cvat = getCore();
+const core = getCore();
 
 export enum JobsActionTypes {
     GET_JOBS = 'GET_JOBS',
@@ -72,7 +72,7 @@ export const getJobsAsync = (query: JobsQuery): ThunkAction => async (dispatch) 
         const filteredQuery = filterNull(query);
 
         dispatch(jobsActions.getJobs(filteredQuery as JobsQuery));
-        const jobs = await cvat.jobs.get(filteredQuery);
+        const jobs = await core.jobs.get(filteredQuery);
         dispatch(jobsActions.getJobsSuccess(jobs));
     } catch (error) {
         dispatch(jobsActions.getJobsFailed(error));
@@ -90,7 +90,7 @@ export const getJobPreviewAsync = (job: Job): ThunkAction => async (dispatch) =>
 };
 
 export const createJobAsync = (data: JobData): ThunkAction => async (dispatch) => {
-    const jobInstance = new cvat.classes.Job(data);
+    const jobInstance = new clarify.classes.Job(data);
     try {
         const savedJob = await jobInstance.save(data);
         return savedJob;

@@ -38,7 +38,7 @@ interface AnnotationsParameters {
     groundTruthInstance: Job | null;
 }
 
-const cvat = getCore();
+const clarify = getCore();
 let store: null | Store<CombinedState> = null;
 
 function getStore(): Store<CombinedState> {
@@ -475,7 +475,7 @@ export function propagateObjectAsync(from: number, to: number): ThunkAction {
             for (let frame = from + sign; sign > 0 ? frame <= to : frame >= to; frame += sign) {
                 copy.frame = frame;
                 copy.elements.forEach((element: any) => { element.frame = frame; });
-                const newState = new cvat.classes.ObjectState(copy);
+                const newState = new clarify.classes.ObjectState(copy);
                 states.push(newState);
             }
 
@@ -912,11 +912,11 @@ export function getJobAsync({
             );
 
             getCore().config.globalObjectsCounter = 0;
-            const [job] = await cvat.jobs.get({ jobID });
+            const [job] = await clarify.jobs.get({ jobID });
             let gtJob: Job | null = null;
             if (job.type === JobType.ANNOTATION) {
                 try {
-                    [gtJob] = await cvat.jobs.get({ taskID, type: JobType.GROUND_TRUTH });
+                    [gtJob] = await clarify.jobs.get({ taskID, type: JobType.GROUND_TRUTH });
                 } catch (e) {
                     // gtJob is not available for workers
                     // do nothing
@@ -941,19 +941,19 @@ export function getJobAsync({
             const states = await job.annotations.get(frameNumber, showAllInterpolationTracks, filters);
             const issues = await job.issues();
             const [minZ, maxZ] = computeZRange(states);
-            const colors = [...cvat.enums.colors];
+            const colors = [...clarify.enums.colors];
 
             let groundTruthJobFramesMeta = null;
             if (gtJob) {
                 gtJob.annotations.clear(true); // fetch gt annotations from the server
-                groundTruthJobFramesMeta = await cvat.frames.getMeta('job', gtJob.id);
+                groundTruthJobFramesMeta = await clarify.frames.getMeta('job', gtJob.id);
             }
 
             let conflicts: QualityConflict[] = [];
             if (gtJob) {
-                const [report] = await cvat.analytics.quality.reports({ jobID: job.id, target: 'job' });
+                const [report] = await clarify.analytics.quality.reports({ jobID: job.id, target: 'job' });
                 if (report) {
-                    conflicts = await cvat.analytics.quality.conflicts({ reportID: report.id });
+                    conflicts = await clarify.analytics.quality.conflicts({ reportID: report.id });
                 }
             }
 
@@ -1011,8 +1011,8 @@ export function saveAnnotationsAsync(afterSave?: () => void): ThunkAction {
             await saveJobEvent.close();
             dispatch(saveLogsAsync());
 
-            if (jobInstance instanceof cvat.classes.Job && jobInstance.state === cvat.enums.JobState.NEW) {
-                jobInstance.state = cvat.enums.JobState.IN_PROGRESS;
+            if (jobInstance instanceof clarify.classes.Job && jobInstance.state === clarify.enums.JobState.NEW) {
+                jobInstance.state = clarify.enums.JobState.IN_PROGRESS;
                 dispatch(updateJobAsync(jobInstance));
             }
 
@@ -1319,7 +1319,7 @@ export function pasteShapeAsync(): ThunkAction {
             });
 
             if (initialState.objectType === ObjectType.TAG) {
-                const objectState = new cvat.classes.ObjectState({
+                const objectState = new clarify.classes.ObjectState({
                     objectType: ObjectType.TAG,
                     label: initialState.label,
                     attributes: initialState.attributes,
@@ -1410,7 +1410,7 @@ export function repeatDrawShapeAsync(): ThunkAction {
         if (activeObjectType === ObjectType.TAG) {
             const tags = states.filter((objectState: any): boolean => objectState.objectType === ObjectType.TAG);
             if (tags.every((objectState: any): boolean => objectState.label.id !== activeLabelID)) {
-                const objectState = new cvat.classes.ObjectState({
+                const objectState = new clarify.classes.ObjectState({
                     objectType: ObjectType.TAG,
                     label: labels.filter((label: any) => label.id === activeLabelID)[0],
                     frame: frameNumber,
